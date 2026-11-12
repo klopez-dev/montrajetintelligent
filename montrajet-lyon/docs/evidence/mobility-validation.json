@@ -1,0 +1,675 @@
+{
+  "validatedAt": "2026-11-08T14:43:18.907Z",
+  "status": "passed",
+  "unitTests": 155,
+  "browser": "Edg/157.0.4341.42",
+  "mobilityChecks": 17,
+  "journeyChecks": 27,
+  "timetableChecks": 32,
+  "fullReports": {
+    "mobility": ".data/mobility-validation-1794148960461/report.json",
+    "journeys": ".data/routing-validation-1794148324089/report.json",
+    "timetables": ".data/validation-1794148324104/report.json"
+  },
+  "sources": {
+    "addresses": "https://data.geopf.fr/geocodage/search",
+    "walking": "https://data.geopf.fr/navigation/itineraire"
+  },
+  "gtfsSha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+  "checks": [
+    {
+      "name": "Audit : lien bus → tram absent, lien inverse conservé sans symétrisation"
+    },
+    {
+      "name": "Secteur Lacassagne, quai 2397 → T3 La Soie : horaires et liens audités",
+      "state": "ok",
+      "proposals": 6,
+      "httpMs": 14495.4614
+    },
+    {
+      "name": "Secteur Lacassagne, quai 12230 → T3 La Soie : horaires et liens audités",
+      "state": "ok",
+      "proposals": 6,
+      "httpMs": 129.28950000000077
+    },
+    {
+      "name": "Secteur Lacassagne, quai 35660 → T3 La Soie : horaires et liens audités",
+      "state": "ok",
+      "proposals": 6,
+      "httpMs": 377.1306999999979
+    },
+    {
+      "name": "Adresse publique de test confirmée en direct dans la BAN via IGN"
+    },
+    {
+      "name": "Adresse → La Soie, departure, porte-à-porte audité",
+      "httpMs": 2520.295000000002
+    },
+    {
+      "name": "Adresse → La Soie, arrival, porte-à-porte audité",
+      "httpMs": 925.2044999999998
+    },
+    {
+      "name": "Quai La Soie vers Meyzieu : aucun premier tronçon vers Lyon inventé ; éventuel détour audité"
+    },
+    {
+      "name": "Marche finale incluse dans l’échéance Arriver avant"
+    },
+    {
+      "name": "Deux adresses réelles : accès et sortie réseau inclus dans les horaires"
+    },
+    {
+      "name": "Date hors GTFS : aucun trajet recyclé"
+    },
+    {
+      "name": "Navigateur : sélection adresse/quai, recherche réelle et départ domicile affiché"
+    },
+    {
+      "name": "Mobile 390 px sans débordement"
+    },
+    {
+      "name": "Navigateur : plusieurs propositions comparables et détails accessibles"
+    },
+    {
+      "name": "Navigateur mobile : trajet entre deux adresses avec marche finale visible"
+    },
+    {
+      "name": "Navigateur : indisponibilité IGN explicite, sélection précédente retirée"
+    },
+    {
+      "name": "Aucun appel IGN direct du navigateur, aucune exception JavaScript"
+    }
+  ],
+  "cases": [
+    {
+      "query": {
+        "from": {
+          "kind": "stop",
+          "id": "2397"
+        },
+        "to": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "at": "2026-11-09T10:00:00Z",
+        "mode": "departure",
+        "order": "arrival",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 14495.4614,
+      "metrics": {
+        "durationMs": 14439.09,
+        "transitSearches": 1,
+        "walkingCalls": 6
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:08:00.000Z",
+        "arrivalTime": "2026-11-09T10:31:02.000Z",
+        "durationSeconds": 1382,
+        "walkingSeconds": 175,
+        "legs": [
+          {
+            "tripId": "909_C9B-001AP_00301009",
+            "serviceDate": "2026-11-09",
+            "routeId": "C9",
+            "lineName": "C9",
+            "routeType": 3,
+            "directionId": "1",
+            "headsign": "Bellecour A. Poncet",
+            "from": {
+              "id": "2397",
+              "name": "Place Henri",
+              "sequence": 9
+            },
+            "to": {
+              "id": "50149",
+              "name": "Dauphiné -Lacassagne",
+              "sequence": 12
+            },
+            "departureTime": "2026-11-09T10:08:00.000Z",
+            "arrivalTime": "2026-11-09T10:12:00.000Z",
+            "departureGtfsSeconds": 40080,
+            "arrivalGtfsSeconds": 40320,
+            "interpolatedBySource": false
+          },
+          {
+            "tripId": "540_T3-130AT_01101017",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35660",
+              "name": "Dauphiné -Lacassagne",
+              "sequence": 2
+            },
+            "to": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "departureTime": "2026-11-09T10:22:31.000Z",
+            "arrivalTime": "2026-11-09T10:31:02.000Z",
+            "departureGtfsSeconds": 40951,
+            "arrivalGtfsSeconds": 41462,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": null,
+        "egress": null
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "stop",
+          "id": "12230"
+        },
+        "to": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "at": "2026-11-09T10:00:00Z",
+        "mode": "departure",
+        "order": "arrival",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 129.28950000000077,
+      "metrics": {
+        "durationMs": 110.99,
+        "transitSearches": 1,
+        "walkingCalls": 6
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:10:00.000Z",
+        "arrivalTime": "2026-11-09T10:31:02.000Z",
+        "durationSeconds": 1262,
+        "walkingSeconds": 175,
+        "legs": [
+          {
+            "tripId": "909_C9B-001AP_00301009",
+            "serviceDate": "2026-11-09",
+            "routeId": "C9",
+            "lineName": "C9",
+            "routeType": 3,
+            "directionId": "1",
+            "headsign": "Bellecour A. Poncet",
+            "from": {
+              "id": "12230",
+              "name": "Domrémy - Lacassagne",
+              "sequence": 11
+            },
+            "to": {
+              "id": "50149",
+              "name": "Dauphiné -Lacassagne",
+              "sequence": 12
+            },
+            "departureTime": "2026-11-09T10:10:00.000Z",
+            "arrivalTime": "2026-11-09T10:12:00.000Z",
+            "departureGtfsSeconds": 40200,
+            "arrivalGtfsSeconds": 40320,
+            "interpolatedBySource": false
+          },
+          {
+            "tripId": "540_T3-130AT_01101017",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35660",
+              "name": "Dauphiné -Lacassagne",
+              "sequence": 2
+            },
+            "to": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "departureTime": "2026-11-09T10:22:31.000Z",
+            "arrivalTime": "2026-11-09T10:31:02.000Z",
+            "departureGtfsSeconds": 40951,
+            "arrivalGtfsSeconds": 41462,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": null,
+        "egress": null
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "stop",
+          "id": "35660"
+        },
+        "to": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "at": "2026-11-09T10:00:00Z",
+        "mode": "departure",
+        "order": "arrival",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 377.1306999999979,
+      "metrics": {
+        "durationMs": 368.15,
+        "transitSearches": 1,
+        "walkingCalls": 0
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:07:01.000Z",
+        "arrivalTime": "2026-11-09T10:15:32.000Z",
+        "durationSeconds": 511,
+        "walkingSeconds": 0,
+        "legs": [
+          {
+            "tripId": "540_T3-130AT_00801017",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35660",
+              "name": "Dauphiné -Lacassagne",
+              "sequence": 2
+            },
+            "to": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "departureTime": "2026-11-09T10:07:01.000Z",
+            "arrivalTime": "2026-11-09T10:15:32.000Z",
+            "departureGtfsSeconds": 40021,
+            "arrivalGtfsSeconds": 40532,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": null,
+        "egress": null
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "address",
+          "id": "address:69383_4080_00100",
+          "name": "100 Avenue Lacassagne 69003 Lyon"
+        },
+        "to": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "at": "2026-11-09T10:00:00Z",
+        "mode": "departure",
+        "order": "arrival",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 2520.295000000002,
+      "metrics": {
+        "durationMs": 2509.41,
+        "transitSearches": 4,
+        "walkingCalls": 10
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:00:39.000Z",
+        "arrivalTime": "2026-11-09T10:23:17.000Z",
+        "durationSeconds": 1358,
+        "walkingSeconds": 877,
+        "legs": [
+          {
+            "tripId": "540_T3-130AT_01001025",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35662",
+              "name": "Reconnaissance - Balzac",
+              "sequence": 3
+            },
+            "to": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "departureTime": "2026-11-09T10:17:16.000Z",
+            "arrivalTime": "2026-11-09T10:23:17.000Z",
+            "departureGtfsSeconds": 40636,
+            "arrivalGtfsSeconds": 40997,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": {
+          "seconds": 877,
+          "meters": 875.5
+        },
+        "egress": null
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "address",
+          "id": "address:69383_4080_00100",
+          "name": "100 Avenue Lacassagne 69003 Lyon"
+        },
+        "to": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "at": "2026-11-09T11:00:00Z",
+        "mode": "arrival",
+        "order": "departure",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 925.2044999999998,
+      "metrics": {
+        "durationMs": 910.61,
+        "transitSearches": 4,
+        "walkingCalls": 10
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:31:39.000Z",
+        "arrivalTime": "2026-11-09T10:54:17.000Z",
+        "durationSeconds": 1358,
+        "walkingSeconds": 877,
+        "legs": [
+          {
+            "tripId": "540_T3-130AT_00101017",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35662",
+              "name": "Reconnaissance - Balzac",
+              "sequence": 3
+            },
+            "to": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "departureTime": "2026-11-09T10:48:16.000Z",
+            "arrivalTime": "2026-11-09T10:54:17.000Z",
+            "departureGtfsSeconds": 42496,
+            "arrivalGtfsSeconds": 42857,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": {
+          "seconds": 877,
+          "meters": 875.5
+        },
+        "egress": null
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "to": {
+          "kind": "address",
+          "id": "address:69383_4080_00100",
+          "name": "100 Avenue Lacassagne 69003 Lyon"
+        },
+        "at": "2026-11-09T11:00:00Z",
+        "mode": "arrival",
+        "order": "departure",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 3988.8166999999994,
+      "metrics": {
+        "durationMs": 3975.83,
+        "transitSearches": 4,
+        "walkingCalls": 10
+      },
+      "first": {
+        "departureTime": "2026-11-09T09:52:17.000Z",
+        "arrivalTime": "2026-11-09T10:56:46.000Z",
+        "durationSeconds": 3869,
+        "walkingSeconds": 896,
+        "legs": [
+          {
+            "tripId": "540_T3-130AT_00401021",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "to": {
+              "id": "46207",
+              "name": "Meyzieu les Panettes",
+              "sequence": 13
+            },
+            "departureTime": "2026-11-09T09:52:17.000Z",
+            "arrivalTime": "2026-11-09T10:10:03.000Z",
+            "departureGtfsSeconds": 39137,
+            "arrivalGtfsSeconds": 40203,
+            "interpolatedBySource": false
+          },
+          {
+            "tripId": "540_T3-130AT_00401022",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "1",
+            "headsign": "Gare Part-Dieu Villette",
+            "from": {
+              "id": "46207",
+              "name": "Meyzieu les Panettes",
+              "sequence": 1
+            },
+            "to": {
+              "id": "35663",
+              "name": "Reconnaissance - Balzac",
+              "sequence": 11
+            },
+            "departureTime": "2026-11-09T10:17:30.000Z",
+            "arrivalTime": "2026-11-09T10:41:50.000Z",
+            "departureGtfsSeconds": 40650,
+            "arrivalGtfsSeconds": 42110,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": null,
+        "egress": {
+          "seconds": 896,
+          "meters": 902.7
+        }
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "stop",
+          "id": "35669"
+        },
+        "to": {
+          "kind": "address",
+          "id": "address:69383_4080_00100",
+          "name": "100 Avenue Lacassagne 69003 Lyon"
+        },
+        "at": "2026-11-09T11:00:00Z",
+        "mode": "arrival",
+        "order": "departure",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 1025.2394000000022,
+      "metrics": {
+        "durationMs": 1009,
+        "transitSearches": 4,
+        "walkingCalls": 10
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:35:58.000Z",
+        "arrivalTime": "2026-11-09T10:56:46.000Z",
+        "durationSeconds": 1248,
+        "walkingSeconds": 896,
+        "legs": [
+          {
+            "tripId": "540_T3-130AT_00401022",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "1",
+            "headsign": "Gare Part-Dieu Villette",
+            "from": {
+              "id": "35669",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 8
+            },
+            "to": {
+              "id": "35663",
+              "name": "Reconnaissance - Balzac",
+              "sequence": 11
+            },
+            "departureTime": "2026-11-09T10:35:58.000Z",
+            "arrivalTime": "2026-11-09T10:41:50.000Z",
+            "departureGtfsSeconds": 41758,
+            "arrivalGtfsSeconds": 42110,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": null,
+        "egress": {
+          "seconds": 896,
+          "meters": 902.7
+        }
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "address",
+          "id": "address:69383_4080_00100",
+          "name": "100 Avenue Lacassagne 69003 Lyon"
+        },
+        "to": {
+          "kind": "address",
+          "id": "address:69256_0227_00005",
+          "name": "5 Avenue des Canuts 69120 Vaulx-en-Velin"
+        },
+        "at": "2026-11-09T10:00:00Z",
+        "mode": "departure",
+        "order": "arrival",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "ok",
+      "httpMs": 5057.991399999999,
+      "metrics": {
+        "durationMs": 5042.33,
+        "transitSearches": 16,
+        "walkingCalls": 14
+      },
+      "first": {
+        "departureTime": "2026-11-09T10:00:39.000Z",
+        "arrivalTime": "2026-11-09T10:26:02.000Z",
+        "durationSeconds": 1523,
+        "walkingSeconds": 1042,
+        "legs": [
+          {
+            "tripId": "540_T3-130AT_01001025",
+            "serviceDate": "2026-11-09",
+            "routeId": "T3",
+            "lineName": "T3",
+            "routeType": 0,
+            "directionId": "0",
+            "headsign": "Meyzieu les Panettes",
+            "from": {
+              "id": "35662",
+              "name": "Reconnaissance - Balzac",
+              "sequence": 3
+            },
+            "to": {
+              "id": "35668",
+              "name": "Vaulx-en-Velin La Soie",
+              "sequence": 6
+            },
+            "departureTime": "2026-11-09T10:17:16.000Z",
+            "arrivalTime": "2026-11-09T10:23:17.000Z",
+            "departureGtfsSeconds": 40636,
+            "arrivalGtfsSeconds": 40997,
+            "interpolatedBySource": false
+          }
+        ],
+        "access": {
+          "seconds": 877,
+          "meters": 875.5
+        },
+        "egress": {
+          "seconds": 165,
+          "meters": 166.8
+        }
+      }
+    },
+    {
+      "query": {
+        "from": {
+          "kind": "stop",
+          "id": "2397"
+        },
+        "to": {
+          "kind": "stop",
+          "id": "35668"
+        },
+        "at": "2028-01-01T10:00:00Z",
+        "mode": "departure",
+        "order": "arrival",
+        "marginSeconds": 120,
+        "walkingTransfers": true
+      },
+      "state": "outside_validity",
+      "httpMs": 21.6166000000012,
+      "metrics": {
+        "durationMs": 17.084500000000844,
+        "transitSearches": 0,
+        "walkingCalls": 0
+      }
+    }
+  ],
+  "notes": [
+    "Adresses publiques de démonstration uniquement.",
+    "Mesures unitaires locales, pas un test de charge. Cache éventuellement réutilisé entre cas.",
+    "walkingCalls compte les demandes de parcours y compris les accès au cache, pas seulement les requêtes HTTP sortantes.",
+    "Aucun déploiement, aucune validation Cloudflare en charge."
+  ]
+}

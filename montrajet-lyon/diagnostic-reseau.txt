@@ -1,0 +1,585 @@
+﻿DIAGNOSTIC RESEAU MONTRAJET LYON
+
+===== server\journeys\network.ts =====
+import type { QueryDatabase } from '../gtfs/repository.ts'
+import { getMetadata } from '../gtfs/repository.ts'
+import { loadTopology, transferPolicy } from './topology.ts'
+import type { Topology } from './topology.ts'
+import { serviceDays } from './schedules.ts'
+import type { RoutingQuery, RoutingResult, RideLeg, JourneyTransfer, TheoreticalJourney } from '../../src/types/journey.ts'
+import type { VerifiedTransfer } from '../../src/types/mobility.ts'
+import { defaultRoutingLimits } from './limits.ts'
+import type { RoutingLimits } from './limits.ts'
+import type { ProgressObserver } from '../../src/types/searchProgress.ts'
+import { reportStage } from '../search/progress.ts'
+
+export interface NetworkSeeds { origins: { id: string; seconds: number }[]; destinations: { id: string; seconds: number }[] }
+interface Event { tripId: string; routeId: string; directionId: string; tripHeadsign: string; serviceDate: string; origin: number; stopId: string; sequence: number; arrival: number | null; departure: number | null; headsign: string; pickup: number; dropoff: number; timepoint: number }
+interface Leg { a: Event; b: Event }
+interface Label { stop: string; at: number; seed: string; legs: Leg[]; connections: JourneyTransfer[]; profile?: string }
+interface Option { label: Label; from: string; to: string; threshold: number }
+const eventTime = (event: Event, departure: boolean) => event.origin + (departure ? event.departure! : event.arrival!) * 1000
+const firstTime = (label: Label) => eventTime(label.legs[0].a, true)
+const lastTime = (label: Label) => eventTime(label.legs.at(-1)!.b, false)
+function publicLeg(leg: Leg, topology: Topology): RideLeg {
+  const { a, b } = leg, route = topology.routes.get(a.routeId)!
+  return { tripId: a.tripId, serviceDate: a.serviceDate, routeId: a.routeId, lineName: route.short_name || route.long_name, routeType: route.type, directionId: a.directionId, headsign: a.headsign || a.tripHeadsign, from: { id: a.stopId, name: topology.stops.get(a.stopId)!.name, sequence: a.sequence }, to: { id: b.stopId, name: topology.stops.get(b.stopId)!.name, sequence: b.sequence }, departureTime: new Date(eventTime(a, true)).toISOString(), arrivalTime: new Date(eventTime(b, false)).toISOString(), departureGtfsSeconds: a.departure!, arrivalGtfsSeconds: b.arrival!, interpolatedBySource: a.timepoint === 0 || b.timepoint === 0 }
+}
+
+/** Exact Pareto filter for the existing rule: only fewer transfers can dominate,
+ * and only for the same boarding and alighting platforms. */
+export function removeDominatedJourneys(all: TheoreticalJourney[]): TheoreticalJourney[] {
+  type Index = { departures: number[]; minimumArrivals: number[] }
+  const groups = new Map<string, Map<number, TheoreticalJourney[]>>()
+  for (const journey of all) {
+    const key = JSON.stringify([journey.legs[0].from.id, journey.legs.at(-1)!.to.id])
+    const byTransfers = groups.get(key) || new Map<number, TheoreticalJourney[]>()
+    const list = byTransfers.get(journey.transfers) || []
+    list.push(journey); byTransfers.set(journey.transfers, list); groups.set(key, byTransfers)
+  }
+  const indices = new Map<string, Map<number, Index>>()
+  for (const [key, byTransfers] of groups) {
+    const indexed = new Map<number, Index>()
+    for (const [transfers, journeys] of byTransfers) {
+      const ordered = journeys.map(item => ({ departure: Date.parse(item.departureTime), arrival: Date.parse(item.arrivalTime) })).sort((a, b) => b.departure - a.departure)
+      const departures: number[] = [], minimumArrivals: number[] = []
+      let minimum = Infinity
+      for (const item of ordered) { departures.push(item.departure); minimum = Math.min(minimum, item.arrival); minimumArrivals.push(minimum) }
+      indexed.set(transfers, { departures, minimumArrivals })
+    }
+    indices.set(key, indexed)
+  }
+  return all.filter(journey => {
+    const key = JSON.stringify([journey.legs[0].from.id, journey.legs.at(-1)!.to.id])
+    const departure = Date.parse(journey.departureTime), arrival = Date.parse(journey.arrivalTime)
+    for (const [transfers, index] of indices.get(key)!) {
+      if (transfers >= journey.transfers) continue
+      let low = 0, high = index.departures.length
+      while (low < high) { const middle = (low + high) >>> 1; if (index.departures[middle] >= departure) low = middle + 1; else high = middle }
+      if (low && index.minimumArrivals[low - 1] <= arrival) return false
+    }
+    return true
+  })
+}
+
+/** Bounded multi-label, trip-scanning rounds, inspired by RAPTOR. Each SQL batch
+ * loads only courses boardable at marked stops. Reverse rounds implement deadlines.
+ * Route IDs are not assumed to be RAPTOR patterns (branches/overtaking are allowed).
+ */
+export function createNetworkPlanner(db: QueryDatabase, limits: RoutingLimits = defaultRoutingLimits) {
+  let topologyPromise: Promise<Topology> | undefined, hash = ''
+  const cache = new Map<string, { at: number; result: RoutingResult }>()
+  return {
+    async search(query: RoutingQuery, pedestrian: VerifiedTransfer[] = [], seeds?: NetworkSeeds, signal?: AbortSignal, progress?: ProgressObserver): Promise<RoutingResult> {
+      if (!seeds && query.fromStopId === query.toStopId) throw new Error('Le départ et l’arrivée doivent être différents.')
+      if (![1, 2].includes(query.maxTransfers ?? 2)) throw new Error('Choisissez une ou deux correspondances maximum.')
+      const start = performance.now()
+      await reportStage(progress, 'connections')
+      let sqlMs = 0, sqlQueries = 0
+      const measured: QueryDatabase = { all: async <T>(sql: string, values: (string | number | null)[] = []) => { const t = performance.now(); sqlQueries++; try { return await db.all<T>(sql, values) } finally { sqlMs += performance.now() - t } } }
+      const topologyStart = performance.now()
+      const metadata = await getMetadata(measured)
+      if (hash !== metadata.sha256) { hash = metadata.sha256; topologyPromise = undefined; cache.clear() }
+      const coldTopology = !topologyPromise
+      topologyPromise ??= loadTopology(measured).catch(error => { topologyPromise = undefined; throw error })
+      const topology = await topologyPromise
+      const topologyMs = performance.now() - topologyStart
+      if (!Number.isInteger(query.marginSeconds) || query.marginSeconds < 0 || query.marginSeconds > 1800) throw new Error('La marge doit être comprise entre 30 et 1800 secondes.')
+      const at = Date.parse(query.at), reverse = query.mode === 'arrival', maxTransfers = query.maxTransfers ?? 2
+      const low = reverse ? at - 21600000 : at, high = reverse ? at : at + 21600000
+      const initial = seeds ? { origins: [...seeds.origins].sort((a, b) => a.id.localeCompare(b.id)), destinations: [...seeds.destinations].sort((a, b) => a.id.localeCompare(b.id)) } : { origins: [{ id: query.fromStopId, seconds: 0 }], destinations: [{ id: query.toStopId, seconds: 0 }] }
+      for (const seed of [...initial.origins, ...initial.destinations]) if (topology.stops.get(seed.id)?.location_type !== 0 || !Number.isFinite(seed.seconds) || seed.seconds < 0) throw new Error('Sélectionnez des quais GTFS existants.')
+      const key = JSON.stringify([hash, query, initial, pedestrian.map(walk => [walk.from, walk.to, walk.path.durationSeconds, walk.path.fetchedAt, walk.path.resourceVersion])])
+      const hit = cache.get(key)
+      if (hit && Date.now() - hit.at < 60000) { await reportStage(progress, 'reuse'); return { ...hit.result, metrics: { ...hit.result.metrics, cacheHit: true, durationMs: performance.now() - start, sqlQueries, sqlMs, routingMs: performance.now() - start - sqlMs, coldTopology, topologyMs, roundMs: [], roundSqlMs: [], rankingMs: 0 } } }
+      const scope: RoutingResult['scope'] = { maxTransfers, windowHours: 6, from: new Date(low).toISOString(), until: new Date(high).toISOString(), marginSeconds: 0 }
+      const warnings = [`Recherche par tours : ${maxTransfers} correspondance(s) maximum, fenêtre de six heures, sans temps réel.`, 'Transferts orientés GTFS et parcours IGN confirmés uniquement. Même quai : déplacement interarrêt nul retenu comme hypothèse ; aucune marge supplémentaire.', 'Sélection de propositions, sans garantie d’optimalité globale ; les limites de profils et de ressources sont signalées.']
+      const metrics: RoutingResult['metrics'] = { durationMs: 0, sqlQueries: 0, sqlMs: 0, routingMs: 0, legCount: 0, transferPairs: 0, candidateCount: 0, coldTopology, rounds: 0, limited: false, cacheHit: false, topologyMs, roundMs: [], roundSqlMs: [], rankingMs: 0 }
+      const finish = (state: RoutingResult['state'], itineraries: TheoreticalJourney[] = []): RoutingResult => {
+        metrics.durationMs = performance.now() - start; metrics.sqlQueries = sqlQueries; metrics.sqlMs = sqlMs; metrics.routingMs = Math.max(0, metrics.durationMs - sqlMs)
+        const result = { state, itineraries, query, metadata, scope, metrics, warnings }
+        if (cache.size >= 24) cache.delete(cache.keys().next().value!)
+        cache.set(key, { at: Date.now(), result })
+        return result
+      }
+      const days = serviceDays(metadata, low, high)
+      if (!days.length) return finish('outside_validity')
+      const origins = new Map(initial.origins.map(seed => [seed.id, seed.seconds])), destinations = new Map(initial.destinations.map(seed => [seed.id, seed.seconds]))
+      const walkMap = new Map(pedestrian.map(walk => [JSON.stringify([walk.from, walk.to]), walk.path]))
+      const tripRules = topology.rules.some(rule => rule.from_trip_id || rule.to_trip_id)
+      const policies = new Map<string, ReturnType<typeof transferPolicy>>()
+      const profile = (label: Label) => label.profile ??= JSON.stringify(label.legs.map(leg => [leg.a.routeId, leg.a.directionId]))
+      const edges = new Map(topology.edges)
+      for (const walk of pedestrian) edges.set(JSON.stringify([walk.from, walk.to]), { from: walk.from, to: walk.to })
+      const adjacency = new Map<string, { from: string; to: string }[]>()
+      for (const edge of edges.values()) { const id = reverse ? edge.to : edge.from; const list = adjacency.get(id) || []; list.push(edge); adjacency.set(id, list) }
+      // Static route reachability is only a safe superset; exact trips/times/rules
+      // are always checked after scanning, including restrictions by trip/route.
+      const goalRoutes = new Set([...(reverse ? origins : destinations).keys()].flatMap(id => [...topology.stopRoutes.get(id) || []]))
+      const reachable = [goalRoutes]
+      for (let i = 0; i < maxTransfers; i++) {
+        const next = new Set(reachable[i])
+        for (const edge of edges.values()) {
+          const outgoing = topology.stopRoutes.get(reverse ? edge.from : edge.to)
+          if ([...outgoing || []].some(id => reachable[i].has(id))) for (const route of topology.stopRoutes.get(reverse ? edge.to : edge.from) || []) next.add(route)
+        }
+        reachable.push(next)
+      }
+      let frontier: Label[] = [...(reverse ? destinations : origins)].map(([id, seconds]) => ({ stop: id, at: at + (reverse ? -seconds : seconds) * 1000, seed: id, legs: [], connections: [] }))
+      const completed: Label[] = []
+      let created = 0
+      function limited(message: string) { metrics.limited = true; if (!warnings.includes(message)) warnings.push(message) }
+      function check() { signal?.throwIfAborted(); if (performance.now() - start > limits.deadlineMs) { limited('Budget de temps de calcul atteint : exploration partielle.'); return false } return true }
+      for (let round = 0; round <= maxTransfers && frontier.length && check(); round++) {
+        const roundStart = performance.now(), roundSqlStart = sqlMs
+        try {
+        metrics.rounds = round + 1
+        const options = new Map<string, Option[]>()
+        for (const label of frontier) {
+          const links = label.legs.length ? adjacency.get(label.stop) || [] : [{ from: label.stop, to: label.stop }]
+          for (const edge of links) {
+            const id = reverse ? edge.from : edge.to
+            if (![...topology.stopRoutes.get(id) || []].some(route => reachable[maxTransfers - round].has(route))) continue
+            const threshold = label.at + (reverse ? -1 : 1) * 0
+            const group = options.get(id) || []; group.push({ label, ...edge, threshold }); options.set(id, group)
+          }
+        }
+        metrics.transferPairs += options.size
+        if (options.size > limits.maxBoardStops) { limited('Budget de quais marqués atteint : tours suivants non explorés.'); break }
+        const boards = [...options].map(([id, values]) => ({ id, threshold: reverse ? Math.max(...values.map(v => v.threshold)) : Math.min(...values.map(v => v.threshold)) }))
+        if (!boards.length) break
+        const remaining = limits.maxEvents - metrics.legCount
+        if (remaining < 1) { limited('Budget d’événements horaires atteint.'); break }
+        const needed = new Set([...options.keys(), ...(reverse ? origins : destinations).keys()])
+        if (round < maxTransfers) for (const edge of edges.values()) {
+          if ([...topology.stopRoutes.get(reverse ? edge.from : edge.to) || []].some(route => reachable[maxTransfers - round - 1].has(route))) needed.add(reverse ? edge.to : edge.from)
+        }
+        const events = await measured.all<Event>(`
+          WITH days AS (SELECT json_extract(value,'$.date') date,json_extract(value,'$.origin') origin,json_extract(value,'$.lower') lower,json_extract(value,'$.upper') upper,json_extract(value,'$.weekday') weekday FROM json_each(?)),
+          boards AS (SELECT json_extract(value,'$.id') id,json_extract(value,'$.threshold') threshold FROM json_each(?)),
+          candidates AS MATERIALIZED (
+            SELECT DISTINCT a.trip_id,d.date,d.origin FROM boards b CROSS JOIN days d
+            JOIN stop_times a ON a.stop_id=b.id AND a.${reverse ? 'arrival' : 'departure'} BETWEEN d.lower AND d.upper
+              AND d.origin+a.${reverse ? 'arrival' : 'departure'}*1000 ${reverse ? '<=' : '>='} b.threshold
+            JOIN trips t INDEXED BY sqlite_autoindex_trips_1 ON t.id=a.trip_id JOIN services s ON s.id=t.service_id
+            LEFT JOIN calendar_dates c ON c.service_id=t.service_id AND c.date=d.date
+            WHERE a.${reverse ? 'drop_off_type' : 'pickup_type'}=0 AND t.route_id IN(SELECT value FROM json_each(?))
+              AND CASE WHEN c.exception_type IS NOT NULL THEN c.exception_type=1 ELSE d.date BETWEEN s.start_date AND s.end_date AND CASE d.weekday WHEN 0 THEN s.monday WHEN 1 THEN s.tuesday WHEN 2 THEN s.wednesday WHEN 3 THEN s.thursday WHEN 4 THEN s.friday WHEN 5 THEN s.saturday ELSE s.sunday END=1 END
+          )
+          SELECT t.id tripId,t.route_id routeId,t.direction_id directionId,t.headsign tripHeadsign,c.date serviceDate,c.origin,
+            st.stop_id stopId,st.sequence,st.arrival,st.departure,st.headsign,st.pickup_type pickup,st.drop_off_type dropoff,st.timepoint
+          FROM candidates c JOIN trips t ON t.id=c.trip_id JOIN stop_times st ON st.trip_id=c.trip_id
+          WHERE st.stop_id IN(SELECT value FROM json_each(?))
+          ORDER BY c.date,t.id,st.sequence ${reverse ? 'DESC' : 'ASC'} LIMIT ?
+        `, [JSON.stringify(days), JSON.stringify(boards), JSON.stringify([...reachable[maxTransfers - round]]), JSON.stringify([...needed]), remaining + 1])
+        if (events.length > remaining) { limited('Budget d’événements horaires atteint : lot incomplet refusé, aucun trajet construit à partir de ce lot.'); break }
+        metrics.legCount += events.length
+        const next: Label[] = [], buckets = new Map<string, Label[]>()
+        let onboard = new Map<string, { label: Label; boundary: Event; connection: JourneyTransfer | null }>(), tripKey = ''
+        for (const event of events) {
+          if (!check()) break
+          const current = JSON.stringify([event.serviceDate, event.tripId])
+          if (current !== tripKey) { tripKey = current; onboard = new Map() }
+          const canFinish = reverse ? event.pickup === 0 && event.departure !== null : event.dropoff === 0 && event.arrival !== null
+          if (canFinish) for (const active of onboard.values()) {
+            const leg = reverse ? { a: event, b: active.boundary } : { a: active.boundary, b: event }
+            if (leg.a.sequence >= leg.b.sequence || eventTime(leg.b, false) < eventTime(leg.a, true)) continue
+            const time = eventTime(event, reverse), connections = active.connection ? reverse ? [active.connection, ...active.label.connections] : [...active.label.connections, active.connection] : active.label.connections
+            const label: Label = { stop: event.stopId, at: time, seed: active.label.seed, legs: reverse ? [leg, ...active.label.legs] : [...active.label.legs, leg], connections }
+            if (time < low || time > high) continue
+            const goalOffset = (reverse ? origins : destinations).get(event.stopId)
+            if (goalOffset !== undefined && (reverse ? time - goalOffset * 1000 >= low : time + goalOffset * 1000 <= high)) {
+              if (completed.length < limits.maxLabels) completed.push(label)
+              else limited('Budget de propositions intermédiaires atteint : exploration partielle.')
+            }
+            if (round === maxTransfers) continue
+            const bucketKey = JSON.stringify([event.stopId, event.tripId, event.serviceDate, label.seed, profile(label)])
+            const existing = buckets.get(bucketKey) || []
+            const better = (a: Label, b: Label) => reverse ? lastTime(a) < lastTime(b) : firstTime(a) > firstTime(b)
+            if (existing.some(value => !better(label, value))) continue
+            if (!existing.length) created++
+            buckets.set(bucketKey, [label])
+            if (created > limits.maxLabels) { limited('Budget de profils atteint : exploration partielle.'); break }
+          }
+          if (created > limits.maxLabels) break
+          const canBoard = reverse ? event.dropoff === 0 && event.arrival !== null : event.pickup === 0 && event.departure !== null
+          if (!canBoard) continue
+          const time = eventTime(event, !reverse)
+          for (const option of options.get(event.stopId) || []) {
+            const prior = option.label
+            if (reverse ? time > option.threshold : time < option.threshold) continue
+            if (prior.legs.some(leg => leg.a.tripId === event.tripId && leg.a.serviceDate === event.serviceDate)) continue
+            let connection: JourneyTransfer | null = null
+            if (prior.legs.length) {
+              const previous = reverse ? prior.legs[0].a : prior.legs.at(-1)!.a
+              const walk = walkMap.get(JSON.stringify([option.from, option.to]))
+              const arriving = reverse ? event : previous, departing = reverse ? previous : event
+              const policyKey = JSON.stringify([option.from, option.to, tripRules ? arriving.tripId : arriving.routeId, tripRules ? departing.tripId : departing.routeId])
+              if (!policies.has(policyKey)) policies.set(policyKey, transferPolicy(topology, option.from, option.to, arriving, departing, walk?.durationSeconds))
+              const policy = policies.get(policyKey)
+              if (!policy) continue
+              const interval = (reverse ? prior.at - time : time - prior.at) / 1000, required = policy.minimum
+              if (interval < required) continue
+              connection = { fromStopId: option.from, fromStopName: topology.stops.get(option.from)!.name, toStopId: option.to, toStopName: topology.stops.get(option.to)!.name, ruleId: policy.ruleId, source: policy.source, officialMinimumSeconds: policy.officialMinimum, marginSeconds: 0, requiredSeconds: required, intervalSeconds: interval, spareSeconds: interval - required, walkingSeconds: policy.walking, ...(walk && policy.walking !== null && policy.walking > 0 ? { walkingPath: walk } : {}) }
+            }
+            const onboardKey = JSON.stringify([prior.seed, profile(prior)])
+            const previous = onboard.get(onboardKey)
+            const home = (label: Label, boundary: Event) => label.legs.length ? reverse ? lastTime(label) : firstTime(label) : eventTime(boundary, !reverse)
+            if (!previous || (reverse ? home(prior, event) < home(previous.label, previous.boundary) : home(prior, event) > home(previous.label, previous.boundary))) onboard.set(onboardKey, { label: prior, boundary: event, connection })
+          }
+        }
+        const byStop = new Map<string, number>()
+        const ordered = [...buckets.values()].flat().sort((a, b) => reverse ? b.at - a.at : a.at - b.at)
+        for (const label of ordered) {
+          const count = byStop.get(label.stop) || 0
+          if (count >= limits.maxLabelsPerStop) { limited('Budget de profils par quai atteint : exploration partielle, aucun horaire modifié.'); continue }
+          byStop.set(label.stop, count + 1); next.push(label)
+        }
+        frontier = next
+        if (created > limits.maxLabels) break
+        } finally {
+          metrics.roundMs!.push(performance.now() - roundStart)
+          metrics.roundSqlMs!.push(sqlMs - roundSqlStart)
+        }
+      }
+      metrics.candidateCount = completed.length
+      await reportStage(progress, 'ranking')
+      const rankingStart = performance.now()
+      const candidates = completed.map((label): TheoreticalJourney => ({ id: '', kind: 'theoretical', departureTime: new Date(firstTime(label)).toISOString(), arrivalTime: new Date(lastTime(label)).toISOString(), durationSeconds: (lastTime(label) - firstTime(label)) / 1000, initialWaitSeconds: reverse ? 0 : (firstTime(label) - at - (origins.get(label.legs[0].a.stopId) || 0) * 1000) / 1000, transfers: label.legs.length - 1, legs: label.legs.map(leg => publicLeg(leg, topology)), connections: label.connections, connection: label.connections[0] || null }))
+      const compare = (a: TheoreticalJourney, b: TheoreticalJourney) => {
+        const arr = Date.parse(a.arrivalTime) + (destinations.get(a.legs.at(-1)!.to.id) || 0) * 1000 - Date.parse(b.arrivalTime) - (destinations.get(b.legs.at(-1)!.to.id) || 0) * 1000
+        const dep = Date.parse(b.departureTime) - (origins.get(b.legs[0].from.id) || 0) * 1000 - Date.parse(a.departureTime) + (origins.get(a.legs[0].from.id) || 0) * 1000
+        const dur = a.durationSeconds + (origins.get(a.legs[0].from.id) || 0) + (destinations.get(a.legs.at(-1)!.to.id) || 0) - b.durationSeconds - (origins.get(b.legs[0].from.id) || 0) - (destinations.get(b.legs.at(-1)!.to.id) || 0)
+        return query.order === 'departure' ? dep || dur || a.transfers - b.transfers : query.order === 'duration' ? dur || arr : query.order === 'transfers' ? a.transfers - b.transfers || (reverse ? dep : arr) : arr || dur || a.transfers - b.transfers || dep
+      }
+      const unique = new Map<string, TheoreticalJourney>()
+      for (const journey of candidates) unique.set(JSON.stringify(journey.legs.map(leg => [leg.tripId, leg.serviceDate, leg.from.sequence, leg.to.sequence])), journey)
+      const all = [...unique.values()].sort(compare)
+      const ranked = removeDominatedJourneys(all), selected: TheoreticalJourney[] = [], patterns = new Set<string>()
+      for (const journey of ranked) { const pattern = JSON.stringify(journey.legs.map(leg => [leg.routeId, leg.directionId, leg.from.id, leg.to.id])); if (!patterns.has(pattern) && selected.length < (seeds ? 48 : 6)) { patterns.add(pattern); selected.push(journey) } }
+      for (const journey of ranked) if (selected.length < (seeds ? 48 : 6) && !selected.includes(journey)) selected.push(journey)
+      selected.sort(compare); selected.forEach((journey, index) => { journey.id = `network-${index + 1}` })
+      metrics.rankingMs = performance.now() - rankingStart
+      return finish(metrics.limited ? 'limited' : selected.length ? 'ok' : 'no_journey', selected)
+    },
+  }
+}
+
+===== server\journeys\topology.ts =====
+import type { QueryDatabase } from '../gtfs/repository.ts'
+
+export interface StopNode { id: string; name: string; parent_id: string; location_type: number }
+export interface RouteNode { id: string; short_name: string; long_name: string; type: number }
+export interface TransferRule {
+  id: number
+  from_stop_id: string | null
+  to_stop_id: string | null
+  from_route_id: string | null
+  to_route_id: string | null
+  from_trip_id: string | null
+  to_trip_id: string | null
+  transfer_type: number
+  min_transfer_time: number | null
+}
+export interface Topology {
+  stops: Map<string, StopNode>
+  routes: Map<string, RouteNode>
+  stopRoutes: Map<string, Set<string>>
+  rules: TransferRule[]
+  ruleIndex: Map<string, TransferRule[]>
+  linkedRules: TransferRule[]
+  edges: Map<string, { from: string; to: string }>
+}
+const key = (from: string, to: string) => JSON.stringify([from, to])
+export async function loadTopology(db: QueryDatabase): Promise<Topology> {
+  const stops = await db.all<StopNode>('SELECT id,name,parent_id,location_type FROM stops')
+  const routes = await db.all<RouteNode>('SELECT id,short_name,long_name,type FROM routes')
+  const memberships = await db.all<{ stop_id: string; route_id: string }>('SELECT stop_id,route_id FROM route_stops')
+  const rules = await db.all<TransferRule>('SELECT * FROM transfers')
+  const stopRoutes = new Map<string, Set<string>>()
+  for (const row of memberships) {
+    const current = stopRoutes.get(row.stop_id) || new Set<string>()
+    current.add(row.route_id); stopRoutes.set(row.stop_id, current)
+  }
+  const children = new Map<string, string[]>()
+  for (const stop of stops) if (stop.location_type === 0 && stop.parent_id) children.set(stop.parent_id, [...children.get(stop.parent_id) || [], stop.id])
+  const stopMap = new Map(stops.map(stop => [stop.id, stop]))
+  const platforms = (id: string | null) => !id ? [] : stopMap.get(id)?.location_type === 0 ? [id] : children.get(id) || []
+  const edges = new Map<string, { from: string; to: string }>()
+  for (const stop of stops) if (stop.location_type === 0 && stopRoutes.has(stop.id)) edges.set(key(stop.id, stop.id), { from: stop.id, to: stop.id })
+  for (const rule of rules) {
+    // Pas de graphe géographique déduit des coordonnées, ni de symétrisation.
+    if (rule.transfer_type !== 2 || rule.min_transfer_time === null) continue
+    for (const from of platforms(rule.from_stop_id)) for (const to of platforms(rule.to_stop_id)) edges.set(key(from, to), { from, to })
+  }
+  const ruleIndex = new Map<string, TransferRule[]>()
+  const linkedRules: TransferRule[] = []
+  for (const rule of rules) {
+    if (!rule.from_stop_id || !rule.to_stop_id) { linkedRules.push(rule); continue }
+    const pair = key(rule.from_stop_id, rule.to_stop_id)
+    ruleIndex.set(pair, [...ruleIndex.get(pair) || [], rule])
+  }
+  return { stops: stopMap, routes: new Map(routes.map(route => [route.id, route])), stopRoutes, rules, edges, ruleIndex, linkedRules }
+}
+
+interface TripIdentity { tripId: string; routeId: string }
+function specificity(rule: TransferRule) {
+  const trips = Number(Boolean(rule.from_trip_id)) + Number(Boolean(rule.to_trip_id))
+  const routes = Number(Boolean(rule.from_route_id)) + Number(Boolean(rule.to_route_id))
+  return trips === 2 ? 6 : trips === 1 && routes ? 5 : trips === 1 ? 4 : routes === 2 ? 3 : routes === 1 ? 2 : 1
+}
+export function transferPolicy(topology: Topology, from: string, to: string, arriving: TripIdentity, departing: TripIdentity, pedestrianSeconds?: number): { ruleId: number | null; minimum: number; officialMinimum: number; walking: number | null; source: 'gtfs' | 'same_platform_assumption' | 'ign_pedestrian' } | null {
+  const matchesStop = (specified: string | null, actual: string) => specified === actual || (specified !== null && topology.stops.get(actual)?.parent_id === specified)
+  const fromKeys = [from, topology.stops.get(from)?.parent_id].filter(Boolean) as string[]
+  const toKeys = [to, topology.stops.get(to)?.parent_id].filter(Boolean) as string[]
+  const candidates = [...topology.linkedRules]
+  for (const a of fromKeys) for (const b of toKeys) candidates.push(...topology.ruleIndex.get(key(a, b)) || [])
+  const applicable = candidates.filter(rule =>
+    (rule.from_stop_id ? matchesStop(rule.from_stop_id, from) : rule.transfer_type >= 4) &&
+    (rule.to_stop_id ? matchesStop(rule.to_stop_id, to) : rule.transfer_type >= 4) &&
+    (!rule.from_trip_id || rule.from_trip_id === arriving.tripId) && (!rule.to_trip_id || rule.to_trip_id === departing.tripId) &&
+    (!rule.from_route_id || rule.from_route_id === arriving.routeId) && (!rule.to_route_id || rule.to_route_id === departing.routeId))
+  if (!applicable.length) return from === to ? { ruleId: null, minimum: 0, officialMinimum: 0, walking: 0, source: 'same_platform_assumption' } : pedestrianSeconds !== undefined && Number.isInteger(pedestrianSeconds) && pedestrianSeconds > 0 ? { ruleId: null, minimum: pedestrianSeconds, officialMinimum: 0, walking: pedestrianSeconds, source: 'ign_pedestrian' } : null
+  const rank = Math.max(...applicable.map(specificity))
+  const strongest = applicable.filter(rule => specificity(rule) === rank)
+  // Une égalité de spécificité ambiguë est refusée, jamais arbitrairement résolue.
+  if (strongest.length !== 1) return null
+  const rule = strongest[0]
+  if (rule.transfer_type >= 3) return null
+  if (rule.transfer_type === 2 && rule.min_transfer_time !== null && rule.min_transfer_time >= 0) {
+    const verifiedWalk = from !== to && Number.isInteger(pedestrianSeconds) && pedestrianSeconds! > 0 ? pedestrianSeconds! : null
+    return { ruleId: rule.id, minimum: Math.max(rule.min_transfer_time, verifiedWalk || 0), officialMinimum: rule.min_transfer_time, walking: from === to ? 0 : verifiedWalk, source: 'gtfs' }
+  }
+  // Types 0/1 sans temps vérifiable : admis seulement si c'est exactement le même quai.
+  return from === to ? { ruleId: rule.id, minimum: 0, officialMinimum: 0, walking: 0, source: 'same_platform_assumption' } : null
+}
+
+===== server\journeys\schedules.ts =====
+import type { QueryDatabase } from '../gtfs/repository.ts'
+import type { FeedMetadata } from '../../src/types/gtfs.ts'
+import { addDays, localServiceDate, serviceDayOrigin } from '../gtfs/time.ts'
+
+export interface LegPair { from: string; to: string; routes: string[] }
+export interface ScheduledLeg {
+  pairIndex: number
+  tripId: string
+  routeId: string
+  directionId: string
+  headsign: string
+  serviceDate: string
+  fromId: string
+  toId: string
+  fromSequence: number
+  toSequence: number
+  departure: number
+  arrival: number
+  departureSeconds: number
+  arrivalSeconds: number
+  fromTimepoint: number
+  toTimepoint: number
+}
+export function serviceDays(metadata: FeedMetadata, low: number, high: number) {
+  const days = []
+  const start = addDays(localServiceDate(low, metadata.timezone), -Math.ceil(metadata.maxDepartureSeconds / 86400) - 1)
+  const end = addDays(localServiceDate(high, metadata.timezone), 1)
+  for (let date = start; date <= end; date = addDays(date, 1)) {
+    if (date < metadata.validFrom || date > metadata.validUntil) continue
+    const origin = serviceDayOrigin(date, metadata.timezone)
+    if (origin > high || origin + metadata.maxDepartureSeconds * 1000 < low) continue
+    days.push({ date, origin, lower: (low - origin) / 1000, upper: (high - origin) / 1000, weekday: (new Date(`${date}T12:00:00Z`).getUTCDay() + 6) % 7 })
+  }
+  return days
+}
+
+/** Jointures indexées sur les seuls couples d'arrêts utiles. Aucun chargement de
+ * l'ensemble des stop_times ; calendriers et exceptions traités dans SQLite/D1.
+ */
+export async function scheduledLegs(db: QueryDatabase, pairs: LegPair[], days: ReturnType<typeof serviceDays>, low: number, high: number): Promise<ScheduledLeg[]> {
+  if (!pairs.length || !days.length) return []
+  return db.all<ScheduledLeg>(`
+    WITH pairs AS (SELECT CAST(key AS INTEGER) AS pairIndex,json_extract(value,'$.from') AS a,json_extract(value,'$.to') AS b,json_extract(value,'$.routes') AS routes FROM json_each(?)),
+    days AS (SELECT json_extract(value,'$.date') AS date,json_extract(value,'$.origin') AS origin,json_extract(value,'$.lower') AS lower,json_extract(value,'$.upper') AS upper,json_extract(value,'$.weekday') AS weekday FROM json_each(?))
+    SELECT p.pairIndex,t.id AS tripId,t.route_id AS routeId,t.direction_id AS directionId,
+      CASE WHEN a.headsign<>'' THEN a.headsign ELSE t.headsign END AS headsign,d.date AS serviceDate,
+      a.stop_id AS fromId,b.stop_id AS toId,a.sequence AS fromSequence,b.sequence AS toSequence,
+      d.origin+a.departure*1000 AS departure,d.origin+b.arrival*1000 AS arrival,
+      a.departure AS departureSeconds,b.arrival AS arrivalSeconds,a.timepoint AS fromTimepoint,b.timepoint AS toTimepoint
+    FROM pairs p CROSS JOIN days d
+    JOIN stop_times a ON a.stop_id=p.a AND a.departure>=d.lower AND a.departure<=d.upper
+    JOIN trips t ON t.id=a.trip_id AND t.route_id IN(SELECT value FROM json_each(p.routes))
+    JOIN stop_times b ON b.trip_id=t.id AND b.stop_id=p.b AND b.sequence>a.sequence
+    JOIN services s ON s.id=t.service_id
+    LEFT JOIN calendar_dates c ON c.service_id=t.service_id AND c.date=d.date
+    WHERE a.pickup_type=0 AND b.drop_off_type=0 AND b.arrival IS NOT NULL AND b.arrival>=a.departure
+      AND d.origin+b.arrival*1000 BETWEEN ? AND ?
+      AND CASE WHEN c.exception_type IS NOT NULL THEN c.exception_type=1
+        ELSE d.date BETWEEN s.start_date AND s.end_date AND CASE d.weekday
+          WHEN 0 THEN s.monday WHEN 1 THEN s.tuesday WHEN 2 THEN s.wednesday WHEN 3 THEN s.thursday
+          WHEN 4 THEN s.friday WHEN 5 THEN s.saturday ELSE s.sunday END=1 END
+    ORDER BY departure,arrival,t.id,a.sequence,b.sequence LIMIT 20001
+  `, [JSON.stringify(pairs), JSON.stringify(days), low, high])
+}
+
+===== server\gtfs\repository.ts =====
+import type { FeedMetadata, GtfsLine, GtfsStop, PassageResult, TheoreticalPassage } from '../../src/types/gtfs.ts'
+import { addDays, localServiceDate, normalizeSearch, serviceDayOrigin } from './time.ts'
+
+export interface QueryDatabase {
+  all<T>(sql: string, parameters?: (string | number | null)[]): Promise<T[]>
+}
+
+export async function getMetadata(db: QueryDatabase): Promise<FeedMetadata> {
+  const [row] = await db.all<{ json: string }>('SELECT json FROM metadata WHERE id=1')
+  if (!row) throw new Error('Métadonnées GTFS absentes.')
+  const metadata: FeedMetadata = JSON.parse(row.json)
+  if (metadata.schemaVersion !== 1) throw new Error('Version de base GTFS incompatible.')
+  return metadata
+}
+
+export async function searchLines(db: QueryDatabase, query: string): Promise<GtfsLine[]> {
+  const key = normalizeSearch(query).slice(0, 80)
+  if (!key) return []
+  return db.all<GtfsLine>(`
+    SELECT r.id, CASE WHEN r.short_name='' THEN r.long_name ELSE r.short_name END AS name,
+      r.short_name AS shortName,r.long_name AS longName,r.type
+    FROM routes r WHERE r.id IN (
+      SELECT entity_id FROM search_tokens WHERE kind='line' AND token>=? AND token<?
+    ) ORDER BY CASE WHEN r.short_name=? THEN 0 ELSE 1 END,LENGTH(r.short_name),r.short_name,r.id LIMIT 20
+  `, [key, `${key}\uffff`, query.trim()])
+}
+
+export async function searchStops(db: QueryDatabase, query: string, lineId = ''): Promise<GtfsStop[]> {
+  const key = normalizeSearch(query).slice(0, 80)
+  if (!key) return []
+  return db.all<GtfsStop>(`
+    SELECT s.id,s.name,s.code,s.platform,s.parent_id AS parentId,s.latitude,s.longitude
+    FROM stops s WHERE s.location_type=0 AND s.id IN (
+      SELECT entity_id FROM search_tokens WHERE kind='stop' AND token>=? AND token<?
+    ) ${lineId ? 'AND EXISTS(SELECT 1 FROM route_stops rs WHERE rs.route_id=? AND rs.stop_id=s.id)' : ''}
+    ORDER BY s.name,s.code,s.id LIMIT 20
+  `, [key, `${key}\uffff`, ...(lineId ? [lineId] : [])])
+}
+
+export async function getDirections(db: QueryDatabase, lineId: string, stopId: string) {
+  return db.all<{ id: string; headsign: string }>(`
+    SELECT DISTINCT t.direction_id AS id,t.headsign FROM trips t
+    JOIN stop_times st ON st.trip_id=t.id WHERE t.route_id=? AND st.stop_id=?
+    ORDER BY t.direction_id,t.headsign LIMIT 50
+  `, [lineId, stopId])
+}
+
+/** Fenêtre bornée à 24 h, jusqu'à 12 résultats, jours précédents inclus.
+ * Les services et exceptions sont joints côté SQL : pas de GTFS chargé en mémoire.
+ */
+export async function getPassages(db: QueryDatabase, lineId: string, stopId: string, instant: number, direction?: string): Promise<PassageResult> {
+  if (!Number.isFinite(instant)) throw new Error('Instant de recherche invalide.')
+  const metadata = await getMetadata(db)
+  const windowEnd = instant + 24 * 3600_000
+  const currentDate = localServiceDate(instant, metadata.timezone)
+  // Un jour de service peut commencer avant le minuit civil au passage à l'heure d'été.
+  const finalDate = addDays(localServiceDate(windowEnd, metadata.timezone), 1)
+  const previousDays = Math.ceil(metadata.maxDepartureSeconds / 86400) + 1
+  const days = []
+  for (let date = addDays(currentDate, -previousDays); date <= finalDate; date = addDays(date, 1)) {
+    if (date < metadata.validFrom || date > metadata.validUntil) continue
+    const origin = serviceDayOrigin(date, metadata.timezone)
+    if (origin + metadata.maxDepartureSeconds * 1000 < instant || origin >= windowEnd) continue
+    days.push({ date, origin, lower: (instant - origin) / 1000, upper: (windowEnd - origin) / 1000, weekday: (new Date(`${date}T12:00:00Z`).getUTCDay() + 6) % 7 })
+  }
+  if (!days.length) return { passages: [], metadata, queriedAt: new Date(instant).toISOString(), windowEnd: new Date(windowEnd).toISOString(), outsideValidity: true }
+  type Row = Omit<TheoreticalPassage, 'departureTime' | 'kind' | 'interpolated'> & { epoch: number; timepoint: number }
+  const rows = await db.all<Row>(`
+    WITH days AS (SELECT json_extract(value,'$.date') AS date,json_extract(value,'$.origin') AS origin,
+      json_extract(value,'$.lower') AS lower,json_extract(value,'$.upper') AS upper,
+      json_extract(value,'$.weekday') AS weekday FROM json_each(?))
+    SELECT t.id AS tripId,st.stop_id AS stopId,t.route_id AS lineId,t.direction_id AS directionId,
+      CASE WHEN st.headsign<>'' THEN st.headsign ELSE t.headsign END AS headsign,
+      d.date AS serviceDate,st.departure AS gtfsSeconds,st.timepoint,st.pickup_type AS pickupType,
+      d.origin+st.departure*1000 AS epoch
+    FROM days d CROSS JOIN stop_times st
+    JOIN trips t ON t.id=st.trip_id
+    JOIN services s ON s.id=t.service_id
+    LEFT JOIN calendar_dates c ON c.service_id=s.id AND c.date=d.date
+    WHERE st.stop_id=? AND st.departure>=d.lower AND st.departure<d.upper
+      AND st.pickup_type<>1 AND t.route_id=? ${direction !== undefined ? 'AND t.direction_id=?' : ''}
+      AND CASE WHEN c.exception_type IS NOT NULL THEN c.exception_type=1
+        ELSE d.date BETWEEN s.start_date AND s.end_date AND
+          CASE d.weekday WHEN 0 THEN s.monday WHEN 1 THEN s.tuesday WHEN 2 THEN s.wednesday
+            WHEN 3 THEN s.thursday WHEN 4 THEN s.friday WHEN 5 THEN s.saturday ELSE s.sunday END=1 END
+    ORDER BY epoch,t.id,st.sequence LIMIT 12
+  `, [JSON.stringify(days), stopId, lineId, ...(direction !== undefined ? [direction] : [])])
+  return {
+    passages: rows.map(({ epoch, timepoint, ...row }) => ({ ...row, departureTime: new Date(epoch).toISOString(), kind: 'theoretical', interpolated: timepoint === 0 })),
+    metadata, queriedAt: new Date(instant).toISOString(), windowEnd: new Date(windowEnd).toISOString(), outsideValidity: false,
+  }
+}
+
+===== src\types\journey.ts =====
+import type { FeedMetadata, GtfsStop } from './gtfs.ts'
+import type { AddressPlace, WalkPath } from './mobility.ts'
+
+export type JourneyOrder = 'arrival' | 'departure' | 'duration' | 'transfers'
+export interface JourneyDraft { departure: string; arrival: string; departureStopId?: string; arrivalStopId?: string; departureAddress?: AddressPlace; arrivalAddress?: AddressPlace }
+export interface RoutingQuery {
+  fromStopId: string
+  toStopId: string
+  at: string
+  mode: 'departure' | 'arrival'
+  marginSeconds: number
+  order: JourneyOrder
+  maxTransfers?: 1 | 2
+}
+export interface JourneyStop extends GtfsStop { lines: { id: string; name: string }[] }
+export interface RideLeg {
+  tripId: string
+  serviceDate: string
+  routeId: string
+  lineName: string
+  routeType: number
+  directionId: string
+  headsign: string
+  from: { id: string; name: string; sequence: number }
+  to: { id: string; name: string; sequence: number }
+  departureTime: string
+  arrivalTime: string
+  departureGtfsSeconds: number
+  arrivalGtfsSeconds: number
+  interpolatedBySource: boolean
+}
+export interface JourneyTransfer {
+  fromStopId: string
+  fromStopName: string
+  toStopId: string
+  toStopName: string
+  ruleId: number | null
+  source: 'gtfs' | 'same_platform_assumption' | 'ign_pedestrian'
+  walkingPath?: WalkPath
+  officialMinimumSeconds: number
+  marginSeconds: number
+  requiredSeconds: number
+  intervalSeconds: number
+  spareSeconds: number
+  /** Le minimum requis retient le maximum du minimum GTFS et de la marche vérifiée. */
+  walkingSeconds: number | null
+}
+export interface TheoreticalJourney {
+  id: string
+  departureTime: string
+  arrivalTime: string
+  durationSeconds: number
+  initialWaitSeconds: number
+  transfers: number
+  legs: RideLeg[]
+  connection: JourneyTransfer | null
+  connections?: JourneyTransfer[]
+  kind: 'theoretical'
+}
+export interface RoutingResult {
+  state: 'ok' | 'no_journey' | 'outside_validity' | 'limited'
+  query: RoutingQuery
+  itineraries: TheoreticalJourney[]
+  metadata: FeedMetadata
+  scope: { maxTransfers: 1 | 2; windowHours: 6; from: string; until: string; marginSeconds: number }
+  metrics: { durationMs: number; sqlQueries: number; legCount: number; transferPairs: number; candidateCount: number; coldTopology: boolean; sqlMs?: number; routingMs?: number; cacheHit?: boolean; rounds?: number; limited?: boolean; topologyMs?: number; roundMs?: number[]; roundSqlMs?: number[]; rankingMs?: number }
+  warnings: string[]
+}

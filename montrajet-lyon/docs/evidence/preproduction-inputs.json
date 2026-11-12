@@ -1,0 +1,10 @@
+{
+  "directory": ".data/preproduction-1794338634073",
+  "edge": ".data/preproduction-test-edge-1794338736747/report.json",
+  "firefox": ".data/preproduction-test-firefox-1794338746173/report.json",
+  "faults": ".data/preproduction-faults-1794339062835/report.json",
+  "live": ".data/preproduction-live-1794339010819/report.json",
+  "benchmark": ".data/preproduction-bench-1794338862376/report.json",
+  "audit": ".data/preproduction-audit.json",
+  "output": "docs/evidence/preproduction-statique-2026-11-10.json"
+}

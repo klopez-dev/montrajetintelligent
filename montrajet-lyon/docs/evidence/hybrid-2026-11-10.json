@@ -1,0 +1,1325 @@
+{
+  "createdAt": "2026-11-10T17:54:17.878Z",
+  "verdict": "MOTEUR HYBRIDE PARTIELLEMENT VALIDÉ",
+  "machine": {
+    "cpu": "AMD Ryzen 7 3700X 8-Core Processor             ",
+    "logicalCpus": 16,
+    "ramGiB": 31.929828643798828,
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.19.0"
+  },
+  "evidence": {
+    "baselineResources": {
+      "file": ".data/hybrid-resources-1794331709454/report.json",
+      "sha256": "9260b7a07ae1f148f5180042dbc2fb182fcc61a018459b15eed960296cc4dfe5"
+    },
+    "optimizedResources": {
+      "file": ".data/hybrid-resources-1794332022525/report.json",
+      "sha256": "da8529e247fc89981c173c4db87aab19bd53195db39b29966536d807ffe6b40e"
+    },
+    "baselineBrowser": {
+      "file": ".data/hybrid-browser-1794331713121/report.json",
+      "sha256": "f93135b2a33cc66a70b6d678e1ed536d68c114c969ba6efc3473349ca7efd958"
+    },
+    "v1CompatibleMemory": {
+      "file": ".data/hybrid-memory-1794332421834/report.json",
+      "sha256": "ed70c42e171b4027b57fa68a6af27b131901f3d01ffda4744a69fb5c6db534eb"
+    },
+    "memory": {
+      "file": ".data/hybrid-memory-1794332759390/report.json",
+      "sha256": "f61c274e1f2175f1ac76e94279419aa994f7b6e429cf08c219e7329d876806e7"
+    },
+    "repeatedResources": {
+      "file": ".data/hybrid-repeated-1794332534359/report.json",
+      "sha256": "62bf5a7a7089e879294c8268d283f3f8ae5f5e0db1dfdfb7ac8292b546dbf386"
+    },
+    "comparison": {
+      "file": ".data/hybrid-comparison-1794331963811/report.json",
+      "sha256": "4c0707ce52ba8da721c3bb143efee36abfa5fabf668f275aa146fae7a31bde4f"
+    },
+    "mobility": {
+      "file": ".data/hybrid-mobility-1794332308384/report.json",
+      "sha256": "4f39f19bf4008509e67cc644ac034ac7889714568e35ca611bbba4b27a6f4690"
+    },
+    "staticBrowser": {
+      "file": ".data/hybrid-static-test-1794333206803/report.json",
+      "sha256": "70b89325eed1fe76e265bc2629d644741a0329fad708656dcc7dc9cca4734494"
+    },
+    "firefox": {
+      "file": ".data/hybrid-firefox-1794333206054/report.json",
+      "sha256": "7747cd34d0511911b748ec55fdd49c702938c9882f20d7edf40bf3f607654098"
+    },
+    "fallback": {
+      "file": ".data/hybrid-fallback-1794333157888/report.json",
+      "sha256": "b07b8bb2a586c2d9a4fe17f504e43bc223b2d57a90973eae130b6c1e97912dcf"
+    },
+    "manifest": {
+      "file": ".data/hybrid-v2-1794331885744/manifest.json",
+      "sha256": "bf3523dd92e7bceb5f129f632ff864f352b112f0cfef59f571b82e400a723fea"
+    }
+  },
+  "manifest": {
+    "format": 2,
+    "feedSha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+    "catalog": {
+      "file": "catalog.json.gz",
+      "bytes": 502394,
+      "rawBytes": 3996005,
+      "sha256": "dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62"
+    },
+    "days": {
+      "2026-11-08": {
+        "file": "2026-11-08.bin.gz",
+        "bytes": 1120955,
+        "rawBytes": 5129096,
+        "sha256": "091f56f0fba6584f74d61f756d1a181257e116bf368a6edad4c8d2d68d223286",
+        "records": 183182,
+        "trips": {
+          "file": "2026-11-08.trips.json.gz",
+          "bytes": 41071,
+          "rawBytes": 707729,
+          "sha256": "3c05623a2d7ac449d8dc984f2bd3906a6e7c1dd5cfbab2742f92e3608feacc02"
+        }
+      },
+      "2026-11-09": {
+        "file": "2026-11-09.bin.gz",
+        "bytes": 2836214,
+        "rawBytes": 12997096,
+        "sha256": "109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3",
+        "records": 464182,
+        "trips": {
+          "file": "2026-11-09.trips.json.gz",
+          "bytes": 111371,
+          "rawBytes": 1674895,
+          "sha256": "435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e"
+        }
+      },
+      "2026-11-10": {
+        "file": "2026-11-10.bin.gz",
+        "bytes": 2846941,
+        "rawBytes": 13053460,
+        "sha256": "20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a",
+        "records": 466195,
+        "trips": {
+          "file": "2026-11-10.trips.json.gz",
+          "bytes": 111567,
+          "rawBytes": 1698478,
+          "sha256": "a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e"
+        }
+      },
+      "2026-11-11": {
+        "file": "2026-11-11.bin.gz",
+        "bytes": 1195170,
+        "rawBytes": 5473160,
+        "sha256": "9075a41bdf59bb4b5e0f201dd307bda846ed756ee5b3aa1e4af352ca3cf9e4f0",
+        "records": 195470,
+        "trips": {
+          "file": "2026-11-11.trips.json.gz",
+          "bytes": 45333,
+          "rawBytes": 737616,
+          "sha256": "bf3ce69b214876c2b381706271ba17293a388f66089ed0a275f5dd50319a092c"
+        }
+      },
+      "2026-11-12": {
+        "file": "2026-11-12.bin.gz",
+        "bytes": 2851056,
+        "rawBytes": 13060376,
+        "sha256": "3f2f896858845df4bab043e5501c0c03b4f0b41db6365a95e4f52f84397f4f21",
+        "records": 466442,
+        "trips": {
+          "file": "2026-11-12.trips.json.gz",
+          "bytes": 112475,
+          "rawBytes": 1707166,
+          "sha256": "ee9fc5eced3fe28313281e87ed4c550d3670d656fb3ca6c91703d95c3ab3beff"
+        }
+      }
+    },
+    "note": "Local experimental package; version identified by manifest SHA-256. No active migration."
+  },
+  "volume": {
+    "simpleCompressedBytes": 3449979,
+    "simpleRawBytes": 18667996,
+    "midnightCompressedBytes": 6408487,
+    "files": [
+      {
+        "file": "favicon.svg",
+        "bytes": 9522
+      },
+      {
+        "file": "icons.svg",
+        "bytes": 5031
+      },
+      {
+        "file": "_headers",
+        "bytes": 107
+      },
+      {
+        "file": "prototype-data/2026-11-08.bin.gz",
+        "bytes": 1120955
+      },
+      {
+        "file": "prototype-data/2026-11-08.trips.json.gz",
+        "bytes": 41071
+      },
+      {
+        "file": "prototype-data/2026-11-09.bin.gz",
+        "bytes": 2836214
+      },
+      {
+        "file": "prototype-data/2026-11-09.trips.json.gz",
+        "bytes": 111371
+      },
+      {
+        "file": "prototype-data/2026-11-10.bin.gz",
+        "bytes": 2846941
+      },
+      {
+        "file": "prototype-data/2026-11-10.trips.json.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "prototype-data/2026-11-11.bin.gz",
+        "bytes": 1195170
+      },
+      {
+        "file": "prototype-data/2026-11-11.trips.json.gz",
+        "bytes": 45333
+      },
+      {
+        "file": "prototype-data/2026-11-12.bin.gz",
+        "bytes": 2851056
+      },
+      {
+        "file": "prototype-data/2026-11-12.trips.json.gz",
+        "bytes": 112475
+      },
+      {
+        "file": "prototype-data/catalog.json.gz",
+        "bytes": 502394
+      },
+      {
+        "file": "prototype-data/manifest.json",
+        "bytes": 2546
+      },
+      {
+        "file": "licenses/maplibre-gl.txt",
+        "bytes": 5984
+      },
+      {
+        "file": "experiments/hybrid/index.html",
+        "bytes": 1345
+      },
+      {
+        "file": "assets/browser-worker-EyiZ0QyZ.js",
+        "bytes": 25644
+      },
+      {
+        "file": "assets/index---o4c2ou.js",
+        "bytes": 3723
+      }
+    ]
+  },
+  "browser": {
+    "version": "Edg/157.0.4341.42",
+    "groups": {
+      "direct-cold": {
+        "wallMs": {
+          "n": 5,
+          "min": 214.92560000000003,
+          "median": 226.54170000000022,
+          "p95": 274.70149999999967,
+          "max": 274.70149999999967
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 213.39999997615814,
+          "median": 224.69999998807907,
+          "p95": 272.7999999523163,
+          "max": 272.7999999523163
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 12.800000011920929,
+          "median": 14.300000011920929,
+          "p95": 35.39999997615814,
+          "max": 35.39999997615814
+        }
+      },
+      "direct-warm": {
+        "wallMs": {
+          "n": 5,
+          "min": 3.953599999999824,
+          "median": 4.443199999999706,
+          "p95": 5.445600000000013,
+          "max": 5.445600000000013
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 2.699999988079071,
+          "median": 2.899999976158142,
+          "p95": 3.300000011920929,
+          "max": 3.300000011920929
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "one-cold": {
+        "wallMs": {
+          "n": 5,
+          "min": 746.9952000000003,
+          "median": 917.0402999999997,
+          "p95": 985.8504000000003,
+          "max": 985.8504000000003
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 744.5999999642372,
+          "median": 914.5999999642372,
+          "p95": 983.7000000476837,
+          "max": 983.7000000476837
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 15.199999988079071,
+          "median": 17.5,
+          "p95": 18.099999964237213,
+          "max": 18.099999964237213
+        }
+      },
+      "one-warm": {
+        "wallMs": {
+          "n": 5,
+          "min": 4.441399999999703,
+          "median": 5.01339999999982,
+          "p95": 6.363999999999578,
+          "max": 6.363999999999578
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 2.800000011920929,
+          "median": 3,
+          "p95": 3.800000011920929,
+          "max": 3.800000011920929
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "two-cold": {
+        "wallMs": {
+          "n": 5,
+          "min": 198.32510000000002,
+          "median": 221.04010000000017,
+          "p95": 247.6921000000002,
+          "max": 247.6921000000002
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 195.5999999642372,
+          "median": 218.39999997615814,
+          "p95": 245.0999999642372,
+          "max": 245.0999999642372
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 14.699999988079071,
+          "median": 15.599999964237213,
+          "p95": 17.700000047683716,
+          "max": 17.700000047683716
+        }
+      },
+      "two-warm": {
+        "wallMs": {
+          "n": 5,
+          "min": 4.925699999999779,
+          "median": 5.244899999999689,
+          "p95": 6.661599999999453,
+          "max": 6.661599999999453
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 2.900000035762787,
+          "median": 3,
+          "p95": 3.900000035762787,
+          "max": 3.900000035762787
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      }
+    },
+    "phases": {
+      "direct": {
+        "manifest": {
+          "n": 5,
+          "min": 2.799999952316284,
+          "median": 3,
+          "p95": 4.400000035762787,
+          "max": 4.400000035762787
+        },
+        "catalog": {
+          "n": 5,
+          "min": 24.69999998807907,
+          "median": 25.599999964237213,
+          "p95": 37.40000003576279,
+          "max": 37.40000003576279
+        },
+        "read": {
+          "n": 5,
+          "min": 14.300000071525574,
+          "median": 23.499999940395355,
+          "p95": 24.600000083446503,
+          "max": 24.600000083446503
+        },
+        "decode": {
+          "n": 5,
+          "min": 26.999999940395355,
+          "median": 27.299999952316284,
+          "p95": 32.80000001192093,
+          "max": 32.80000001192093
+        },
+        "index": {
+          "n": 5,
+          "min": 6.799999952316284,
+          "median": 7.899999976158142,
+          "p95": 9.200000047683716,
+          "max": 9.200000047683716
+        },
+        "calculationInclusiveMs": {
+          "n": 5,
+          "min": 180.19999998807907,
+          "median": 192.5999999642372,
+          "p95": 243.89999997615814,
+          "max": 243.89999997615814
+        },
+        "jsonSerializationMs": {
+          "n": 5,
+          "min": 0.3999999761581421,
+          "median": 2.899999976158142,
+          "p95": 3.299999952316284,
+          "max": 3.299999952316284
+        }
+      },
+      "one": {
+        "manifest": {
+          "n": 5,
+          "min": 3.199999988079071,
+          "median": 3.600000023841858,
+          "p95": 3.800000011920929,
+          "max": 3.800000011920929
+        },
+        "catalog": {
+          "n": 5,
+          "min": 25.30000001192093,
+          "median": 29.099999964237213,
+          "p95": 31,
+          "max": 31
+        },
+        "read": {
+          "n": 5,
+          "min": 14.399999976158142,
+          "median": 15.5,
+          "p95": 24.80000001192093,
+          "max": 24.80000001192093
+        },
+        "decode": {
+          "n": 5,
+          "min": 28.599999964237213,
+          "median": 30.80000001192093,
+          "p95": 35.39999997615814,
+          "max": 35.39999997615814
+        },
+        "index": {
+          "n": 5,
+          "min": 7.299999952316284,
+          "median": 9.800000011920929,
+          "p95": 10.100000023841858,
+          "max": 10.100000023841858
+        },
+        "calculationInclusiveMs": {
+          "n": 5,
+          "min": 709.8000000119209,
+          "median": 877.1000000238419,
+          "p95": 945.3999999761581,
+          "max": 945.3999999761581
+        },
+        "jsonSerializationMs": {
+          "n": 5,
+          "min": 2.199999988079071,
+          "median": 2.200000047683716,
+          "p95": 2.900000035762787,
+          "max": 2.900000035762787
+        }
+      },
+      "two": {
+        "manifest": {
+          "n": 5,
+          "min": 3.100000023841858,
+          "median": 3.199999988079071,
+          "p95": 3.699999988079071,
+          "max": 3.699999988079071
+        },
+        "catalog": {
+          "n": 5,
+          "min": 25.399999976158142,
+          "median": 26.5,
+          "p95": 39.30000001192093,
+          "max": 39.30000001192093
+        },
+        "read": {
+          "n": 5,
+          "min": 13.5,
+          "median": 13.700000047683716,
+          "p95": 24.599999964237213,
+          "max": 24.599999964237213
+        },
+        "decode": {
+          "n": 5,
+          "min": 27.399999976158142,
+          "median": 27.69999998807907,
+          "p95": 29.400000035762787,
+          "max": 29.400000035762787
+        },
+        "index": {
+          "n": 5,
+          "min": 7.900000035762787,
+          "median": 8.599999964237213,
+          "p95": 9.199999988079071,
+          "max": 9.199999988079071
+        },
+        "calculationInclusiveMs": {
+          "n": 5,
+          "min": 162.80000001192093,
+          "median": 171.60000002384186,
+          "p95": 212.0999999642372,
+          "max": 212.0999999642372
+        },
+        "jsonSerializationMs": {
+          "n": 5,
+          "min": 2.799999952316284,
+          "median": 3,
+          "p95": 3.5,
+          "max": 3.5
+        }
+      }
+    },
+    "memory": {
+      "sampleCount": 446,
+      "workerHeapBytes": {
+        "n": 446,
+        "min": 477976,
+        "median": 25868820,
+        "p95": 42430140,
+        "max": 53803284
+      },
+      "workerBackingBytes": {
+        "n": 446,
+        "min": 174705,
+        "median": 15318076,
+        "p95": 50074973,
+        "max": 83906453
+      },
+      "mainHeapBytes": {
+        "n": 446,
+        "min": 813804,
+        "median": 1425456,
+        "p95": 1679196,
+        "max": 1800044
+      },
+      "mainBackingBytes": {
+        "n": 446,
+        "min": 240378,
+        "median": 240464,
+        "p95": 240464,
+        "max": 240464
+      }
+    },
+    "decompressionObserved": {
+      "sampleCount": 24,
+      "workerHeapBytes": {
+        "n": 24,
+        "min": 591004,
+        "median": 13758976,
+        "p95": 21843796,
+        "max": 27398480
+      },
+      "workerBackingBytes": {
+        "n": 24,
+        "min": 9179263,
+        "median": 50074973,
+        "p95": 73786632,
+        "max": 81694873
+      },
+      "mainHeapBytes": {
+        "n": 24,
+        "min": 817120,
+        "median": 1418936,
+        "p95": 1755372,
+        "max": 1755396
+      },
+      "mainBackingBytes": {
+        "n": 24,
+        "min": 240378,
+        "median": 240464,
+        "p95": 240464,
+        "max": 240464
+      }
+    },
+    "beforeRelease": {
+      "main": {
+        "usedSize": 1702416,
+        "totalSize": 2805760,
+        "embedderHeapUsedSize": 1757536,
+        "backingStorageSize": 240464
+      },
+      "worker": {
+        "usedSize": 37288156,
+        "totalSize": 85393408,
+        "embedderHeapUsedSize": 544336,
+        "backingStorageSize": 74243124
+      }
+    },
+    "afterRelease": {
+      "main": {
+        "usedSize": 1705188,
+        "totalSize": 2805760,
+        "embedderHeapUsedSize": 1757536,
+        "backingStorageSize": 240464
+      },
+      "worker": {
+        "usedSize": 37290292,
+        "totalSize": 85393408,
+        "embedderHeapUsedSize": 544336,
+        "backingStorageSize": 74243124
+      }
+    },
+    "afterReleaseAndGC": {
+      "main": {
+        "usedSize": 802424,
+        "totalSize": 1757184,
+        "embedderHeapUsedSize": 424904,
+        "backingStorageSize": 240335
+      },
+      "worker": {
+        "usedSize": 760196,
+        "totalSize": 2621440,
+        "embedderHeapUsedSize": 44176,
+        "backingStorageSize": 174738
+      }
+    },
+    "afterTerminationMain": {
+      "usedSize": 806304,
+      "totalSize": 2019328,
+      "embedderHeapUsedSize": 424904,
+      "backingStorageSize": 240335
+    },
+    "mainHeartbeat": {
+      "n": 858,
+      "min": 8.699999988079071,
+      "median": 16.099999964237213,
+      "p95": 17,
+      "max": 25.19999998807907
+    },
+    "maxResidentDays": 3,
+    "successive": [
+      {
+        "kind": "one",
+        "workerMs": 907.6999999880791,
+        "compressedBytes": 3457617,
+        "requests": 6,
+        "days": [
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "two",
+        "workerMs": 3,
+        "compressedBytes": 3460163,
+        "requests": 7,
+        "days": [
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "arrival",
+        "workerMs": 136.10000002384186,
+        "compressedBytes": 3462709,
+        "requests": 8,
+        "days": [
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "midnight",
+        "workerMs": 78.69999998807907,
+        "compressedBytes": 6423763,
+        "requests": 11,
+        "days": [
+          "2026-11-09",
+          "2026-11-10"
+        ]
+      },
+      {
+        "kind": "holiday",
+        "workerMs": 57.5,
+        "compressedBytes": 7666812,
+        "requests": 14,
+        "days": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ]
+      },
+      {
+        "kind": "date",
+        "workerMs": 125.40000003576279,
+        "compressedBytes": 10632889,
+        "requests": 17,
+        "days": [
+          "2026-11-10",
+          "2026-11-11",
+          "2026-11-12"
+        ]
+      },
+      {
+        "kind": "direct",
+        "workerMs": 154.60000002384186,
+        "compressedBytes": 13583020,
+        "requests": 20,
+        "days": [
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "one",
+        "workerMs": 2.699999988079071,
+        "compressedBytes": 13585566,
+        "requests": 21,
+        "days": [
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "two",
+        "workerMs": 3,
+        "compressedBytes": 13588112,
+        "requests": 22,
+        "days": [
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-09"
+        ]
+      }
+    ],
+    "errors": [],
+    "mainCpuSlowdown": 4,
+    "networkThrottleUnavailable": "{\"code\":-32000,\"message\":\"Not supported\"}"
+  },
+  "v1CompatibleBrowser": {
+    "direct-cold": {
+      "wallMs": {
+        "n": 5,
+        "min": 266.0983000000001,
+        "median": 290.6250000000002,
+        "p95": 323.1475999999998,
+        "max": 323.1475999999998
+      },
+      "workerMs": {
+        "n": 5,
+        "min": 258.80000001192093,
+        "median": 268.0999999642372,
+        "p95": 317,
+        "max": 317
+      },
+      "initializationMs": {
+        "n": 5,
+        "min": 14.699999988079071,
+        "median": 15.899999976158142,
+        "p95": 34.69999998807907,
+        "max": 34.69999998807907
+      }
+    },
+    "direct-warm": {
+      "wallMs": {
+        "n": 5,
+        "min": 20.908100000000104,
+        "median": 22.637700000000223,
+        "p95": 24.467599999999948,
+        "max": 24.467599999999948
+      },
+      "workerMs": {
+        "n": 5,
+        "min": 2.800000011920929,
+        "median": 3.199999988079071,
+        "p95": 4.099999964237213,
+        "max": 4.099999964237213
+      },
+      "initializationMs": {
+        "n": 5,
+        "min": 0,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "one-cold": {
+      "wallMs": {
+        "n": 5,
+        "min": 853.0537000000004,
+        "median": 884.0063999999993,
+        "p95": 1129.491,
+        "max": 1129.491
+      },
+      "workerMs": {
+        "n": 5,
+        "min": 834.6000000238419,
+        "median": 863,
+        "p95": 1115.300000011921,
+        "max": 1115.300000011921
+      },
+      "initializationMs": {
+        "n": 5,
+        "min": 16.299999952316284,
+        "median": 16.899999976158142,
+        "p95": 17.19999998807907,
+        "max": 17.19999998807907
+      }
+    },
+    "one-warm": {
+      "wallMs": {
+        "n": 5,
+        "min": 21.142499999999927,
+        "median": 21.300900000000183,
+        "p95": 22.541599999999562,
+        "max": 22.541599999999562
+      },
+      "workerMs": {
+        "n": 5,
+        "min": 2.800000011920929,
+        "median": 3.100000023841858,
+        "p95": 4,
+        "max": 4
+      },
+      "initializationMs": {
+        "n": 5,
+        "min": 0,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "two-cold": {
+      "wallMs": {
+        "n": 5,
+        "min": 267.7379000000001,
+        "median": 289.4495000000006,
+        "p95": 343.34399999999914,
+        "max": 343.34399999999914
+      },
+      "workerMs": {
+        "n": 5,
+        "min": 252.0999999642372,
+        "median": 270.19999998807907,
+        "p95": 319.9000000357628,
+        "max": 319.9000000357628
+      },
+      "initializationMs": {
+        "n": 5,
+        "min": 16.100000023841858,
+        "median": 18.299999952316284,
+        "p95": 18.900000035762787,
+        "max": 18.900000035762787
+      }
+    },
+    "two-warm": {
+      "wallMs": {
+        "n": 5,
+        "min": 21.006799999999203,
+        "median": 21.73450000000048,
+        "p95": 22.718700000001263,
+        "max": 22.718700000001263
+      },
+      "workerMs": {
+        "n": 5,
+        "min": 2.899999976158142,
+        "median": 3.099999964237213,
+        "p95": 3.5,
+        "max": 3.5
+      },
+      "initializationMs": {
+        "n": 5,
+        "min": 0,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      }
+    }
+  },
+  "nodeRepeated": {
+    "direct-sqlite": {
+      "coldCalculationMs": {
+        "n": 5,
+        "min": 354.6367,
+        "median": 366.84159999999997,
+        "p95": 380.5462,
+        "max": 380.5462
+      },
+      "warmCalculationMs": {
+        "n": 10,
+        "min": 0.14279999999996562,
+        "median": 0.328200000000038,
+        "p95": 0.5083999999999946,
+        "max": 0.5083999999999946
+      },
+      "totalThreeCalculationsAndInitMs": {
+        "n": 5,
+        "min": 356.01930000000004,
+        "median": 368.36220000000003,
+        "p95": 382.0959,
+        "max": 382.0959
+      },
+      "coldCpuMs": {
+        "n": 5,
+        "min": 563,
+        "median": 593,
+        "p95": 703,
+        "max": 703
+      },
+      "maxRssKiB": {
+        "n": 5,
+        "min": 163208,
+        "median": 163804,
+        "p95": 164520,
+        "max": 164520
+      }
+    },
+    "direct-static": {
+      "coldCalculationMs": {
+        "n": 5,
+        "min": 293.731,
+        "median": 310.90319999999997,
+        "p95": 326.04369999999994,
+        "max": 326.04369999999994
+      },
+      "warmCalculationMs": {
+        "n": 10,
+        "min": 0.03819999999996071,
+        "median": 0.15170000000000528,
+        "p95": 0.19810000000001082,
+        "max": 0.19810000000001082
+      },
+      "totalThreeCalculationsAndInitMs": {
+        "n": 5,
+        "min": 362.5131,
+        "median": 377.1385,
+        "p95": 398.9466,
+        "max": 398.9466
+      },
+      "coldCpuMs": {
+        "n": 5,
+        "min": 485,
+        "median": 548,
+        "p95": 610,
+        "max": 610
+      },
+      "maxRssKiB": {
+        "n": 5,
+        "min": 167320,
+        "median": 167988,
+        "p95": 168432,
+        "max": 168432
+      }
+    },
+    "one-sqlite": {
+      "coldCalculationMs": {
+        "n": 5,
+        "min": 1321.7906,
+        "median": 1355.2419,
+        "p95": 1537.7948999999999,
+        "max": 1537.7948999999999
+      },
+      "warmCalculationMs": {
+        "n": 10,
+        "min": 0.14250000000015461,
+        "median": 0.28109999999992397,
+        "p95": 0.33039999999982683,
+        "max": 0.33039999999982683
+      },
+      "totalThreeCalculationsAndInitMs": {
+        "n": 5,
+        "min": 1323.1982,
+        "median": 1356.6037000000001,
+        "p95": 1539.3367,
+        "max": 1539.3367
+      },
+      "coldCpuMs": {
+        "n": 5,
+        "min": 1422,
+        "median": 1547,
+        "p95": 1797,
+        "max": 1797
+      },
+      "maxRssKiB": {
+        "n": 5,
+        "min": 223656,
+        "median": 227088,
+        "p95": 227468,
+        "max": 227468
+      }
+    },
+    "one-static": {
+      "coldCalculationMs": {
+        "n": 5,
+        "min": 872.372,
+        "median": 882.134,
+        "p95": 1007.5040000000001,
+        "max": 1007.5040000000001
+      },
+      "warmCalculationMs": {
+        "n": 10,
+        "min": 0.03509999999982938,
+        "median": 0.13079999999990832,
+        "p95": 0.1453999999998814,
+        "max": 0.1453999999998814
+      },
+      "totalThreeCalculationsAndInitMs": {
+        "n": 5,
+        "min": 935.2778000000001,
+        "median": 946.7345,
+        "p95": 1084.8710999999998,
+        "max": 1084.8710999999998
+      },
+      "coldCpuMs": {
+        "n": 5,
+        "min": 1157,
+        "median": 1250,
+        "p95": 1485,
+        "max": 1485
+      },
+      "maxRssKiB": {
+        "n": 5,
+        "min": 208128,
+        "median": 209032,
+        "p95": 212836,
+        "max": 212836
+      }
+    },
+    "two-sqlite": {
+      "coldCalculationMs": {
+        "n": 5,
+        "min": 278.8242,
+        "median": 285.8774,
+        "p95": 292.1587,
+        "max": 292.1587
+      },
+      "warmCalculationMs": {
+        "n": 10,
+        "min": 0.14030000000002474,
+        "median": 0.31210000000004356,
+        "p95": 0.3576999999999657,
+        "max": 0.3576999999999657
+      },
+      "totalThreeCalculationsAndInitMs": {
+        "n": 5,
+        "min": 280.2416,
+        "median": 287.3334,
+        "p95": 293.5724,
+        "max": 293.5724
+      },
+      "coldCpuMs": {
+        "n": 5,
+        "min": 297,
+        "median": 376,
+        "p95": 391,
+        "max": 391
+      },
+      "maxRssKiB": {
+        "n": 5,
+        "min": 133224,
+        "median": 133536,
+        "p95": 144476,
+        "max": 144476
+      }
+    },
+    "two-static": {
+      "coldCalculationMs": {
+        "n": 5,
+        "min": 241.1656,
+        "median": 245.3406,
+        "p95": 250.3708,
+        "max": 250.3708
+      },
+      "warmCalculationMs": {
+        "n": 10,
+        "min": 0.03500000000002501,
+        "median": 0.13560000000001082,
+        "p95": 0.15130000000004884,
+        "max": 0.15130000000004884
+      },
+      "totalThreeCalculationsAndInitMs": {
+        "n": 5,
+        "min": 301.3122,
+        "median": 311.0386,
+        "p95": 314.8095,
+        "max": 314.8095
+      },
+      "coldCpuMs": {
+        "n": 5,
+        "min": 390,
+        "median": 422,
+        "p95": 500,
+        "max": 500
+      },
+      "maxRssKiB": {
+        "n": 5,
+        "min": 154524,
+        "median": 155828,
+        "p95": 156380,
+        "max": 156380
+      }
+    }
+  },
+  "beforeAfterNode": {
+    "baselineResources": [
+      {
+        "kind": "direct",
+        "coldMs": 281.1599,
+        "heapBytes": 71942936,
+        "externalBytes": 47604484,
+        "maxRssKiB": 242640
+      },
+      {
+        "kind": "one",
+        "coldMs": 936.6498999999999,
+        "heapBytes": 96433560,
+        "externalBytes": 48454756,
+        "maxRssKiB": 255932
+      },
+      {
+        "kind": "two",
+        "coldMs": 240.22519999999997,
+        "heapBytes": 88550672,
+        "externalBytes": 60035772,
+        "maxRssKiB": 230408
+      }
+    ],
+    "optimizedResources": [
+      {
+        "kind": "direct",
+        "coldMs": 288.4673,
+        "heapBytes": 62403304,
+        "externalBytes": 29009948,
+        "maxRssKiB": 168400
+      },
+      {
+        "kind": "one",
+        "coldMs": 857.8044,
+        "heapBytes": 77678832,
+        "externalBytes": 29124636,
+        "maxRssKiB": 209112
+      },
+      {
+        "kind": "two",
+        "coldMs": 237.88350000000003,
+        "heapBytes": 44697576,
+        "externalBytes": 40562780,
+        "maxRssKiB": 155596
+      }
+    ]
+  },
+  "parity": {
+    "comparisonStatus": "passed",
+    "divergences": 0,
+    "mobilityStatus": "passed",
+    "mobilityCases": 4,
+    "mobilityDivergences": 0,
+    "replayMisses": 0,
+    "providerRequests": 0
+  },
+  "staticBrowser": {
+    "status": "passed",
+    "checks": [
+      "Built static worker returns official GTFS itineraries without reference API",
+      "Explicit 503: manifest.json",
+      "Explicit 503: catalog.json.gz",
+      "Explicit 503: 2026-11-09.bin.gz",
+      "Corrupt day rejected",
+      "Cold load cancellation during confirmed in-flight manifest request ignores late response",
+      "Unavailable Worker produces explicit failure, no fictitious result",
+      "Three locally rate-limited cold loads, 375000 bytes/s + 100ms per data response",
+      "Built laboratory mobile 390 / 320"
+    ],
+    "slowNetwork": {
+      "delayMsPerDataResponse": 100,
+      "bytesPerSecond": 375000,
+      "repetitions": [
+        {
+          "wallMs": 10210.6409,
+          "workerMs": 10147.899999976158
+        },
+        {
+          "wallMs": 10182.920800000002,
+          "workerMs": 10127
+        },
+        {
+          "wallMs": 10167.776899999997,
+          "workerMs": 10133.5
+        }
+      ]
+    },
+    "requests": [
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/favicon.ico",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/prototype-data/2026-11-09.trips.json.gz",
+      "/prototype-data/2026-11-09.bin.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/prototype-data/2026-11-09.trips.json.gz",
+      "/prototype-data/2026-11-09.bin.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/prototype-data/2026-11-09.trips.json.gz",
+      "/prototype-data/2026-11-09.bin.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/prototype-data/2026-11-09.trips.json.gz",
+      "/prototype-data/2026-11-09.bin.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/prototype-data/2026-11-09.trips.json.gz",
+      "/prototype-data/2026-11-09.bin.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index---o4c2ou.js",
+      "/assets/browser-worker-EyiZ0QyZ.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/catalog.json.gz",
+      "/prototype-data/2026-11-09.trips.json.gz",
+      "/prototype-data/2026-11-09.bin.gz"
+    ]
+  },
+  "firefox": {
+    "status": "passed",
+    "version": "159.0.1",
+    "checks": [
+      {
+        "case": "direct",
+        "parity": true,
+        "workerMs": 360,
+        "proposals": 6
+      },
+      {
+        "case": "one",
+        "parity": true,
+        "workerMs": 639,
+        "proposals": 6
+      },
+      {
+        "case": "two",
+        "parity": true,
+        "workerMs": 70,
+        "proposals": 6
+      },
+      {
+        "case": "arrival",
+        "parity": true,
+        "workerMs": 113,
+        "proposals": 6
+      },
+      {
+        "case": "midnight",
+        "parity": true,
+        "workerMs": 112,
+        "proposals": 4
+      },
+      "Firefox viewport 390 / 320 without overflow"
+    ]
+  },
+  "fallback": {
+    "checks": [
+      "HTTP503 worker data: explicit fallback button shows SQLite result labelled as such",
+      "Real isolated worker execution failure reaches onerror; controls reenabled"
+    ],
+    "status": "passed"
+  },
+  "validation": {
+    "tests": 248,
+    "passed": 248,
+    "failures": 0,
+    "lint": "passed",
+    "typeScript": "passed",
+    "applicationBuild": "passed",
+    "staticBuild": "passed"
+  },
+  "limitations": [
+    "CDP heap samples + backing storage are not process RSS, not an exact decomposition of native memory.",
+    "Sampling cannot guarantee observation of transient decompression peaks. Forced GC is diagnostic, not a production strategy.",
+    "Local HTTP/Vite, not Internet or physical mobile."
+  ],
+  "activeIntegrity": [
+    {
+      "file": ".data/gtfs.sqlite",
+      "sha256": "a2f71d7792bdc04df2be9e92aad97d3905a26fec2e00397b9546b15fca7b386a",
+      "unchanged": true
+    },
+    {
+      "file": "GTFS_TCL.ZIP",
+      "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+      "unchanged": true
+    }
+  ],
+  "localVersionPointer": {
+    "current": "bf3523dd92e7bceb5f129f632ff864f352b112f0cfef59f571b82e400a723fea",
+    "previous": "bc8cf4a02835ea4d45a79c33faba6138d01853c9ed7fe01ba422c6964d870479",
+    "changedAt": "2026-11-10T17:47:55.210Z",
+    "scope": "local rehearsal only"
+  }
+}

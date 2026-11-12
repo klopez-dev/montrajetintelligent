@@ -1,0 +1,31 @@
+{
+  "observedAt": "2026-11-08T12:57:18.462Z",
+  "runtime": "Node.js backend local, accès HTTPS autorisé hors restriction réseau du bac à sable",
+  "method": "GET",
+  "url": "https://data.grandlyon.com/fr/datapusher/ws/rdata/tcl_sytral.tclpassagearret/all.json",
+  "authenticated": false,
+  "httpStatus": 401,
+  "wwwAuthenticate": "Basic realm=\"Access to data-ws\"",
+  "contentType": "application/json",
+  "body": { "detail": "Informations d'authentification non fournies." },
+  "retryAfter": null,
+  "providerRecordsReceived": 0,
+  "mappingRate": null,
+  "realtimeOperational": false,
+  "publicMetadata": {
+    "httpStatus": 200,
+    "datasetId": "62e4599505438a3d82d9feb7",
+    "resourceId": "17bb1ead-890f-458a-9b0b-d8d48e3fd006",
+    "url": "https://www.data.gouv.fr/api/1/datasets/prochains-passages-du-reseau-transports-en-commun-lyonnais-et-rhonexpress-disponibilites-temps-reel/",
+    "licenseClassification": "other-pd",
+    "typeE": "estimé",
+    "typeT": "théorique"
+  },
+  "limits": {
+    "officialRequestQuota": null,
+    "officialRefreshInterval": null,
+    "fieldDictionaryVerified": false,
+    "licenseTextVerified": false,
+    "note": "Aucune tentative de contournement. Pas d'autre endpoint de données testé après le refus."
+  }
+}

@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict'
+import {mkdir,writeFile} from 'node:fs/promises'
+import {resolve} from 'node:path'
+import {startBrowser} from '../qa/browser-driver.mjs'
+import {servePreproduction} from './serve-preproduction.mjs'
+const output=resolve(`.data/preproduction-live-${Date.now()}`);await mkdir(output);const report={checks:[],cases:[],note:'One live address journey, then two warm repeats using the original IGN cache and queue. No recorded walking response substituted.'};let browser,server
+try{
+ server=await servePreproduction(resolve(process.argv[2]||''));browser=await startBrowser(output);const d=browser.driver;await d.send('Page.navigate',{url:server.url});await d.wait('document.querySelector(".journey-panel")')
+ const address=await d.evaluate(`(async()=>{const r=await fetch('/api/mobility/addresses?q=100+avenue+Lacassagne+Lyon'),b=await r.json();if(b.status!=='connected')throw new Error(b.error);return b.data.find(a=>a.precision==='housenumber'&&a.name.startsWith('100 Avenue Lacassagne'))})()`);assert.ok(address)
+ const query={from:{kind:'address',id:address.id,name:address.name,expectedCoordinates:{latitude:address.latitude,longitude:address.longitude}},to:{kind:'stop',id:'35668'},at:'2026-11-09T10:00:00Z',mode:'departure',order:'arrival',marginSeconds:120,maxTransfers:2,walkingTransfers:false}
+ for(let repeat=0;repeat<3;repeat++){
+  await d.evaluate(`(()=>{window.__liveResult=null;window.__liveError='';const at=performance.now();fetch('/api/mobility/search',{method:'POST',body:JSON.stringify(${JSON.stringify(query)})}).then(r=>r.text()).then(text=>{const events=text.trim().split(String.fromCharCode(10)).map(JSON.parse),result=events.find(e=>e.type==='result');if(!result)throw new Error(events.find(e=>e.type==='error')?.message||'No result');window.__liveResult={...result.value,perceivedMs:performance.now()-at}}).catch(e=>window.__liveError=e.message);return true})()`)
+  await d.wait('window.__liveResult || window.__liveError',90000);const error=await d.evaluate('window.__liveError');assert.equal(error,'');const result=await d.evaluate('window.__liveResult');assert.ok(result.data.itineraries.length,'No live door itinerary');report.cases.push({repeat,perceivedMs:result.perceivedMs,metrics:result.data.metrics,state:result.data.state,proposals:result.data.itineraries.length,providerIssues:result.data.providerIssues});console.log('live',repeat,result.perceivedMs,result.data.metrics.upstreamRequests)
+  for(const i of result.data.itineraries){assert.equal(i.access.source,'IGN BD TOPO');assert.ok(i.access.geometry.coordinates.length>=2);assert.ok(i.access.startSnapMeters<=25&&i.access.endSnapMeters<=25)}
+ }
+ report.checks.push('Full door-to-stop computation in browser with fresh official IGN paths, no API relay')
+ await d.click('nav button:nth-child(2)')
+ async function type(selector,value){await d.evaluate(`(()=>{const i=document.querySelector(${JSON.stringify(selector)});Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,${JSON.stringify(value)});i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new Event('change',{bubbles:true}));return true})()`)}
+ const from='.journey-stop-fields>.gtfs-search-field:first-child',to='.journey-stop-fields>.gtfs-search-field:last-child'
+ await type(from+' input','100 avenue Lacassagne Lyon');await d.wait(`[...document.querySelectorAll(${JSON.stringify(from+' .gtfs-options button')})].some(b=>b.textContent.includes('100 Avenue Lacassagne')&&b.textContent.includes('Adresse'))`);await d.evaluate(`(()=>{[...document.querySelectorAll(${JSON.stringify(from+' .gtfs-options button')})].find(b=>b.textContent.includes('100 Avenue Lacassagne')&&b.textContent.includes('Adresse')).click();return true})()`)
+ await type(to+' input','35668');await d.wait(`[...document.querySelectorAll(${JSON.stringify(to+' .gtfs-options button')})].some(b=>b.textContent.includes('Quai 35668'))`);await d.evaluate(`(()=>{[...document.querySelectorAll(${JSON.stringify(to+' .gtfs-options button')})].find(b=>b.textContent.includes('Quai 35668')).click();return true})()`)
+ await type('input[type="datetime-local"]','2026-11-09T11:00');await d.click('.journey-panel .search-button');await d.wait('document.querySelector(".mobility-results") && !document.querySelector(".journey-panel .search-button").disabled',60000)
+ await d.click('.mobility-results .secondary');await d.wait('document.querySelector(".journey-map") && document.querySelector(".journey-map").dataset.mapLoading==="false" && document.querySelectorAll(".map-point").length>0',30000)
+ assert.ok(await d.evaluate('document.querySelector(".map-steps").textContent.includes("IGN")'));report.checks.push('React live door journey and map show the available official IGN walking geometry');await d.screenshot(resolve(output,'live-walking-map.png'))
+ const r=await d.evaluate(`(async()=>{const controller=new AbortController();controller.abort();try{await fetch('/api/mobility/addresses?q=TEST',{signal:controller.signal});return false}catch(e){return e.name==='AbortError'}})()`);assert.equal(r,true);report.checks.push('Aborted address request rejected')
+ assert.equal(server.requests.some(p=>p.startsWith('/api/')),false);report.status='passed'
+}catch(e){report.status='failed';report.error=e.stack;process.exitCode=1;console.error(e)}finally{await browser?.close();await server?.close();await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2),{flag:'wx'});console.log(output)}

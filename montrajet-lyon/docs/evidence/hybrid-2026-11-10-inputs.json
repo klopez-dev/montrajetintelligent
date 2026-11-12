@@ -1,0 +1,16 @@
+{
+  "baselineResources": ".data/hybrid-resources-1794331709454/report.json",
+  "optimizedResources": ".data/hybrid-resources-1794332022525/report.json",
+  "baselineBrowser": ".data/hybrid-browser-1794331713121/report.json",
+  "v1CompatibleMemory": ".data/hybrid-memory-1794332421834/report.json",
+  "memory": ".data/hybrid-memory-1794332759390/report.json",
+  "repeatedResources": ".data/hybrid-repeated-1794332534359/report.json",
+  "comparison": ".data/hybrid-comparison-1794331963811/report.json",
+  "mobility": ".data/hybrid-mobility-1794332308384/report.json",
+  "staticBrowser": ".data/hybrid-static-test-1794333206803/report.json",
+  "firefox": ".data/hybrid-firefox-1794333206054/report.json",
+  "fallback": ".data/hybrid-fallback-1794333157888/report.json",
+  "manifest": ".data/hybrid-v2-1794331885744/manifest.json",
+  "builtDirectory": ".data/hybrid-dist-1794333192964",
+  "output": "docs/evidence/hybrid-2026-11-10.json"
+}

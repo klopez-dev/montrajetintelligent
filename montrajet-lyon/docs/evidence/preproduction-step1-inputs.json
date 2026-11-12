@@ -1,0 +1,17 @@
+{
+  "directory": ".data/preproduction-1794344387115",
+  "matrix": ".data/step1-matrix-1794343297967/report.json",
+  "favorites": ".data/step1-favorites-1794343806162/report.json",
+  "resilience": ".data/step1-resilience-1794343985507/report.json",
+  "edge": ".data/preproduction-test-edge-1794344419951/report.json",
+  "firefox": ".data/preproduction-test-firefox-1794344432882/report.json",
+  "tiles": ".data/step1-tile-failure-1794344128726/report.json",
+  "baseline": ".data/preproduction-bench-1794343671348/report.json",
+  "benchmark": ".data/preproduction-bench-1794344049143/report.json",
+  "addressBenchmark": ".data/step1-address-bench-1794344726233/report.json",
+  "environment": ".data/step1-environment.json",
+  "versionBefore": ".data/step1-version-1794343078167/report.json",
+  "versionAfter": ".data/step1-version-1794343149120/report.json",
+  "output": "docs/evidence/preproduction-step1-controle-final-2026-11-10.json",
+  "measuredDirectory": ".data/preproduction-1794343892737"
+}

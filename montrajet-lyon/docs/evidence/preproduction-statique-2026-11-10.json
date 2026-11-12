@@ -1,0 +1,1724 @@
+{
+  "date": "2026-11-10",
+  "verdict": "PRÉPRODUCTION STATIQUE PARTIELLEMENT VALIDÉE",
+  "evidence": {
+    "edge": {
+      "file": ".data/preproduction-test-edge-1794338736747/report.json",
+      "sha256": "6609f781dbefb3abb8e64f1b2e1faf5761d4dd464321f51468044f03b66abf12"
+    },
+    "firefox": {
+      "file": ".data/preproduction-test-firefox-1794338746173/report.json",
+      "sha256": "93f236b63971bbf002fffae5d97da573f8645d6e0532b8fb2390b24b330fcc7f"
+    },
+    "faults": {
+      "file": ".data/preproduction-faults-1794339062835/report.json",
+      "sha256": "a0d2ad3a173de0eaddbc10189b6928c4bae538aff8d54c912fe40b2eda3b0854"
+    },
+    "live": {
+      "file": ".data/preproduction-live-1794339010819/report.json",
+      "sha256": "85cc6a70581d6e4f94c8bb508481fb4ffc277de43e937f8056bf402dcab23691"
+    },
+    "benchmark": {
+      "file": ".data/preproduction-bench-1794338862376/report.json",
+      "sha256": "2450697286b821ad9b75c362712973d5924be86edc0059f419f275064f9f8122"
+    },
+    "audit": {
+      "file": ".data/preproduction-audit.json",
+      "sha256": "e331cd94301c4d76117e6dcf591a2323a9b1e5d927fe431622aea26d6e17273b"
+    }
+  },
+  "integrity": [
+    {
+      "file": ".data/gtfs.sqlite",
+      "sha256": "a2f71d7792bdc04df2be9e92aad97d3905a26fec2e00397b9546b15fca7b386a",
+      "unchanged": true
+    },
+    {
+      "file": "GTFS_TCL.ZIP",
+      "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+      "unchanged": true
+    }
+  ],
+  "architecture": {
+    "businessNodeServer": false,
+    "sqliteInBrowser": false,
+    "reactComponentsReused": true,
+    "ign": "direct browser with existing provider",
+    "traffic": "unavailable, no collected or stale announcement"
+  },
+  "volume": {
+    "files": 202,
+    "bytes": 192342015,
+    "largestBytes": 2994783,
+    "assets": [
+      {
+        "file": "build-report.json",
+        "bytes": 42456
+      },
+      {
+        "file": "favicon.svg",
+        "bytes": 9522
+      },
+      {
+        "file": "icons.svg",
+        "bytes": 5031
+      },
+      {
+        "file": "preproduction.json",
+        "bytes": 346
+      },
+      {
+        "file": "_headers",
+        "bytes": 620
+      },
+      {
+        "file": "prototype-data/00f88e22008c0f69f9da7ee773113916d48c60dd1ab4e82a63b407d2ecc2cc7a.trips.gz",
+        "bytes": 108135
+      },
+      {
+        "file": "prototype-data/0180c68e16ed9054c82b6daecc32b1d7613bb31fc3e92de6155148303604680c.trips.gz",
+        "bytes": 108375
+      },
+      {
+        "file": "prototype-data/01dc655d8a7ee90307e4e7ad65b19578873b8e3c444ca89e2b4c2d4ed1c9946a.trips.gz",
+        "bytes": 112331
+      },
+      {
+        "file": "prototype-data/03ba3a137162cc6fd297ad29c7995b104eeb4b7fc8c952f91771dd56a53fb732.events.gz",
+        "bytes": 194096
+      },
+      {
+        "file": "prototype-data/043b290b640747b30cc49ba6e04ecda014ac454ab090d4f466a95528257b4f02.events.gz",
+        "bytes": 2984513
+      },
+      {
+        "file": "prototype-data/053976014736691c950e253c68b6548d09863c58a0ea87f4444d5a1f4b274b72.trips.gz",
+        "bytes": 111733
+      },
+      {
+        "file": "prototype-data/05a97aa73e20f97bee0ae173a0631f03b0b449070f3b4191adf6e34068df9ffb.trips.gz",
+        "bytes": 111993
+      },
+      {
+        "file": "prototype-data/0767ea6585332e282549be77e587e4dfe91468fb3f7cadc904c5eb3b400e12e9.events.gz",
+        "bytes": 1149958
+      },
+      {
+        "file": "prototype-data/091f56f0fba6584f74d61f756d1a181257e116bf368a6edad4c8d2d68d223286.events.gz",
+        "bytes": 1120955
+      },
+      {
+        "file": "prototype-data/09762ee3d08a5bb2599c40e40dd5733e61dd5040ae0dd141929f66b12f8a4056.events.gz",
+        "bytes": 2989503
+      },
+      {
+        "file": "prototype-data/0b2b4dacc22190311f010e318309f9ef1c24dd897b3a29587dbcf52f3ffafa64.events.gz",
+        "bytes": 2839468
+      },
+      {
+        "file": "prototype-data/0b3bb437b6abda291a4728ffc23e46e5c4356fa48257f8d53e5cb5775fc4ac9a.events.gz",
+        "bytes": 2497242
+      },
+      {
+        "file": "prototype-data/0b8b1f95d3daaef6be1b16d85cf92087f94f44189ab050094f33d1816dad099f.events.gz",
+        "bytes": 1882478
+      },
+      {
+        "file": "prototype-data/0c8f663e37d8da90a728bf789118a37aa37e7947ad690be396a48d139457a4e9.trips.gz",
+        "bytes": 39332
+      },
+      {
+        "file": "prototype-data/0d52d5bc4466304ae411a24b61234fd7f9f6520156fcde2b43d7f1e2cc75d211.trips.gz",
+        "bytes": 108772
+      },
+      {
+        "file": "prototype-data/0dc37fe3e07f9b61a6d57bf1115741970718d380d2157ae6a4c5ad15af20853e.events.gz",
+        "bytes": 2849940
+      },
+      {
+        "file": "prototype-data/0e1fa99bdb5bc53370718b27ebc92363cb676aa449037604c031c8d3097001f3.trips.gz",
+        "bytes": 58876
+      },
+      {
+        "file": "prototype-data/0e30029108cbbccbe2cbccf5aeb6c8bef7db3ddb9c0370bd24e08a5e23dd0db0.events.gz",
+        "bytes": 1952171
+      },
+      {
+        "file": "prototype-data/0f11b8a3ef59cb93da38c3b256286e02da2dcbe0dcc493dc1f6fd7f6c87dc707.events.gz",
+        "bytes": 2845158
+      },
+      {
+        "file": "prototype-data/0f75a671da4045be94c81613593c158b1e90bd63f9e1282fd37dfa6d61d7eefc.events.gz",
+        "bytes": 2848282
+      },
+      {
+        "file": "prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+        "bytes": 2836214
+      },
+      {
+        "file": "prototype-data/124d4e948c973b449922d175bee300a46cbf33da63cb6fbf3b4df0663c9653b1.trips.gz",
+        "bytes": 2867
+      },
+      {
+        "file": "prototype-data/1317839850aec2029dd919dd660091b1006cc7df8dcbb1b44da3ba094986ad4a.trips.gz",
+        "bytes": 76859
+      },
+      {
+        "file": "prototype-data/14b67b7819096bb09299c1499a466da7d0802597f5a1c22c7c1251622594fb96.trips.gz",
+        "bytes": 40175
+      },
+      {
+        "file": "prototype-data/14d0e0b87af8666834799afcc653309ab37f6a1a699a052722471c4233c576c8.events.gz",
+        "bytes": 1128007
+      },
+      {
+        "file": "prototype-data/1526aa4b05c50dd9b46739bde868c9b7f1155bf5d3270eb18bce3c8a9f49d591.trips.gz",
+        "bytes": 42388
+      },
+      {
+        "file": "prototype-data/17421cb74c4733bcc68645acb781619c7ec2d7c1503e2130eae36fdaecb3b6bf.trips.gz",
+        "bytes": 59270
+      },
+      {
+        "file": "prototype-data/1c3e39fb6c45175213ce60d78498eb886be78a75189ade187ad6b6e46920e9a2.trips.gz",
+        "bytes": 112046
+      },
+      {
+        "file": "prototype-data/1d45810ba98084c092fa3d929b65240d4b57cf4b9193bebbb388d29f0c2d3761.trips.gz",
+        "bytes": 58692
+      },
+      {
+        "file": "prototype-data/1dbdf4f551aefbdba423b68e4509ab3069702908e5dfa150994e67f8096810cf.events.gz",
+        "bytes": 31620
+      },
+      {
+        "file": "prototype-data/1f321829caf771f7d72ef9be808a8882d616450090b004611e25e964782cffab.trips.gz",
+        "bytes": 108396
+      },
+      {
+        "file": "prototype-data/1f92c8f0068bee525f13ccdf84330a26f2101091718ef86f28576ddd2bd6482e.trips.gz",
+        "bytes": 5003
+      },
+      {
+        "file": "prototype-data/20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz",
+        "bytes": 2846941
+      },
+      {
+        "file": "prototype-data/2011bc3fa971999472e48ad380d2ecd5b9cc6f0aafd6309b492341610a576a07.trips.gz",
+        "bytes": 41419
+      },
+      {
+        "file": "prototype-data/223845a4b760f1e624c162c9b208d6fdb6534bf44de767d584ceb440b54a4438.events.gz",
+        "bytes": 2851286
+      },
+      {
+        "file": "prototype-data/22ebafb65749ae46fdd6e5990c2a0478b0f89f1b8cedffd9dda8334fa50d8212.trips.gz",
+        "bytes": 58353
+      },
+      {
+        "file": "prototype-data/234fee899eab983bffbfa2b02d33d09ea47d53a8503eea6df59810ea82464272.events.gz",
+        "bytes": 2852480
+      },
+      {
+        "file": "prototype-data/2619921a3e4f4ed3b7b2aa6e77f732cb80e19ec63aa68565d7aec01adf99baf3.events.gz",
+        "bytes": 2499231
+      },
+      {
+        "file": "prototype-data/28b1d6beddf7ef999b4d34aba33ba04a4068cb838590c21f1d4d21ae8e591a4c.trips.gz",
+        "bytes": 4896
+      },
+      {
+        "file": "prototype-data/2b63ae9738c78cadec8b310206bb79510a62a00ba1613dffa4b391c457cf16cc.trips.gz",
+        "bytes": 40050
+      },
+      {
+        "file": "prototype-data/2c340a432d663bbb60d9367229d55358c694d8d9d0d9831996f3f43048bc7878.events.gz",
+        "bytes": 194211
+      },
+      {
+        "file": "prototype-data/3175176f116dfe4bcc947f24ed704f72466d3e9b9d0ff722ea4e75c9d859a344.trips.gz",
+        "bytes": 111602
+      },
+      {
+        "file": "prototype-data/339e4013984e2201060c0dd8dcb9a04df38c10cf2c987e1830e71cf75defc861.events.gz",
+        "bytes": 2499259
+      },
+      {
+        "file": "prototype-data/346b921dcfa63f50e0caed0753d8c67956f9eb076dae040ff648c84e88552cab.trips.gz",
+        "bytes": 108411
+      },
+      {
+        "file": "prototype-data/3571c30b85cefd2c8bbd629712899f80d8bfcce92240d96a3b36d61b449d3501.trips.gz",
+        "bytes": 39984
+      },
+      {
+        "file": "prototype-data/386b71d9e240304babd32755faa477e5f5235dbb5c72fdd1f52e5399d682cd0f.events.gz",
+        "bytes": 2866559
+      },
+      {
+        "file": "prototype-data/3ad7d8eb20f7b726357641486f919d40d88a4deb8eac04cd8b7f545ca81a6ce3.events.gz",
+        "bytes": 2853622
+      },
+      {
+        "file": "prototype-data/3b9790ab8e68c41b951a4417b7d81fab9fa78b6dd04c913da9c1a8a595190f68.events.gz",
+        "bytes": 1888017
+      },
+      {
+        "file": "prototype-data/3c05623a2d7ac449d8dc984f2bd3906a6e7c1dd5cfbab2742f92e3608feacc02.trips.gz",
+        "bytes": 41071
+      },
+      {
+        "file": "prototype-data/3f081d5ebdd900861acb5557d168c451433562fedacc2c3658a584fe4d69a2ab.trips.gz",
+        "bytes": 112381
+      },
+      {
+        "file": "prototype-data/3f2f896858845df4bab043e5501c0c03b4f0b41db6365a95e4f52f84397f4f21.events.gz",
+        "bytes": 2851056
+      },
+      {
+        "file": "prototype-data/41492abd0105914670489cff7debaf28554758db7264d89d1915c591c116dd19.events.gz",
+        "bytes": 193984
+      },
+      {
+        "file": "prototype-data/42e39a984dd516952b04eb7407c09e799b24970bf4e51479584ee88bb5d4f187.events.gz",
+        "bytes": 1112611
+      },
+      {
+        "file": "prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+        "bytes": 111371
+      },
+      {
+        "file": "prototype-data/437d7d242799be927b0536c9a2dfef55c9e3b14b8118a20cd99155c92d3eb34a.trips.gz",
+        "bytes": 4957
+      },
+      {
+        "file": "prototype-data/4383850ab77a2d580b8e249d414b8bd5b4d74cb323c88e5d86e462acc3dd6b6e.trips.gz",
+        "bytes": 112389
+      },
+      {
+        "file": "prototype-data/45c9a27857d8104af2e89a63756aaa7fb21b04eb45fd8c05c53de873f447300b.events.gz",
+        "bytes": 2848417
+      },
+      {
+        "file": "prototype-data/49e3fa9728066db9e480fd552558eb238a648316245027ba358d00a37e72c9b0.events.gz",
+        "bytes": 1889902
+      },
+      {
+        "file": "prototype-data/4c113562616dcaacdc84a9527f550fe910e5b0374aefefeaf19f39602e68533b.trips.gz",
+        "bytes": 77153
+      },
+      {
+        "file": "prototype-data/4de6de5111cfd44cc47499a3a08e417a4a0278c1f5db5e8dfab6e587c7605046.trips.gz",
+        "bytes": 38745
+      },
+      {
+        "file": "prototype-data/4f3893b9408108c6b53f3de10c8e6711414a81e187033e1521a72b36bba6f784.trips.gz",
+        "bytes": 17293
+      },
+      {
+        "file": "prototype-data/50dbb028db24806af4b37d991ed7c8d28de77f64b695b3a5a8d359d45db5b07d.trips.gz",
+        "bytes": 111758
+      },
+      {
+        "file": "prototype-data/526a33c45de2aae26c53f7c472a7a1ccae3757341c881df8830285cff7e86eeb.events.gz",
+        "bytes": 1143732
+      },
+      {
+        "file": "prototype-data/53730f4e4a051d6bcdf42c80b7b29be5f125158c7c8c027340b60182cf037b3e.trips.gz",
+        "bytes": 17222
+      },
+      {
+        "file": "prototype-data/53ea8d0bb4bbfbb9e9ed5e1ad31a0aad35e7d8a8f579063230e5c629fa345820.events.gz",
+        "bytes": 193557
+      },
+      {
+        "file": "prototype-data/55da978e1d54d7551dc2d3811d993bf51ad64bcb43a84040a8afd33ee5673713.trips.gz",
+        "bytes": 1687
+      },
+      {
+        "file": "prototype-data/59e83bca97a73a3b9ac5af38d3b4626e24410e145dec97ddefd7b9c491d4f1a2.events.gz",
+        "bytes": 2987887
+      },
+      {
+        "file": "prototype-data/5c4dc04079a5353d3ae1efa08a13d3b614c9fe3cac563e554a7931910e9fd773.events.gz",
+        "bytes": 2842353
+      },
+      {
+        "file": "prototype-data/5cb598ee53fec51dfacdee55c28703f2d1e159071731c6af5cf427d4c73d8c7a.events.gz",
+        "bytes": 129960
+      },
+      {
+        "file": "prototype-data/60ebb3d4456a21300a8d11aecf591a5ed02a63e4efdcf71b0600f7b571f95074.events.gz",
+        "bytes": 1191248
+      },
+      {
+        "file": "prototype-data/61305f659d842a2916cda8b05f77e308decbedef938a4460a3e7e9496f487698.trips.gz",
+        "bytes": 107514
+      },
+      {
+        "file": "prototype-data/63727444c2d8cadcc6fe6d7822703139e439dda39c59fc595a55413fb48f6487.events.gz",
+        "bytes": 1878861
+      },
+      {
+        "file": "prototype-data/6496e88301d4dfae032dd64194739c1168fea48c4be9889dbdaf03e27c4c228d.events.gz",
+        "bytes": 2856276
+      },
+      {
+        "file": "prototype-data/65239baf3fcc9d3e4bf9d3e7bf92a7eea3b23a695e723d0d897f68e4fc4c3f13.trips.gz",
+        "bytes": 41879
+      },
+      {
+        "file": "prototype-data/675024ac04b9035a80f676c3478cc03d53efe3a3fd02fd3b5bc2bed74c209b29.trips.gz",
+        "bytes": 58749
+      },
+      {
+        "file": "prototype-data/6a35fea9ee7be3ddadd443d1b0f224bcb6558f9ad3e070ce12c13431b9568eb2.trips.gz",
+        "bytes": 109029
+      },
+      {
+        "file": "prototype-data/6f1098dad31ce1bb83ae3d9e12b5b945bd8c872ef5e38f94121ddaabf9d525df.events.gz",
+        "bytes": 2847495
+      },
+      {
+        "file": "prototype-data/6fcca30bafdcb9b1f926c9bc52e17ed43527c5441d0cf71ea378d432d607c861.trips.gz",
+        "bytes": 57322
+      },
+      {
+        "file": "prototype-data/718793d94621296aa978377e1010de755d134440612e020eea3fb75be44768b6.events.gz",
+        "bytes": 2842147
+      },
+      {
+        "file": "prototype-data/738bc2c351d517b0a579513ef0190da72837abec3fdeaad22a4d8f94c976ba44.trips.gz",
+        "bytes": 59317
+      },
+      {
+        "file": "prototype-data/74233f04bb29ddbc03a11a6690c27649d43899f69c5be1964a952856225f957f.events.gz",
+        "bytes": 1119514
+      },
+      {
+        "file": "prototype-data/77567ec15b40bd4be78d7640de80842370f1c0bafc0db465278d3e755929b5c2.events.gz",
+        "bytes": 2982477
+      },
+      {
+        "file": "prototype-data/786df6504caa81bad75652c534e6010d0ba95dd28cb1ca412d9fbbccc776aacd.events.gz",
+        "bytes": 2989239
+      },
+      {
+        "file": "prototype-data/78712f36bc30a9e37a345d194db7c8d132e7102b6976aadfabf6c43df858c456.trips.gz",
+        "bytes": 1699
+      },
+      {
+        "file": "prototype-data/79efaa49f59fdaa04fa09a175dfb00f8dbc9e61db995a353eace2ae153ffbcc8.trips.gz",
+        "bytes": 16766
+      },
+      {
+        "file": "prototype-data/7b63f471c4c099a4ac3ecd595c47f3aa91d77de7d97460decb1b998a4ea4897f.events.gz",
+        "bytes": 1894931
+      },
+      {
+        "file": "prototype-data/7cb758580fd6554eb7ed08568fd8b23fdcedbf024f935b87a45a499a3fdea2aa.trips.gz",
+        "bytes": 108116
+      },
+      {
+        "file": "prototype-data/7ee2d91db0f843e004a5eb4388d302160212cb70d6439892e94e01f2ec47d838.trips.gz",
+        "bytes": 111909
+      },
+      {
+        "file": "prototype-data/8243b1b05ecd2b83bed5c7e6735387850dc94cc9f51674826c7f9c5ce7a34bc4.events.gz",
+        "bytes": 2846988
+      },
+      {
+        "file": "prototype-data/82736bac47a880eb005aad3f00bb8e4e94565df2001ea633374e5ba7bf0fae95.events.gz",
+        "bytes": 193678
+      },
+      {
+        "file": "prototype-data/837ea1364207f17538acce86f707673d56765767fe0d8d415884ca84a694a65a.events.gz",
+        "bytes": 193836
+      },
+      {
+        "file": "prototype-data/83aa5b5852fdaeb0d706ff1d9954bf56342587bac1177a9611dc90d489a4c7a2.trips.gz",
+        "bytes": 111730
+      },
+      {
+        "file": "prototype-data/83f30256d46c8f197edc35e7a0b7160f220dd427c9e591ec94944e0bdbe7889d.trips.gz",
+        "bytes": 17234
+      },
+      {
+        "file": "prototype-data/8438c2387801cf3a492e9f0e2d71fac895affc2577b97e7e5d5a1c4f169d1725.events.gz",
+        "bytes": 2858950
+      },
+      {
+        "file": "prototype-data/898c9b8db3949e224f8519be7843d128c62f90bd87691418a0dbff0964bde4a2.events.gz",
+        "bytes": 31614
+      },
+      {
+        "file": "prototype-data/89a32c927f71afc737826e601c99e3a62ed02d23778520989b2d911ae3fc9333.events.gz",
+        "bytes": 2261745
+      },
+      {
+        "file": "prototype-data/8b15a574caf9e5102ba3b9397301bf8645bd8080aa473249740e6a8c3cd7234c.trips.gz",
+        "bytes": 107129
+      },
+      {
+        "file": "prototype-data/8cbf3ab4b50ef8bbbba6d3c03a7b521c497585b51c567690e7e47098603390ce.trips.gz",
+        "bytes": 2870
+      },
+      {
+        "file": "prototype-data/8cd57c87b2e8fb787d407f4887f90fe7ef8237b888508916cfd67bfbf8fe2f02.trips.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "prototype-data/8dc9ab12cf20987574d706a6d4f6c7548d41abc8ad0dc3542494239ef9266e05.trips.gz",
+        "bytes": 17279
+      },
+      {
+        "file": "prototype-data/9075a41bdf59bb4b5e0f201dd307bda846ed756ee5b3aa1e4af352ca3cf9e4f0.events.gz",
+        "bytes": 1195170
+      },
+      {
+        "file": "prototype-data/92c0436fc40a0e19e145b44f3e90ce00ee2942ff4b7e9e83c4703ad986882e39.trips.gz",
+        "bytes": 69984
+      },
+      {
+        "file": "prototype-data/9373f5aec0c4d7339210a28c8743b20b5a5f16b87ab8996db6bdf1d3d0060ab4.events.gz",
+        "bytes": 2851377
+      },
+      {
+        "file": "prototype-data/93f68c46e85ce2ea4d26b5b97e10e38d3abd1bdb02032caad90bb9e0dc7d62cc.trips.gz",
+        "bytes": 111890
+      },
+      {
+        "file": "prototype-data/9633e249cf96626cd0815af9b00341959b86f27b23e112aa25daf3f932ed493f.events.gz",
+        "bytes": 2989706
+      },
+      {
+        "file": "prototype-data/979070b0832aa9437f6423a2b1ce7ddea5bfae874287961e65f962bf7f56864f.events.gz",
+        "bytes": 2258982
+      },
+      {
+        "file": "prototype-data/9925e78c91b6a9beb518afc4272a70f7d643a26228cb30fd31e9701748ce5e11.events.gz",
+        "bytes": 2835338
+      },
+      {
+        "file": "prototype-data/99acbeaee3378c41a228c4d8e5fbcfdec35335e3574df807e9520d51648c6478.events.gz",
+        "bytes": 186985
+      },
+      {
+        "file": "prototype-data/99ba4697806130c16d29508ca9584f9c7e05e1e833bfb55fc8d1e86e0ce4900e.events.gz",
+        "bytes": 193790
+      },
+      {
+        "file": "prototype-data/99f7e65272dd7ae66cc76a214569dfd42fb16a8f837439ed8f67cb3c6a63cb16.events.gz",
+        "bytes": 1144678
+      },
+      {
+        "file": "prototype-data/9af72fd3b68de0d731ee12c0cd2e3c47ff7bc9e55cab6237bac968a2dea7a93e.events.gz",
+        "bytes": 2855500
+      },
+      {
+        "file": "prototype-data/9b4a311d914e5d2447af6bd840e417ae71114abf0465b0242560ee07bd6b7a1f.trips.gz",
+        "bytes": 107243
+      },
+      {
+        "file": "prototype-data/9d30c6b78fbcefb1d7ede70f14381a1334d4977b98f0d2f71c61275a96ccccd7.events.gz",
+        "bytes": 2854823
+      },
+      {
+        "file": "prototype-data/9f74c6b2eab3dae6fcf5dddea382a4752008223d0475be3351668e36325ba232.events.gz",
+        "bytes": 2984607
+      },
+      {
+        "file": "prototype-data/a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "prototype-data/a26f4b26e768be3186a10239586ae6117815a6387717951edae7e061421561c0.trips.gz",
+        "bytes": 108316
+      },
+      {
+        "file": "prototype-data/a36bba717f824ceab5362a57f3585681727995a46d994ac2f8cc60530782640c.events.gz",
+        "bytes": 1892067
+      },
+      {
+        "file": "prototype-data/a39582737a5df550d86d05061f7b91dd2304c1dbcb3cf0eaf4f31faecb490baf.trips.gz",
+        "bytes": 42654
+      },
+      {
+        "file": "prototype-data/a402af8c8a5039a09d8bad9c08e75491e18a203752f38caef7d39bdf407d90f9.events.gz",
+        "bytes": 130579
+      },
+      {
+        "file": "prototype-data/a541e79e27c944989d261b92e637ef9a32036c957f0e692d384a17c547b0a556.trips.gz",
+        "bytes": 58390
+      },
+      {
+        "file": "prototype-data/a70be455bae63830b7a878d17fd521c637ea9b967423ed1eafe29ec4a1d8b35f.events.gz",
+        "bytes": 1745645
+      },
+      {
+        "file": "prototype-data/a72f20416e3c5ed9712a2930777834af4ca71c6cfc5811bc458fea855038de22.trips.gz",
+        "bytes": 4942
+      },
+      {
+        "file": "prototype-data/a8ad90267da85578977c4673363ad1f45dbd70f74bbac36a93201fe4f95580e2.trips.gz",
+        "bytes": 112151
+      },
+      {
+        "file": "prototype-data/aa263467771f2749a0181eb139ce82d24d5a97dd3e161b75070a993301fb8c60.trips.gz",
+        "bytes": 17251
+      },
+      {
+        "file": "prototype-data/ab778f95626c469d5ef9d5e458b3a0531363c72b5e9ab4bd79a7332b73da1af3.trips.gz",
+        "bytes": 54942
+      },
+      {
+        "file": "prototype-data/ad23439eee57dac8dfd37dd70ef8de037cbbed46fbb7881731af1972264bdcb7.trips.gz",
+        "bytes": 17194
+      },
+      {
+        "file": "prototype-data/add12d2fa58939288f7c110a20d43749160081d020a249fcda406a02e3bf2ecc.trips.gz",
+        "bytes": 110823
+      },
+      {
+        "file": "prototype-data/afba57954f311048e73f5297adc33c6bc8cc322df28dcb1b23599a588c64ad72.events.gz",
+        "bytes": 2860462
+      },
+      {
+        "file": "prototype-data/b0fe932cc68cc23eb9f36978e56426b0517e4d213e95f2a3824851152fd7f451.trips.gz",
+        "bytes": 76787
+      },
+      {
+        "file": "prototype-data/b101373197ce91172c643dfb5a4669cda1dc72486fcd31d751bc50cac4cea526.events.gz",
+        "bytes": 1952050
+      },
+      {
+        "file": "prototype-data/b1cca7213253a35071c4f6eec374e22ae3c202fd8f97965668ddf14744ce43b3.events.gz",
+        "bytes": 67106
+      },
+      {
+        "file": "prototype-data/b331feb5d6b845c50ae3b2a82c316949e256e2f1165733700086b87a788c90e6.trips.gz",
+        "bytes": 112749
+      },
+      {
+        "file": "prototype-data/b7be5c0af37927f3b0a148cca6be9fc64a8c3a2685acf05def5f0026705a3e8b.events.gz",
+        "bytes": 130372
+      },
+      {
+        "file": "prototype-data/b825f857ed2f40398e1da148b54f6f15bc87d9f88d2abd3b98edf8a34b276509.trips.gz",
+        "bytes": 77716
+      },
+      {
+        "file": "prototype-data/b87f3c40c0a53e4d6e695419ab30bf9f8c067c83167d2ff283d3959c908ec0e4.trips.gz",
+        "bytes": 70010
+      },
+      {
+        "file": "prototype-data/b92c2297435be89fb8c42c1d7e67cd6ceefc9ab5e838c26b1eb7641ee8d2ec26.events.gz",
+        "bytes": 2846996
+      },
+      {
+        "file": "prototype-data/b9b3eecf20e977ad5b32228a327d948843f2b1ded0c53428c168cf2f5eb92c1d.trips.gz",
+        "bytes": 108008
+      },
+      {
+        "file": "prototype-data/ba65aec1cfae98e92e78e30142ba5819a1e0091df0f2626c142be604ab53f1de.trips.gz",
+        "bytes": 17253
+      },
+      {
+        "file": "prototype-data/bb6dad379cfccf2e4291c4b52f7dfe6e5ede7185b8681f0a0c9f1badff23c796.trips.gz",
+        "bytes": 108028
+      },
+      {
+        "file": "prototype-data/bc317c41ad2cae4b356e561c6f40bf431f0df2dff29e388b048de4c2df273153.events.gz",
+        "bytes": 1136523
+      },
+      {
+        "file": "prototype-data/be46ce02ba8c7b997b0ce4ec7d15b5583afeac769a638f9aaa0b533fb2164c37.events.gz",
+        "bytes": 2993591
+      },
+      {
+        "file": "prototype-data/be7d9a0815fa41b557bacadab367d23a379f51db76b43fd2e82895ca42dd35a1.trips.gz",
+        "bytes": 39075
+      },
+      {
+        "file": "prototype-data/bf3ce69b214876c2b381706271ba17293a388f66089ed0a275f5dd50319a092c.trips.gz",
+        "bytes": 45333
+      },
+      {
+        "file": "prototype-data/c27cba6302c6bfc9e3417736665672877c2ca4500ec5e688ceab5a799fe0343f.trips.gz",
+        "bytes": 110417
+      },
+      {
+        "file": "prototype-data/c34090021bbb9e7d6dd7ed5fd82d9fbb099eeaf21a82f5d7367661dd3847ee5a.trips.gz",
+        "bytes": 108660
+      },
+      {
+        "file": "prototype-data/c3abb0cfd0bb3ab33db5c78b8321b513c3be6fec3f4a49cceddae3b751ba65a8.events.gz",
+        "bytes": 194254
+      },
+      {
+        "file": "prototype-data/c5e5d2886942987adfb954684beade75cacd82f1a822eeff35022ce0c8a99b1f.events.gz",
+        "bytes": 2977624
+      },
+      {
+        "file": "prototype-data/c6961935b71baf5ee28a9653f7d1288c6ffc6a99629571907987ffd4cb6eaf99.events.gz",
+        "bytes": 2994783
+      },
+      {
+        "file": "prototype-data/c6ae88a61c3faf39fdc54a2eafad7b7da80e2e1ed4b112cda679086b31afcf72.events.gz",
+        "bytes": 2858524
+      },
+      {
+        "file": "prototype-data/c8270d293ecd5713ef90a07c9b54fb6a4e2555896b7fee3518e59268a540b796.events.gz",
+        "bytes": 2988295
+      },
+      {
+        "file": "prototype-data/c87f530ef18ed66b33867cb456a9f9146b3ff9040a3f99a6d22900a6ec133d7c.events.gz",
+        "bytes": 1920373
+      },
+      {
+        "file": "prototype-data/cbe6584f1504711cd2267930dd45982ce40b7f09dce63a5c6c656b35076d1cbc.trips.gz",
+        "bytes": 111357
+      },
+      {
+        "file": "prototype-data/cc06e4eaba570c9bcf4be3fb37b1c741b4626af1aef353b8e74a8c20294899af.trips.gz",
+        "bytes": 112383
+      },
+      {
+        "file": "prototype-data/cd781a65ca5c63e38f36df888e975484cbf9f7678ae73b38fb2a1fcbaf755901.events.gz",
+        "bytes": 2987667
+      },
+      {
+        "file": "prototype-data/cda4022e83ca31d3d1f3aeb1bc5f0c7597c62b9e38a19fedff6d44e678015be3.events.gz",
+        "bytes": 2261798
+      },
+      {
+        "file": "prototype-data/ce06a0860a00ecefea50eeb513cf06463eee1108698c984b857dce86df704514.trips.gz",
+        "bytes": 111960
+      },
+      {
+        "file": "prototype-data/ceba26900e59f594dfb120e934b16b252902e4a8102297522b12f686ccc1e3ce.events.gz",
+        "bytes": 2840247
+      },
+      {
+        "file": "prototype-data/d2021d141f1e2cba01c964c28466d26f716950d45991d1691fb10b664867a8ce.events.gz",
+        "bytes": 2976315
+      },
+      {
+        "file": "prototype-data/d3b3b9fa9c254b365788450984d2661bd4386b16d1483de57bf4e575b3b87f93.events.gz",
+        "bytes": 130170
+      },
+      {
+        "file": "prototype-data/d5b4dd9e9419f90c82b954156eb9cb3f05416eaf5d361f756fb3bd21676e9b5e.trips.gz",
+        "bytes": 17309
+      },
+      {
+        "file": "prototype-data/d839679dedb46374c7190c07bd0fae28136bd3c90f94eae96261ae554dd1712c.trips.gz",
+        "bytes": 40136
+      },
+      {
+        "file": "prototype-data/db7997f7768233004848828a83fda03ea505b4944f620744f9058b7e982d73f1.trips.gz",
+        "bytes": 70039
+      },
+      {
+        "file": "prototype-data/dc7b986bb406ab289b68667b856635f0d945619487d1519daf08c53c7c061361.events.gz",
+        "bytes": 2261847
+      },
+      {
+        "file": "prototype-data/dd0f47c76a9b7f2f2277f46b94549b24de3ccabd89c3362699c4d195a18e3a7e.trips.gz",
+        "bytes": 110981
+      },
+      {
+        "file": "prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+        "bytes": 502394
+      },
+      {
+        "file": "prototype-data/de2f6bcccba88d66fc93c1e8d442e6488586e613930dcebcd37e626a5219e960.events.gz",
+        "bytes": 1169750
+      },
+      {
+        "file": "prototype-data/de9b6276b208e77b545be7544748a7dde99cbbfbd40e93fa84c5eff309b2d733.trips.gz",
+        "bytes": 112294
+      },
+      {
+        "file": "prototype-data/df1532a25b1260ad85f52a927cbccd0f2e47fd4903233e0f0468d515432c36ca.trips.gz",
+        "bytes": 111903
+      },
+      {
+        "file": "prototype-data/e154a18aa9fe07e13ddf33d01ed2fb3c25b62d776f2f838c2fb5c849db9052ec.events.gz",
+        "bytes": 2974038
+      },
+      {
+        "file": "prototype-data/ea86023908a677bc8fb25e7dcd61b9ebd0c61c2052b90b5552205fc4c3a10bdc.trips.gz",
+        "bytes": 58942
+      },
+      {
+        "file": "prototype-data/eacf08cca7d3086aaed348fc7af8189052e399400d874036fbafd36cd6c0bcf7.trips.gz",
+        "bytes": 112410
+      },
+      {
+        "file": "prototype-data/ecf3317c3c0562c8bd582fee186a07a3286740b12a84664d66abda8162f11a75.trips.gz",
+        "bytes": 110575
+      },
+      {
+        "file": "prototype-data/edd7abc37fa2156424a259ab868a56e78827ff3e847031b0f2c01e43c2d1de37.events.gz",
+        "bytes": 2985948
+      },
+      {
+        "file": "prototype-data/ee9fc5eced3fe28313281e87ed4c550d3670d656fb3ca6c91703d95c3ab3beff.trips.gz",
+        "bytes": 112475
+      },
+      {
+        "file": "prototype-data/f14fe06ad1cf60f2e5f70ac5c59f56bc0abcaefeb11b2482edb8d90555b5c003.events.gz",
+        "bytes": 1195000
+      },
+      {
+        "file": "prototype-data/f1abfff070228ad66ed71165c81557dcb10bfa8d01bed8cee33a1cb20cbfdadb.events.gz",
+        "bytes": 2859424
+      },
+      {
+        "file": "prototype-data/f3502cfe0c5b8556b05ab1f3609d25afbac4cebd1929d8ea7265b714fcc96f35.events.gz",
+        "bytes": 2845066
+      },
+      {
+        "file": "prototype-data/f5489b7ac611721e2ffbf56a727862fb0ef1707228ae3921f25a4b31ac6683a8.trips.gz",
+        "bytes": 111843
+      },
+      {
+        "file": "prototype-data/f766b0e69c056bedaceed19e125b479effea2538943a9c29bfe24648a5e9c9b0.events.gz",
+        "bytes": 2849619
+      },
+      {
+        "file": "prototype-data/f937f288a64282fd19270755bdd587891135587acd49586a1f6e5a059397b555.consultation.gz",
+        "bytes": 571242
+      },
+      {
+        "file": "prototype-data/f9a3cc9bce34534b9fbcef7783e30e3fdd544b8b29850ac6f2d8ed7e7b9d038e.events.gz",
+        "bytes": 1199769
+      },
+      {
+        "file": "prototype-data/f9c2accc9918c68986e7c6da6476a37bb0c2e587dfba663ceff5ddfd49436543.trips.gz",
+        "bytes": 110539
+      },
+      {
+        "file": "prototype-data/fa6458965e6ff5a9717eb7457a1e444d12eef986ae8ebb76485c155e220a2638.events.gz",
+        "bytes": 2495265
+      },
+      {
+        "file": "prototype-data/fadcc0f96b3bdeb1c1ac26c4f771d15061a80e61592ff2df4336b7171c941dba.events.gz",
+        "bytes": 67341
+      },
+      {
+        "file": "prototype-data/fe4d9b431d9ca753c1fc04bd5054603e092661dde6d400570c18a4566a9bdb34.trips.gz",
+        "bytes": 108669
+      },
+      {
+        "file": "prototype-data/ffa0764e4b7aa4bfa7460b0ff0d6704d6203922856255accdd3968bc1e95ea50.trips.gz",
+        "bytes": 70608
+      },
+      {
+        "file": "prototype-data/manifest.json",
+        "bytes": 65115
+      },
+      {
+        "file": "prototype-data/version.json",
+        "bytes": 227
+      },
+      {
+        "file": "licenses/maplibre-gl.txt",
+        "bytes": 5984
+      },
+      {
+        "file": "experiments/preproduction/index.html",
+        "bytes": 377
+      },
+      {
+        "file": "assets/index-BqlNYnKW.js",
+        "bytes": 6455
+      },
+      {
+        "file": "assets/JourneyMap-BXC8ahol.js",
+        "bytes": 10621
+      },
+      {
+        "file": "assets/JourneyMap-qvkd0SPb.css",
+        "bytes": 71339
+      },
+      {
+        "file": "assets/main-CThbyH1T.css",
+        "bytes": 19654
+      },
+      {
+        "file": "assets/main-DavYXArU.js",
+        "bytes": 312770
+      },
+      {
+        "file": "assets/maplibre-gl-Dwh-Jjno.js",
+        "bytes": 1078232
+      },
+      {
+        "file": "assets/worker-BlrFQPUx.js",
+        "bytes": 64597
+      }
+    ],
+    "extra": {
+      "file": "f937f288a64282fd19270755bdd587891135587acd49586a1f6e5a059397b555.consultation.gz",
+      "sha256": "f937f288a64282fd19270755bdd587891135587acd49586a1f6e5a059397b555",
+      "bytes": 571242,
+      "rawBytes": 7338781
+    },
+    "tripLocators": 140442,
+    "directions": 26327
+  },
+  "edge": {
+    "checks": [
+      "React exact stop selection and real GTFS proposals without an HTTP API",
+      "Existing favorite saved locally",
+      "Theoretical timetable in browser; no past passage labelled future",
+      "React navigation and local favorites retained",
+      "TCL unavailable: no normal-traffic assertion, no stale announcements",
+      "React viewports 1440/768/390/320",
+      "No /api request reached the static server"
+    ],
+    "cases": [
+      {
+        "name": "stop-routing",
+        "repeat": 0,
+        "wallMs": 256.10360000000014,
+        "proposals": 6
+      },
+      {
+        "name": "stop-routing",
+        "repeat": 1,
+        "wallMs": 7.278600000000097,
+        "proposals": 6
+      },
+      {
+        "name": "stop-routing",
+        "repeat": 2,
+        "wallMs": 6.546100000000024,
+        "proposals": 6
+      }
+    ],
+    "errors": [],
+    "cors": [
+      {
+        "name": "geocoding",
+        "status": 200,
+        "type": "cors",
+        "ms": 81.39999997615814,
+        "valid": true
+      },
+      {
+        "name": "pedestrian",
+        "status": 200,
+        "type": "cors",
+        "ms": 33.69999998807907,
+        "valid": true
+      }
+    ],
+    "notes": [
+      "Static file server only: no SQLite/Vite/API middleware. React components reused. Physical mobile not tested."
+    ],
+    "browser": "Edg/157.0.4341.42",
+    "openMs": 237.8927,
+    "uiComputeAndRenderMs": 150.71669999999995,
+    "map": {
+      "canvas": true,
+      "markers": 5,
+      "error": "",
+      "timings": "Mesures de la carteArrêts/API : 111.1 ms · Initialisation : 106.2 ms · Premier rendu après mise à jour : 13.9 ms."
+    },
+    "afterMapMemory": {
+      "main": {
+        "usedSize": 6975032,
+        "totalSize": 10223616,
+        "embedderHeapUsedSize": 5877112,
+        "backingStorageSize": 1645619
+      },
+      "worker": {
+        "usedSize": 25015600,
+        "totalSize": 59133952,
+        "embedderHeapUsedSize": 29096,
+        "backingStorageSize": 46940210
+      }
+    },
+    "requests": [
+      "/experiments/preproduction/index.html",
+      "/assets/index-BqlNYnKW.js",
+      "/assets/main-DavYXArU.js",
+      "/assets/main-CThbyH1T.css",
+      "/favicon.ico",
+      "/assets/worker-BlrFQPUx.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/version.json",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/prototype-data/version.json",
+      "/prototype-data/version.json",
+      "/prototype-data/version.json",
+      "/assets/JourneyMap-BXC8ahol.js",
+      "/assets/JourneyMap-qvkd0SPb.css",
+      "/assets/maplibre-gl-Dwh-Jjno.js",
+      "/preproduction.json",
+      "/prototype-data/f937f288a64282fd19270755bdd587891135587acd49586a1f6e5a059397b555.consultation.gz",
+      "/assets/maplibre-gl-worker.mjs",
+      "/prototype-data/a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+      "/prototype-data/20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz"
+    ],
+    "status": "passed"
+  },
+  "firefox": {
+    "checks": [
+      "React exact stop selection and real GTFS proposals without an HTTP API",
+      "Existing favorite saved locally",
+      "Theoretical timetable in browser; no past passage labelled future",
+      "React navigation and local favorites retained",
+      "TCL unavailable: no normal-traffic assertion, no stale announcements",
+      "React viewports 1440/768/390/320",
+      "No /api request reached the static server"
+    ],
+    "cases": [
+      {
+        "name": "stop-routing",
+        "repeat": 0,
+        "wallMs": 382.31349999999975,
+        "proposals": 6
+      },
+      {
+        "name": "stop-routing",
+        "repeat": 1,
+        "wallMs": 23.127799999999752,
+        "proposals": 6
+      },
+      {
+        "name": "stop-routing",
+        "repeat": 2,
+        "wallMs": 10.985700000000179,
+        "proposals": 6
+      }
+    ],
+    "errors": [],
+    "cors": [
+      {
+        "name": "geocoding",
+        "status": 200,
+        "type": "cors",
+        "ms": 42,
+        "valid": true
+      },
+      {
+        "name": "pedestrian",
+        "status": 200,
+        "type": "cors",
+        "ms": 56,
+        "valid": true
+      }
+    ],
+    "notes": [
+      "Static file server only: no SQLite/Vite/API middleware. React components reused. Physical mobile not tested."
+    ],
+    "browser": "Firefox/159.0.1",
+    "openMs": 210.0073,
+    "uiComputeAndRenderMs": 171.76350000000048,
+    "map": {
+      "canvas": true,
+      "markers": 5,
+      "error": "",
+      "timings": "Mesures de la carteArrêts/API : 331.0 ms · Initialisation : 327.0 ms · Premier rendu après mise à jour : 8.0 ms."
+    },
+    "requests": [
+      "/experiments/preproduction/index.html",
+      "/assets/index-BqlNYnKW.js",
+      "/assets/main-DavYXArU.js",
+      "/assets/main-CThbyH1T.css",
+      "/favicon.ico",
+      "/assets/worker-BlrFQPUx.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/version.json",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/prototype-data/version.json",
+      "/prototype-data/version.json",
+      "/prototype-data/version.json",
+      "/assets/JourneyMap-BXC8ahol.js",
+      "/assets/JourneyMap-qvkd0SPb.css",
+      "/assets/maplibre-gl-Dwh-Jjno.js",
+      "/preproduction.json",
+      "/prototype-data/f937f288a64282fd19270755bdd587891135587acd49586a1f6e5a059397b555.consultation.gz",
+      "/assets/maplibre-gl-worker.mjs",
+      "/prototype-data/a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+      "/prototype-data/20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz"
+    ],
+    "status": "passed"
+  },
+  "live": {
+    "checks": [
+      "Full door-to-stop computation in browser with fresh official IGN paths, no API relay",
+      "React live door journey and map show the available official IGN walking geometry",
+      "Aborted address request rejected"
+    ],
+    "cases": [
+      {
+        "repeat": 0,
+        "perceivedMs": 14044.800000011921,
+        "metrics": {
+          "durationMs": 14007.5,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 67,
+          "sqlQueries": 14,
+          "candidatePlatforms": 68,
+          "confirmedPlatforms": 48,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0.20000004768371582,
+          "walkingWallMs": 13584.599999964237,
+          "routingMs": 325.5999999642372,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 2028.8000000715256,
+          "upstreamRequests": 48,
+          "cacheHits": 1,
+          "queueMs": 18785.400000214577
+        },
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      },
+      {
+        "repeat": 1,
+        "perceivedMs": 6.5,
+        "metrics": {
+          "durationMs": 2,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 0,
+          "sqlQueries": 2,
+          "candidatePlatforms": 68,
+          "confirmedPlatforms": 48,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0,
+          "walkingWallMs": 0.5,
+          "routingMs": 0.10000002384185791,
+          "engineCacheHit": true,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 49,
+          "queueMs": 0
+        },
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      },
+      {
+        "repeat": 2,
+        "perceivedMs": 5.199999988079071,
+        "metrics": {
+          "durationMs": 1.7,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 0,
+          "sqlQueries": 2,
+          "candidatePlatforms": 68,
+          "confirmedPlatforms": 48,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0.10000002384185791,
+          "walkingWallMs": 0.5,
+          "routingMs": 0.09999996423721313,
+          "engineCacheHit": true,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 49,
+          "queueMs": 0
+        },
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      }
+    ],
+    "note": "One live address journey, then two warm repeats using the original IGN cache and queue. No recorded walking response substituted.",
+    "status": "passed"
+  },
+  "benchmark": {
+    "cases": [
+      {
+        "mode": "cold",
+        "openMs": 139.6853000000001,
+        "totalMs": 263.8266999999996,
+        "gtfsMetrics": {
+          "durationMs": 199.60000002384186,
+          "sqlQueries": 8,
+          "sqlMs": 54.3999999165535,
+          "routingMs": 145.20000010728836,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 7,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 2192372,
+          "totalSize": 3407872,
+          "embedderHeapUsedSize": 2821456,
+          "backingStorageSize": 337180
+        },
+        "workerHeap": {
+          "usedSize": 25582488,
+          "totalSize": 49897472,
+          "embedderHeapUsedSize": 540640,
+          "backingStorageSize": 15211748
+        }
+      },
+      {
+        "mode": "warm",
+        "openMs": 0,
+        "totalMs": 4.620299999999588,
+        "gtfsMetrics": {
+          "durationMs": 0.10000002384185791,
+          "sqlQueries": 1,
+          "sqlMs": 0,
+          "routingMs": 0.10000002384185791,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": false,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": true
+        },
+        "requests": 1,
+        "bytes": 227,
+        "mainHeap": {
+          "usedSize": 2256164,
+          "totalSize": 3407872,
+          "embedderHeapUsedSize": 2821456,
+          "backingStorageSize": 349304
+        },
+        "workerHeap": {
+          "usedSize": 25607352,
+          "totalSize": 49897472,
+          "embedderHeapUsedSize": 642568,
+          "backingStorageSize": 15218329
+        }
+      },
+      {
+        "mode": "cold",
+        "openMs": 69.0050999999994,
+        "totalMs": 237.09439999999995,
+        "gtfsMetrics": {
+          "durationMs": 194,
+          "sqlQueries": 8,
+          "sqlMs": 53.000000059604645,
+          "routingMs": 140.99999994039536,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 2681260,
+          "totalSize": 3670016,
+          "embedderHeapUsedSize": 3954544,
+          "backingStorageSize": 679975
+        },
+        "workerHeap": {
+          "usedSize": 25442636,
+          "totalSize": 50421760,
+          "embedderHeapUsedSize": 536440,
+          "backingStorageSize": 15211735
+        }
+      },
+      {
+        "mode": "warm",
+        "openMs": 0,
+        "totalMs": 4.411600000000362,
+        "gtfsMetrics": {
+          "durationMs": 0.19999998807907104,
+          "sqlQueries": 1,
+          "sqlMs": 0.19999998807907104,
+          "routingMs": 0,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": false,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": true
+        },
+        "requests": 1,
+        "bytes": 227,
+        "mainHeap": {
+          "usedSize": 2720748,
+          "totalSize": 3670016,
+          "embedderHeapUsedSize": 3954544,
+          "backingStorageSize": 692099
+        },
+        "workerHeap": {
+          "usedSize": 25547876,
+          "totalSize": 50421760,
+          "embedderHeapUsedSize": 638896,
+          "backingStorageSize": 15218316
+        }
+      },
+      {
+        "mode": "cold",
+        "openMs": 63.67730000000029,
+        "totalMs": 224.9360999999999,
+        "gtfsMetrics": {
+          "durationMs": 182.5999999642372,
+          "sqlQueries": 8,
+          "sqlMs": 51.79999989271164,
+          "routingMs": 130.80000007152557,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 3396740,
+          "totalSize": 5505024,
+          "embedderHeapUsedSize": 5553128,
+          "backingStorageSize": 1022798
+        },
+        "workerHeap": {
+          "usedSize": 25522108,
+          "totalSize": 49897472,
+          "embedderHeapUsedSize": 536480,
+          "backingStorageSize": 15211748
+        }
+      },
+      {
+        "mode": "warm",
+        "openMs": 0,
+        "totalMs": 4.859000000000378,
+        "gtfsMetrics": {
+          "durationMs": 0.20000004768371582,
+          "sqlQueries": 1,
+          "sqlMs": 0.10000002384185791,
+          "routingMs": 0.10000002384185791,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": false,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": true
+        },
+        "requests": 1,
+        "bytes": 227,
+        "mainHeap": {
+          "usedSize": 3434716,
+          "totalSize": 5505024,
+          "embedderHeapUsedSize": 5553128,
+          "backingStorageSize": 1034958
+        },
+        "workerHeap": {
+          "usedSize": 25547056,
+          "totalSize": 49897472,
+          "embedderHeapUsedSize": 638936,
+          "backingStorageSize": 15218347
+        }
+      },
+      {
+        "mode": "cold",
+        "openMs": 63.541299999999865,
+        "totalMs": 255.3206,
+        "gtfsMetrics": {
+          "durationMs": 210.39999997615814,
+          "sqlQueries": 8,
+          "sqlMs": 63.80000001192093,
+          "routingMs": 146.5999999642372,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 4442668,
+          "totalSize": 6029312,
+          "embedderHeapUsedSize": 7088384,
+          "backingStorageSize": 1365655
+        },
+        "workerHeap": {
+          "usedSize": 25636236,
+          "totalSize": 49635328,
+          "embedderHeapUsedSize": 498064,
+          "backingStorageSize": 31101190
+        }
+      },
+      {
+        "mode": "warm",
+        "openMs": 0,
+        "totalMs": 5.488900000000285,
+        "gtfsMetrics": {
+          "durationMs": 0.19999998807907104,
+          "sqlQueries": 1,
+          "sqlMs": 0,
+          "routingMs": 0.19999998807907104,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": false,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": true
+        },
+        "requests": 1,
+        "bytes": 227,
+        "mainHeap": {
+          "usedSize": 4480828,
+          "totalSize": 6291456,
+          "embedderHeapUsedSize": 7088384,
+          "backingStorageSize": 1377779
+        },
+        "workerHeap": {
+          "usedSize": 25741364,
+          "totalSize": 49635328,
+          "embedderHeapUsedSize": 593704,
+          "backingStorageSize": 31107771
+        }
+      },
+      {
+        "mode": "cold",
+        "openMs": 61.60180000000037,
+        "totalMs": 231.17630000000008,
+        "gtfsMetrics": {
+          "durationMs": 187.5999999642372,
+          "sqlQueries": 8,
+          "sqlMs": 53.30000001192093,
+          "routingMs": 134.29999995231628,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 5488208,
+          "totalSize": 7340032,
+          "embedderHeapUsedSize": 8718120,
+          "backingStorageSize": 1708474
+        },
+        "workerHeap": {
+          "usedSize": 25303996,
+          "totalSize": 50159616,
+          "embedderHeapUsedSize": 536400,
+          "backingStorageSize": 15211748
+        }
+      },
+      {
+        "mode": "warm",
+        "openMs": 0,
+        "totalMs": 5.536599999999453,
+        "gtfsMetrics": {
+          "durationMs": 0.19999998807907104,
+          "sqlQueries": 1,
+          "sqlMs": 0.09999996423721313,
+          "routingMs": 0.10000002384185791,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": false,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": true
+        },
+        "requests": 1,
+        "bytes": 227,
+        "mainHeap": {
+          "usedSize": 5526184,
+          "totalSize": 7340032,
+          "embedderHeapUsedSize": 8718120,
+          "backingStorageSize": 1720634
+        },
+        "workerHeap": {
+          "usedSize": 25328944,
+          "totalSize": 50159616,
+          "embedderHeapUsedSize": 638856,
+          "backingStorageSize": 15218347
+        }
+      },
+      {
+        "mode": "main-cpu-4x",
+        "openMs": 78.02370000000064,
+        "totalMs": 286.5167999999994,
+        "gtfsMetrics": {
+          "durationMs": 189.4000000357628,
+          "sqlQueries": 8,
+          "sqlMs": 55.90000003576279,
+          "routingMs": 133.5,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 5475036,
+          "totalSize": 8912896,
+          "embedderHeapUsedSize": 10081344,
+          "backingStorageSize": 2051305
+        },
+        "workerHeap": {
+          "usedSize": 25504292,
+          "totalSize": 50159616,
+          "embedderHeapUsedSize": 536040,
+          "backingStorageSize": 15211735
+        }
+      },
+      {
+        "mode": "slow",
+        "openMs": 61.59349999999995,
+        "totalMs": 10334.461899999998,
+        "gtfsMetrics": {
+          "durationMs": 8333.400000035763,
+          "sqlQueries": 8,
+          "sqlMs": 8199.199999928474,
+          "routingMs": 134.20000010728836,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 6483852,
+          "totalSize": 9437184,
+          "embedderHeapUsedSize": 11460712,
+          "backingStorageSize": 2382002
+        },
+        "workerHeap": {
+          "usedSize": 18348892,
+          "totalSize": 33120256,
+          "embedderHeapUsedSize": 440608,
+          "backingStorageSize": 15211748
+        }
+      },
+      {
+        "mode": "slow",
+        "openMs": 65.87430000000131,
+        "totalMs": 10340.3966,
+        "gtfsMetrics": {
+          "durationMs": 8337.5,
+          "sqlQueries": 8,
+          "sqlMs": 8202.899999976158,
+          "routingMs": 134.60000002384186,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 6814196,
+          "totalSize": 11272192,
+          "embedderHeapUsedSize": 12964296,
+          "backingStorageSize": 2712675
+        },
+        "workerHeap": {
+          "usedSize": 18352800,
+          "totalSize": 33120256,
+          "embedderHeapUsedSize": 440656,
+          "backingStorageSize": 15211737
+        }
+      },
+      {
+        "mode": "slow",
+        "openMs": 65.38739999999962,
+        "totalMs": 10337.2455,
+        "gtfsMetrics": {
+          "durationMs": 8334.300000011921,
+          "sqlQueries": 8,
+          "sqlMs": 8202.899999976158,
+          "routingMs": 131.4000000357628,
+          "legCount": 3650,
+          "transferPairs": 44,
+          "candidateCount": 186,
+          "coldTopology": true,
+          "rounds": 3,
+          "limited": true,
+          "cacheHit": false
+        },
+        "requests": 6,
+        "bytes": 3579918,
+        "mainHeap": {
+          "usedSize": 2124800,
+          "totalSize": 3145728,
+          "embedderHeapUsedSize": 2493384,
+          "backingStorageSize": 336653
+        },
+        "workerHeap": {
+          "usedSize": 17428244,
+          "totalSize": 33120256,
+          "embedderHeapUsedSize": 440656,
+          "backingStorageSize": 15211747
+        }
+      }
+    ],
+    "notes": [
+      "Local HTTP, five fresh-page/worker cold runs followed by warm calls. Supplier not contacted.",
+      "Heap snapshots are not physical mobile memory or exact transient peaks. CPU throttle applies to page only."
+    ],
+    "groups": {
+      "cold": {
+        "totalMs": {
+          "n": 5,
+          "min": 224.9360999999999,
+          "median": 237.09439999999995,
+          "p95": 263.8266999999996,
+          "max": 263.8266999999996
+        },
+        "openMs": {
+          "n": 5,
+          "min": 61.60180000000037,
+          "median": 63.67730000000029,
+          "p95": 139.6853000000001,
+          "max": 139.6853000000001
+        }
+      },
+      "warm": {
+        "totalMs": {
+          "n": 5,
+          "min": 4.411600000000362,
+          "median": 4.859000000000378,
+          "p95": 5.536599999999453,
+          "max": 5.536599999999453
+        },
+        "openMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "slow": {
+        "totalMs": {
+          "n": 3,
+          "min": 10334.461899999998,
+          "median": 10337.2455,
+          "p95": 10340.3966,
+          "max": 10340.3966
+        },
+        "openMs": {
+          "n": 3,
+          "min": 61.59349999999995,
+          "median": 65.38739999999962,
+          "p95": 65.87430000000131,
+          "max": 65.87430000000131
+        }
+      },
+      "main-cpu-4x": {
+        "totalMs": {
+          "n": 1,
+          "min": 286.5167999999994,
+          "median": 286.5167999999994,
+          "p95": 286.5167999999994,
+          "max": 286.5167999999994
+        },
+        "openMs": {
+          "n": 1,
+          "min": 78.02370000000064,
+          "median": 78.02370000000064,
+          "p95": 78.02370000000064,
+          "max": 78.02370000000064
+        }
+      }
+    },
+    "status": "passed"
+  },
+  "faults": {
+    "checks": [
+      "503 explicit, no fabricated result: manifest.json",
+      "503 explicit, no fabricated result: 109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "Corrupted partition rejected",
+      "Unavailable Worker produces explicit error",
+      "External Internet/IGN blocked: stops still route, addresses explicitly unavailable",
+      "Wrong map version rejected",
+      "Actual in-flight cold GTFS load cancelled without a late result"
+    ],
+    "unverified": [
+      "Worker 429 interception: {\"code\":-32601,\"message\":\"'Fetch.enable' wasn't found\"}"
+    ],
+    "status": "passed"
+  },
+  "dependencyAudit": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 34,
+      "dev": 85,
+      "optional": 66,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 118
+    }
+  },
+  "validation": {
+    "tests": 260,
+    "passed": 260,
+    "failed": 0,
+    "lint": "passed",
+    "preproductionTypeScript": "passed",
+    "activeBuild": "passed",
+    "preproductionBuild": "passed"
+  },
+  "limits": {
+    "verifiedAt": "2026-11-10",
+    "cloudflareStaticFiles": 20000,
+    "individualAssetBytes": 26214400,
+    "volumeCompatible": true,
+    "remoteDeploymentTested": false,
+    "physicalPhoneTested": false
+  }
+}

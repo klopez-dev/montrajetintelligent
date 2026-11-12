@@ -1,0 +1,16 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE metadata (id INTEGER PRIMARY KEY CHECK(id=1), json TEXT NOT NULL);
+CREATE TABLE agency (id TEXT PRIMARY KEY, name TEXT NOT NULL, url TEXT NOT NULL, timezone TEXT NOT NULL);
+CREATE TABLE routes (id TEXT PRIMARY KEY, agency_id TEXT NOT NULL REFERENCES agency(id), short_name TEXT NOT NULL, long_name TEXT NOT NULL, type INTEGER NOT NULL);
+CREATE TABLE stops (id TEXT PRIMARY KEY, name TEXT NOT NULL, code TEXT NOT NULL, platform TEXT NOT NULL, parent_id TEXT NOT NULL, latitude REAL, longitude REAL, location_type INTEGER NOT NULL);
+CREATE INDEX stops_parent ON stops(parent_id);
+CREATE TABLE services (id TEXT PRIMARY KEY, start_date TEXT, end_date TEXT, monday INTEGER NOT NULL DEFAULT 0, tuesday INTEGER NOT NULL DEFAULT 0, wednesday INTEGER NOT NULL DEFAULT 0, thursday INTEGER NOT NULL DEFAULT 0, friday INTEGER NOT NULL DEFAULT 0, saturday INTEGER NOT NULL DEFAULT 0, sunday INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE calendar_dates (service_id TEXT NOT NULL REFERENCES services(id), date TEXT NOT NULL, exception_type INTEGER NOT NULL CHECK(exception_type IN(1,2)), PRIMARY KEY(service_id,date));
+CREATE INDEX exceptions_date ON calendar_dates(date,service_id);
+CREATE TABLE trips (id TEXT PRIMARY KEY, route_id TEXT NOT NULL REFERENCES routes(id), service_id TEXT NOT NULL REFERENCES services(id), direction_id TEXT NOT NULL, headsign TEXT NOT NULL);
+CREATE INDEX trips_route ON trips(route_id,id);
+CREATE TABLE stop_times (trip_id TEXT NOT NULL REFERENCES trips(id), stop_id TEXT NOT NULL REFERENCES stops(id), sequence INTEGER NOT NULL, arrival INTEGER, departure INTEGER, headsign TEXT NOT NULL, pickup_type INTEGER NOT NULL, drop_off_type INTEGER NOT NULL, timepoint INTEGER NOT NULL, PRIMARY KEY(trip_id,sequence));
+CREATE INDEX departures_lookup ON stop_times(stop_id,departure,trip_id);
+CREATE TABLE route_stops (route_id TEXT NOT NULL REFERENCES routes(id), stop_id TEXT NOT NULL REFERENCES stops(id), PRIMARY KEY(route_id,stop_id));
+CREATE TABLE search_tokens (kind TEXT NOT NULL, token TEXT NOT NULL, entity_id TEXT NOT NULL, PRIMARY KEY(kind,token,entity_id)) WITHOUT ROWID;
+CREATE TABLE transfers (id INTEGER PRIMARY KEY, from_stop_id TEXT REFERENCES stops(id), to_stop_id TEXT REFERENCES stops(id), from_route_id TEXT REFERENCES routes(id), to_route_id TEXT REFERENCES routes(id), from_trip_id TEXT REFERENCES trips(id), to_trip_id TEXT REFERENCES trips(id), transfer_type INTEGER NOT NULL, min_transfer_time INTEGER);

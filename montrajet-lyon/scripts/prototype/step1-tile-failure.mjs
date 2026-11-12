@@ -1,0 +1,15 @@
+﻿import assert from 'node:assert/strict'
+import {mkdir,writeFile,readFile} from 'node:fs/promises'
+import {resolve} from 'node:path'
+import {startBrowser} from '../qa/browser-driver.mjs'
+import {servePreproduction} from './serve-preproduction.mjs'
+import {emptyFavoriteStore,saveTrip} from '../../src/services/favorites.ts'
+const output=resolve(`.data/step1-tile-failure-${Date.now()}`);await mkdir(output);const report={checks:[],attempts:[],blocked:[],note:'Dedicated QA build with OSM enabled; every tile URL blocked by DevTools before loading. No actual tile fetched.'};let browser,server
+try{
+ const directory=resolve(process.argv[2]),build=JSON.parse(await readFile(resolve(directory,'build-report.json'),'utf8'));assert.equal(build.mapProvider,'osm');server=await servePreproduction(directory);browser=await startBrowser(output);const d=browser.driver
+ await d.send('Network.setBlockedURLs',{urls:['https://tile.openstreetmap.org/*']});d.on('Network.requestWillBeSent',e=>{if(e.request.url.includes('tile.openstreetmap.org'))report.attempts.push({id:e.requestId,url:e.request.url})});d.on('Network.loadingFailed',e=>{if(e.blockedReason)report.blocked.push({id:e.requestId,reason:e.blockedReason})})
+ await d.send('Page.navigate',{url:server.url});await d.wait('document.querySelector(".journey-panel")');const store=saveTrip(emptyFavoriteStore(),{name:'QA carte',from:{location:{kind:'stop',id:'35660',name:'Dauphiné-Lacassagne'}},to:{location:{kind:'stop',id:'35668',name:'Vaulx-en-Velin La Soie'}},preferences:{maxTransfers:2,walkingTransfers:false}})
+ await d.evaluate(`localStorage.setItem('montrajet-lyon:favorites:v1',${JSON.stringify(JSON.stringify(store))})`);await d.reload();await d.wait('document.querySelector(".journey-panel")');await d.evaluate(`(()=>{const i=document.querySelector('input[type="datetime-local"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'2026-11-10T08:00');i.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('nav button')].find(b=>b.textContent==='Favoris').click();return true})()`)
+ await d.click('.recalculate-favorite');await d.wait('document.querySelector(".show-journey-map")',30000);await d.click('.show-journey-map');await d.wait('document.querySelector(".map-tile-error") && document.querySelectorAll(".map-point").length>0',30000)
+ report.message=await d.evaluate('document.querySelector(".map-tile-error").textContent');report.markers=await d.evaluate('document.querySelectorAll(".map-point").length');assert.ok(await d.evaluate('document.querySelectorAll(".map-steps li").length>0'));assert.ok(report.attempts.length);assert.ok(report.attempts.every(a=>report.blocked.some(b=>b.id===a.id)));await d.screenshot(resolve(output,'blocked-tiles.png'));report.checks.push('Tile failure explicit; real GTFS markers, steps and text remain; all tile attempts blocked locally');report.status='passed'
+}catch(e){report.status='failed';report.error=e.stack;console.error(e);process.exitCode=1}finally{await browser?.close();await server?.close();await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2),{flag:'wx'});console.log(output)}

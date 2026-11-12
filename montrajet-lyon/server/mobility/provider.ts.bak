@@ -1,0 +1,104 @@
+import type { AddressPlace, Point, WalkPath } from '../../src/types/mobility.ts'
+import { createSharedSearch } from '../search/shared.ts'
+
+export class GeographicError extends Error {}
+export const distance = (a: Point, b: Point) => {
+  const rad = Math.PI / 180, lat = (a.latitude + b.latitude) / 2 * rad
+  return Math.hypot((a.latitude - b.latitude) * rad, (a.longitude - b.longitude) * rad * Math.cos(lat)) * 6371000
+}
+export interface GeographicProvider {
+  addresses(q: string, trace?: GeographicTrace, signal?: AbortSignal): Promise<AddressPlace[]>
+  walk(from: Point, to: Point, trace?: GeographicTrace, signal?: AbortSignal): Promise<WalkPath>
+  resolveAddress?(id: string, name: string, trace?: GeographicTrace, signal?: AbortSignal): Promise<AddressPlace | undefined>
+}
+export interface GeographicTrace { geocodingMs: number; walkingMs: number; queueMs: number; upstreamRequests: number; cacheHits: number; coalesced: number }
+export const geographicTrace = (): GeographicTrace => ({ geocodingMs: 0, walkingMs: 0, queueMs: 0, upstreamRequests: 0, cacheHits: 0, coalesced: 0 })
+/** One bounded queue per backend process. Never switches profile or provider on failure. */
+export function createIgnProvider(fetcher: typeof fetch = fetch, now = () => Date.now()): GeographicProvider {
+  const cache = new Map<string, { until: number; value: unknown }>()
+  const pending = createSharedSearch<unknown>(64)
+  const addressIds = new Map<string, { until: number; value: AddressPlace }>()
+  let gate: Promise<unknown> = Promise.resolve(), blockedUntil = 0, active = 0
+  const waiters: (() => void)[] = []
+  async function slot() {
+    if (active >= 2) await new Promise<void>(resolve => waiters.push(resolve))
+    else active++
+    const turn = gate.catch(() => {}).then(() => new Promise(resolve => setTimeout(resolve, 260)))
+    gate = turn
+    await turn
+  }
+  function release() { const next = waiters.shift(); if (next) next(); else active-- }
+  async function load<T>(url: URL, ttl: number, parse: (data: unknown) => T, trace?: GeographicTrace, consumerSignal: AbortSignal = new AbortController().signal): Promise<T> {
+    consumerSignal.throwIfAborted()
+    const key = url.href, hit = cache.get(key)
+    if (hit && hit.until > now()) { if (trace) trace.cacheHits++; return hit.value as T }
+    if (pending.has(key) && trace) trace.coalesced++
+    try { return await pending.run(key, async upstreamSignal => {
+      const waiting = performance.now()
+      await slot()
+      if (trace) trace.queueMs += performance.now() - waiting
+      try {
+      upstreamSignal.throwIfAborted()
+      if (blockedUntil > now()) throw new GeographicError('Service IGN temporairement limité. Réessayez plus tard.')
+      const networkStart = performance.now()
+      if (trace) trace.upstreamRequests++
+      let response: Response
+      try {
+      response = await fetcher(url, { signal: AbortSignal.any([upstreamSignal, AbortSignal.timeout(8000)]), redirect: 'error', headers: { Accept: 'application/json' } })
+      if (response.status === 429 || response.status === 503) {
+        const retry = response.headers.get('Retry-After')
+        const seconds = retry && /^\d+$/.test(retry) ? Number(retry) * 1000 : retry ? Date.parse(retry) - now() : 30000
+        blockedUntil = now() + Math.max(1000, Number.isFinite(seconds) ? seconds : 30000)
+      }
+      if (!response.ok) { await response.body?.cancel(); throw new GeographicError(`Service IGN indisponible (HTTP ${response.status}).`) }
+      const text = await response.text()
+      if (text.length > 1000000) throw new GeographicError('Réponse IGN trop volumineuse.')
+      const value = parse(JSON.parse(text))
+      upstreamSignal.throwIfAborted()
+      if (cache.size >= 256) cache.delete(cache.keys().next().value!)
+      cache.set(key, { until: now() + ttl, value }); return value
+      } finally { if (trace) trace[url.pathname.includes('geocodage') ? 'geocodingMs' : 'walkingMs'] += performance.now() - networkStart }
+      } finally { release() }
+    }, consumerSignal) as T }
+    catch (error) { consumerSignal.throwIfAborted(); throw error instanceof GeographicError ? error : new GeographicError('Service IGN inaccessible ou réponse invalide. Aucun parcours piéton inventé.') }
+  }
+  const provider: GeographicProvider = {
+    addresses(q, trace, signal) {
+      if (q.trim().length < 3 || q.length > 160) return Promise.resolve([])
+      const url = new URL('https://data.geopf.fr/geocodage/search')
+      url.search = new URLSearchParams({ q, limit: '6', indexes: 'address', lat: '45.75', lon: '4.85', autocomplete: '1' }).toString()
+      return load(url, 300000, raw => {
+        const data = raw as { features?: { geometry?: { type: string; coordinates: number[] }; properties?: Record<string, unknown> }[] }
+        if (!Array.isArray(data.features)) throw new Error('Invalid geocoding')
+        const results = data.features.flatMap(feature => {
+          const p = feature.properties, c = feature.geometry?.coordinates
+          if (!p || feature.geometry?.type !== 'Point' || !c || c.length !== 2 || !c.every(Number.isFinite) || Math.abs(c[0]) > 180 || Math.abs(c[1]) > 90 || typeof p.id !== 'string' || typeof p.label !== 'string' || !['housenumber', 'street'].includes(String(p.type))) return []
+          return [{ kind: 'address' as const, id: `address:${p.id}`, name: p.label, longitude: c[0], latitude: c[1], precision: p.type as AddressPlace['precision'], source: 'BAN via IGN' as const }]
+        })
+        for (const value of results) { if (addressIds.size >= 256) addressIds.delete(addressIds.keys().next().value!); addressIds.set(value.id, { until: now() + 300000, value }) }
+        return results
+      }, trace, signal)
+    },
+    walk(from, to, trace, signal) {
+      const url = new URL('https://data.geopf.fr/navigation/itineraire')
+      url.search = new URLSearchParams({ resource: 'bdtopo-osrm', start: `${from.longitude},${from.latitude}`, end: `${to.longitude},${to.latitude}`, profile: 'pedestrian', optimization: 'fastest', geometryFormat: 'geojson', distanceUnit: 'meter', timeUnit: 'second', crs: 'EPSG:4326', getSteps: 'false' }).toString()
+      return load(url, 3600000, raw => {
+        const data = raw as { profile?: string; resource?: string; resourceVersion?: string; crs?: string; timeUnit?: string; distanceUnit?: string; duration?: number; distance?: number; geometry?: WalkPath['geometry'] }
+        const points = data.geometry?.coordinates
+        if (data.profile !== 'pedestrian' || data.resource !== 'bdtopo-osrm' || data.crs !== 'EPSG:4326' || data.timeUnit !== 'second' || data.distanceUnit !== 'meter' || !Number.isFinite(data.duration) || data.duration! <= 0 || data.duration! > 3600 || !Number.isFinite(data.distance) || data.distance! <= 0 || data.distance! > 4000 || data.geometry?.type !== 'LineString' || !Array.isArray(points) || points.length < 2 || points.length > 20000 || points.some(p => !Array.isArray(p) || p.length !== 2 || !p.every(Number.isFinite) || Math.abs(p[0]) > 180 || Math.abs(p[1]) > 90)) throw new Error('Invalid pedestrian response')
+        const point = (p: number[]): Point => ({ longitude: p[0], latitude: p[1] })
+        const startSnapMeters = distance(from, point(points[0])), endSnapMeters = distance(to, point(points.at(-1)!))
+        // Reject network snaps that would silently omit substantial access walking.
+        if (startSnapMeters > 25 || endSnapMeters > 25) throw new GeographicError('Accès au réseau piéton trop éloigné du point demandé ; parcours exclu.')
+        return { source: 'IGN BD TOPO', profile: 'pedestrian', resourceVersion: data.resourceVersion || 'non renseignée', fetchedAt: new Date(now()).toISOString(), durationSeconds: Math.ceil(data.duration!), distanceMeters: data.distance!, startSnapMeters, endSnapMeters, geometry: data.geometry! }
+      }, trace, signal)
+    },
+    async resolveAddress(id, name, trace, signal) {
+      signal?.throwIfAborted()
+      const hit = addressIds.get(id)
+      if (hit && hit.until > now() && hit.value.name === name) { if (trace) trace.cacheHits++; return hit.value }
+      return (await provider.addresses(name, trace, signal)).find(value => value.id === id)
+    },
+  }
+  return provider
+}

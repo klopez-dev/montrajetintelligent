@@ -1,0 +1,302 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import { routingDatabase, query } from './helpers/journeys.mjs'
+import { createIgnProvider, GeographicError, geographicTrace } from '../server/mobility/provider.ts'
+import { defaultRoutingLimits } from '../server/journeys/limits.ts'
+import { createMobilityPlanner, doorJourney, compareDoorJourneys, selectDoorJourneys } from '../server/mobility/planner.ts'
+import { createMobilityApi } from '../server/mobility/api.ts'
+import { createJourneyPlanner } from '../server/journeys/planner.ts'
+
+const path = changes => ({source:'IGN BD TOPO',profile:'pedestrian',resourceVersion:'TEST',fetchedAt:'2026-11-08T10:00:00Z',durationSeconds:180,distanceMeters:200,startSnapMeters:0,endSnapMeters:0,geometry:{type:'LineString',coordinates:[[4,45],[4.001,45]]},...changes})
+const address = {kind:'address',id:'address:TEST',name:'TEST 1 rue TEST',latitude:45,longitude:4,precision:'housenumber',source:'BAN via IGN'}
+const request = changes => ({from:{kind:'address',id:address.id,name:address.name},to:{kind:'stop',id:'D'},at:'2026-11-09T10:00:00Z',mode:'departure',order:'arrival',marginSeconds:120,walkingTransfers:false,...changes})
+const fixtureProvider = changes => ({addresses:async()=>[address],walk:async()=>path(),...changes})
+const pedestrian = changes => ({profile:'pedestrian',resource:'bdtopo-osrm',crs:'EPSG:4326',timeUnit:'second',distanceUnit:'meter',duration:180.2,distance:201,geometry:{type:'LineString',coordinates:[[4,45],[4.001,45]]},...changes})
+
+test('IGN : profil piéton, unités, géométrie, durée arrondie vers le haut, cache et coalescence',async()=>{
+  let calls=0
+  const provider=createIgnProvider(async url=>{calls++;assert.equal(url.hostname,'data.geopf.fr');assert.equal(url.searchParams.get('profile'),'pedestrian');return Response.json(pedestrian())})
+  const a={longitude:4,latitude:45},b={longitude:4.001,latitude:45}
+  const [first,second]=await Promise.all([provider.walk(a,b),provider.walk(a,b)])
+  assert.equal(first.durationSeconds,181);assert.deepEqual(first,second);await provider.walk(a,b);assert.equal(calls,1)
+})
+test('IGN : refus du profil voiture, unités inconnues, géométrie invalide et raccordement éloigné',async()=>{
+  for(const data of [pedestrian({profile:'car'}),pedestrian({timeUnit:'hour'}),pedestrian({duration:-1}),pedestrian({geometry:{type:'LineString',coordinates:[[4,45],[8,45]]}}),pedestrian({geometry:{type:'LineString',coordinates:[[4,45]]}})]){
+    const provider=createIgnProvider(async()=>Response.json(data))
+    await assert.rejects(()=>provider.walk({longitude:4,latitude:45},{longitude:4.001,latitude:45}),GeographicError)
+  }
+})
+test('IGN : erreurs HTTP, JSON incomplet, panne réseau et Retry-After sans rafale',async()=>{
+  for(const response of [()=>new Response('',{status:401}),()=>Response.json({}),()=>new Response('non JSON'),()=>{throw new Error('TEST timeout')}]){
+    const provider=createIgnProvider(async()=>response())
+    await assert.rejects(()=>provider.walk({longitude:4,latitude:45},{longitude:4.001,latitude:45}),GeographicError)
+  }
+  let calls=0
+  const provider=createIgnProvider(async()=>{calls++;return new Response('',{status:429,headers:{'Retry-After':'60'}})})
+  for(let i=0;i<2;i++)await assert.rejects(()=>provider.addresses('TEST rue'),GeographicError)
+  assert.equal(calls,1)
+})
+test('IGN : adresses ambiguës distinctes, coordonnées et précision vérifiées',async()=>{
+  const provider=createIgnProvider(async()=>Response.json({features:[
+    {geometry:{type:'Point',coordinates:[4,45]},properties:{id:'1',label:'TEST Lyon',type:'housenumber'}},
+    {geometry:{type:'Point',coordinates:[4.1,45]},properties:{id:'2',label:'TEST Villeurbanne',type:'street'}},
+    {geometry:{type:'Point',coordinates:['4',45]},properties:{id:'3',label:'TEST invalid',type:'housenumber'}}
+  ]}))
+  const places=await provider.addresses('TEST');assert.equal(places.length,2);assert.notEqual(places[0].id,places[1].id);assert.equal(places[1].precision,'street')
+})
+test('IGN : cache expiré non réutilisé comme parcours valide quand le fournisseur tombe',async()=>{
+  let now=Date.parse('2026-11-08T10:00:00Z'),calls=0
+  const provider=createIgnProvider(async()=>{calls++;if(calls>1)throw new Error('TEST panne');return Response.json(pedestrian())},()=>now)
+  const a={longitude:4,latitude:45},b={longitude:4.001,latitude:45}
+  await provider.walk(a,b);now+=3600001
+  await assert.rejects(()=>provider.walk(a,b),GeographicError);assert.equal(calls,2)
+})
+test('IGN : deux requêtes simultanées maximum et départs espacés sous la limite officielle',async()=>{
+  let active=0,max=0;const starts=[],trace=geographicTrace()
+  const provider=createIgnProvider(async url=>{
+    active++;max=Math.max(max,active);starts.push(performance.now())
+    await new Promise(resolve=>setTimeout(resolve,650));active--
+    const a=url.searchParams.get('start').split(',').map(Number),b=url.searchParams.get('end').split(',').map(Number)
+    return Response.json(pedestrian({geometry:{type:'LineString',coordinates:[a,b]}}))
+  })
+  await Promise.all(Array.from({length:6},(_,i)=>provider.walk({latitude:45,longitude:4},{latitude:45,longitude:4.001+i*.0001},trace)))
+  assert.equal(max,2);assert.equal(trace.upstreamRequests,6);assert.ok(trace.queueMs>0)
+  assert.ok(starts.every((time,index)=>!index||time-starts[index-1]>=230))
+  for(const start of starts)assert.ok(starts.filter(time=>time>=start&&time<start+1000).length<=4)
+})
+test('IGN : sélection BAN déjà suggérée réutilisée par identifiant officiel, sans second géocodage',async()=>{
+  let calls=0;const trace=geographicTrace()
+  const provider=createIgnProvider(async()=>{calls++;return Response.json({features:[{geometry:{type:'Point',coordinates:[4,45]},properties:{id:'TEST',label:'TEST adresse officielle',type:'housenumber'}}]})})
+  const [place]=await provider.addresses('TEST saisie',trace)
+  assert.deepEqual(await provider.resolveAddress(place.id,place.name,trace),place);assert.equal(calls,1);assert.equal(trace.cacheHits,1)
+})
+test('Nouveau transfert IGN : réalisable et marge respectée, ancien moteur inchangé',async()=>{
+  const f=await routingDatabase();try{
+    f.connection({noTransfer:true});const planner=createJourneyPlanner(f.db)
+    assert.equal((await planner.search(query())).state,'no_journey')
+    const result=await planner.search(query(),[{from:'X',to:'Y',path:path()}])
+    assert.equal(result.state,'ok');assert.equal(result.itineraries[0].connection.source,'ign_pedestrian');assert.equal(result.itineraries[0].connection.requiredSeconds,180)
+    assert.equal((await planner.search(query({marginSeconds:121}),[{from:'X',to:'Y',path:path()}])).state,'ok')
+    assert.equal((await planner.search(query())).state,'no_journey')
+  }finally{f.close()}
+})
+test('IGN ne contourne ni transfert interdit, ni direction inverse, ni minimum officiel',async()=>{
+  for(const type of [2,3]){const f=await routingDatabase();try{
+    f.connection({noTransfer:true});f.transfer({type,seconds:600})
+    const result=await createJourneyPlanner(f.db).search(query(),[{from:'X',to:'Y',path:path()}]);assert.equal(result.state,'no_journey')
+  }finally{f.close()}}
+  const f=await routingDatabase();try{f.connection({noTransfer:true});assert.equal((await createJourneyPlanner(f.db).search(query(),[{from:'Y',to:'X',path:path()}])).state,'no_journey')}finally{f.close()}
+})
+test('Candidats piétons réutilisés sans changement de trajets, puis invalidés sur un nouveau GTFS',async()=>{
+  const f=await routingDatabase();try{
+    f.connection({noTransfer:true})
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.001,'X')
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.002,'Y')
+    const planner=createMobilityPlanner(f.db,fixtureProvider())
+    const q=request({from:{kind:'stop',id:'O'},walkingTransfers:true})
+    const first=await planner.search(q),second=await planner.search(q)
+    assert.equal(first.state,'ok');assert.equal(first.metrics.transferCandidatesCacheHit,false)
+    assert.equal(second.metrics.transferCandidatesCacheHit,true)
+    assert.deepEqual(second.itineraries.map(item=>item.transit),first.itineraries.map(item=>item.transit))
+    assert.equal(second.metrics.confirmedPlatforms,first.metrics.confirmedPlatforms)
+    assert.equal(second.metrics.walkingCalls,first.metrics.walkingCalls)
+    const metadata=JSON.parse(f.sqlite.prepare('SELECT json FROM metadata').get().json)
+    metadata.sha256='TEST_UPDATED'
+    f.sqlite.prepare('UPDATE metadata SET json=?').run(JSON.stringify(metadata))
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.02,'Y')
+    const changed=await planner.search(q)
+    assert.equal(changed.metrics.transferCandidatesCacheHit,false)
+    assert.equal(changed.state,'no_journey');assert.equal(changed.itineraries.length,0)
+  }finally{f.close()}
+})
+test('Cache de candidats piétons : le sens de recherche ne réutilise pas les paires inverses',async()=>{
+  const f=await routingDatabase();try{
+    f.connection({noTransfer:true})
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.001,'X')
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.002,'Y')
+    const planner=createMobilityPlanner(f.db,fixtureProvider())
+    await planner.search(request({from:{kind:'stop',id:'O'},walkingTransfers:true}))
+    const reverse=await planner.search(request({from:{kind:'stop',id:'D'},to:{kind:'stop',id:'O'},walkingTransfers:true}))
+    assert.equal(reverse.metrics.transferCandidatesCacheHit,false)
+    assert.equal(reverse.itineraries.length,0)
+  }finally{f.close()}
+})
+test('Adresse : accès réel, marge avant embarquement et arrivée porte-à-porte',async()=>{
+  const f=await routingDatabase();try{
+    f.trip('BUS1','BUS',[['O',40000],['D',41000]])
+    const result=await createMobilityPlanner(f.db,fixtureProvider()).search(request())
+    assert.equal(result.state,'ok');const item=result.itineraries[0]
+    assert.equal(item.access.durationSeconds,180);assert.equal(item.safetySeconds,0)
+    assert.equal(Date.parse(item.departureTime),Date.parse(item.transit.departureTime)-180000)
+    assert.ok(Date.parse(item.departureTime)>=Date.parse(request().at));assert.equal(item.egress,null)
+  }finally{f.close()}
+})
+test('Arriver avant inclut la marche finale, pas uniquement l’arrivée du véhicule',async()=>{
+  const f=await routingDatabase();try{
+    f.trip('BUS1','BUS',[['O',39600],['D',41400]])
+    const planner=createMobilityPlanner(f.db,fixtureProvider())
+    const q=request({from:{kind:'stop',id:'O'},to:{kind:'address',id:address.id,name:address.name},mode:'arrival',at:'2026-11-09T10:32:59Z'})
+    assert.equal((await planner.search(q)).state,'no_journey')
+    const result=await planner.search({...q,at:'2026-11-09T10:33:00Z'})
+    assert.equal(result.state,'ok');assert.equal(result.itineraries[0].arrivalTime,'2026-11-09T10:33:00.000Z')
+  }finally{f.close()}
+})
+test('Deux adresses : marche initiale et finale composées sans utiliser les coordonnées du client',async()=>{
+  const f=await routingDatabase();try{
+    f.trip('BUS1','BUS',[['O',40000],['D',41000]])
+    const destination={...address,id:'address:TEST_DEST',name:'TEST 2 rue TEST'}
+    const provider=fixtureProvider({addresses:async name=>[name===destination.name?destination:address]})
+    const result=await createMobilityPlanner(f.db,provider).search(request({to:{kind:'address',id:destination.id,name:destination.name,latitude:0,longitude:0}}))
+    assert.equal(result.state,'ok');assert.ok(result.itineraries[0].access);assert.ok(result.itineraries[0].egress)
+    assert.equal(result.itineraries[0].toName,destination.name)
+    assert.equal(result.itineraries[0].durationSeconds,1360)
+  }finally{f.close()}
+})
+test('Panne piéton, adresse non confirmée, rue sans numéro : aucun accès inventé',async()=>{
+  const f=await routingDatabase();try{
+    f.trip('BUS1','BUS',[['O',40000],['D',41000]])
+    assert.equal((await createMobilityPlanner(f.db,fixtureProvider({walk:async()=>{throw new GeographicError('TEST panne')}})).search(request())).itineraries.length,0)
+    await assert.rejects(()=>createMobilityPlanner(f.db,fixtureProvider({addresses:async()=>[]})).search(request()),/non confirmée/)
+    await assert.rejects(()=>createMobilityPlanner(f.db,fixtureProvider({addresses:async()=>[{...address,precision:'street'}]})).search(request()),/numéro/)
+  }finally{f.close()}
+})
+test('Aucun accès géographique ajouté aux quais de métro ou funiculaire',async()=>{
+  const f=await routingDatabase();try{
+    f.trip('METRO1','METRO',[['O',40000],['D',41000]])
+    let walks=0
+    const result=await createMobilityPlanner(f.db,fixtureProvider({walk:async()=>{walks++;return path()}})).search(request())
+    assert.equal(result.itineraries.length,0);assert.equal(walks,0)
+  }finally{f.close()}
+})
+test('Quais distincts aux coordonnées confondues : aucun transfert piéton centimétrique inventé',async()=>{
+  const f=await routingDatabase();try{
+    f.connection({noTransfer:true});let walks=0
+    const provider=fixtureProvider({walk:async()=>{walks++;return path({distanceMeters:0.2,durationSeconds:1})}})
+    const result=await createMobilityPlanner(f.db,provider).search(request({from:{kind:'stop',id:'O'},walkingTransfers:true}))
+    assert.equal(result.state,'no_journey');assert.equal(walks,0)
+    f.transfer()
+    assert.equal((await createMobilityPlanner(f.db,provider).search(request({from:{kind:'stop',id:'O'},walkingTransfers:true}))).state,'ok')
+  }finally{f.close()}
+})
+test('Sélection des accès : conserver la ligne de destination malgré des tramways voisins incompatibles',async()=>{
+  const f=await routingDatabase();try{
+    f.sqlite.prepare('INSERT INTO routes VALUES(?,?,?,?,?)').run('OTHER','TEST','TEST OTHER','TEST OTHER',0)
+    f.trip('NEAR','OTHER',[['X',40000],['Y',41000]])
+    f.trip('DIRECT','TRAM',[['O',40000],['D',41000]])
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.001,'X')
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.002,'Y')
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.006,'O')
+    f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(45.015,'D')
+    const result=await createMobilityPlanner(f.db,fixtureProvider()).search(request())
+    assert.equal(result.state,'ok');assert.equal(result.itineraries[0].transit.legs[0].tripId,'DIRECT')
+  }finally{f.close()}
+})
+test('Deux adresses : une ligne commune reste candidate malgré quatre quais voisins incompatibles',async()=>{
+  const f=await routingDatabase();try{
+    f.sqlite.prepare('INSERT INTO routes VALUES(?,?,?,?,?)').run('OTHER','TEST','TEST OTHER','TEST OTHER',0)
+    f.sqlite.prepare('INSERT INTO stops VALUES(?,?,?,?,?,?,?,?)').run('E','TEST E','','','',45.0195,4,0)
+    for(const [id,lat] of [['O',45.005],['D',45.015],['X',45.019],['Y',45.020],['Z',45.0205]])f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(lat,id)
+    f.trip('NEAR','OTHER',[['X',40000],['E',40500],['Y',41000],['Z',41500]])
+    f.trip('DIRECT','TRAM',[['O',40000],['D',41000]])
+    const destination={...address,id:'address:TEST_DEST',name:'TEST destination',latitude:45.02}
+    const provider=fixtureProvider({addresses:async name=>[name===destination.name?destination:address]})
+    const result=await createMobilityPlanner(f.db,provider).search(request({to:{kind:'address',id:destination.id,name:destination.name}}))
+    assert.equal(result.state,'ok');assert.equal(result.itineraries[0].transit.legs[0].tripId,'DIRECT')
+  }finally{f.close()}
+})
+test('Quais temporaires sans service ce jour : ne pas masquer le quai actif de la même ligne',async()=>{
+  const f=await routingDatabase();try{
+    f.sqlite.prepare('INSERT INTO stops VALUES(?,?,?,?,?,?,?,?)').run('E','TEST WORKS','','','',45.004,4,0)
+    for(const [id,lat]of[['O',45.006],['D',45.015],['X',45.001],['Y',45.002],['Z',45.003]])f.sqlite.prepare('UPDATE stops SET latitude=? WHERE id=?').run(lat,id)
+    f.trip('TEMP','TRAM',[['X',40000],['Y',40100],['Z',40200],['E',40300],['D',41000]],'EXCEPTIONS')
+    f.trip('ACTIVE','TRAM',[['O',40000],['D',41000]])
+    const result=await createMobilityPlanner(f.db,fixtureProvider()).search(request())
+    assert.equal(result.state,'ok');assert.equal(result.itineraries[0].transit.legs[0].tripId,'ACTIVE')
+  }finally{f.close()}
+})
+test('Au-delà de quatre quais : le cinquième accès réel permet seul de prendre le bus, budget explicite',async()=>{
+  const f=await routingDatabase();try{
+    f.sqlite.prepare('UPDATE stops SET latitude=45.03 WHERE id=?').run('D')
+    for(let i=1;i<=6;i++){
+      f.sqlite.prepare('INSERT INTO stops VALUES(?,?,?,?,?,?,?,?)').run('Q'+i,'TEST Q'+i,'','','',45+i*.0001,4,0)
+      f.trip('T'+i,'BUS',[['Q'+i,40000],['D',41000]])
+    }
+    const provider=fixtureProvider({walk:async(a,b)=>path({durationSeconds:Math.abs(b.latitude-45.0005)<1e-9?60:Math.abs(b.latitude-45.0006)<1e-9?1300:1000})})
+    const result=await createMobilityPlanner(f.db,provider).search(request())
+    assert.equal(result.state,'ok');assert.equal(result.itineraries[0].transit.legs[0].from.id,'Q5');assert.ok(result.metrics.confirmedPlatforms>5);assert.equal(result.metrics.transitSearches,1)
+    const limited=await createMobilityPlanner(f.db,provider,{...defaultRoutingLimits,maxWalkRequests:4}).search(request())
+    assert.equal(limited.state,'limited');assert.equal(limited.itineraries.length,0);assert.ok(limited.metrics.walkingCalls<=4)
+  }finally{f.close()}
+})
+test('Porte-à-porte : durées absolues au changement d’heure et après minuit',()=>{
+  for(const [departure,arrival] of [['2026-10-25T00:55:00Z','2026-10-25T01:05:00Z'],['2026-11-09T23:55:00Z','2026-11-10T00:05:00Z'],['2026-03-29T00:55:00Z','2026-03-29T01:05:00Z']]){
+    const transit={departureTime:departure,arrivalTime:arrival,durationSeconds:600,connection:null,transfers:0}
+    const item=doorJourney(request(),{},transit,path(),path(),'TEST','TEST')
+    assert.equal(item.durationSeconds,960);assert.equal(item.walkingSeconds,360);assert.equal(item.waitingSeconds,0)
+  }
+})
+test('Classements : porte-à-porte, marche et attente inconnue non présentées comme nulles',()=>{
+  const a={arrivalTime:'2026-11-09T10:00Z',departureTime:'2026-11-09T09:00Z',durationSeconds:3600,walkingSeconds:10,unknownTransferWalking:true,waitingSeconds:null,transit:{transfers:1}}
+  const b={...a,unknownTransferWalking:false,waitingSeconds:100,walkingSeconds:20}
+  assert.ok(compareDoorJourneys(request({order:'walking'}),a,b)>0);assert.ok(compareDoorJourneys(request({order:'waiting'}),a,b)>0)
+})
+test('Comparaison porte-à-porte : retirer le détour dominé et garder l’alternative avec moins de marche',()=>{
+  const item=(id,dep,arr,walk,changes,route)=>({departureTime:`2026-11-09T${dep}Z`,arrivalTime:`2026-11-09T${arr}Z`,durationSeconds:(Date.parse(`2026-11-09T${arr}Z`)-Date.parse(`2026-11-09T${dep}Z`))/1000,walkingSeconds:walk,unknownTransferWalking:false,waitingSeconds:120,transit:{transfers:changes,legs:[{tripId:id,routeId:route,directionId:'0',serviceDate:'2026-11-09',from:{id:'O'},to:{id:'D'}}]}})
+  const direct=item('D','10:15','10:30',800,0,'TRAM'),detour=item('X','10:00','10:30',900,1,'TRAM'),bus=item('B','10:05','10:35',200,1,'BUS')
+  const selected=selectDoorJourneys(request(),[direct,detour,bus])
+  assert.deepEqual(selected.map(j=>j.transit.legs[0].tripId),['D','B'])
+  detour.unknownTransferWalking=true;detour.waitingSeconds=null
+  assert.deepEqual(selectDoorJourneys(request(),[direct,detour,bus]).map(j=>j.transit.legs[0].tripId),['D','B'])
+  assert.equal(selectDoorJourneys(request({order:'waiting'}),[direct,detour,bus]).length,3)
+})
+test('API : mauvaises méthodes, paramètres et corps refusés, coordonnées client non utilisées',async()=>{
+  const f=await routingDatabase();try{
+    const api=createMobilityApi(fixtureProvider())
+    assert.equal((await api(new Request('http://localhost/api/mobility/search'),f.db)).status,405)
+    for(const body of [{...request(),at:'2026-02-30T10:00:00Z'},{...request(),to:{kind:'evil',id:'D'}}]){
+      assert.equal((await api(new Request('http://localhost/api/mobility/search',{method:'POST',body:JSON.stringify(body)}),f.db)).status,400)
+    }
+    assert.equal((await api(new Request('http://localhost/api/mobility/addresses?q=TEST'),null)).status,200)
+  }finally{f.close()}
+})
+
+test('IGN : panne geocodage HTTP 502 sans blocage de la navigation pietonne', async () => {
+  let geocodingCalls = 0
+  let walkingCalls = 0
+
+  const provider = createIgnProvider(async url => {
+    if (url.pathname.includes('/geocodage/')) {
+      geocodingCalls++
+      return new Response('', { status: 502 })
+    }
+
+    if (url.pathname.includes('/navigation/')) {
+      walkingCalls++
+      return Response.json(pedestrian())
+    }
+
+    throw new Error('Endpoint inattendu')
+  })
+
+  await assert.rejects(
+    () => provider.addresses('135 avenue Lacassagne Lyon'),
+    GeographicError
+  )
+
+  const result = await provider.walk(
+    { longitude: 4, latitude: 45 },
+    { longitude: 4.001, latitude: 45 }
+  )
+
+  assert.equal(result.profile, 'pedestrian')
+  assert.equal(result.durationSeconds, 181)
+  assert.equal(geocodingCalls, 1)
+  assert.equal(walkingCalls, 1)
+
+  await assert.rejects(
+    () => provider.addresses('136 avenue Lacassagne Lyon'),
+    GeographicError
+  )
+
+  assert.equal(geocodingCalls, 1)
+})

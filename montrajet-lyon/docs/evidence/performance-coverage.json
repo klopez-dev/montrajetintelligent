@@ -1,0 +1,1757 @@
+{
+  "validatedAt": "2026-11-08T18:24:55.881Z",
+  "version": "V0.1",
+  "unitTests": 165,
+  "maxTransfers": 2,
+  "checks": {
+    "network": 12,
+    "mobility": 18,
+    "legacy": 27,
+    "timetables": 32
+  },
+  "reports": {
+    "before": ".data/benchmark-before-1794160060128/report.json",
+    "after": ".data/benchmark-after-1794161670477/report.json",
+    "network": ".data/network-validation-1794162173554/report.json",
+    "mobility": ".data/mobility-validation-1794161747078/report.json",
+    "legacy": ".data/routing-validation-1794161416401/report.json",
+    "timetables": ".data/validation-1794161907145/report.json"
+  },
+  "measurements": [
+    {
+      "name": "Place Henri → Soie, liens piétons",
+      "beforeColdMs": 2368.8648,
+      "afterColdMs": 9734.964,
+      "beforeWarmMeanMs": 104.61069999999995,
+      "afterWarmMeanMs": 18.736299999999574,
+      "beforeSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 132.81659999999977,
+          "sqlQueries": 12,
+          "geocodingMs": 0,
+          "walkingMs": 2089.9520999999995,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 518.2125000000002,
+          "walkRequests": 6,
+          "upstream": 6,
+          "maxConcurrent": 1,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 2367.88,
+            "transitSearches": 1,
+            "walkingCalls": 6
+          },
+          "first": {
+            "departure": "2026-11-09T10:08:00.000Z",
+            "arrival": "2026-11-09T10:31:02.000Z",
+            "lines": [
+              "C9",
+              "T3"
+            ]
+          },
+          "totalMs": 2368.8648,
+          "nonSqlNonProviderMs": 146.09610000000066
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 73.06379999999945,
+          "sqlQueries": 4,
+          "geocodingMs": 0,
+          "walkingMs": 0.24349999999958527,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 6,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 106.35,
+            "transitSearches": 1,
+            "walkingCalls": 6
+          },
+          "first": {
+            "departure": "2026-11-09T10:08:00.000Z",
+            "arrival": "2026-11-09T10:31:02.000Z",
+            "lines": [
+              "C9",
+              "T3"
+            ]
+          },
+          "totalMs": 106.38760000000002,
+          "nonSqlNonProviderMs": 33.08030000000099
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 74.70909999999958,
+          "sqlQueries": 4,
+          "geocodingMs": 0,
+          "walkingMs": 0.1608000000010179,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 6,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 102.79,
+            "transitSearches": 1,
+            "walkingCalls": 6
+          },
+          "first": {
+            "departure": "2026-11-09T10:08:00.000Z",
+            "arrival": "2026-11-09T10:31:02.000Z",
+            "lines": [
+              "C9",
+              "T3"
+            ]
+          },
+          "totalMs": 102.83379999999988,
+          "nonSqlNonProviderMs": 27.963899999999285
+        }
+      ],
+      "afterSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 296.35959999999915,
+          "sqlQueries": 14,
+          "geocodingMs": 0,
+          "walkingMs": 8637.6051,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 7067.3496000000005,
+          "walkRequests": 6,
+          "upstream": 6,
+          "maxConcurrent": 1,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 9733.77,
+            "transitSearches": 1,
+            "walkingCalls": 6,
+            "sqlMs": 296.63449999999943,
+            "sqlQueries": 14,
+            "candidatePlatforms": 2,
+            "confirmedPlatforms": 2,
+            "walkBudgetReached": false,
+            "geocodingWallMs": 0.11289999999999623,
+            "walkingWallMs": 8653.0018,
+            "routingMs": 711.001000000002,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 7073.823700000001,
+            "upstreamRequests": 6,
+            "cacheHits": 0,
+            "queueMs": 1562.969599999998
+          },
+          "first": {
+            "departure": "2026-11-09T10:08:00.000Z",
+            "arrival": "2026-11-09T10:31:02.000Z",
+            "lines": [
+              "C9",
+              "T3"
+            ]
+          },
+          "totalMs": 9734.964,
+          "nonSqlNonProviderMs": 800.9992999999995
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.6177999999999884,
+          "sqlQueries": 2,
+          "geocodingMs": 0,
+          "walkingMs": 0.35680000000138534,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 6,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 21.54,
+            "transitSearches": 1,
+            "walkingCalls": 6,
+            "sqlMs": 0.6443000000017491,
+            "sqlQueries": 2,
+            "candidatePlatforms": 2,
+            "confirmedPlatforms": 2,
+            "walkBudgetReached": false,
+            "geocodingWallMs": 0.05500000000029104,
+            "walkingWallMs": 16.790399999999863,
+            "routingMs": 0.14249999999810825,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 6,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:08:00.000Z",
+            "arrival": "2026-11-09T10:31:02.000Z",
+            "lines": [
+              "C9",
+              "T3"
+            ]
+          },
+          "totalMs": 21.601199999999153,
+          "nonSqlNonProviderMs": 20.62659999999778
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.3642999999992753,
+          "sqlQueries": 2,
+          "geocodingMs": 0,
+          "walkingMs": 0.20010000000002037,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 6,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 15.82,
+            "transitSearches": 1,
+            "walkingCalls": 6,
+            "sqlMs": 0.37449999999989814,
+            "sqlQueries": 2,
+            "candidatePlatforms": 2,
+            "confirmedPlatforms": 2,
+            "walkBudgetReached": false,
+            "geocodingWallMs": 0.02689999999893189,
+            "walkingWallMs": 12.208000000000538,
+            "routingMs": 0.04469999999855645,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 6,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:08:00.000Z",
+            "arrival": "2026-11-09T10:31:02.000Z",
+            "lines": [
+              "C9",
+              "T3"
+            ]
+          },
+          "totalMs": 15.871399999999994,
+          "nonSqlNonProviderMs": 15.307000000000698
+        }
+      ]
+    },
+    {
+      "name": "Adresse → Soie",
+      "beforeColdMs": 4570.2868,
+      "afterColdMs": 16061.294499999998,
+      "beforeWarmMeanMs": 828.7459500000004,
+      "afterWarmMeanMs": 23.0921500000004,
+      "beforeSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 823.2213000000015,
+          "sqlQueries": 19,
+          "geocodingMs": 296.4616000000001,
+          "walkingMs": 3266.4151000000006,
+          "geocodingNetworkMs": 34.09310000000005,
+          "walkingNetworkMs": 658.8357000000001,
+          "walkRequests": 10,
+          "upstream": 11,
+          "maxConcurrent": 1,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 4570.21,
+            "transitSearches": 4,
+            "walkingCalls": 10
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:23:17.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 4570.2868,
+          "nonSqlNonProviderMs": 184.18879999999763
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 758.013100000001,
+          "sqlQueries": 11,
+          "geocodingMs": 0.08150000000023283,
+          "walkingMs": 0.2576999999982945,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 10,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 834.78,
+            "transitSearches": 4,
+            "walkingCalls": 10
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:23:17.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 834.8352999999997,
+          "nonSqlNonProviderMs": 76.48300000000017
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 760.0105000000021,
+          "sqlQueries": 11,
+          "geocodingMs": 0.06649999999990541,
+          "walkingMs": 0.3224999999993088,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 10,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 822.59,
+            "transitSearches": 4,
+            "walkingCalls": 10
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:23:17.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 822.6566000000012,
+          "nonSqlNonProviderMs": 62.25709999999981
+        }
+      ],
+      "afterSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 857.6633999999976,
+          "sqlQueries": 14,
+          "geocodingMs": 330.3037000000004,
+          "walkingMs": 20705.94250000001,
+          "geocodingNetworkMs": 69.07290000000103,
+          "walkingNetworkMs": 2705.166900000004,
+          "walkRequests": 48,
+          "upstream": 49,
+          "maxConcurrent": 2,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 16061.21,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 857.8720999999987,
+            "sqlQueries": 14,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "geocodingWallMs": 330.42189999999937,
+            "walkingWallMs": 14199.5991,
+            "routingMs": 622.995600000002,
+            "engineCacheHit": false,
+            "geocodingMs": 69.77530000000115,
+            "walkingMs": 2724.3162000000048,
+            "upstreamRequests": 49,
+            "cacheHits": 0,
+            "queueMs": 18239.587799999998
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:23:17.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 16061.294499999998,
+          "nonSqlNonProviderMs": 0
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.5611000000026252,
+          "sqlQueries": 2,
+          "geocodingMs": 0.09439999999813153,
+          "walkingMs": 1.3074000000124215,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 48,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 23.71,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.5714999999981956,
+            "sqlQueries": 2,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "geocodingWallMs": 0.107399999997142,
+            "walkingWallMs": 19.019799999998213,
+            "routingMs": 0.1533000000017637,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:23:17.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 23.77600000000166,
+          "nonSqlNonProviderMs": 21.81309999998848
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.44059999999808497,
+          "sqlQueries": 2,
+          "geocodingMs": 0.09549999999944703,
+          "walkingMs": 1.5221000000019558,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 48,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 22.36,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.4504000000015367,
+            "sqlQueries": 2,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "geocodingWallMs": 0.11409999999887077,
+            "walkingWallMs": 16.925500000001193,
+            "routingMs": 0.1723999999994703,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:23:17.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 22.408299999999144,
+          "nonSqlNonProviderMs": 20.350099999999657
+        }
+      ]
+    },
+    {
+      "name": "Deux adresses",
+      "beforeColdMs": 7347.616899999999,
+      "afterColdMs": 15218.0704,
+      "beforeWarmMeanMs": 2240.179150000001,
+      "afterWarmMeanMs": 37.38605000000098,
+      "beforeSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 2136.140099999997,
+          "sqlQueries": 42,
+          "geocodingMs": 595.554299999998,
+          "walkingMs": 4378.484200000003,
+          "geocodingNetworkMs": 73.5687999999991,
+          "walkingNetworkMs": 728.1003000000001,
+          "walkRequests": 14,
+          "upstream": 16,
+          "maxConcurrent": 1,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 7347.48,
+            "transitSearches": 16,
+            "walkingCalls": 14
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:26:02.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 7347.616899999999,
+          "nonSqlNonProviderMs": 237.43830000000162
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 2064.136600000007,
+          "sqlQueries": 34,
+          "geocodingMs": 0.10480000000097789,
+          "walkingMs": 0.3076000000037311,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 14,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 2213.39,
+            "transitSearches": 16,
+            "walkingCalls": 14
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:26:02.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 2213.4460000000017,
+          "nonSqlNonProviderMs": 148.89699999998993
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 2131.0098999999864,
+          "sqlQueries": 34,
+          "geocodingMs": 0.0900999999976193,
+          "walkingMs": 0.43620000000373693,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 14,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 2266.84,
+            "transitSearches": 16,
+            "walkingCalls": 14
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:26:02.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 2266.9123,
+          "nonSqlNonProviderMs": 135.37610000001223
+        }
+      ],
+      "afterSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 874.023699999987,
+          "sqlQueries": 15,
+          "geocodingMs": 882.4686000000002,
+          "walkingMs": 37967.14479999999,
+          "geocodingNetworkMs": 99.5131999999976,
+          "walkingNetworkMs": 2887.2254999999677,
+          "walkRequests": 48,
+          "upstream": 50,
+          "maxConcurrent": 2,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 15218.01,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 874.1661000000095,
+            "sqlQueries": 15,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "geocodingWallMs": 554.2350000000006,
+            "walkingWallMs": 12910.919700000002,
+            "routingMs": 825.4084999999977,
+            "engineCacheHit": false,
+            "geocodingMs": 100.28260000000228,
+            "walkingMs": 2903.957999999988,
+            "upstreamRequests": 50,
+            "cacheHits": 0,
+            "queueMs": 35842.84530000001
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:26:02.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 15218.0704,
+          "nonSqlNonProviderMs": 0
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.4963999999963562,
+          "sqlQueries": 2,
+          "geocodingMs": 0.12630000000353903,
+          "walkingMs": 1.7715000000025611,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 48,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 41.32,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.5051000000021304,
+            "sqlQueries": 2,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "geocodingWallMs": 0.14470000000437722,
+            "walkingWallMs": 37.20400000000518,
+            "routingMs": 0.09659999999712454,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 50,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:26:02.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 41.36970000000292,
+          "nonSqlNonProviderMs": 38.975500000000466
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.4195000000036089,
+          "sqlQueries": 2,
+          "geocodingMs": 0.12950000000273576,
+          "walkingMs": 1.6445000000094296,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 48,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 33.34,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.4315000000060536,
+            "sqlQueries": 2,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "geocodingWallMs": 0.11299999999755528,
+            "walkingWallMs": 29.71979999999894,
+            "routingMs": 0.09699999999429565,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 50,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:00:39.000Z",
+            "arrival": "2026-11-09T10:26:02.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 33.402399999999034,
+          "nonSqlNonProviderMs": 31.20889999998326
+        }
+      ]
+    },
+    {
+      "name": "T3 long → Meyzieu",
+      "beforeColdMs": 654.5698999999986,
+      "afterColdMs": 480.3599000000031,
+      "beforeWarmMeanMs": 358.2003000000004,
+      "afterWarmMeanMs": 6.035400000000664,
+      "beforeSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 500.4869000000035,
+          "sqlQueries": 12,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 0,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 654.5,
+            "transitSearches": 1,
+            "walkingCalls": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:07:01.000Z",
+            "arrival": "2026-11-09T10:33:18.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 654.5698999999986,
+          "nonSqlNonProviderMs": 154.08299999999508
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 323.6934000000001,
+          "sqlQueries": 4,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 0,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 350.49,
+            "transitSearches": 1,
+            "walkingCalls": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:07:01.000Z",
+            "arrival": "2026-11-09T10:33:18.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 350.5268000000033,
+          "nonSqlNonProviderMs": 26.833400000003166
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 339.52749999999287,
+          "sqlQueries": 4,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 0,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "ok",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 365.83,
+            "transitSearches": 1,
+            "walkingCalls": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:07:01.000Z",
+            "arrival": "2026-11-09T10:33:18.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 365.8737999999976,
+          "nonSqlNonProviderMs": 26.346300000004703
+        }
+      ],
+      "afterSamples": [
+        {
+          "cache": "cold",
+          "sqlMs": 156.5373999999938,
+          "sqlQueries": 14,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 0,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 480.3,
+            "transitSearches": 1,
+            "walkingCalls": 0,
+            "sqlMs": 156.6427999999869,
+            "sqlQueries": 14,
+            "candidatePlatforms": 2,
+            "confirmedPlatforms": 2,
+            "walkBudgetReached": false,
+            "geocodingWallMs": 0.04049999999551801,
+            "walkingWallMs": 0.005300000004353933,
+            "routingMs": 284.19970000000467,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 0,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:07:01.000Z",
+            "arrival": "2026-11-09T10:33:18.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 480.3599000000031,
+          "nonSqlNonProviderMs": 323.8225000000093
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.5323999999964144,
+          "sqlQueries": 2,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 0,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 6.42,
+            "transitSearches": 1,
+            "walkingCalls": 0,
+            "sqlMs": 0.5431000000025961,
+            "sqlQueries": 2,
+            "candidatePlatforms": 2,
+            "confirmedPlatforms": 2,
+            "walkBudgetReached": false,
+            "geocodingWallMs": 0.027800000003480818,
+            "walkingWallMs": 0.005299999997077975,
+            "routingMs": 0.041199999999662396,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 0,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:07:01.000Z",
+            "arrival": "2026-11-09T10:33:18.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 6.476600000001781,
+          "nonSqlNonProviderMs": 5.944200000005367
+        },
+        {
+          "cache": "warm",
+          "sqlMs": 0.5120999999999185,
+          "sqlQueries": 2,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "geocodingNetworkMs": 0,
+          "walkingNetworkMs": 0,
+          "walkRequests": 0,
+          "upstream": 0,
+          "maxConcurrent": 0,
+          "state": "limited",
+          "proposals": 6,
+          "metrics": {
+            "durationMs": 5.55,
+            "transitSearches": 1,
+            "walkingCalls": 0,
+            "sqlMs": 0.5216000000000349,
+            "sqlQueries": 2,
+            "candidatePlatforms": 2,
+            "confirmedPlatforms": 2,
+            "walkBudgetReached": false,
+            "geocodingWallMs": 0.027099999999336433,
+            "walkingWallMs": 0.005299999997077975,
+            "routingMs": 0.04340000000229338,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 0,
+            "queueMs": 0
+          },
+          "first": {
+            "departure": "2026-11-09T10:07:01.000Z",
+            "arrival": "2026-11-09T10:33:18.000Z",
+            "lines": [
+              "T3"
+            ]
+          },
+          "totalMs": 5.594199999999546,
+          "nonSqlNonProviderMs": 5.0820999999996275
+        }
+      ]
+    }
+  ],
+  "twoTransfers": {
+    "query": {
+      "fromStopId": "1138",
+      "toStopId": "36394",
+      "at": "2026-11-09T10:00:00Z",
+      "mode": "departure",
+      "order": "arrival",
+      "marginSeconds": "120",
+      "maxTransfers": "2"
+    },
+    "httpMs": 383.4589,
+    "result": {
+      "state": "limited",
+      "itineraries": [
+        {
+          "id": "network-1",
+          "kind": "theoretical",
+          "departureTime": "2026-11-09T10:00:00.000Z",
+          "arrivalTime": "2026-11-09T10:48:31.000Z",
+          "durationSeconds": 2911,
+          "initialWaitSeconds": 0,
+          "transfers": 2,
+          "legs": [
+            {
+              "tripId": "916_C16A-068AT_00701006",
+              "serviceDate": "2026-11-09",
+              "routeId": "C16",
+              "lineName": "C16",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Charpennes Charles Hernu",
+              "from": {
+                "id": "1138",
+                "name": "Harmonie Campus Pro",
+                "sequence": 17
+              },
+              "to": {
+                "id": "51",
+                "name": "Charmettes",
+                "sequence": 25
+              },
+              "departureTime": "2026-11-09T10:00:00.000Z",
+              "arrivalTime": "2026-11-09T10:10:00.000Z",
+              "departureGtfsSeconds": 39600,
+              "arrivalGtfsSeconds": 40200,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "511_TB11-135AT_01201011",
+              "serviceDate": "2026-11-09",
+              "routeId": "TB11",
+              "lineName": "TB11",
+              "routeType": 702,
+              "directionId": "1",
+              "headsign": "Gare Saint-Paul",
+              "from": {
+                "id": "47030",
+                "name": "Charmettes",
+                "sequence": 9
+              },
+              "to": {
+                "id": "48353",
+                "name": "Cordeliers",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:16:00.000Z",
+              "arrivalTime": "2026-11-09T10:27:00.000Z",
+              "departureGtfsSeconds": 40560,
+              "arrivalGtfsSeconds": 41220,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "301_301A-080CM_01601035",
+              "serviceDate": "2026-11-09",
+              "routeId": "A",
+              "lineName": "A",
+              "routeType": 1,
+              "directionId": "0",
+              "headsign": "Vaulx-en-Velin La Soie",
+              "from": {
+                "id": "46050",
+                "name": "Cordeliers",
+                "sequence": 4
+              },
+              "to": {
+                "id": "36394",
+                "name": "Vaulx-en-Velin La Soie",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:33:26.000Z",
+              "arrivalTime": "2026-11-09T10:48:31.000Z",
+              "departureGtfsSeconds": 41606,
+              "arrivalGtfsSeconds": 42511,
+              "interpolatedBySource": false
+            }
+          ],
+          "connections": [
+            {
+              "fromStopId": "51",
+              "fromStopName": "Charmettes",
+              "toStopId": "47030",
+              "toStopName": "Charmettes",
+              "ruleId": 2843,
+              "source": "gtfs",
+              "officialMinimumSeconds": 60,
+              "marginSeconds": 120,
+              "requiredSeconds": 180,
+              "intervalSeconds": 360,
+              "spareSeconds": 180,
+              "walkingSeconds": null
+            },
+            {
+              "fromStopId": "48353",
+              "fromStopName": "Cordeliers",
+              "toStopId": "46050",
+              "toStopName": "Cordeliers",
+              "ruleId": 350,
+              "source": "gtfs",
+              "officialMinimumSeconds": 180,
+              "marginSeconds": 120,
+              "requiredSeconds": 300,
+              "intervalSeconds": 386,
+              "spareSeconds": 86,
+              "walkingSeconds": null
+            }
+          ],
+          "connection": {
+            "fromStopId": "51",
+            "fromStopName": "Charmettes",
+            "toStopId": "47030",
+            "toStopName": "Charmettes",
+            "ruleId": 2843,
+            "source": "gtfs",
+            "officialMinimumSeconds": 60,
+            "marginSeconds": 120,
+            "requiredSeconds": 180,
+            "intervalSeconds": 360,
+            "spareSeconds": 180,
+            "walkingSeconds": null
+          }
+        },
+        {
+          "id": "network-2",
+          "kind": "theoretical",
+          "departureTime": "2026-11-09T10:00:00.000Z",
+          "arrivalTime": "2026-11-09T10:53:19.000Z",
+          "durationSeconds": 3199,
+          "initialWaitSeconds": 0,
+          "transfers": 2,
+          "legs": [
+            {
+              "tripId": "916_C16A-068AT_00701006",
+              "serviceDate": "2026-11-09",
+              "routeId": "C16",
+              "lineName": "C16",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Charpennes Charles Hernu",
+              "from": {
+                "id": "1138",
+                "name": "Harmonie Campus Pro",
+                "sequence": 17
+              },
+              "to": {
+                "id": "912",
+                "name": "Feuillat Campus Pro",
+                "sequence": 18
+              },
+              "departureTime": "2026-11-09T10:00:00.000Z",
+              "arrivalTime": "2026-11-09T10:01:00.000Z",
+              "departureGtfsSeconds": 39600,
+              "arrivalGtfsSeconds": 39660,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "913_C13B-009AB_01501007",
+              "serviceDate": "2026-11-09",
+              "routeId": "C13",
+              "lineName": "C13",
+              "routeType": 11,
+              "directionId": "0",
+              "headsign": "Montessuy Gutenberg",
+              "from": {
+                "id": "912",
+                "name": "Feuillat Campus Pro",
+                "sequence": 4
+              },
+              "to": {
+                "id": "48353",
+                "name": "Cordeliers",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:11:00.000Z",
+              "arrivalTime": "2026-11-09T10:30:00.000Z",
+              "departureGtfsSeconds": 40260,
+              "arrivalGtfsSeconds": 41400,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "301_301A-080CM_01701035",
+              "serviceDate": "2026-11-09",
+              "routeId": "A",
+              "lineName": "A",
+              "routeType": 1,
+              "directionId": "0",
+              "headsign": "Vaulx-en-Velin La Soie",
+              "from": {
+                "id": "46050",
+                "name": "Cordeliers",
+                "sequence": 4
+              },
+              "to": {
+                "id": "36394",
+                "name": "Vaulx-en-Velin La Soie",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:38:14.000Z",
+              "arrivalTime": "2026-11-09T10:53:19.000Z",
+              "departureGtfsSeconds": 41894,
+              "arrivalGtfsSeconds": 42799,
+              "interpolatedBySource": false
+            }
+          ],
+          "connections": [
+            {
+              "fromStopId": "912",
+              "fromStopName": "Feuillat Campus Pro",
+              "toStopId": "912",
+              "toStopName": "Feuillat Campus Pro",
+              "ruleId": null,
+              "source": "same_platform_assumption",
+              "officialMinimumSeconds": 0,
+              "marginSeconds": 120,
+              "requiredSeconds": 120,
+              "intervalSeconds": 600,
+              "spareSeconds": 480,
+              "walkingSeconds": 0
+            },
+            {
+              "fromStopId": "48353",
+              "fromStopName": "Cordeliers",
+              "toStopId": "46050",
+              "toStopName": "Cordeliers",
+              "ruleId": 350,
+              "source": "gtfs",
+              "officialMinimumSeconds": 180,
+              "marginSeconds": 120,
+              "requiredSeconds": 300,
+              "intervalSeconds": 494,
+              "spareSeconds": 194,
+              "walkingSeconds": null
+            }
+          ],
+          "connection": {
+            "fromStopId": "912",
+            "fromStopName": "Feuillat Campus Pro",
+            "toStopId": "912",
+            "toStopName": "Feuillat Campus Pro",
+            "ruleId": null,
+            "source": "same_platform_assumption",
+            "officialMinimumSeconds": 0,
+            "marginSeconds": 120,
+            "requiredSeconds": 120,
+            "intervalSeconds": 600,
+            "spareSeconds": 480,
+            "walkingSeconds": 0
+          }
+        },
+        {
+          "id": "network-3",
+          "kind": "theoretical",
+          "departureTime": "2026-11-09T10:00:00.000Z",
+          "arrivalTime": "2026-11-09T10:53:19.000Z",
+          "durationSeconds": 3199,
+          "initialWaitSeconds": 0,
+          "transfers": 2,
+          "legs": [
+            {
+              "tripId": "916_C16A-068AT_00701006",
+              "serviceDate": "2026-11-09",
+              "routeId": "C16",
+              "lineName": "C16",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Charpennes Charles Hernu",
+              "from": {
+                "id": "1138",
+                "name": "Harmonie Campus Pro",
+                "sequence": 17
+              },
+              "to": {
+                "id": "3120",
+                "name": "Viabert - Anatole France",
+                "sequence": 26
+              },
+              "departureTime": "2026-11-09T10:00:00.000Z",
+              "arrivalTime": "2026-11-09T10:11:00.000Z",
+              "departureGtfsSeconds": 39600,
+              "arrivalGtfsSeconds": 40260,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "127_127A-002AD_00201012",
+              "serviceDate": "2026-11-09",
+              "routeId": "127",
+              "lineName": "127",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Cordeliers",
+              "from": {
+                "id": "3120",
+                "name": "Viabert - Anatole France",
+                "sequence": 3
+              },
+              "to": {
+                "id": "931",
+                "name": "Foch",
+                "sequence": 11
+              },
+              "departureTime": "2026-11-09T10:15:00.000Z",
+              "arrivalTime": "2026-11-09T10:33:00.000Z",
+              "departureGtfsSeconds": 40500,
+              "arrivalGtfsSeconds": 41580,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "301_301A-080CM_01701035",
+              "serviceDate": "2026-11-09",
+              "routeId": "A",
+              "lineName": "A",
+              "routeType": 1,
+              "directionId": "0",
+              "headsign": "Vaulx-en-Velin La Soie",
+              "from": {
+                "id": "46053",
+                "name": "Foch",
+                "sequence": 6
+              },
+              "to": {
+                "id": "36394",
+                "name": "Vaulx-en-Velin La Soie",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:41:13.000Z",
+              "arrivalTime": "2026-11-09T10:53:19.000Z",
+              "departureGtfsSeconds": 42073,
+              "arrivalGtfsSeconds": 42799,
+              "interpolatedBySource": false
+            }
+          ],
+          "connections": [
+            {
+              "fromStopId": "3120",
+              "fromStopName": "Viabert - Anatole France",
+              "toStopId": "3120",
+              "toStopName": "Viabert - Anatole France",
+              "ruleId": null,
+              "source": "same_platform_assumption",
+              "officialMinimumSeconds": 0,
+              "marginSeconds": 120,
+              "requiredSeconds": 120,
+              "intervalSeconds": 240,
+              "spareSeconds": 120,
+              "walkingSeconds": 0
+            },
+            {
+              "fromStopId": "931",
+              "fromStopName": "Foch",
+              "toStopId": "46053",
+              "toStopName": "Foch",
+              "ruleId": 698,
+              "source": "gtfs",
+              "officialMinimumSeconds": 180,
+              "marginSeconds": 120,
+              "requiredSeconds": 300,
+              "intervalSeconds": 493,
+              "spareSeconds": 193,
+              "walkingSeconds": null
+            }
+          ],
+          "connection": {
+            "fromStopId": "3120",
+            "fromStopName": "Viabert - Anatole France",
+            "toStopId": "3120",
+            "toStopName": "Viabert - Anatole France",
+            "ruleId": null,
+            "source": "same_platform_assumption",
+            "officialMinimumSeconds": 0,
+            "marginSeconds": 120,
+            "requiredSeconds": 120,
+            "intervalSeconds": 240,
+            "spareSeconds": 120,
+            "walkingSeconds": 0
+          }
+        },
+        {
+          "id": "network-4",
+          "kind": "theoretical",
+          "departureTime": "2026-11-09T10:00:00.000Z",
+          "arrivalTime": "2026-11-09T11:02:56.000Z",
+          "durationSeconds": 3776,
+          "initialWaitSeconds": 0,
+          "transfers": 2,
+          "legs": [
+            {
+              "tripId": "916_C16A-068AT_00701006",
+              "serviceDate": "2026-11-09",
+              "routeId": "C16",
+              "lineName": "C16",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Charpennes Charles Hernu",
+              "from": {
+                "id": "1138",
+                "name": "Harmonie Campus Pro",
+                "sequence": 17
+              },
+              "to": {
+                "id": "3120",
+                "name": "Viabert - Anatole France",
+                "sequence": 26
+              },
+              "departureTime": "2026-11-09T10:00:00.000Z",
+              "arrivalTime": "2026-11-09T10:11:00.000Z",
+              "departureGtfsSeconds": 39600,
+              "arrivalGtfsSeconds": 40260,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "127_127A-002AD_00201012",
+              "serviceDate": "2026-11-09",
+              "routeId": "127",
+              "lineName": "127",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Cordeliers",
+              "from": {
+                "id": "3120",
+                "name": "Viabert - Anatole France",
+                "sequence": 3
+              },
+              "to": {
+                "id": "599",
+                "name": "Cordeliers",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:15:00.000Z",
+              "arrivalTime": "2026-11-09T10:40:00.000Z",
+              "departureGtfsSeconds": 40500,
+              "arrivalGtfsSeconds": 42000,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "301_301A-080CM_00201053",
+              "serviceDate": "2026-11-09",
+              "routeId": "A",
+              "lineName": "A",
+              "routeType": 1,
+              "directionId": "0",
+              "headsign": "Vaulx-en-Velin La Soie",
+              "from": {
+                "id": "46050",
+                "name": "Cordeliers",
+                "sequence": 4
+              },
+              "to": {
+                "id": "36394",
+                "name": "Vaulx-en-Velin La Soie",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T10:47:51.000Z",
+              "arrivalTime": "2026-11-09T11:02:56.000Z",
+              "departureGtfsSeconds": 42471,
+              "arrivalGtfsSeconds": 43376,
+              "interpolatedBySource": false
+            }
+          ],
+          "connections": [
+            {
+              "fromStopId": "3120",
+              "fromStopName": "Viabert - Anatole France",
+              "toStopId": "3120",
+              "toStopName": "Viabert - Anatole France",
+              "ruleId": null,
+              "source": "same_platform_assumption",
+              "officialMinimumSeconds": 0,
+              "marginSeconds": 120,
+              "requiredSeconds": 120,
+              "intervalSeconds": 240,
+              "spareSeconds": 120,
+              "walkingSeconds": 0
+            },
+            {
+              "fromStopId": "599",
+              "fromStopName": "Cordeliers",
+              "toStopId": "46050",
+              "toStopName": "Cordeliers",
+              "ruleId": 718,
+              "source": "gtfs",
+              "officialMinimumSeconds": 180,
+              "marginSeconds": 120,
+              "requiredSeconds": 300,
+              "intervalSeconds": 471,
+              "spareSeconds": 171,
+              "walkingSeconds": null
+            }
+          ],
+          "connection": {
+            "fromStopId": "3120",
+            "fromStopName": "Viabert - Anatole France",
+            "toStopId": "3120",
+            "toStopName": "Viabert - Anatole France",
+            "ruleId": null,
+            "source": "same_platform_assumption",
+            "officialMinimumSeconds": 0,
+            "marginSeconds": 120,
+            "requiredSeconds": 120,
+            "intervalSeconds": 240,
+            "spareSeconds": 120,
+            "walkingSeconds": 0
+          }
+        },
+        {
+          "id": "network-5",
+          "kind": "theoretical",
+          "departureTime": "2026-11-09T10:47:00.000Z",
+          "arrivalTime": "2026-11-09T11:35:48.000Z",
+          "durationSeconds": 2928,
+          "initialWaitSeconds": 2820,
+          "transfers": 2,
+          "legs": [
+            {
+              "tripId": "916_C16A-068AT_00601007",
+              "serviceDate": "2026-11-09",
+              "routeId": "C16",
+              "lineName": "C16",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Charpennes Charles Hernu",
+              "from": {
+                "id": "1138",
+                "name": "Harmonie Campus Pro",
+                "sequence": 17
+              },
+              "to": {
+                "id": "30551",
+                "name": "Collège Bellecombe",
+                "sequence": 27
+              },
+              "departureTime": "2026-11-09T10:47:00.000Z",
+              "arrivalTime": "2026-11-09T11:00:00.000Z",
+              "departureGtfsSeconds": 42420,
+              "arrivalGtfsSeconds": 43200,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "127_127A-002AD_00101014",
+              "serviceDate": "2026-11-09",
+              "routeId": "127",
+              "lineName": "127",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Cordeliers",
+              "from": {
+                "id": "30551",
+                "name": "Collège Bellecombe",
+                "sequence": 4
+              },
+              "to": {
+                "id": "931",
+                "name": "Foch",
+                "sequence": 11
+              },
+              "departureTime": "2026-11-09T11:02:00.000Z",
+              "arrivalTime": "2026-11-09T11:18:00.000Z",
+              "departureGtfsSeconds": 43320,
+              "arrivalGtfsSeconds": 44280,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "301_301A-080CM_01601041",
+              "serviceDate": "2026-11-09",
+              "routeId": "A",
+              "lineName": "A",
+              "routeType": 1,
+              "directionId": "0",
+              "headsign": "Vaulx-en-Velin La Soie",
+              "from": {
+                "id": "46053",
+                "name": "Foch",
+                "sequence": 6
+              },
+              "to": {
+                "id": "36394",
+                "name": "Vaulx-en-Velin La Soie",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T11:23:42.000Z",
+              "arrivalTime": "2026-11-09T11:35:48.000Z",
+              "departureGtfsSeconds": 44622,
+              "arrivalGtfsSeconds": 45348,
+              "interpolatedBySource": false
+            }
+          ],
+          "connections": [
+            {
+              "fromStopId": "30551",
+              "fromStopName": "Collège Bellecombe",
+              "toStopId": "30551",
+              "toStopName": "Collège Bellecombe",
+              "ruleId": null,
+              "source": "same_platform_assumption",
+              "officialMinimumSeconds": 0,
+              "marginSeconds": 120,
+              "requiredSeconds": 120,
+              "intervalSeconds": 120,
+              "spareSeconds": 0,
+              "walkingSeconds": 0
+            },
+            {
+              "fromStopId": "931",
+              "fromStopName": "Foch",
+              "toStopId": "46053",
+              "toStopName": "Foch",
+              "ruleId": 698,
+              "source": "gtfs",
+              "officialMinimumSeconds": 180,
+              "marginSeconds": 120,
+              "requiredSeconds": 300,
+              "intervalSeconds": 342,
+              "spareSeconds": 42,
+              "walkingSeconds": null
+            }
+          ],
+          "connection": {
+            "fromStopId": "30551",
+            "fromStopName": "Collège Bellecombe",
+            "toStopId": "30551",
+            "toStopName": "Collège Bellecombe",
+            "ruleId": null,
+            "source": "same_platform_assumption",
+            "officialMinimumSeconds": 0,
+            "marginSeconds": 120,
+            "requiredSeconds": 120,
+            "intervalSeconds": 120,
+            "spareSeconds": 0,
+            "walkingSeconds": 0
+          }
+        },
+        {
+          "id": "network-6",
+          "kind": "theoretical",
+          "departureTime": "2026-11-09T10:47:00.000Z",
+          "arrivalTime": "2026-11-09T11:46:53.000Z",
+          "durationSeconds": 3593,
+          "initialWaitSeconds": 2820,
+          "transfers": 2,
+          "legs": [
+            {
+              "tripId": "916_C16A-068AT_00601007",
+              "serviceDate": "2026-11-09",
+              "routeId": "C16",
+              "lineName": "C16",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Charpennes Charles Hernu",
+              "from": {
+                "id": "1138",
+                "name": "Harmonie Campus Pro",
+                "sequence": 17
+              },
+              "to": {
+                "id": "30551",
+                "name": "Collège Bellecombe",
+                "sequence": 27
+              },
+              "departureTime": "2026-11-09T10:47:00.000Z",
+              "arrivalTime": "2026-11-09T11:00:00.000Z",
+              "departureGtfsSeconds": 42420,
+              "arrivalGtfsSeconds": 43200,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "127_127A-002AD_00101014",
+              "serviceDate": "2026-11-09",
+              "routeId": "127",
+              "lineName": "127",
+              "routeType": 3,
+              "directionId": "1",
+              "headsign": "Cordeliers",
+              "from": {
+                "id": "30551",
+                "name": "Collège Bellecombe",
+                "sequence": 4
+              },
+              "to": {
+                "id": "599",
+                "name": "Cordeliers",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T11:02:00.000Z",
+              "arrivalTime": "2026-11-09T11:25:00.000Z",
+              "departureGtfsSeconds": 43320,
+              "arrivalGtfsSeconds": 44700,
+              "interpolatedBySource": false
+            },
+            {
+              "tripId": "301_301A-080CM_00901047",
+              "serviceDate": "2026-11-09",
+              "routeId": "A",
+              "lineName": "A",
+              "routeType": 1,
+              "directionId": "0",
+              "headsign": "Vaulx-en-Velin La Soie",
+              "from": {
+                "id": "46050",
+                "name": "Cordeliers",
+                "sequence": 4
+              },
+              "to": {
+                "id": "36394",
+                "name": "Vaulx-en-Velin La Soie",
+                "sequence": 14
+              },
+              "departureTime": "2026-11-09T11:31:48.000Z",
+              "arrivalTime": "2026-11-09T11:46:53.000Z",
+              "departureGtfsSeconds": 45108,
+              "arrivalGtfsSeconds": 46013,
+              "interpolatedBySource": false
+            }
+          ],
+          "connections": [
+            {
+              "fromStopId": "30551",
+              "fromStopName": "Collège Bellecombe",
+              "toStopId": "30551",
+              "toStopName": "Collège Bellecombe",
+              "ruleId": null,
+              "source": "same_platform_assumption",
+              "officialMinimumSeconds": 0,
+              "marginSeconds": 120,
+              "requiredSeconds": 120,
+              "intervalSeconds": 120,
+              "spareSeconds": 0,
+              "walkingSeconds": 0
+            },
+            {
+              "fromStopId": "599",
+              "fromStopName": "Cordeliers",
+              "toStopId": "46050",
+              "toStopName": "Cordeliers",
+              "ruleId": 718,
+              "source": "gtfs",
+              "officialMinimumSeconds": 180,
+              "marginSeconds": 120,
+              "requiredSeconds": 300,
+              "intervalSeconds": 408,
+              "spareSeconds": 108,
+              "walkingSeconds": null
+            }
+          ],
+          "connection": {
+            "fromStopId": "30551",
+            "fromStopName": "Collège Bellecombe",
+            "toStopId": "30551",
+            "toStopName": "Collège Bellecombe",
+            "ruleId": null,
+            "source": "same_platform_assumption",
+            "officialMinimumSeconds": 0,
+            "marginSeconds": 120,
+            "requiredSeconds": 120,
+            "intervalSeconds": 120,
+            "spareSeconds": 0,
+            "walkingSeconds": 0
+          }
+        }
+      ],
+      "query": {
+        "fromStopId": "1138",
+        "toStopId": "36394",
+        "at": "2026-11-09T10:00:00Z",
+        "mode": "departure",
+        "marginSeconds": 120,
+        "order": "arrival",
+        "maxTransfers": 2
+      },
+      "metadata": {
+        "schemaVersion": 1,
+        "importedAt": "2026-11-08T12:25:54.683Z",
+        "sourceUrl": "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+        "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+        "timezone": "Europe/Paris",
+        "validFrom": "2026-11-08",
+        "validUntil": "2027-03-08",
+        "maxDepartureSeconds": 88907,
+        "files": {
+          "agency.txt": 2,
+          "routes.txt": 807,
+          "stops.txt": 14026,
+          "calendar.txt": 3089,
+          "calendar_dates.txt": 22435,
+          "trips.txt": 140442,
+          "stop_times.txt": 2927249,
+          "transfers.txt": 5457,
+          "feed_info.txt": 1
+        },
+        "warnings": [
+          "2 arrêts référencent une station parente absente. Les identifiants sont conservés ; recherche et horaires portent uniquement sur les quais existants, sans regroupement inventé."
+        ]
+      },
+      "scope": {
+        "maxTransfers": 2,
+        "windowHours": 6,
+        "from": "2026-11-09T10:00:00.000Z",
+        "until": "2026-11-09T16:00:00.000Z",
+        "marginSeconds": 120
+      },
+      "metrics": {
+        "durationMs": 279.72409999999996,
+        "sqlQueries": 8,
+        "sqlMs": 89.34810000000004,
+        "routingMs": 190.37599999999992,
+        "legCount": 1832,
+        "transferPairs": 18,
+        "candidateCount": 250,
+        "coldTopology": true,
+        "rounds": 3,
+        "limited": true,
+        "cacheHit": false
+      },
+      "warnings": [
+        "Recherche par tours : 2 correspondance(s) maximum, fenêtre de six heures, sans temps réel.",
+        "Transferts orientés GTFS et parcours IGN confirmés uniquement. Même quai : déplacement interarrêt nul retenu comme hypothèse ; marge ajoutée.",
+        "Sélection de propositions, sans garantie d’optimalité globale ; les limites de profils et de ressources sont signalées.",
+        "Budget de profils par quai atteint : exploration partielle, aucun horaire modifié."
+      ]
+    }
+  },
+  "notes": [
+    "Avant: une correspondance et quatre accès par adresse. Après: deux correspondances et davantage de quais dans le budget.",
+    "Un passage froid applicatif et deux répétitions par cas; pas un test de charge ni un vidage du cache disque.",
+    "Les calculs à froid avec adresses sont plus lents; aucune accélération générale à froid annoncée.",
+    "Les résultats partiels restent signalés et contrôlés contre SQLite.",
+    "Cloudflare Free non certifié; aucun déploiement."
+  ]
+}

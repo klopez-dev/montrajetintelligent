@@ -1,0 +1,621 @@
+﻿{
+    "checkedAt":  "2026-11-08T14:02:17.704Z",
+    "status":  "passed",
+    "browser":  "Edg/157.0.4341.42",
+    "checks":  27,
+    "exceptions":  0,
+    "unitTests":  135,
+    "unitFailures":  0,
+    "publicVersion":  "V0.1",
+    "archiveSha256":  "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+    "fullReport":  ".data/routing-validation-1794146515568/report.json",
+    "horairesRegressionReport":  ".data/validation-1794146138568/report.json",
+    "performance":  [
+                        {
+                            "name":  "Place Henri",
+                            "iterations":  5,
+                            "medianHttpMs":  127.65039999999999,
+                            "maxHttpMs":  145.93600000000015,
+                            "samples":  [
+                                            {
+                                                "httpMs":  145.93600000000015,
+                                                "serverMs":  140.23,
+                                                "sqlQueries":  2,
+                                                "legCount":  214
+                                            },
+                                            {
+                                                "httpMs":  111.43029999999999,
+                                                "serverMs":  107.87,
+                                                "sqlQueries":  2,
+                                                "legCount":  214
+                                            },
+                                            {
+                                                "httpMs":  127.65039999999999,
+                                                "serverMs":  124.34,
+                                                "sqlQueries":  2,
+                                                "legCount":  214
+                                            },
+                                            {
+                                                "httpMs":  118.42290000000048,
+                                                "serverMs":  115.91,
+                                                "sqlQueries":  2,
+                                                "legCount":  214
+                                            },
+                                            {
+                                                "httpMs":  135.76140000000032,
+                                                "serverMs":  133.4,
+                                                "sqlQueries":  2,
+                                                "legCount":  214
+                                            }
+                                        ]
+                        },
+                        {
+                            "name":  "Domrémy-Lacassagne",
+                            "iterations":  5,
+                            "medianHttpMs":  165.90679999999975,
+                            "maxHttpMs":  1682.9705000000004,
+                            "samples":  [
+                                            {
+                                                "httpMs":  165.90679999999975,
+                                                "serverMs":  126.14,
+                                                "sqlQueries":  2,
+                                                "legCount":  215
+                                            },
+                                            {
+                                                "httpMs":  623.0235000000002,
+                                                "serverMs":  151.17,
+                                                "sqlQueries":  2,
+                                                "legCount":  215
+                                            },
+                                            {
+                                                "httpMs":  1682.9705000000004,
+                                                "serverMs":  117.9,
+                                                "sqlQueries":  2,
+                                                "legCount":  215
+                                            },
+                                            {
+                                                "httpMs":  127.34480000000076,
+                                                "serverMs":  121.95,
+                                                "sqlQueries":  2,
+                                                "legCount":  215
+                                            },
+                                            {
+                                                "httpMs":  123.5595000000003,
+                                                "serverMs":  117.6,
+                                                "sqlQueries":  2,
+                                                "legCount":  215
+                                            }
+                                        ]
+                        },
+                        {
+                            "name":  "Dauphiné-Lacassagne",
+                            "iterations":  5,
+                            "medianHttpMs":  495.8067000000001,
+                            "maxHttpMs":  2465.7272000000003,
+                            "samples":  [
+                                            {
+                                                "httpMs":  374.04209999999966,
+                                                "serverMs":  371.59,
+                                                "sqlQueries":  2,
+                                                "legCount":  729
+                                            },
+                                            {
+                                                "httpMs":  495.8067000000001,
+                                                "serverMs":  452.32,
+                                                "sqlQueries":  2,
+                                                "legCount":  729
+                                            },
+                                            {
+                                                "httpMs":  2465.7272000000003,
+                                                "serverMs":  425.9,
+                                                "sqlQueries":  2,
+                                                "legCount":  729
+                                            },
+                                            {
+                                                "httpMs":  713.4678000000004,
+                                                "serverMs":  491.03,
+                                                "sqlQueries":  2,
+                                                "legCount":  729
+                                            },
+                                            {
+                                                "httpMs":  482.0651000000016,
+                                                "serverMs":  479.69,
+                                                "sqlQueries":  2,
+                                                "legCount":  729
+                                            }
+                                        ]
+                        }
+                    ],
+    "examples":  [
+                     {
+                         "name":  "Place Henri",
+                         "query":  {
+                                       "fromStopId":  "2397",
+                                       "toStopId":  "36394",
+                                       "at":  "2026-11-09T10:00:00Z",
+                                       "mode":  "departure",
+                                       "order":  "arrival",
+                                       "marginSeconds":  "120"
+                                   },
+                         "state":  "ok",
+                         "proposalCount":  6,
+                         "firstProposal":  {
+                                               "id":  "proposal-1",
+                                               "kind":  "theoretical",
+                                               "departureTime":  "2026-11-09T10:09:00.000Z",
+                                               "arrivalTime":  "2026-11-09T10:53:19.000Z",
+                                               "durationSeconds":  2659,
+                                               "initialWaitSeconds":  540,
+                                               "transfers":  1,
+                                               "legs":  [
+                                                            {
+                                                                "tripId":  "913_C13B-009AB_01501007",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "C13",
+                                                                "lineName":  "C13",
+                                                                "routeType":  11,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Montessuy Gutenberg",
+                                                                "from":  {
+                                                                             "id":  "2397",
+                                                                             "name":  "Place Henri",
+                                                                             "sequence":  3
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "48353",
+                                                                           "name":  "Cordeliers",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T10:09:00.000Z",
+                                                                "arrivalTime":  "2026-11-09T10:30:00.000Z",
+                                                                "departureGtfsSeconds":  40140,
+                                                                "arrivalGtfsSeconds":  41400,
+                                                                "interpolatedBySource":  false
+                                                            },
+                                                            {
+                                                                "tripId":  "301_301A-080CM_01701035",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "A",
+                                                                "lineName":  "A",
+                                                                "routeType":  1,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Vaulx-en-Velin La Soie",
+                                                                "from":  {
+                                                                             "id":  "46050",
+                                                                             "name":  "Cordeliers",
+                                                                             "sequence":  4
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "36394",
+                                                                           "name":  "Vaulx-en-Velin La Soie",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T10:38:14.000Z",
+                                                                "arrivalTime":  "2026-11-09T10:53:19.000Z",
+                                                                "departureGtfsSeconds":  41894,
+                                                                "arrivalGtfsSeconds":  42799,
+                                                                "interpolatedBySource":  false
+                                                            }
+                                                        ],
+                                               "connection":  {
+                                                                  "fromStopId":  "48353",
+                                                                  "fromStopName":  "Cordeliers",
+                                                                  "toStopId":  "46050",
+                                                                  "toStopName":  "Cordeliers",
+                                                                  "ruleId":  350,
+                                                                  "source":  "gtfs",
+                                                                  "officialMinimumSeconds":  180,
+                                                                  "marginSeconds":  120,
+                                                                  "requiredSeconds":  300,
+                                                                  "intervalSeconds":  494,
+                                                                  "spareSeconds":  194,
+                                                                  "walkingSeconds":  null
+                                                              }
+                                           },
+                         "metrics":  {
+                                         "durationMs":  255.06,
+                                         "sqlQueries":  6,
+                                         "legCount":  214,
+                                         "transferPairs":  5,
+                                         "candidateCount":  1368,
+                                         "coldTopology":  true
+                                     }
+                     },
+                     {
+                         "name":  "Place Henri",
+                         "query":  {
+                                       "fromStopId":  "2397",
+                                       "toStopId":  "36394",
+                                       "at":  "2026-11-09T10:00:00Z",
+                                       "mode":  "arrival",
+                                       "order":  "departure",
+                                       "marginSeconds":  "120"
+                                   },
+                         "state":  "ok",
+                         "proposalCount":  6,
+                         "firstProposal":  {
+                                               "id":  "proposal-1",
+                                               "kind":  "theoretical",
+                                               "departureTime":  "2026-11-09T09:09:00.000Z",
+                                               "arrivalTime":  "2026-11-09T09:50:54.000Z",
+                                               "durationSeconds":  2514,
+                                               "initialWaitSeconds":  0,
+                                               "transfers":  1,
+                                               "legs":  [
+                                                            {
+                                                                "tripId":  "913_C13B-009AB_01201007",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "C13",
+                                                                "lineName":  "C13",
+                                                                "routeType":  11,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Montessuy Gutenberg",
+                                                                "from":  {
+                                                                             "id":  "2397",
+                                                                             "name":  "Place Henri",
+                                                                             "sequence":  3
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "48353",
+                                                                           "name":  "Cordeliers",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T09:09:00.000Z",
+                                                                "arrivalTime":  "2026-11-09T09:30:00.000Z",
+                                                                "departureGtfsSeconds":  36540,
+                                                                "arrivalGtfsSeconds":  37800,
+                                                                "interpolatedBySource":  false
+                                                            },
+                                                            {
+                                                                "tripId":  "301_301A-080CM_01301029",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "A",
+                                                                "lineName":  "A",
+                                                                "routeType":  1,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Vaulx-en-Velin La Soie",
+                                                                "from":  {
+                                                                             "id":  "46050",
+                                                                             "name":  "Cordeliers",
+                                                                             "sequence":  4
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "36394",
+                                                                           "name":  "Vaulx-en-Velin La Soie",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T09:35:49.000Z",
+                                                                "arrivalTime":  "2026-11-09T09:50:54.000Z",
+                                                                "departureGtfsSeconds":  38149,
+                                                                "arrivalGtfsSeconds":  39054,
+                                                                "interpolatedBySource":  false
+                                                            }
+                                                        ],
+                                               "connection":  {
+                                                                  "fromStopId":  "48353",
+                                                                  "fromStopName":  "Cordeliers",
+                                                                  "toStopId":  "46050",
+                                                                  "toStopName":  "Cordeliers",
+                                                                  "ruleId":  350,
+                                                                  "source":  "gtfs",
+                                                                  "officialMinimumSeconds":  180,
+                                                                  "marginSeconds":  120,
+                                                                  "requiredSeconds":  300,
+                                                                  "intervalSeconds":  349,
+                                                                  "spareSeconds":  49,
+                                                                  "walkingSeconds":  null
+                                                              }
+                                           },
+                         "metrics":  {
+                                         "durationMs":  90.98,
+                                         "sqlQueries":  2,
+                                         "legCount":  208,
+                                         "transferPairs":  5,
+                                         "candidateCount":  1281,
+                                         "coldTopology":  false
+                                     }
+                     },
+                     {
+                         "name":  "Domrémy-Lacassagne",
+                         "query":  {
+                                       "fromStopId":  "12230",
+                                       "toStopId":  "36394",
+                                       "at":  "2026-11-09T10:00:00Z",
+                                       "mode":  "departure",
+                                       "order":  "arrival",
+                                       "marginSeconds":  "120"
+                                   },
+                         "state":  "ok",
+                         "proposalCount":  6,
+                         "firstProposal":  {
+                                               "id":  "proposal-1",
+                                               "kind":  "theoretical",
+                                               "departureTime":  "2026-11-09T10:01:00.000Z",
+                                               "arrivalTime":  "2026-11-09T10:43:43.000Z",
+                                               "durationSeconds":  2563,
+                                               "initialWaitSeconds":  60,
+                                               "transfers":  1,
+                                               "legs":  [
+                                                            {
+                                                                "tripId":  "913_C13B-009AB_00701010",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "C13",
+                                                                "lineName":  "C13",
+                                                                "routeType":  11,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Montessuy Gutenberg",
+                                                                "from":  {
+                                                                             "id":  "12230",
+                                                                             "name":  "Domrémy - Lacassagne",
+                                                                             "sequence":  5
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "48353",
+                                                                           "name":  "Cordeliers",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T10:01:00.000Z",
+                                                                "arrivalTime":  "2026-11-09T10:20:00.000Z",
+                                                                "departureGtfsSeconds":  39660,
+                                                                "arrivalGtfsSeconds":  40800,
+                                                                "interpolatedBySource":  false
+                                                            },
+                                                            {
+                                                                "tripId":  "301_301A-080CM_00501047",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "A",
+                                                                "lineName":  "A",
+                                                                "routeType":  1,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Vaulx-en-Velin La Soie",
+                                                                "from":  {
+                                                                             "id":  "46050",
+                                                                             "name":  "Cordeliers",
+                                                                             "sequence":  4
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "36394",
+                                                                           "name":  "Vaulx-en-Velin La Soie",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T10:28:38.000Z",
+                                                                "arrivalTime":  "2026-11-09T10:43:43.000Z",
+                                                                "departureGtfsSeconds":  41318,
+                                                                "arrivalGtfsSeconds":  42223,
+                                                                "interpolatedBySource":  false
+                                                            }
+                                                        ],
+                                               "connection":  {
+                                                                  "fromStopId":  "48353",
+                                                                  "fromStopName":  "Cordeliers",
+                                                                  "toStopId":  "46050",
+                                                                  "toStopName":  "Cordeliers",
+                                                                  "ruleId":  350,
+                                                                  "source":  "gtfs",
+                                                                  "officialMinimumSeconds":  180,
+                                                                  "marginSeconds":  120,
+                                                                  "requiredSeconds":  300,
+                                                                  "intervalSeconds":  518,
+                                                                  "spareSeconds":  218,
+                                                                  "walkingSeconds":  null
+                                                              }
+                                           },
+                         "metrics":  {
+                                         "durationMs":  125.6,
+                                         "sqlQueries":  2,
+                                         "legCount":  215,
+                                         "transferPairs":  5,
+                                         "candidateCount":  1453,
+                                         "coldTopology":  false
+                                     }
+                     },
+                     {
+                         "name":  "Domrémy-Lacassagne",
+                         "query":  {
+                                       "fromStopId":  "12230",
+                                       "toStopId":  "36394",
+                                       "at":  "2026-11-09T10:00:00Z",
+                                       "mode":  "arrival",
+                                       "order":  "departure",
+                                       "marginSeconds":  "120"
+                                   },
+                         "state":  "ok",
+                         "proposalCount":  6,
+                         "firstProposal":  {
+                                               "id":  "proposal-1",
+                                               "kind":  "theoretical",
+                                               "departureTime":  "2026-11-09T09:11:00.000Z",
+                                               "arrivalTime":  "2026-11-09T09:50:54.000Z",
+                                               "durationSeconds":  2394,
+                                               "initialWaitSeconds":  0,
+                                               "transfers":  1,
+                                               "legs":  [
+                                                            {
+                                                                "tripId":  "913_C13B-009AB_01201007",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "C13",
+                                                                "lineName":  "C13",
+                                                                "routeType":  11,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Montessuy Gutenberg",
+                                                                "from":  {
+                                                                             "id":  "12230",
+                                                                             "name":  "Domrémy - Lacassagne",
+                                                                             "sequence":  5
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "48353",
+                                                                           "name":  "Cordeliers",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T09:11:00.000Z",
+                                                                "arrivalTime":  "2026-11-09T09:30:00.000Z",
+                                                                "departureGtfsSeconds":  36660,
+                                                                "arrivalGtfsSeconds":  37800,
+                                                                "interpolatedBySource":  false
+                                                            },
+                                                            {
+                                                                "tripId":  "301_301A-080CM_01301029",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "A",
+                                                                "lineName":  "A",
+                                                                "routeType":  1,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Vaulx-en-Velin La Soie",
+                                                                "from":  {
+                                                                             "id":  "46050",
+                                                                             "name":  "Cordeliers",
+                                                                             "sequence":  4
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "36394",
+                                                                           "name":  "Vaulx-en-Velin La Soie",
+                                                                           "sequence":  14
+                                                                       },
+                                                                "departureTime":  "2026-11-09T09:35:49.000Z",
+                                                                "arrivalTime":  "2026-11-09T09:50:54.000Z",
+                                                                "departureGtfsSeconds":  38149,
+                                                                "arrivalGtfsSeconds":  39054,
+                                                                "interpolatedBySource":  false
+                                                            }
+                                                        ],
+                                               "connection":  {
+                                                                  "fromStopId":  "48353",
+                                                                  "fromStopName":  "Cordeliers",
+                                                                  "toStopId":  "46050",
+                                                                  "toStopName":  "Cordeliers",
+                                                                  "ruleId":  350,
+                                                                  "source":  "gtfs",
+                                                                  "officialMinimumSeconds":  180,
+                                                                  "marginSeconds":  120,
+                                                                  "requiredSeconds":  300,
+                                                                  "intervalSeconds":  349,
+                                                                  "spareSeconds":  49,
+                                                                  "walkingSeconds":  null
+                                                              }
+                                           },
+                         "metrics":  {
+                                         "durationMs":  82.47,
+                                         "sqlQueries":  2,
+                                         "legCount":  208,
+                                         "transferPairs":  5,
+                                         "candidateCount":  1281,
+                                         "coldTopology":  false
+                                     }
+                     },
+                     {
+                         "name":  "Dauphiné-Lacassagne",
+                         "query":  {
+                                       "fromStopId":  "35660",
+                                       "toStopId":  "35668",
+                                       "at":  "2026-11-09T10:00:00Z",
+                                       "mode":  "departure",
+                                       "order":  "arrival",
+                                       "marginSeconds":  "120"
+                                   },
+                         "state":  "ok",
+                         "proposalCount":  6,
+                         "firstProposal":  {
+                                               "id":  "proposal-1",
+                                               "kind":  "theoretical",
+                                               "departureTime":  "2026-11-09T10:07:01.000Z",
+                                               "arrivalTime":  "2026-11-09T10:15:32.000Z",
+                                               "durationSeconds":  511,
+                                               "initialWaitSeconds":  421,
+                                               "transfers":  0,
+                                               "legs":  [
+                                                            {
+                                                                "tripId":  "540_T3-130AT_00801017",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "T3",
+                                                                "lineName":  "T3",
+                                                                "routeType":  0,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Meyzieu les Panettes",
+                                                                "from":  {
+                                                                             "id":  "35660",
+                                                                             "name":  "Dauphiné -Lacassagne",
+                                                                             "sequence":  2
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "35668",
+                                                                           "name":  "Vaulx-en-Velin La Soie",
+                                                                           "sequence":  6
+                                                                       },
+                                                                "departureTime":  "2026-11-09T10:07:01.000Z",
+                                                                "arrivalTime":  "2026-11-09T10:15:32.000Z",
+                                                                "departureGtfsSeconds":  40021,
+                                                                "arrivalGtfsSeconds":  40532,
+                                                                "interpolatedBySource":  false
+                                                            }
+                                                        ],
+                                               "connection":  null
+                                           },
+                         "metrics":  {
+                                         "durationMs":  348.36,
+                                         "sqlQueries":  2,
+                                         "legCount":  729,
+                                         "transferPairs":  38,
+                                         "candidateCount":  3577,
+                                         "coldTopology":  false
+                                     }
+                     },
+                     {
+                         "name":  "Dauphiné-Lacassagne",
+                         "query":  {
+                                       "fromStopId":  "35660",
+                                       "toStopId":  "35668",
+                                       "at":  "2026-11-09T10:00:00Z",
+                                       "mode":  "arrival",
+                                       "order":  "departure",
+                                       "marginSeconds":  "120"
+                                   },
+                         "state":  "ok",
+                         "proposalCount":  6,
+                         "firstProposal":  {
+                                               "id":  "proposal-1",
+                                               "kind":  "theoretical",
+                                               "departureTime":  "2026-11-09T09:43:46.000Z",
+                                               "arrivalTime":  "2026-11-09T09:52:17.000Z",
+                                               "durationSeconds":  511,
+                                               "initialWaitSeconds":  0,
+                                               "transfers":  0,
+                                               "legs":  [
+                                                            {
+                                                                "tripId":  "540_T3-130AT_00401021",
+                                                                "serviceDate":  "2026-11-09",
+                                                                "routeId":  "T3",
+                                                                "lineName":  "T3",
+                                                                "routeType":  0,
+                                                                "directionId":  "0",
+                                                                "headsign":  "Meyzieu les Panettes",
+                                                                "from":  {
+                                                                             "id":  "35660",
+                                                                             "name":  "Dauphiné -Lacassagne",
+                                                                             "sequence":  2
+                                                                         },
+                                                                "to":  {
+                                                                           "id":  "35668",
+                                                                           "name":  "Vaulx-en-Velin La Soie",
+                                                                           "sequence":  6
+                                                                       },
+                                                                "departureTime":  "2026-11-09T09:43:46.000Z",
+                                                                "arrivalTime":  "2026-11-09T09:52:17.000Z",
+                                                                "departureGtfsSeconds":  38626,
+                                                                "arrivalGtfsSeconds":  39137,
+                                                                "interpolatedBySource":  false
+                                                            }
+                                                        ],
+                                               "connection":  null
+                                           },
+                         "metrics":  {
+                                         "durationMs":  381.09,
+                                         "sqlQueries":  2,
+                                         "legCount":  734,
+                                         "transferPairs":  38,
+                                         "candidateCount":  3577,
+                                         "coldTopology":  false
+                                     }
+                     }
+                 ]
+}

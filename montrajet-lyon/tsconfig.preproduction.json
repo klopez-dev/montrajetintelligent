@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.app.json","compilerOptions":{"tsBuildInfoFile":"./node_modules/.tmp/tsconfig.preproduction.tsbuildinfo"},"include":["experiments/preproduction/**/*.ts","experiments/preproduction/**/*.tsx","src/vite-env.d.ts"]}

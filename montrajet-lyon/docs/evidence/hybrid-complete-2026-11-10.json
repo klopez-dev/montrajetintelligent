@@ -1,0 +1,3754 @@
+{
+  "date": "2026-11-10",
+  "verdict": "ENCORE PARTIELLEMENT VALIDÉ",
+  "evidence": {
+    "routing": {
+      "path": ".data/hybrid-full-validation-1794334176823/report.json",
+      "sha256": "5f97d39bc800152e2e3ecd35385de82cd098b1187887975b4ac431a8cd87bc02"
+    },
+    "edge": {
+      "path": ".data/hybrid-complete-edge-1794335015436/report.json",
+      "sha256": "75d51cace593f2f5a29d8b79ff6afaaa90083d7a52072c25c429627bd712c02c"
+    },
+    "firefox": {
+      "path": ".data/hybrid-complete-firefox-1794334809917/report.json",
+      "sha256": "eb8774b29690d67ba7f10d357a82fd67be1937d7cc32d98b1d0b84f5171ef8ed"
+    },
+    "memory": {
+      "path": ".data/hybrid-memory-1794334882806/report.json",
+      "sha256": "f626b1b609e05c5b19afe96cc21ffcebde6a0c873fcdb4dff44fc040ca34d7fe"
+    },
+    "staticTest": {
+      "path": ".data/hybrid-static-test-1794334900425/report.json",
+      "sha256": "801e78582036f16b572793e5aabe57eb40e4ae885ebdc7d87d62de2fb9d0ddee"
+    },
+    "dateSwitch": {
+      "path": ".data/hybrid-date-switch-1794334954963/report.json",
+      "sha256": "b8cca6d4a6ba6f3fa50d5fc0a8de87a2b3cdd1f29899fd5cb01e4b80ef86172c"
+    },
+    "ign": {
+      "path": ".data/hybrid-complete-ign-1794334290229/report.json",
+      "sha256": "bee848ae92754578fdb4c11eadda3e0504cd41f8bc41659b262ec97a3edd053f"
+    }
+  },
+  "integrity": [
+    {
+      "file": ".data/gtfs.sqlite",
+      "sha256": "a2f71d7792bdc04df2be9e92aad97d3905a26fec2e00397b9546b15fca7b386a",
+      "unchanged": true
+    },
+    {
+      "file": "GTFS_TCL.ZIP",
+      "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+      "unchanged": true
+    }
+  ],
+  "machine": {
+    "cpu": "AMD Ryzen 7 3700X 8-Core Processor             ",
+    "logicalCpus": 16,
+    "ramGiB": 31.929828643798828,
+    "node": "v24.19.0"
+  },
+  "coverage": {
+    "from": "2026-11-08",
+    "until": "2027-03-08",
+    "days": 121,
+    "patterns": 92,
+    "uniqueAssets": 185,
+    "compressedBytes": 190077427,
+    "unduplicatedDayReferencesBytes": 229644586,
+    "perDay": {
+      "n": 121,
+      "min": 33307,
+      "median": 2331729,
+      "p95": 3097878,
+      "max": 3103452
+    },
+    "sourceEventCounts": {
+      "n": 121,
+      "min": 4970,
+      "median": 372837,
+      "p95": 491117,
+      "max": 491871
+    },
+    "manifestBytes": 65115,
+    "manifestSha256": "42e4d3fb064469b47e5622b6e76e4a0bde30fcc754ecbcc02016f074cdba5f89",
+    "catalog": {
+      "file": "dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "sha256": "dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62",
+      "bytes": 502394,
+      "rawBytes": 3996005
+    },
+    "packageFiles": [
+      {
+        "file": "00f88e22008c0f69f9da7ee773113916d48c60dd1ab4e82a63b407d2ecc2cc7a.trips.gz",
+        "bytes": 108135
+      },
+      {
+        "file": "0180c68e16ed9054c82b6daecc32b1d7613bb31fc3e92de6155148303604680c.trips.gz",
+        "bytes": 108375
+      },
+      {
+        "file": "01dc655d8a7ee90307e4e7ad65b19578873b8e3c444ca89e2b4c2d4ed1c9946a.trips.gz",
+        "bytes": 112331
+      },
+      {
+        "file": "03ba3a137162cc6fd297ad29c7995b104eeb4b7fc8c952f91771dd56a53fb732.events.gz",
+        "bytes": 194096
+      },
+      {
+        "file": "043b290b640747b30cc49ba6e04ecda014ac454ab090d4f466a95528257b4f02.events.gz",
+        "bytes": 2984513
+      },
+      {
+        "file": "053976014736691c950e253c68b6548d09863c58a0ea87f4444d5a1f4b274b72.trips.gz",
+        "bytes": 111733
+      },
+      {
+        "file": "05a97aa73e20f97bee0ae173a0631f03b0b449070f3b4191adf6e34068df9ffb.trips.gz",
+        "bytes": 111993
+      },
+      {
+        "file": "0767ea6585332e282549be77e587e4dfe91468fb3f7cadc904c5eb3b400e12e9.events.gz",
+        "bytes": 1149958
+      },
+      {
+        "file": "091f56f0fba6584f74d61f756d1a181257e116bf368a6edad4c8d2d68d223286.events.gz",
+        "bytes": 1120955
+      },
+      {
+        "file": "09762ee3d08a5bb2599c40e40dd5733e61dd5040ae0dd141929f66b12f8a4056.events.gz",
+        "bytes": 2989503
+      },
+      {
+        "file": "0b2b4dacc22190311f010e318309f9ef1c24dd897b3a29587dbcf52f3ffafa64.events.gz",
+        "bytes": 2839468
+      },
+      {
+        "file": "0b3bb437b6abda291a4728ffc23e46e5c4356fa48257f8d53e5cb5775fc4ac9a.events.gz",
+        "bytes": 2497242
+      },
+      {
+        "file": "0b8b1f95d3daaef6be1b16d85cf92087f94f44189ab050094f33d1816dad099f.events.gz",
+        "bytes": 1882478
+      },
+      {
+        "file": "0c8f663e37d8da90a728bf789118a37aa37e7947ad690be396a48d139457a4e9.trips.gz",
+        "bytes": 39332
+      },
+      {
+        "file": "0d52d5bc4466304ae411a24b61234fd7f9f6520156fcde2b43d7f1e2cc75d211.trips.gz",
+        "bytes": 108772
+      },
+      {
+        "file": "0dc37fe3e07f9b61a6d57bf1115741970718d380d2157ae6a4c5ad15af20853e.events.gz",
+        "bytes": 2849940
+      },
+      {
+        "file": "0e1fa99bdb5bc53370718b27ebc92363cb676aa449037604c031c8d3097001f3.trips.gz",
+        "bytes": 58876
+      },
+      {
+        "file": "0e30029108cbbccbe2cbccf5aeb6c8bef7db3ddb9c0370bd24e08a5e23dd0db0.events.gz",
+        "bytes": 1952171
+      },
+      {
+        "file": "0f11b8a3ef59cb93da38c3b256286e02da2dcbe0dcc493dc1f6fd7f6c87dc707.events.gz",
+        "bytes": 2845158
+      },
+      {
+        "file": "0f75a671da4045be94c81613593c158b1e90bd63f9e1282fd37dfa6d61d7eefc.events.gz",
+        "bytes": 2848282
+      },
+      {
+        "file": "109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+        "bytes": 2836214
+      },
+      {
+        "file": "124d4e948c973b449922d175bee300a46cbf33da63cb6fbf3b4df0663c9653b1.trips.gz",
+        "bytes": 2867
+      },
+      {
+        "file": "1317839850aec2029dd919dd660091b1006cc7df8dcbb1b44da3ba094986ad4a.trips.gz",
+        "bytes": 76859
+      },
+      {
+        "file": "14b67b7819096bb09299c1499a466da7d0802597f5a1c22c7c1251622594fb96.trips.gz",
+        "bytes": 40175
+      },
+      {
+        "file": "14d0e0b87af8666834799afcc653309ab37f6a1a699a052722471c4233c576c8.events.gz",
+        "bytes": 1128007
+      },
+      {
+        "file": "1526aa4b05c50dd9b46739bde868c9b7f1155bf5d3270eb18bce3c8a9f49d591.trips.gz",
+        "bytes": 42388
+      },
+      {
+        "file": "17421cb74c4733bcc68645acb781619c7ec2d7c1503e2130eae36fdaecb3b6bf.trips.gz",
+        "bytes": 59270
+      },
+      {
+        "file": "1c3e39fb6c45175213ce60d78498eb886be78a75189ade187ad6b6e46920e9a2.trips.gz",
+        "bytes": 112046
+      },
+      {
+        "file": "1d45810ba98084c092fa3d929b65240d4b57cf4b9193bebbb388d29f0c2d3761.trips.gz",
+        "bytes": 58692
+      },
+      {
+        "file": "1dbdf4f551aefbdba423b68e4509ab3069702908e5dfa150994e67f8096810cf.events.gz",
+        "bytes": 31620
+      },
+      {
+        "file": "1f321829caf771f7d72ef9be808a8882d616450090b004611e25e964782cffab.trips.gz",
+        "bytes": 108396
+      },
+      {
+        "file": "1f92c8f0068bee525f13ccdf84330a26f2101091718ef86f28576ddd2bd6482e.trips.gz",
+        "bytes": 5003
+      },
+      {
+        "file": "20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz",
+        "bytes": 2846941
+      },
+      {
+        "file": "2011bc3fa971999472e48ad380d2ecd5b9cc6f0aafd6309b492341610a576a07.trips.gz",
+        "bytes": 41419
+      },
+      {
+        "file": "223845a4b760f1e624c162c9b208d6fdb6534bf44de767d584ceb440b54a4438.events.gz",
+        "bytes": 2851286
+      },
+      {
+        "file": "22ebafb65749ae46fdd6e5990c2a0478b0f89f1b8cedffd9dda8334fa50d8212.trips.gz",
+        "bytes": 58353
+      },
+      {
+        "file": "234fee899eab983bffbfa2b02d33d09ea47d53a8503eea6df59810ea82464272.events.gz",
+        "bytes": 2852480
+      },
+      {
+        "file": "2619921a3e4f4ed3b7b2aa6e77f732cb80e19ec63aa68565d7aec01adf99baf3.events.gz",
+        "bytes": 2499231
+      },
+      {
+        "file": "28b1d6beddf7ef999b4d34aba33ba04a4068cb838590c21f1d4d21ae8e591a4c.trips.gz",
+        "bytes": 4896
+      },
+      {
+        "file": "2b63ae9738c78cadec8b310206bb79510a62a00ba1613dffa4b391c457cf16cc.trips.gz",
+        "bytes": 40050
+      },
+      {
+        "file": "2c340a432d663bbb60d9367229d55358c694d8d9d0d9831996f3f43048bc7878.events.gz",
+        "bytes": 194211
+      },
+      {
+        "file": "3175176f116dfe4bcc947f24ed704f72466d3e9b9d0ff722ea4e75c9d859a344.trips.gz",
+        "bytes": 111602
+      },
+      {
+        "file": "339e4013984e2201060c0dd8dcb9a04df38c10cf2c987e1830e71cf75defc861.events.gz",
+        "bytes": 2499259
+      },
+      {
+        "file": "346b921dcfa63f50e0caed0753d8c67956f9eb076dae040ff648c84e88552cab.trips.gz",
+        "bytes": 108411
+      },
+      {
+        "file": "3571c30b85cefd2c8bbd629712899f80d8bfcce92240d96a3b36d61b449d3501.trips.gz",
+        "bytes": 39984
+      },
+      {
+        "file": "386b71d9e240304babd32755faa477e5f5235dbb5c72fdd1f52e5399d682cd0f.events.gz",
+        "bytes": 2866559
+      },
+      {
+        "file": "3ad7d8eb20f7b726357641486f919d40d88a4deb8eac04cd8b7f545ca81a6ce3.events.gz",
+        "bytes": 2853622
+      },
+      {
+        "file": "3b9790ab8e68c41b951a4417b7d81fab9fa78b6dd04c913da9c1a8a595190f68.events.gz",
+        "bytes": 1888017
+      },
+      {
+        "file": "3c05623a2d7ac449d8dc984f2bd3906a6e7c1dd5cfbab2742f92e3608feacc02.trips.gz",
+        "bytes": 41071
+      },
+      {
+        "file": "3f081d5ebdd900861acb5557d168c451433562fedacc2c3658a584fe4d69a2ab.trips.gz",
+        "bytes": 112381
+      },
+      {
+        "file": "3f2f896858845df4bab043e5501c0c03b4f0b41db6365a95e4f52f84397f4f21.events.gz",
+        "bytes": 2851056
+      },
+      {
+        "file": "41492abd0105914670489cff7debaf28554758db7264d89d1915c591c116dd19.events.gz",
+        "bytes": 193984
+      },
+      {
+        "file": "42e39a984dd516952b04eb7407c09e799b24970bf4e51479584ee88bb5d4f187.events.gz",
+        "bytes": 1112611
+      },
+      {
+        "file": "435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+        "bytes": 111371
+      },
+      {
+        "file": "437d7d242799be927b0536c9a2dfef55c9e3b14b8118a20cd99155c92d3eb34a.trips.gz",
+        "bytes": 4957
+      },
+      {
+        "file": "4383850ab77a2d580b8e249d414b8bd5b4d74cb323c88e5d86e462acc3dd6b6e.trips.gz",
+        "bytes": 112389
+      },
+      {
+        "file": "45c9a27857d8104af2e89a63756aaa7fb21b04eb45fd8c05c53de873f447300b.events.gz",
+        "bytes": 2848417
+      },
+      {
+        "file": "49e3fa9728066db9e480fd552558eb238a648316245027ba358d00a37e72c9b0.events.gz",
+        "bytes": 1889902
+      },
+      {
+        "file": "4c113562616dcaacdc84a9527f550fe910e5b0374aefefeaf19f39602e68533b.trips.gz",
+        "bytes": 77153
+      },
+      {
+        "file": "4de6de5111cfd44cc47499a3a08e417a4a0278c1f5db5e8dfab6e587c7605046.trips.gz",
+        "bytes": 38745
+      },
+      {
+        "file": "4f3893b9408108c6b53f3de10c8e6711414a81e187033e1521a72b36bba6f784.trips.gz",
+        "bytes": 17293
+      },
+      {
+        "file": "50dbb028db24806af4b37d991ed7c8d28de77f64b695b3a5a8d359d45db5b07d.trips.gz",
+        "bytes": 111758
+      },
+      {
+        "file": "526a33c45de2aae26c53f7c472a7a1ccae3757341c881df8830285cff7e86eeb.events.gz",
+        "bytes": 1143732
+      },
+      {
+        "file": "53730f4e4a051d6bcdf42c80b7b29be5f125158c7c8c027340b60182cf037b3e.trips.gz",
+        "bytes": 17222
+      },
+      {
+        "file": "53ea8d0bb4bbfbb9e9ed5e1ad31a0aad35e7d8a8f579063230e5c629fa345820.events.gz",
+        "bytes": 193557
+      },
+      {
+        "file": "55da978e1d54d7551dc2d3811d993bf51ad64bcb43a84040a8afd33ee5673713.trips.gz",
+        "bytes": 1687
+      },
+      {
+        "file": "59e83bca97a73a3b9ac5af38d3b4626e24410e145dec97ddefd7b9c491d4f1a2.events.gz",
+        "bytes": 2987887
+      },
+      {
+        "file": "5c4dc04079a5353d3ae1efa08a13d3b614c9fe3cac563e554a7931910e9fd773.events.gz",
+        "bytes": 2842353
+      },
+      {
+        "file": "5cb598ee53fec51dfacdee55c28703f2d1e159071731c6af5cf427d4c73d8c7a.events.gz",
+        "bytes": 129960
+      },
+      {
+        "file": "60ebb3d4456a21300a8d11aecf591a5ed02a63e4efdcf71b0600f7b571f95074.events.gz",
+        "bytes": 1191248
+      },
+      {
+        "file": "61305f659d842a2916cda8b05f77e308decbedef938a4460a3e7e9496f487698.trips.gz",
+        "bytes": 107514
+      },
+      {
+        "file": "63727444c2d8cadcc6fe6d7822703139e439dda39c59fc595a55413fb48f6487.events.gz",
+        "bytes": 1878861
+      },
+      {
+        "file": "6496e88301d4dfae032dd64194739c1168fea48c4be9889dbdaf03e27c4c228d.events.gz",
+        "bytes": 2856276
+      },
+      {
+        "file": "65239baf3fcc9d3e4bf9d3e7bf92a7eea3b23a695e723d0d897f68e4fc4c3f13.trips.gz",
+        "bytes": 41879
+      },
+      {
+        "file": "675024ac04b9035a80f676c3478cc03d53efe3a3fd02fd3b5bc2bed74c209b29.trips.gz",
+        "bytes": 58749
+      },
+      {
+        "file": "6a35fea9ee7be3ddadd443d1b0f224bcb6558f9ad3e070ce12c13431b9568eb2.trips.gz",
+        "bytes": 109029
+      },
+      {
+        "file": "6f1098dad31ce1bb83ae3d9e12b5b945bd8c872ef5e38f94121ddaabf9d525df.events.gz",
+        "bytes": 2847495
+      },
+      {
+        "file": "6fcca30bafdcb9b1f926c9bc52e17ed43527c5441d0cf71ea378d432d607c861.trips.gz",
+        "bytes": 57322
+      },
+      {
+        "file": "718793d94621296aa978377e1010de755d134440612e020eea3fb75be44768b6.events.gz",
+        "bytes": 2842147
+      },
+      {
+        "file": "738bc2c351d517b0a579513ef0190da72837abec3fdeaad22a4d8f94c976ba44.trips.gz",
+        "bytes": 59317
+      },
+      {
+        "file": "74233f04bb29ddbc03a11a6690c27649d43899f69c5be1964a952856225f957f.events.gz",
+        "bytes": 1119514
+      },
+      {
+        "file": "77567ec15b40bd4be78d7640de80842370f1c0bafc0db465278d3e755929b5c2.events.gz",
+        "bytes": 2982477
+      },
+      {
+        "file": "786df6504caa81bad75652c534e6010d0ba95dd28cb1ca412d9fbbccc776aacd.events.gz",
+        "bytes": 2989239
+      },
+      {
+        "file": "78712f36bc30a9e37a345d194db7c8d132e7102b6976aadfabf6c43df858c456.trips.gz",
+        "bytes": 1699
+      },
+      {
+        "file": "79efaa49f59fdaa04fa09a175dfb00f8dbc9e61db995a353eace2ae153ffbcc8.trips.gz",
+        "bytes": 16766
+      },
+      {
+        "file": "7b63f471c4c099a4ac3ecd595c47f3aa91d77de7d97460decb1b998a4ea4897f.events.gz",
+        "bytes": 1894931
+      },
+      {
+        "file": "7cb758580fd6554eb7ed08568fd8b23fdcedbf024f935b87a45a499a3fdea2aa.trips.gz",
+        "bytes": 108116
+      },
+      {
+        "file": "7ee2d91db0f843e004a5eb4388d302160212cb70d6439892e94e01f2ec47d838.trips.gz",
+        "bytes": 111909
+      },
+      {
+        "file": "8243b1b05ecd2b83bed5c7e6735387850dc94cc9f51674826c7f9c5ce7a34bc4.events.gz",
+        "bytes": 2846988
+      },
+      {
+        "file": "82736bac47a880eb005aad3f00bb8e4e94565df2001ea633374e5ba7bf0fae95.events.gz",
+        "bytes": 193678
+      },
+      {
+        "file": "837ea1364207f17538acce86f707673d56765767fe0d8d415884ca84a694a65a.events.gz",
+        "bytes": 193836
+      },
+      {
+        "file": "83aa5b5852fdaeb0d706ff1d9954bf56342587bac1177a9611dc90d489a4c7a2.trips.gz",
+        "bytes": 111730
+      },
+      {
+        "file": "83f30256d46c8f197edc35e7a0b7160f220dd427c9e591ec94944e0bdbe7889d.trips.gz",
+        "bytes": 17234
+      },
+      {
+        "file": "8438c2387801cf3a492e9f0e2d71fac895affc2577b97e7e5d5a1c4f169d1725.events.gz",
+        "bytes": 2858950
+      },
+      {
+        "file": "898c9b8db3949e224f8519be7843d128c62f90bd87691418a0dbff0964bde4a2.events.gz",
+        "bytes": 31614
+      },
+      {
+        "file": "89a32c927f71afc737826e601c99e3a62ed02d23778520989b2d911ae3fc9333.events.gz",
+        "bytes": 2261745
+      },
+      {
+        "file": "8b15a574caf9e5102ba3b9397301bf8645bd8080aa473249740e6a8c3cd7234c.trips.gz",
+        "bytes": 107129
+      },
+      {
+        "file": "8cbf3ab4b50ef8bbbba6d3c03a7b521c497585b51c567690e7e47098603390ce.trips.gz",
+        "bytes": 2870
+      },
+      {
+        "file": "8cd57c87b2e8fb787d407f4887f90fe7ef8237b888508916cfd67bfbf8fe2f02.trips.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "8dc9ab12cf20987574d706a6d4f6c7548d41abc8ad0dc3542494239ef9266e05.trips.gz",
+        "bytes": 17279
+      },
+      {
+        "file": "9075a41bdf59bb4b5e0f201dd307bda846ed756ee5b3aa1e4af352ca3cf9e4f0.events.gz",
+        "bytes": 1195170
+      },
+      {
+        "file": "92c0436fc40a0e19e145b44f3e90ce00ee2942ff4b7e9e83c4703ad986882e39.trips.gz",
+        "bytes": 69984
+      },
+      {
+        "file": "9373f5aec0c4d7339210a28c8743b20b5a5f16b87ab8996db6bdf1d3d0060ab4.events.gz",
+        "bytes": 2851377
+      },
+      {
+        "file": "93f68c46e85ce2ea4d26b5b97e10e38d3abd1bdb02032caad90bb9e0dc7d62cc.trips.gz",
+        "bytes": 111890
+      },
+      {
+        "file": "9633e249cf96626cd0815af9b00341959b86f27b23e112aa25daf3f932ed493f.events.gz",
+        "bytes": 2989706
+      },
+      {
+        "file": "979070b0832aa9437f6423a2b1ce7ddea5bfae874287961e65f962bf7f56864f.events.gz",
+        "bytes": 2258982
+      },
+      {
+        "file": "9925e78c91b6a9beb518afc4272a70f7d643a26228cb30fd31e9701748ce5e11.events.gz",
+        "bytes": 2835338
+      },
+      {
+        "file": "99acbeaee3378c41a228c4d8e5fbcfdec35335e3574df807e9520d51648c6478.events.gz",
+        "bytes": 186985
+      },
+      {
+        "file": "99ba4697806130c16d29508ca9584f9c7e05e1e833bfb55fc8d1e86e0ce4900e.events.gz",
+        "bytes": 193790
+      },
+      {
+        "file": "99f7e65272dd7ae66cc76a214569dfd42fb16a8f837439ed8f67cb3c6a63cb16.events.gz",
+        "bytes": 1144678
+      },
+      {
+        "file": "9af72fd3b68de0d731ee12c0cd2e3c47ff7bc9e55cab6237bac968a2dea7a93e.events.gz",
+        "bytes": 2855500
+      },
+      {
+        "file": "9b4a311d914e5d2447af6bd840e417ae71114abf0465b0242560ee07bd6b7a1f.trips.gz",
+        "bytes": 107243
+      },
+      {
+        "file": "9d30c6b78fbcefb1d7ede70f14381a1334d4977b98f0d2f71c61275a96ccccd7.events.gz",
+        "bytes": 2854823
+      },
+      {
+        "file": "9f74c6b2eab3dae6fcf5dddea382a4752008223d0475be3351668e36325ba232.events.gz",
+        "bytes": 2984607
+      },
+      {
+        "file": "a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "a26f4b26e768be3186a10239586ae6117815a6387717951edae7e061421561c0.trips.gz",
+        "bytes": 108316
+      },
+      {
+        "file": "a36bba717f824ceab5362a57f3585681727995a46d994ac2f8cc60530782640c.events.gz",
+        "bytes": 1892067
+      },
+      {
+        "file": "a39582737a5df550d86d05061f7b91dd2304c1dbcb3cf0eaf4f31faecb490baf.trips.gz",
+        "bytes": 42654
+      },
+      {
+        "file": "a402af8c8a5039a09d8bad9c08e75491e18a203752f38caef7d39bdf407d90f9.events.gz",
+        "bytes": 130579
+      },
+      {
+        "file": "a541e79e27c944989d261b92e637ef9a32036c957f0e692d384a17c547b0a556.trips.gz",
+        "bytes": 58390
+      },
+      {
+        "file": "a70be455bae63830b7a878d17fd521c637ea9b967423ed1eafe29ec4a1d8b35f.events.gz",
+        "bytes": 1745645
+      },
+      {
+        "file": "a72f20416e3c5ed9712a2930777834af4ca71c6cfc5811bc458fea855038de22.trips.gz",
+        "bytes": 4942
+      },
+      {
+        "file": "a8ad90267da85578977c4673363ad1f45dbd70f74bbac36a93201fe4f95580e2.trips.gz",
+        "bytes": 112151
+      },
+      {
+        "file": "aa263467771f2749a0181eb139ce82d24d5a97dd3e161b75070a993301fb8c60.trips.gz",
+        "bytes": 17251
+      },
+      {
+        "file": "ab778f95626c469d5ef9d5e458b3a0531363c72b5e9ab4bd79a7332b73da1af3.trips.gz",
+        "bytes": 54942
+      },
+      {
+        "file": "ad23439eee57dac8dfd37dd70ef8de037cbbed46fbb7881731af1972264bdcb7.trips.gz",
+        "bytes": 17194
+      },
+      {
+        "file": "add12d2fa58939288f7c110a20d43749160081d020a249fcda406a02e3bf2ecc.trips.gz",
+        "bytes": 110823
+      },
+      {
+        "file": "afba57954f311048e73f5297adc33c6bc8cc322df28dcb1b23599a588c64ad72.events.gz",
+        "bytes": 2860462
+      },
+      {
+        "file": "b0fe932cc68cc23eb9f36978e56426b0517e4d213e95f2a3824851152fd7f451.trips.gz",
+        "bytes": 76787
+      },
+      {
+        "file": "b101373197ce91172c643dfb5a4669cda1dc72486fcd31d751bc50cac4cea526.events.gz",
+        "bytes": 1952050
+      },
+      {
+        "file": "b1cca7213253a35071c4f6eec374e22ae3c202fd8f97965668ddf14744ce43b3.events.gz",
+        "bytes": 67106
+      },
+      {
+        "file": "b331feb5d6b845c50ae3b2a82c316949e256e2f1165733700086b87a788c90e6.trips.gz",
+        "bytes": 112749
+      },
+      {
+        "file": "b7be5c0af37927f3b0a148cca6be9fc64a8c3a2685acf05def5f0026705a3e8b.events.gz",
+        "bytes": 130372
+      },
+      {
+        "file": "b825f857ed2f40398e1da148b54f6f15bc87d9f88d2abd3b98edf8a34b276509.trips.gz",
+        "bytes": 77716
+      },
+      {
+        "file": "b87f3c40c0a53e4d6e695419ab30bf9f8c067c83167d2ff283d3959c908ec0e4.trips.gz",
+        "bytes": 70010
+      },
+      {
+        "file": "b92c2297435be89fb8c42c1d7e67cd6ceefc9ab5e838c26b1eb7641ee8d2ec26.events.gz",
+        "bytes": 2846996
+      },
+      {
+        "file": "b9b3eecf20e977ad5b32228a327d948843f2b1ded0c53428c168cf2f5eb92c1d.trips.gz",
+        "bytes": 108008
+      },
+      {
+        "file": "ba65aec1cfae98e92e78e30142ba5819a1e0091df0f2626c142be604ab53f1de.trips.gz",
+        "bytes": 17253
+      },
+      {
+        "file": "bb6dad379cfccf2e4291c4b52f7dfe6e5ede7185b8681f0a0c9f1badff23c796.trips.gz",
+        "bytes": 108028
+      },
+      {
+        "file": "bc317c41ad2cae4b356e561c6f40bf431f0df2dff29e388b048de4c2df273153.events.gz",
+        "bytes": 1136523
+      },
+      {
+        "file": "be46ce02ba8c7b997b0ce4ec7d15b5583afeac769a638f9aaa0b533fb2164c37.events.gz",
+        "bytes": 2993591
+      },
+      {
+        "file": "be7d9a0815fa41b557bacadab367d23a379f51db76b43fd2e82895ca42dd35a1.trips.gz",
+        "bytes": 39075
+      },
+      {
+        "file": "bf3ce69b214876c2b381706271ba17293a388f66089ed0a275f5dd50319a092c.trips.gz",
+        "bytes": 45333
+      },
+      {
+        "file": "c27cba6302c6bfc9e3417736665672877c2ca4500ec5e688ceab5a799fe0343f.trips.gz",
+        "bytes": 110417
+      },
+      {
+        "file": "c34090021bbb9e7d6dd7ed5fd82d9fbb099eeaf21a82f5d7367661dd3847ee5a.trips.gz",
+        "bytes": 108660
+      },
+      {
+        "file": "c3abb0cfd0bb3ab33db5c78b8321b513c3be6fec3f4a49cceddae3b751ba65a8.events.gz",
+        "bytes": 194254
+      },
+      {
+        "file": "c5e5d2886942987adfb954684beade75cacd82f1a822eeff35022ce0c8a99b1f.events.gz",
+        "bytes": 2977624
+      },
+      {
+        "file": "c6961935b71baf5ee28a9653f7d1288c6ffc6a99629571907987ffd4cb6eaf99.events.gz",
+        "bytes": 2994783
+      },
+      {
+        "file": "c6ae88a61c3faf39fdc54a2eafad7b7da80e2e1ed4b112cda679086b31afcf72.events.gz",
+        "bytes": 2858524
+      },
+      {
+        "file": "c8270d293ecd5713ef90a07c9b54fb6a4e2555896b7fee3518e59268a540b796.events.gz",
+        "bytes": 2988295
+      },
+      {
+        "file": "c87f530ef18ed66b33867cb456a9f9146b3ff9040a3f99a6d22900a6ec133d7c.events.gz",
+        "bytes": 1920373
+      },
+      {
+        "file": "cbe6584f1504711cd2267930dd45982ce40b7f09dce63a5c6c656b35076d1cbc.trips.gz",
+        "bytes": 111357
+      },
+      {
+        "file": "cc06e4eaba570c9bcf4be3fb37b1c741b4626af1aef353b8e74a8c20294899af.trips.gz",
+        "bytes": 112383
+      },
+      {
+        "file": "cd781a65ca5c63e38f36df888e975484cbf9f7678ae73b38fb2a1fcbaf755901.events.gz",
+        "bytes": 2987667
+      },
+      {
+        "file": "cda4022e83ca31d3d1f3aeb1bc5f0c7597c62b9e38a19fedff6d44e678015be3.events.gz",
+        "bytes": 2261798
+      },
+      {
+        "file": "ce06a0860a00ecefea50eeb513cf06463eee1108698c984b857dce86df704514.trips.gz",
+        "bytes": 111960
+      },
+      {
+        "file": "ceba26900e59f594dfb120e934b16b252902e4a8102297522b12f686ccc1e3ce.events.gz",
+        "bytes": 2840247
+      },
+      {
+        "file": "coverage.json",
+        "bytes": 20322
+      },
+      {
+        "file": "d2021d141f1e2cba01c964c28466d26f716950d45991d1691fb10b664867a8ce.events.gz",
+        "bytes": 2976315
+      },
+      {
+        "file": "d3b3b9fa9c254b365788450984d2661bd4386b16d1483de57bf4e575b3b87f93.events.gz",
+        "bytes": 130170
+      },
+      {
+        "file": "d5b4dd9e9419f90c82b954156eb9cb3f05416eaf5d361f756fb3bd21676e9b5e.trips.gz",
+        "bytes": 17309
+      },
+      {
+        "file": "d839679dedb46374c7190c07bd0fae28136bd3c90f94eae96261ae554dd1712c.trips.gz",
+        "bytes": 40136
+      },
+      {
+        "file": "db7997f7768233004848828a83fda03ea505b4944f620744f9058b7e982d73f1.trips.gz",
+        "bytes": 70039
+      },
+      {
+        "file": "dc7b986bb406ab289b68667b856635f0d945619487d1519daf08c53c7c061361.events.gz",
+        "bytes": 2261847
+      },
+      {
+        "file": "dd0f47c76a9b7f2f2277f46b94549b24de3ccabd89c3362699c4d195a18e3a7e.trips.gz",
+        "bytes": 110981
+      },
+      {
+        "file": "dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+        "bytes": 502394
+      },
+      {
+        "file": "de2f6bcccba88d66fc93c1e8d442e6488586e613930dcebcd37e626a5219e960.events.gz",
+        "bytes": 1169750
+      },
+      {
+        "file": "de9b6276b208e77b545be7544748a7dde99cbbfbd40e93fa84c5eff309b2d733.trips.gz",
+        "bytes": 112294
+      },
+      {
+        "file": "df1532a25b1260ad85f52a927cbccd0f2e47fd4903233e0f0468d515432c36ca.trips.gz",
+        "bytes": 111903
+      },
+      {
+        "file": "e154a18aa9fe07e13ddf33d01ed2fb3c25b62d776f2f838c2fb5c849db9052ec.events.gz",
+        "bytes": 2974038
+      },
+      {
+        "file": "ea86023908a677bc8fb25e7dcd61b9ebd0c61c2052b90b5552205fc4c3a10bdc.trips.gz",
+        "bytes": 58942
+      },
+      {
+        "file": "eacf08cca7d3086aaed348fc7af8189052e399400d874036fbafd36cd6c0bcf7.trips.gz",
+        "bytes": 112410
+      },
+      {
+        "file": "ecf3317c3c0562c8bd582fee186a07a3286740b12a84664d66abda8162f11a75.trips.gz",
+        "bytes": 110575
+      },
+      {
+        "file": "edd7abc37fa2156424a259ab868a56e78827ff3e847031b0f2c01e43c2d1de37.events.gz",
+        "bytes": 2985948
+      },
+      {
+        "file": "ee9fc5eced3fe28313281e87ed4c550d3670d656fb3ca6c91703d95c3ab3beff.trips.gz",
+        "bytes": 112475
+      },
+      {
+        "file": "f14fe06ad1cf60f2e5f70ac5c59f56bc0abcaefeb11b2482edb8d90555b5c003.events.gz",
+        "bytes": 1195000
+      },
+      {
+        "file": "f1abfff070228ad66ed71165c81557dcb10bfa8d01bed8cee33a1cb20cbfdadb.events.gz",
+        "bytes": 2859424
+      },
+      {
+        "file": "f3502cfe0c5b8556b05ab1f3609d25afbac4cebd1929d8ea7265b714fcc96f35.events.gz",
+        "bytes": 2845066
+      },
+      {
+        "file": "f5489b7ac611721e2ffbf56a727862fb0ef1707228ae3921f25a4b31ac6683a8.trips.gz",
+        "bytes": 111843
+      },
+      {
+        "file": "f766b0e69c056bedaceed19e125b479effea2538943a9c29bfe24648a5e9c9b0.events.gz",
+        "bytes": 2849619
+      },
+      {
+        "file": "f9a3cc9bce34534b9fbcef7783e30e3fdd544b8b29850ac6f2d8ed7e7b9d038e.events.gz",
+        "bytes": 1199769
+      },
+      {
+        "file": "f9c2accc9918c68986e7c6da6476a37bb0c2e587dfba663ceff5ddfd49436543.trips.gz",
+        "bytes": 110539
+      },
+      {
+        "file": "fa6458965e6ff5a9717eb7457a1e444d12eef986ae8ebb76485c155e220a2638.events.gz",
+        "bytes": 2495265
+      },
+      {
+        "file": "fadcc0f96b3bdeb1c1ac26c4f771d15061a80e61592ff2df4336b7171c941dba.events.gz",
+        "bytes": 67341
+      },
+      {
+        "file": "fe4d9b431d9ca753c1fc04bd5054603e092661dde6d400570c18a4566a9bdb34.trips.gz",
+        "bytes": 108669
+      },
+      {
+        "file": "ffa0764e4b7aa4bfa7460b0ff0d6704d6203922856255accdd3968bc1e95ea50.trips.gz",
+        "bytes": 70608
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 65115
+      },
+      {
+        "file": "version.json",
+        "bytes": 227
+      }
+    ],
+    "builtFiles": [
+      {
+        "file": "favicon.svg",
+        "bytes": 9522
+      },
+      {
+        "file": "icons.svg",
+        "bytes": 5031
+      },
+      {
+        "file": "_headers",
+        "bytes": 107
+      },
+      {
+        "file": "prototype-data/00f88e22008c0f69f9da7ee773113916d48c60dd1ab4e82a63b407d2ecc2cc7a.trips.gz",
+        "bytes": 108135
+      },
+      {
+        "file": "prototype-data/0180c68e16ed9054c82b6daecc32b1d7613bb31fc3e92de6155148303604680c.trips.gz",
+        "bytes": 108375
+      },
+      {
+        "file": "prototype-data/01dc655d8a7ee90307e4e7ad65b19578873b8e3c444ca89e2b4c2d4ed1c9946a.trips.gz",
+        "bytes": 112331
+      },
+      {
+        "file": "prototype-data/03ba3a137162cc6fd297ad29c7995b104eeb4b7fc8c952f91771dd56a53fb732.events.gz",
+        "bytes": 194096
+      },
+      {
+        "file": "prototype-data/043b290b640747b30cc49ba6e04ecda014ac454ab090d4f466a95528257b4f02.events.gz",
+        "bytes": 2984513
+      },
+      {
+        "file": "prototype-data/053976014736691c950e253c68b6548d09863c58a0ea87f4444d5a1f4b274b72.trips.gz",
+        "bytes": 111733
+      },
+      {
+        "file": "prototype-data/05a97aa73e20f97bee0ae173a0631f03b0b449070f3b4191adf6e34068df9ffb.trips.gz",
+        "bytes": 111993
+      },
+      {
+        "file": "prototype-data/0767ea6585332e282549be77e587e4dfe91468fb3f7cadc904c5eb3b400e12e9.events.gz",
+        "bytes": 1149958
+      },
+      {
+        "file": "prototype-data/091f56f0fba6584f74d61f756d1a181257e116bf368a6edad4c8d2d68d223286.events.gz",
+        "bytes": 1120955
+      },
+      {
+        "file": "prototype-data/09762ee3d08a5bb2599c40e40dd5733e61dd5040ae0dd141929f66b12f8a4056.events.gz",
+        "bytes": 2989503
+      },
+      {
+        "file": "prototype-data/0b2b4dacc22190311f010e318309f9ef1c24dd897b3a29587dbcf52f3ffafa64.events.gz",
+        "bytes": 2839468
+      },
+      {
+        "file": "prototype-data/0b3bb437b6abda291a4728ffc23e46e5c4356fa48257f8d53e5cb5775fc4ac9a.events.gz",
+        "bytes": 2497242
+      },
+      {
+        "file": "prototype-data/0b8b1f95d3daaef6be1b16d85cf92087f94f44189ab050094f33d1816dad099f.events.gz",
+        "bytes": 1882478
+      },
+      {
+        "file": "prototype-data/0c8f663e37d8da90a728bf789118a37aa37e7947ad690be396a48d139457a4e9.trips.gz",
+        "bytes": 39332
+      },
+      {
+        "file": "prototype-data/0d52d5bc4466304ae411a24b61234fd7f9f6520156fcde2b43d7f1e2cc75d211.trips.gz",
+        "bytes": 108772
+      },
+      {
+        "file": "prototype-data/0dc37fe3e07f9b61a6d57bf1115741970718d380d2157ae6a4c5ad15af20853e.events.gz",
+        "bytes": 2849940
+      },
+      {
+        "file": "prototype-data/0e1fa99bdb5bc53370718b27ebc92363cb676aa449037604c031c8d3097001f3.trips.gz",
+        "bytes": 58876
+      },
+      {
+        "file": "prototype-data/0e30029108cbbccbe2cbccf5aeb6c8bef7db3ddb9c0370bd24e08a5e23dd0db0.events.gz",
+        "bytes": 1952171
+      },
+      {
+        "file": "prototype-data/0f11b8a3ef59cb93da38c3b256286e02da2dcbe0dcc493dc1f6fd7f6c87dc707.events.gz",
+        "bytes": 2845158
+      },
+      {
+        "file": "prototype-data/0f75a671da4045be94c81613593c158b1e90bd63f9e1282fd37dfa6d61d7eefc.events.gz",
+        "bytes": 2848282
+      },
+      {
+        "file": "prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+        "bytes": 2836214
+      },
+      {
+        "file": "prototype-data/124d4e948c973b449922d175bee300a46cbf33da63cb6fbf3b4df0663c9653b1.trips.gz",
+        "bytes": 2867
+      },
+      {
+        "file": "prototype-data/1317839850aec2029dd919dd660091b1006cc7df8dcbb1b44da3ba094986ad4a.trips.gz",
+        "bytes": 76859
+      },
+      {
+        "file": "prototype-data/14b67b7819096bb09299c1499a466da7d0802597f5a1c22c7c1251622594fb96.trips.gz",
+        "bytes": 40175
+      },
+      {
+        "file": "prototype-data/14d0e0b87af8666834799afcc653309ab37f6a1a699a052722471c4233c576c8.events.gz",
+        "bytes": 1128007
+      },
+      {
+        "file": "prototype-data/1526aa4b05c50dd9b46739bde868c9b7f1155bf5d3270eb18bce3c8a9f49d591.trips.gz",
+        "bytes": 42388
+      },
+      {
+        "file": "prototype-data/17421cb74c4733bcc68645acb781619c7ec2d7c1503e2130eae36fdaecb3b6bf.trips.gz",
+        "bytes": 59270
+      },
+      {
+        "file": "prototype-data/1c3e39fb6c45175213ce60d78498eb886be78a75189ade187ad6b6e46920e9a2.trips.gz",
+        "bytes": 112046
+      },
+      {
+        "file": "prototype-data/1d45810ba98084c092fa3d929b65240d4b57cf4b9193bebbb388d29f0c2d3761.trips.gz",
+        "bytes": 58692
+      },
+      {
+        "file": "prototype-data/1dbdf4f551aefbdba423b68e4509ab3069702908e5dfa150994e67f8096810cf.events.gz",
+        "bytes": 31620
+      },
+      {
+        "file": "prototype-data/1f321829caf771f7d72ef9be808a8882d616450090b004611e25e964782cffab.trips.gz",
+        "bytes": 108396
+      },
+      {
+        "file": "prototype-data/1f92c8f0068bee525f13ccdf84330a26f2101091718ef86f28576ddd2bd6482e.trips.gz",
+        "bytes": 5003
+      },
+      {
+        "file": "prototype-data/20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz",
+        "bytes": 2846941
+      },
+      {
+        "file": "prototype-data/2011bc3fa971999472e48ad380d2ecd5b9cc6f0aafd6309b492341610a576a07.trips.gz",
+        "bytes": 41419
+      },
+      {
+        "file": "prototype-data/223845a4b760f1e624c162c9b208d6fdb6534bf44de767d584ceb440b54a4438.events.gz",
+        "bytes": 2851286
+      },
+      {
+        "file": "prototype-data/22ebafb65749ae46fdd6e5990c2a0478b0f89f1b8cedffd9dda8334fa50d8212.trips.gz",
+        "bytes": 58353
+      },
+      {
+        "file": "prototype-data/234fee899eab983bffbfa2b02d33d09ea47d53a8503eea6df59810ea82464272.events.gz",
+        "bytes": 2852480
+      },
+      {
+        "file": "prototype-data/2619921a3e4f4ed3b7b2aa6e77f732cb80e19ec63aa68565d7aec01adf99baf3.events.gz",
+        "bytes": 2499231
+      },
+      {
+        "file": "prototype-data/28b1d6beddf7ef999b4d34aba33ba04a4068cb838590c21f1d4d21ae8e591a4c.trips.gz",
+        "bytes": 4896
+      },
+      {
+        "file": "prototype-data/2b63ae9738c78cadec8b310206bb79510a62a00ba1613dffa4b391c457cf16cc.trips.gz",
+        "bytes": 40050
+      },
+      {
+        "file": "prototype-data/2c340a432d663bbb60d9367229d55358c694d8d9d0d9831996f3f43048bc7878.events.gz",
+        "bytes": 194211
+      },
+      {
+        "file": "prototype-data/3175176f116dfe4bcc947f24ed704f72466d3e9b9d0ff722ea4e75c9d859a344.trips.gz",
+        "bytes": 111602
+      },
+      {
+        "file": "prototype-data/339e4013984e2201060c0dd8dcb9a04df38c10cf2c987e1830e71cf75defc861.events.gz",
+        "bytes": 2499259
+      },
+      {
+        "file": "prototype-data/346b921dcfa63f50e0caed0753d8c67956f9eb076dae040ff648c84e88552cab.trips.gz",
+        "bytes": 108411
+      },
+      {
+        "file": "prototype-data/3571c30b85cefd2c8bbd629712899f80d8bfcce92240d96a3b36d61b449d3501.trips.gz",
+        "bytes": 39984
+      },
+      {
+        "file": "prototype-data/386b71d9e240304babd32755faa477e5f5235dbb5c72fdd1f52e5399d682cd0f.events.gz",
+        "bytes": 2866559
+      },
+      {
+        "file": "prototype-data/3ad7d8eb20f7b726357641486f919d40d88a4deb8eac04cd8b7f545ca81a6ce3.events.gz",
+        "bytes": 2853622
+      },
+      {
+        "file": "prototype-data/3b9790ab8e68c41b951a4417b7d81fab9fa78b6dd04c913da9c1a8a595190f68.events.gz",
+        "bytes": 1888017
+      },
+      {
+        "file": "prototype-data/3c05623a2d7ac449d8dc984f2bd3906a6e7c1dd5cfbab2742f92e3608feacc02.trips.gz",
+        "bytes": 41071
+      },
+      {
+        "file": "prototype-data/3f081d5ebdd900861acb5557d168c451433562fedacc2c3658a584fe4d69a2ab.trips.gz",
+        "bytes": 112381
+      },
+      {
+        "file": "prototype-data/3f2f896858845df4bab043e5501c0c03b4f0b41db6365a95e4f52f84397f4f21.events.gz",
+        "bytes": 2851056
+      },
+      {
+        "file": "prototype-data/41492abd0105914670489cff7debaf28554758db7264d89d1915c591c116dd19.events.gz",
+        "bytes": 193984
+      },
+      {
+        "file": "prototype-data/42e39a984dd516952b04eb7407c09e799b24970bf4e51479584ee88bb5d4f187.events.gz",
+        "bytes": 1112611
+      },
+      {
+        "file": "prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+        "bytes": 111371
+      },
+      {
+        "file": "prototype-data/437d7d242799be927b0536c9a2dfef55c9e3b14b8118a20cd99155c92d3eb34a.trips.gz",
+        "bytes": 4957
+      },
+      {
+        "file": "prototype-data/4383850ab77a2d580b8e249d414b8bd5b4d74cb323c88e5d86e462acc3dd6b6e.trips.gz",
+        "bytes": 112389
+      },
+      {
+        "file": "prototype-data/45c9a27857d8104af2e89a63756aaa7fb21b04eb45fd8c05c53de873f447300b.events.gz",
+        "bytes": 2848417
+      },
+      {
+        "file": "prototype-data/49e3fa9728066db9e480fd552558eb238a648316245027ba358d00a37e72c9b0.events.gz",
+        "bytes": 1889902
+      },
+      {
+        "file": "prototype-data/4c113562616dcaacdc84a9527f550fe910e5b0374aefefeaf19f39602e68533b.trips.gz",
+        "bytes": 77153
+      },
+      {
+        "file": "prototype-data/4de6de5111cfd44cc47499a3a08e417a4a0278c1f5db5e8dfab6e587c7605046.trips.gz",
+        "bytes": 38745
+      },
+      {
+        "file": "prototype-data/4f3893b9408108c6b53f3de10c8e6711414a81e187033e1521a72b36bba6f784.trips.gz",
+        "bytes": 17293
+      },
+      {
+        "file": "prototype-data/50dbb028db24806af4b37d991ed7c8d28de77f64b695b3a5a8d359d45db5b07d.trips.gz",
+        "bytes": 111758
+      },
+      {
+        "file": "prototype-data/526a33c45de2aae26c53f7c472a7a1ccae3757341c881df8830285cff7e86eeb.events.gz",
+        "bytes": 1143732
+      },
+      {
+        "file": "prototype-data/53730f4e4a051d6bcdf42c80b7b29be5f125158c7c8c027340b60182cf037b3e.trips.gz",
+        "bytes": 17222
+      },
+      {
+        "file": "prototype-data/53ea8d0bb4bbfbb9e9ed5e1ad31a0aad35e7d8a8f579063230e5c629fa345820.events.gz",
+        "bytes": 193557
+      },
+      {
+        "file": "prototype-data/55da978e1d54d7551dc2d3811d993bf51ad64bcb43a84040a8afd33ee5673713.trips.gz",
+        "bytes": 1687
+      },
+      {
+        "file": "prototype-data/59e83bca97a73a3b9ac5af38d3b4626e24410e145dec97ddefd7b9c491d4f1a2.events.gz",
+        "bytes": 2987887
+      },
+      {
+        "file": "prototype-data/5c4dc04079a5353d3ae1efa08a13d3b614c9fe3cac563e554a7931910e9fd773.events.gz",
+        "bytes": 2842353
+      },
+      {
+        "file": "prototype-data/5cb598ee53fec51dfacdee55c28703f2d1e159071731c6af5cf427d4c73d8c7a.events.gz",
+        "bytes": 129960
+      },
+      {
+        "file": "prototype-data/60ebb3d4456a21300a8d11aecf591a5ed02a63e4efdcf71b0600f7b571f95074.events.gz",
+        "bytes": 1191248
+      },
+      {
+        "file": "prototype-data/61305f659d842a2916cda8b05f77e308decbedef938a4460a3e7e9496f487698.trips.gz",
+        "bytes": 107514
+      },
+      {
+        "file": "prototype-data/63727444c2d8cadcc6fe6d7822703139e439dda39c59fc595a55413fb48f6487.events.gz",
+        "bytes": 1878861
+      },
+      {
+        "file": "prototype-data/6496e88301d4dfae032dd64194739c1168fea48c4be9889dbdaf03e27c4c228d.events.gz",
+        "bytes": 2856276
+      },
+      {
+        "file": "prototype-data/65239baf3fcc9d3e4bf9d3e7bf92a7eea3b23a695e723d0d897f68e4fc4c3f13.trips.gz",
+        "bytes": 41879
+      },
+      {
+        "file": "prototype-data/675024ac04b9035a80f676c3478cc03d53efe3a3fd02fd3b5bc2bed74c209b29.trips.gz",
+        "bytes": 58749
+      },
+      {
+        "file": "prototype-data/6a35fea9ee7be3ddadd443d1b0f224bcb6558f9ad3e070ce12c13431b9568eb2.trips.gz",
+        "bytes": 109029
+      },
+      {
+        "file": "prototype-data/6f1098dad31ce1bb83ae3d9e12b5b945bd8c872ef5e38f94121ddaabf9d525df.events.gz",
+        "bytes": 2847495
+      },
+      {
+        "file": "prototype-data/6fcca30bafdcb9b1f926c9bc52e17ed43527c5441d0cf71ea378d432d607c861.trips.gz",
+        "bytes": 57322
+      },
+      {
+        "file": "prototype-data/718793d94621296aa978377e1010de755d134440612e020eea3fb75be44768b6.events.gz",
+        "bytes": 2842147
+      },
+      {
+        "file": "prototype-data/738bc2c351d517b0a579513ef0190da72837abec3fdeaad22a4d8f94c976ba44.trips.gz",
+        "bytes": 59317
+      },
+      {
+        "file": "prototype-data/74233f04bb29ddbc03a11a6690c27649d43899f69c5be1964a952856225f957f.events.gz",
+        "bytes": 1119514
+      },
+      {
+        "file": "prototype-data/77567ec15b40bd4be78d7640de80842370f1c0bafc0db465278d3e755929b5c2.events.gz",
+        "bytes": 2982477
+      },
+      {
+        "file": "prototype-data/786df6504caa81bad75652c534e6010d0ba95dd28cb1ca412d9fbbccc776aacd.events.gz",
+        "bytes": 2989239
+      },
+      {
+        "file": "prototype-data/78712f36bc30a9e37a345d194db7c8d132e7102b6976aadfabf6c43df858c456.trips.gz",
+        "bytes": 1699
+      },
+      {
+        "file": "prototype-data/79efaa49f59fdaa04fa09a175dfb00f8dbc9e61db995a353eace2ae153ffbcc8.trips.gz",
+        "bytes": 16766
+      },
+      {
+        "file": "prototype-data/7b63f471c4c099a4ac3ecd595c47f3aa91d77de7d97460decb1b998a4ea4897f.events.gz",
+        "bytes": 1894931
+      },
+      {
+        "file": "prototype-data/7cb758580fd6554eb7ed08568fd8b23fdcedbf024f935b87a45a499a3fdea2aa.trips.gz",
+        "bytes": 108116
+      },
+      {
+        "file": "prototype-data/7ee2d91db0f843e004a5eb4388d302160212cb70d6439892e94e01f2ec47d838.trips.gz",
+        "bytes": 111909
+      },
+      {
+        "file": "prototype-data/8243b1b05ecd2b83bed5c7e6735387850dc94cc9f51674826c7f9c5ce7a34bc4.events.gz",
+        "bytes": 2846988
+      },
+      {
+        "file": "prototype-data/82736bac47a880eb005aad3f00bb8e4e94565df2001ea633374e5ba7bf0fae95.events.gz",
+        "bytes": 193678
+      },
+      {
+        "file": "prototype-data/837ea1364207f17538acce86f707673d56765767fe0d8d415884ca84a694a65a.events.gz",
+        "bytes": 193836
+      },
+      {
+        "file": "prototype-data/83aa5b5852fdaeb0d706ff1d9954bf56342587bac1177a9611dc90d489a4c7a2.trips.gz",
+        "bytes": 111730
+      },
+      {
+        "file": "prototype-data/83f30256d46c8f197edc35e7a0b7160f220dd427c9e591ec94944e0bdbe7889d.trips.gz",
+        "bytes": 17234
+      },
+      {
+        "file": "prototype-data/8438c2387801cf3a492e9f0e2d71fac895affc2577b97e7e5d5a1c4f169d1725.events.gz",
+        "bytes": 2858950
+      },
+      {
+        "file": "prototype-data/898c9b8db3949e224f8519be7843d128c62f90bd87691418a0dbff0964bde4a2.events.gz",
+        "bytes": 31614
+      },
+      {
+        "file": "prototype-data/89a32c927f71afc737826e601c99e3a62ed02d23778520989b2d911ae3fc9333.events.gz",
+        "bytes": 2261745
+      },
+      {
+        "file": "prototype-data/8b15a574caf9e5102ba3b9397301bf8645bd8080aa473249740e6a8c3cd7234c.trips.gz",
+        "bytes": 107129
+      },
+      {
+        "file": "prototype-data/8cbf3ab4b50ef8bbbba6d3c03a7b521c497585b51c567690e7e47098603390ce.trips.gz",
+        "bytes": 2870
+      },
+      {
+        "file": "prototype-data/8cd57c87b2e8fb787d407f4887f90fe7ef8237b888508916cfd67bfbf8fe2f02.trips.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "prototype-data/8dc9ab12cf20987574d706a6d4f6c7548d41abc8ad0dc3542494239ef9266e05.trips.gz",
+        "bytes": 17279
+      },
+      {
+        "file": "prototype-data/9075a41bdf59bb4b5e0f201dd307bda846ed756ee5b3aa1e4af352ca3cf9e4f0.events.gz",
+        "bytes": 1195170
+      },
+      {
+        "file": "prototype-data/92c0436fc40a0e19e145b44f3e90ce00ee2942ff4b7e9e83c4703ad986882e39.trips.gz",
+        "bytes": 69984
+      },
+      {
+        "file": "prototype-data/9373f5aec0c4d7339210a28c8743b20b5a5f16b87ab8996db6bdf1d3d0060ab4.events.gz",
+        "bytes": 2851377
+      },
+      {
+        "file": "prototype-data/93f68c46e85ce2ea4d26b5b97e10e38d3abd1bdb02032caad90bb9e0dc7d62cc.trips.gz",
+        "bytes": 111890
+      },
+      {
+        "file": "prototype-data/9633e249cf96626cd0815af9b00341959b86f27b23e112aa25daf3f932ed493f.events.gz",
+        "bytes": 2989706
+      },
+      {
+        "file": "prototype-data/979070b0832aa9437f6423a2b1ce7ddea5bfae874287961e65f962bf7f56864f.events.gz",
+        "bytes": 2258982
+      },
+      {
+        "file": "prototype-data/9925e78c91b6a9beb518afc4272a70f7d643a26228cb30fd31e9701748ce5e11.events.gz",
+        "bytes": 2835338
+      },
+      {
+        "file": "prototype-data/99acbeaee3378c41a228c4d8e5fbcfdec35335e3574df807e9520d51648c6478.events.gz",
+        "bytes": 186985
+      },
+      {
+        "file": "prototype-data/99ba4697806130c16d29508ca9584f9c7e05e1e833bfb55fc8d1e86e0ce4900e.events.gz",
+        "bytes": 193790
+      },
+      {
+        "file": "prototype-data/99f7e65272dd7ae66cc76a214569dfd42fb16a8f837439ed8f67cb3c6a63cb16.events.gz",
+        "bytes": 1144678
+      },
+      {
+        "file": "prototype-data/9af72fd3b68de0d731ee12c0cd2e3c47ff7bc9e55cab6237bac968a2dea7a93e.events.gz",
+        "bytes": 2855500
+      },
+      {
+        "file": "prototype-data/9b4a311d914e5d2447af6bd840e417ae71114abf0465b0242560ee07bd6b7a1f.trips.gz",
+        "bytes": 107243
+      },
+      {
+        "file": "prototype-data/9d30c6b78fbcefb1d7ede70f14381a1334d4977b98f0d2f71c61275a96ccccd7.events.gz",
+        "bytes": 2854823
+      },
+      {
+        "file": "prototype-data/9f74c6b2eab3dae6fcf5dddea382a4752008223d0475be3351668e36325ba232.events.gz",
+        "bytes": 2984607
+      },
+      {
+        "file": "prototype-data/a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+        "bytes": 111567
+      },
+      {
+        "file": "prototype-data/a26f4b26e768be3186a10239586ae6117815a6387717951edae7e061421561c0.trips.gz",
+        "bytes": 108316
+      },
+      {
+        "file": "prototype-data/a36bba717f824ceab5362a57f3585681727995a46d994ac2f8cc60530782640c.events.gz",
+        "bytes": 1892067
+      },
+      {
+        "file": "prototype-data/a39582737a5df550d86d05061f7b91dd2304c1dbcb3cf0eaf4f31faecb490baf.trips.gz",
+        "bytes": 42654
+      },
+      {
+        "file": "prototype-data/a402af8c8a5039a09d8bad9c08e75491e18a203752f38caef7d39bdf407d90f9.events.gz",
+        "bytes": 130579
+      },
+      {
+        "file": "prototype-data/a541e79e27c944989d261b92e637ef9a32036c957f0e692d384a17c547b0a556.trips.gz",
+        "bytes": 58390
+      },
+      {
+        "file": "prototype-data/a70be455bae63830b7a878d17fd521c637ea9b967423ed1eafe29ec4a1d8b35f.events.gz",
+        "bytes": 1745645
+      },
+      {
+        "file": "prototype-data/a72f20416e3c5ed9712a2930777834af4ca71c6cfc5811bc458fea855038de22.trips.gz",
+        "bytes": 4942
+      },
+      {
+        "file": "prototype-data/a8ad90267da85578977c4673363ad1f45dbd70f74bbac36a93201fe4f95580e2.trips.gz",
+        "bytes": 112151
+      },
+      {
+        "file": "prototype-data/aa263467771f2749a0181eb139ce82d24d5a97dd3e161b75070a993301fb8c60.trips.gz",
+        "bytes": 17251
+      },
+      {
+        "file": "prototype-data/ab778f95626c469d5ef9d5e458b3a0531363c72b5e9ab4bd79a7332b73da1af3.trips.gz",
+        "bytes": 54942
+      },
+      {
+        "file": "prototype-data/ad23439eee57dac8dfd37dd70ef8de037cbbed46fbb7881731af1972264bdcb7.trips.gz",
+        "bytes": 17194
+      },
+      {
+        "file": "prototype-data/add12d2fa58939288f7c110a20d43749160081d020a249fcda406a02e3bf2ecc.trips.gz",
+        "bytes": 110823
+      },
+      {
+        "file": "prototype-data/afba57954f311048e73f5297adc33c6bc8cc322df28dcb1b23599a588c64ad72.events.gz",
+        "bytes": 2860462
+      },
+      {
+        "file": "prototype-data/b0fe932cc68cc23eb9f36978e56426b0517e4d213e95f2a3824851152fd7f451.trips.gz",
+        "bytes": 76787
+      },
+      {
+        "file": "prototype-data/b101373197ce91172c643dfb5a4669cda1dc72486fcd31d751bc50cac4cea526.events.gz",
+        "bytes": 1952050
+      },
+      {
+        "file": "prototype-data/b1cca7213253a35071c4f6eec374e22ae3c202fd8f97965668ddf14744ce43b3.events.gz",
+        "bytes": 67106
+      },
+      {
+        "file": "prototype-data/b331feb5d6b845c50ae3b2a82c316949e256e2f1165733700086b87a788c90e6.trips.gz",
+        "bytes": 112749
+      },
+      {
+        "file": "prototype-data/b7be5c0af37927f3b0a148cca6be9fc64a8c3a2685acf05def5f0026705a3e8b.events.gz",
+        "bytes": 130372
+      },
+      {
+        "file": "prototype-data/b825f857ed2f40398e1da148b54f6f15bc87d9f88d2abd3b98edf8a34b276509.trips.gz",
+        "bytes": 77716
+      },
+      {
+        "file": "prototype-data/b87f3c40c0a53e4d6e695419ab30bf9f8c067c83167d2ff283d3959c908ec0e4.trips.gz",
+        "bytes": 70010
+      },
+      {
+        "file": "prototype-data/b92c2297435be89fb8c42c1d7e67cd6ceefc9ab5e838c26b1eb7641ee8d2ec26.events.gz",
+        "bytes": 2846996
+      },
+      {
+        "file": "prototype-data/b9b3eecf20e977ad5b32228a327d948843f2b1ded0c53428c168cf2f5eb92c1d.trips.gz",
+        "bytes": 108008
+      },
+      {
+        "file": "prototype-data/ba65aec1cfae98e92e78e30142ba5819a1e0091df0f2626c142be604ab53f1de.trips.gz",
+        "bytes": 17253
+      },
+      {
+        "file": "prototype-data/bb6dad379cfccf2e4291c4b52f7dfe6e5ede7185b8681f0a0c9f1badff23c796.trips.gz",
+        "bytes": 108028
+      },
+      {
+        "file": "prototype-data/bc317c41ad2cae4b356e561c6f40bf431f0df2dff29e388b048de4c2df273153.events.gz",
+        "bytes": 1136523
+      },
+      {
+        "file": "prototype-data/be46ce02ba8c7b997b0ce4ec7d15b5583afeac769a638f9aaa0b533fb2164c37.events.gz",
+        "bytes": 2993591
+      },
+      {
+        "file": "prototype-data/be7d9a0815fa41b557bacadab367d23a379f51db76b43fd2e82895ca42dd35a1.trips.gz",
+        "bytes": 39075
+      },
+      {
+        "file": "prototype-data/bf3ce69b214876c2b381706271ba17293a388f66089ed0a275f5dd50319a092c.trips.gz",
+        "bytes": 45333
+      },
+      {
+        "file": "prototype-data/c27cba6302c6bfc9e3417736665672877c2ca4500ec5e688ceab5a799fe0343f.trips.gz",
+        "bytes": 110417
+      },
+      {
+        "file": "prototype-data/c34090021bbb9e7d6dd7ed5fd82d9fbb099eeaf21a82f5d7367661dd3847ee5a.trips.gz",
+        "bytes": 108660
+      },
+      {
+        "file": "prototype-data/c3abb0cfd0bb3ab33db5c78b8321b513c3be6fec3f4a49cceddae3b751ba65a8.events.gz",
+        "bytes": 194254
+      },
+      {
+        "file": "prototype-data/c5e5d2886942987adfb954684beade75cacd82f1a822eeff35022ce0c8a99b1f.events.gz",
+        "bytes": 2977624
+      },
+      {
+        "file": "prototype-data/c6961935b71baf5ee28a9653f7d1288c6ffc6a99629571907987ffd4cb6eaf99.events.gz",
+        "bytes": 2994783
+      },
+      {
+        "file": "prototype-data/c6ae88a61c3faf39fdc54a2eafad7b7da80e2e1ed4b112cda679086b31afcf72.events.gz",
+        "bytes": 2858524
+      },
+      {
+        "file": "prototype-data/c8270d293ecd5713ef90a07c9b54fb6a4e2555896b7fee3518e59268a540b796.events.gz",
+        "bytes": 2988295
+      },
+      {
+        "file": "prototype-data/c87f530ef18ed66b33867cb456a9f9146b3ff9040a3f99a6d22900a6ec133d7c.events.gz",
+        "bytes": 1920373
+      },
+      {
+        "file": "prototype-data/cbe6584f1504711cd2267930dd45982ce40b7f09dce63a5c6c656b35076d1cbc.trips.gz",
+        "bytes": 111357
+      },
+      {
+        "file": "prototype-data/cc06e4eaba570c9bcf4be3fb37b1c741b4626af1aef353b8e74a8c20294899af.trips.gz",
+        "bytes": 112383
+      },
+      {
+        "file": "prototype-data/cd781a65ca5c63e38f36df888e975484cbf9f7678ae73b38fb2a1fcbaf755901.events.gz",
+        "bytes": 2987667
+      },
+      {
+        "file": "prototype-data/cda4022e83ca31d3d1f3aeb1bc5f0c7597c62b9e38a19fedff6d44e678015be3.events.gz",
+        "bytes": 2261798
+      },
+      {
+        "file": "prototype-data/ce06a0860a00ecefea50eeb513cf06463eee1108698c984b857dce86df704514.trips.gz",
+        "bytes": 111960
+      },
+      {
+        "file": "prototype-data/ceba26900e59f594dfb120e934b16b252902e4a8102297522b12f686ccc1e3ce.events.gz",
+        "bytes": 2840247
+      },
+      {
+        "file": "prototype-data/d2021d141f1e2cba01c964c28466d26f716950d45991d1691fb10b664867a8ce.events.gz",
+        "bytes": 2976315
+      },
+      {
+        "file": "prototype-data/d3b3b9fa9c254b365788450984d2661bd4386b16d1483de57bf4e575b3b87f93.events.gz",
+        "bytes": 130170
+      },
+      {
+        "file": "prototype-data/d5b4dd9e9419f90c82b954156eb9cb3f05416eaf5d361f756fb3bd21676e9b5e.trips.gz",
+        "bytes": 17309
+      },
+      {
+        "file": "prototype-data/d839679dedb46374c7190c07bd0fae28136bd3c90f94eae96261ae554dd1712c.trips.gz",
+        "bytes": 40136
+      },
+      {
+        "file": "prototype-data/db7997f7768233004848828a83fda03ea505b4944f620744f9058b7e982d73f1.trips.gz",
+        "bytes": 70039
+      },
+      {
+        "file": "prototype-data/dc7b986bb406ab289b68667b856635f0d945619487d1519daf08c53c7c061361.events.gz",
+        "bytes": 2261847
+      },
+      {
+        "file": "prototype-data/dd0f47c76a9b7f2f2277f46b94549b24de3ccabd89c3362699c4d195a18e3a7e.trips.gz",
+        "bytes": 110981
+      },
+      {
+        "file": "prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+        "bytes": 502394
+      },
+      {
+        "file": "prototype-data/de2f6bcccba88d66fc93c1e8d442e6488586e613930dcebcd37e626a5219e960.events.gz",
+        "bytes": 1169750
+      },
+      {
+        "file": "prototype-data/de9b6276b208e77b545be7544748a7dde99cbbfbd40e93fa84c5eff309b2d733.trips.gz",
+        "bytes": 112294
+      },
+      {
+        "file": "prototype-data/df1532a25b1260ad85f52a927cbccd0f2e47fd4903233e0f0468d515432c36ca.trips.gz",
+        "bytes": 111903
+      },
+      {
+        "file": "prototype-data/e154a18aa9fe07e13ddf33d01ed2fb3c25b62d776f2f838c2fb5c849db9052ec.events.gz",
+        "bytes": 2974038
+      },
+      {
+        "file": "prototype-data/ea86023908a677bc8fb25e7dcd61b9ebd0c61c2052b90b5552205fc4c3a10bdc.trips.gz",
+        "bytes": 58942
+      },
+      {
+        "file": "prototype-data/eacf08cca7d3086aaed348fc7af8189052e399400d874036fbafd36cd6c0bcf7.trips.gz",
+        "bytes": 112410
+      },
+      {
+        "file": "prototype-data/ecf3317c3c0562c8bd582fee186a07a3286740b12a84664d66abda8162f11a75.trips.gz",
+        "bytes": 110575
+      },
+      {
+        "file": "prototype-data/edd7abc37fa2156424a259ab868a56e78827ff3e847031b0f2c01e43c2d1de37.events.gz",
+        "bytes": 2985948
+      },
+      {
+        "file": "prototype-data/ee9fc5eced3fe28313281e87ed4c550d3670d656fb3ca6c91703d95c3ab3beff.trips.gz",
+        "bytes": 112475
+      },
+      {
+        "file": "prototype-data/f14fe06ad1cf60f2e5f70ac5c59f56bc0abcaefeb11b2482edb8d90555b5c003.events.gz",
+        "bytes": 1195000
+      },
+      {
+        "file": "prototype-data/f1abfff070228ad66ed71165c81557dcb10bfa8d01bed8cee33a1cb20cbfdadb.events.gz",
+        "bytes": 2859424
+      },
+      {
+        "file": "prototype-data/f3502cfe0c5b8556b05ab1f3609d25afbac4cebd1929d8ea7265b714fcc96f35.events.gz",
+        "bytes": 2845066
+      },
+      {
+        "file": "prototype-data/f5489b7ac611721e2ffbf56a727862fb0ef1707228ae3921f25a4b31ac6683a8.trips.gz",
+        "bytes": 111843
+      },
+      {
+        "file": "prototype-data/f766b0e69c056bedaceed19e125b479effea2538943a9c29bfe24648a5e9c9b0.events.gz",
+        "bytes": 2849619
+      },
+      {
+        "file": "prototype-data/f9a3cc9bce34534b9fbcef7783e30e3fdd544b8b29850ac6f2d8ed7e7b9d038e.events.gz",
+        "bytes": 1199769
+      },
+      {
+        "file": "prototype-data/f9c2accc9918c68986e7c6da6476a37bb0c2e587dfba663ceff5ddfd49436543.trips.gz",
+        "bytes": 110539
+      },
+      {
+        "file": "prototype-data/fa6458965e6ff5a9717eb7457a1e444d12eef986ae8ebb76485c155e220a2638.events.gz",
+        "bytes": 2495265
+      },
+      {
+        "file": "prototype-data/fadcc0f96b3bdeb1c1ac26c4f771d15061a80e61592ff2df4336b7171c941dba.events.gz",
+        "bytes": 67341
+      },
+      {
+        "file": "prototype-data/fe4d9b431d9ca753c1fc04bd5054603e092661dde6d400570c18a4566a9bdb34.trips.gz",
+        "bytes": 108669
+      },
+      {
+        "file": "prototype-data/ffa0764e4b7aa4bfa7460b0ff0d6704d6203922856255accdd3968bc1e95ea50.trips.gz",
+        "bytes": 70608
+      },
+      {
+        "file": "prototype-data/manifest.json",
+        "bytes": 65115
+      },
+      {
+        "file": "prototype-data/version.json",
+        "bytes": 227
+      },
+      {
+        "file": "licenses/maplibre-gl.txt",
+        "bytes": 5984
+      },
+      {
+        "file": "experiments/hybrid/index.html",
+        "bytes": 1436
+      },
+      {
+        "file": "experiments/hybrid/mobility.html",
+        "bytes": 2042
+      },
+      {
+        "file": "assets/browser-worker-CVA7eKFh.js",
+        "bytes": 50734
+      },
+      {
+        "file": "assets/index-CbatDSMv.js",
+        "bytes": 3098
+      },
+      {
+        "file": "assets/mobility-CXrtiDW_.js",
+        "bytes": 4106
+      },
+      {
+        "file": "assets/modulepreload-polyfill-P2Xu9kJm.js",
+        "bytes": 670
+      }
+    ]
+  },
+  "routing": {
+    "status": "passed",
+    "datesChecked": 121,
+    "cases": [
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-11-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-11-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-11-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-11-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-11T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-11T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-11-11T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-11-11T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-11-11T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-11-11T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-12-25T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-12-25T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-12-25T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2026-12-25T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-12-25T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2026-12-25T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2027-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2027-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2027-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2027-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2027-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2027-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2027-02-15T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2027-02-15T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2027-02-15T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2027-02-15T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2027-02-15T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2027-02-15T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2027-03-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "direct",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2027-03-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2027-03-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "one",
+        "query": {
+          "fromStopId": "2397",
+          "toStopId": "36394",
+          "at": "2027-03-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2027-03-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 1
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "two",
+        "query": {
+          "fromStopId": "1138",
+          "toStopId": "36394",
+          "at": "2027-03-08T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "no_journey",
+        "proposals": 0
+      },
+      {
+        "name": "extra",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-09T23:05:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 4
+      },
+      {
+        "name": "extra",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-09T11:00:00Z",
+          "mode": "arrival",
+          "order": "departure",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "ok",
+        "proposals": 6
+      },
+      {
+        "name": "extra",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 600,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "extra",
+        "query": {
+          "fromStopId": "35668",
+          "toStopId": "35660",
+          "at": "2026-11-09T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "limited",
+        "proposals": 6
+      },
+      {
+        "name": "extra",
+        "query": {
+          "fromStopId": "35660",
+          "toStopId": "35668",
+          "at": "2028-01-01T10:00:00Z",
+          "mode": "departure",
+          "order": "arrival",
+          "marginSeconds": 120,
+          "maxTransfers": 2
+        },
+        "equal": true,
+        "state": "outside_validity",
+        "proposals": 0
+      }
+    ],
+    "divergences": []
+  },
+  "edge": {
+    "status": "passed",
+    "version": "Edg/157.0.4341.42",
+    "groups": {
+      "stop-stop": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 16.299999952316284,
+          "median": 17.100000023841858,
+          "p95": 307.5999999642372,
+          "max": 307.5999999642372
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 3.5,
+          "median": 3.900000035762787,
+          "p95": 257.5,
+          "max": 257.5
+        }
+      },
+      "address-address": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 38.200000047683716,
+          "median": 40.39999997615814,
+          "p95": 1994.8999999761581,
+          "max": 1994.8999999761581
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 32,
+          "median": 34.39999997615814,
+          "p95": 494.19999998807907,
+          "max": 494.19999998807907
+        }
+      },
+      "address-stop": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 43.89999997615814,
+          "median": 49.10000002384186,
+          "p95": 1351.199999988079,
+          "max": 1351.199999988079
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 38.59999996423721,
+          "median": 42.19999998807907,
+          "p95": 300.9000000357628,
+          "max": 300.9000000357628
+        }
+      },
+      "stop-address": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 46.89999997615814,
+          "median": 47.80000001192093,
+          "p95": 1008.6000000238419,
+          "max": 1008.6000000238419
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 41.5,
+          "median": 41.69999998807907,
+          "p95": 342,
+          "max": 342
+        }
+      },
+      "home-work": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 37.90000003576279,
+          "median": 40.69999998807907,
+          "p95": 1615.4000000357628,
+          "max": 1615.4000000357628
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 33.60000002384186,
+          "median": 36.09999996423721,
+          "p95": 447,
+          "max": 447
+        }
+      },
+      "work-home": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 38.5,
+          "median": 39.09999996423721,
+          "p95": 2210.7999999523163,
+          "max": 2210.7999999523163
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 33.40000003576279,
+          "median": 33.5,
+          "p95": 561.6999999880791,
+          "max": 561.6999999880791
+        }
+      },
+      "custom-favorite": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 42.59999996423721,
+          "median": 44.89999997615814,
+          "p95": 1261.5,
+          "max": 1261.5
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 37.30000001192093,
+          "median": 38.60000002384186,
+          "p95": 301.69999998807907,
+          "max": 301.69999998807907
+        }
+      }
+    },
+    "checks": [
+      "SQLite default: no worker constructed, no double execution",
+      "Address arrive-before structured parity",
+      "1440 / 768 / 390 / 320 without horizontal overflow",
+      "Real progress observed through worker",
+      "Door-to-door cancellation cannot publish a late result"
+    ],
+    "provider": {
+      "calls": 1886,
+      "misses": 0,
+      "upstreamRequests": 0
+    },
+    "progress": [
+      "Démarrage de la recherche",
+      "Recherche terminée",
+      "Identification des arrêts accessibles",
+      "Calcul des parcours piétons",
+      "Recherche des correspondances",
+      "Classement des itinéraires",
+      "Recherche des adresses"
+    ],
+    "queryHeartbeat": {
+      "n": 687,
+      "min": 3.300000011920929,
+      "median": 16.099999964237213,
+      "p95": 16.80000001192093,
+      "max": 27.899999976158142
+    },
+    "overallHeartbeat": {
+      "n": 417,
+      "min": 2,
+      "median": 16.099999964237213,
+      "p95": 16.600000023841858,
+      "max": 80.09999996423721
+    },
+    "firstSearches": [
+      {
+        "scenario": "stop-stop",
+        "workerMs": 257.5,
+        "perceivedMs": 307.5999999642372,
+        "bytes": 3515094,
+        "requests": 4,
+        "mobilityMetrics": {
+          "durationMs": 214.3,
+          "transitSearches": 1,
+          "walkingCalls": 0,
+          "sqlMs": 58.10000002384186,
+          "sqlQueries": 14,
+          "candidatePlatforms": 2,
+          "confirmedPlatforms": 2,
+          "walkBudgetReached": false,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0.10000002384185791,
+          "walkingWallMs": 0.19999998807907104,
+          "routingMs": 127.30000001192093,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      },
+      {
+        "scenario": "address-address",
+        "workerMs": 494.19999998807907,
+        "perceivedMs": 1994.8999999761581,
+        "bytes": 3515775,
+        "requests": 7,
+        "mobilityMetrics": {
+          "durationMs": 492.3,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 14.100000023841858,
+          "sqlQueries": 6,
+          "candidatePlatforms": 123,
+          "confirmedPlatforms": 35,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 22.30000001192093,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 2.100000023841858,
+          "walkingWallMs": 54.89999997615814,
+          "routingMs": 417.1999999284744,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      },
+      {
+        "scenario": "address-stop",
+        "workerMs": 300.9000000357628,
+        "perceivedMs": 1351.199999988079,
+        "bytes": 3516456,
+        "requests": 10,
+        "mobilityMetrics": {
+          "durationMs": 299,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 4.699999988079071,
+          "sqlQueries": 4,
+          "candidatePlatforms": 68,
+          "confirmedPlatforms": 43,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 6.699999988079071,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 1,
+          "walkingWallMs": 40.80000001192093,
+          "routingMs": 251.30000001192093,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      },
+      {
+        "scenario": "stop-address",
+        "workerMs": 342,
+        "perceivedMs": 1008.6000000238419,
+        "bytes": 3517137,
+        "requests": 13,
+        "mobilityMetrics": {
+          "durationMs": 340.1,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 1.699999988079071,
+          "sqlQueries": 5,
+          "candidatePlatforms": 57,
+          "confirmedPlatforms": 37,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 4.799999952316284,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 1.2000000476837158,
+          "walkingWallMs": 39.80000001192093,
+          "routingMs": 296.10000002384186,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      },
+      {
+        "scenario": "home-work",
+        "workerMs": 447,
+        "perceivedMs": 1615.4000000357628,
+        "bytes": 3517818,
+        "requests": 16,
+        "mobilityMetrics": {
+          "durationMs": 445.1,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 4.500000059604645,
+          "sqlQueries": 4,
+          "candidatePlatforms": 123,
+          "confirmedPlatforms": 35,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": true,
+          "geocodingWallMs": 1.5,
+          "walkingWallMs": 30.100000023841858,
+          "routingMs": 407.69999998807907,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      },
+      {
+        "scenario": "work-home",
+        "workerMs": 561.6999999880791,
+        "perceivedMs": 2210.7999999523163,
+        "bytes": 3518499,
+        "requests": 19,
+        "mobilityMetrics": {
+          "durationMs": 559.8,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 5.400000035762787,
+          "sqlQueries": 6,
+          "candidatePlatforms": 123,
+          "confirmedPlatforms": 35,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 20.299999952316284,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 1.5999999642372131,
+          "walkingWallMs": 49.30000001192093,
+          "routingMs": 500.4000000357628,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      },
+      {
+        "scenario": "custom-favorite",
+        "workerMs": 301.69999998807907,
+        "perceivedMs": 1261.5,
+        "bytes": 3519180,
+        "requests": 22,
+        "mobilityMetrics": {
+          "durationMs": 299.6,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 3.5,
+          "sqlQueries": 4,
+          "candidatePlatforms": 68,
+          "confirmedPlatforms": 43,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": true,
+          "geocodingWallMs": 1.100000023841858,
+          "walkingWallMs": 36.19999998807907,
+          "routingMs": 256.89999997615814,
+          "engineCacheHit": false,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 0,
+          "queueMs": 0
+        }
+      }
+    ],
+    "warmSearches": [
+      {
+        "scenario": "stop-stop",
+        "workerMs": 3.900000035762787,
+        "perceivedMs": 16.299999952316284,
+        "bytes": 3515321,
+        "requests": 5
+      },
+      {
+        "scenario": "stop-stop",
+        "workerMs": 3.5,
+        "perceivedMs": 17.100000023841858,
+        "bytes": 3515548,
+        "requests": 6
+      },
+      {
+        "scenario": "address-address",
+        "workerMs": 34.39999997615814,
+        "perceivedMs": 40.39999997615814,
+        "bytes": 3516002,
+        "requests": 8
+      },
+      {
+        "scenario": "address-address",
+        "workerMs": 32,
+        "perceivedMs": 38.200000047683716,
+        "bytes": 3516229,
+        "requests": 9
+      },
+      {
+        "scenario": "address-stop",
+        "workerMs": 42.19999998807907,
+        "perceivedMs": 49.10000002384186,
+        "bytes": 3516683,
+        "requests": 11
+      },
+      {
+        "scenario": "address-stop",
+        "workerMs": 38.59999996423721,
+        "perceivedMs": 43.89999997615814,
+        "bytes": 3516910,
+        "requests": 12
+      },
+      {
+        "scenario": "stop-address",
+        "workerMs": 41.69999998807907,
+        "perceivedMs": 47.80000001192093,
+        "bytes": 3517364,
+        "requests": 14
+      },
+      {
+        "scenario": "stop-address",
+        "workerMs": 41.5,
+        "perceivedMs": 46.89999997615814,
+        "bytes": 3517591,
+        "requests": 15
+      },
+      {
+        "scenario": "home-work",
+        "workerMs": 36.09999996423721,
+        "perceivedMs": 40.69999998807907,
+        "bytes": 3518045,
+        "requests": 17
+      },
+      {
+        "scenario": "home-work",
+        "workerMs": 33.60000002384186,
+        "perceivedMs": 37.90000003576279,
+        "bytes": 3518272,
+        "requests": 18
+      },
+      {
+        "scenario": "work-home",
+        "workerMs": 33.5,
+        "perceivedMs": 39.09999996423721,
+        "bytes": 3518726,
+        "requests": 20
+      },
+      {
+        "scenario": "work-home",
+        "workerMs": 33.40000003576279,
+        "perceivedMs": 38.5,
+        "bytes": 3518953,
+        "requests": 21
+      },
+      {
+        "scenario": "custom-favorite",
+        "workerMs": 38.60000002384186,
+        "perceivedMs": 44.89999997615814,
+        "bytes": 3519407,
+        "requests": 23
+      },
+      {
+        "scenario": "custom-favorite",
+        "workerMs": 37.30000001192093,
+        "perceivedMs": 42.59999996423721,
+        "bytes": 3519634,
+        "requests": 24
+      }
+    ],
+    "workerHeapBytes": {
+      "n": 21,
+      "min": 14406780,
+      "median": 29388112,
+      "p95": 50762548,
+      "max": 51309724
+    },
+    "workerBackingBytes": {
+      "n": 21,
+      "min": 15514632,
+      "median": 15687391,
+      "p95": 31506175,
+      "max": 31542794
+    },
+    "mainHeapBytes": {
+      "n": 21,
+      "min": 1359104,
+      "median": 2267228,
+      "p95": 3184776,
+      "max": 3699568
+    }
+  },
+  "firefox": {
+    "status": "passed",
+    "version": "Firefox/159.0.1",
+    "groups": {
+      "stop-stop": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 10,
+          "median": 13,
+          "p95": 396,
+          "max": 396
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 4,
+          "median": 5,
+          "p95": 298,
+          "max": 298
+        }
+      },
+      "address-address": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 52,
+          "median": 59,
+          "p95": 2140,
+          "max": 2140
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 46,
+          "median": 52,
+          "p95": 687,
+          "max": 687
+        }
+      },
+      "address-stop": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 68,
+          "median": 72,
+          "p95": 1551,
+          "max": 1551
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 62,
+          "median": 67,
+          "p95": 425,
+          "max": 425
+        }
+      },
+      "stop-address": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 68,
+          "median": 81,
+          "p95": 1075,
+          "max": 1075
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 62,
+          "median": 74,
+          "p95": 347,
+          "max": 347
+        }
+      },
+      "home-work": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 46,
+          "median": 48,
+          "p95": 1790,
+          "max": 1790
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 41,
+          "median": 43,
+          "p95": 619,
+          "max": 619
+        }
+      },
+      "work-home": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 48,
+          "median": 51,
+          "p95": 2280,
+          "max": 2280
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 43,
+          "median": 45,
+          "p95": 763,
+          "max": 763
+        }
+      },
+      "custom-favorite": {
+        "perceivedMs": {
+          "n": 3,
+          "min": 53,
+          "median": 61,
+          "p95": 1449,
+          "max": 1449
+        },
+        "workerMs": {
+          "n": 3,
+          "min": 49,
+          "median": 56,
+          "p95": 460,
+          "max": 460
+        }
+      }
+    },
+    "checks": [
+      "SQLite default: no worker constructed, no double execution",
+      "Address arrive-before structured parity",
+      "1440 / 768 / 390 / 320 without horizontal overflow",
+      "Real progress observed through worker",
+      "Door-to-door cancellation cannot publish a late result"
+    ],
+    "provider": {
+      "calls": 1884,
+      "misses": 0,
+      "upstreamRequests": 0
+    },
+    "queryHeartbeat": {
+      "n": 734,
+      "min": 15,
+      "median": 16,
+      "p95": 17,
+      "max": 21
+    }
+  },
+  "memory": {
+    "status": "passed",
+    "groups": {
+      "direct-cold": {
+        "wallMs": {
+          "n": 5,
+          "min": 217.3723,
+          "median": 224.41660000000002,
+          "p95": 267.69280000000003,
+          "max": 267.69280000000003
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 215.29999995231628,
+          "median": 222.39999997615814,
+          "p95": 265.39999997615814,
+          "max": 265.39999997615814
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 18.900000035762787,
+          "median": 21.299999952316284,
+          "p95": 41,
+          "max": 41
+        }
+      },
+      "direct-warm": {
+        "wallMs": {
+          "n": 5,
+          "min": 3.5132000000003245,
+          "median": 3.9076999999997497,
+          "p95": 5.065300000000207,
+          "max": 5.065300000000207
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 1.899999976158142,
+          "median": 2.300000011920929,
+          "p95": 3.100000023841858,
+          "max": 3.100000023841858
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "one-cold": {
+        "wallMs": {
+          "n": 5,
+          "min": 738.0911000000006,
+          "median": 745.2708000000002,
+          "p95": 771.0378000000001,
+          "max": 771.0378000000001
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 736.1999999880791,
+          "median": 743,
+          "p95": 768.4000000357628,
+          "max": 768.4000000357628
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 18.899999976158142,
+          "median": 19.600000023841858,
+          "p95": 23.400000035762787,
+          "max": 23.400000035762787
+        }
+      },
+      "one-warm": {
+        "wallMs": {
+          "n": 5,
+          "min": 3.2304999999996653,
+          "median": 3.3518000000003667,
+          "p95": 3.729400000000169,
+          "max": 3.729400000000169
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 1.7999999523162842,
+          "median": 1.899999976158142,
+          "p95": 2.100000023841858,
+          "max": 2.100000023841858
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "two-cold": {
+        "wallMs": {
+          "n": 5,
+          "min": 180.35060000000158,
+          "median": 186.7365000000009,
+          "p95": 189.0652000000009,
+          "max": 189.0652000000009
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 177.5,
+          "median": 184.30000001192093,
+          "p95": 186.5,
+          "max": 186.5
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 17.69999998807907,
+          "median": 19.30000001192093,
+          "p95": 20.200000047683716,
+          "max": 20.200000047683716
+        }
+      },
+      "two-warm": {
+        "wallMs": {
+          "n": 5,
+          "min": 3.6177999999999884,
+          "median": 4.058799999998882,
+          "p95": 4.236000000000786,
+          "max": 4.236000000000786
+        },
+        "workerMs": {
+          "n": 5,
+          "min": 1.7999999523162842,
+          "median": 2,
+          "p95": 2.300000011920929,
+          "max": 2.300000011920929
+        },
+        "initializationMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      }
+    },
+    "phases": {
+      "manifest": {
+        "n": 15,
+        "min": 3.699999988079071,
+        "median": 4,
+        "p95": 4.799999952316284,
+        "max": 4.799999952316284
+      },
+      "version": {
+        "n": 15,
+        "min": 0,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "catalog": {
+        "n": 15,
+        "min": 23.799999952316284,
+        "median": 25.80000001192093,
+        "p95": 39.60000002384186,
+        "max": 39.60000002384186
+      },
+      "read": {
+        "n": 15,
+        "min": 12.999999940395355,
+        "median": 14.000000059604645,
+        "p95": 16.099999964237213,
+        "max": 16.099999964237213
+      },
+      "decode": {
+        "n": 15,
+        "min": 26.69999998807907,
+        "median": 28.299999952316284,
+        "p95": 30.80000001192093,
+        "max": 30.80000001192093
+      },
+      "index": {
+        "n": 15,
+        "min": 6.900000035762787,
+        "median": 7.800000011920929,
+        "p95": 8.199999988079071,
+        "max": 8.199999988079071
+      }
+    },
+    "workerHeapBytes": {
+      "n": 383,
+      "min": 612500,
+      "median": 25539028,
+      "p95": 36375232,
+      "max": 50310388
+    },
+    "workerBackingBytes": {
+      "n": 383,
+      "min": 337248,
+      "median": 31432630,
+      "p95": 55806478,
+      "max": 93235744
+    },
+    "mainHeapBytes": {
+      "n": 383,
+      "min": 814136,
+      "median": 1421440,
+      "p95": 1680484,
+      "max": 1795556
+    },
+    "beforeRelease": {
+      "main": {
+        "usedSize": 1733796,
+        "totalSize": 2805760,
+        "embedderHeapUsedSize": 1756496,
+        "backingStorageSize": 240985
+      },
+      "worker": {
+        "usedSize": 16309056,
+        "totalSize": 70586368,
+        "embedderHeapUsedSize": 479712,
+        "backingStorageSize": 36999461
+      }
+    },
+    "afterReleaseAndGC": {
+      "main": {
+        "usedSize": 802780,
+        "totalSize": 2019328,
+        "embedderHeapUsedSize": 435536,
+        "backingStorageSize": 240856
+      },
+      "worker": {
+        "usedSize": 7800812,
+        "totalSize": 8720384,
+        "embedderHeapUsedSize": 50776,
+        "backingStorageSize": 337281
+      }
+    },
+    "maxResidentDays": 3,
+    "successive": [
+      {
+        "kind": "one",
+        "workerMs": 554.7000000476837,
+        "compressedBytes": 3515548,
+        "requests": 6,
+        "days": [
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "two",
+        "workerMs": 2,
+        "compressedBytes": 3515775,
+        "requests": 7,
+        "days": [
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "arrival",
+        "workerMs": 90.69999998807907,
+        "compressedBytes": 3516002,
+        "requests": 8,
+        "days": [
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "midnight",
+        "workerMs": 62.30000001192093,
+        "compressedBytes": 6474737,
+        "requests": 11,
+        "days": [
+          "2026-11-09",
+          "2026-11-10"
+        ]
+      },
+      {
+        "kind": "holiday",
+        "workerMs": 46.69999998807907,
+        "compressedBytes": 7715467,
+        "requests": 14,
+        "days": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ]
+      },
+      {
+        "kind": "date",
+        "workerMs": 129.5,
+        "compressedBytes": 10679225,
+        "requests": 17,
+        "days": [
+          "2026-11-10",
+          "2026-11-11",
+          "2026-11-12"
+        ]
+      },
+      {
+        "kind": "direct",
+        "workerMs": 120.79999995231628,
+        "compressedBytes": 13627037,
+        "requests": 20,
+        "days": [
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "one",
+        "workerMs": 2.199999988079071,
+        "compressedBytes": 13627264,
+        "requests": 21,
+        "days": [
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-09"
+        ]
+      },
+      {
+        "kind": "two",
+        "workerMs": 1.899999976158142,
+        "compressedBytes": 13627491,
+        "requests": 22,
+        "days": [
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-09"
+        ]
+      }
+    ],
+    "mainCpuSlowdown": 4,
+    "workerCpuThrottleUnavailable": "{\"code\":-32000,\"message\":\"Operation is only supported for pages, not workers\"}",
+    "networkThrottleUnavailable": "{\"code\":-32000,\"message\":\"Not supported\"}",
+    "notes": [
+      "CDP heap samples + backing storage are not process RSS, not an exact decomposition of native memory.",
+      "Sampling cannot guarantee observation of transient decompression peaks. Forced GC is diagnostic, not a production strategy.",
+      "Local HTTP/Vite, not Internet or physical mobile."
+    ]
+  },
+  "staticTest": {
+    "checks": [
+      "Built static worker returns official GTFS itineraries without reference API",
+      "Explicit 503: manifest.json",
+      "Explicit 503: dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "Explicit 503: 109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "Corrupt day rejected",
+      "Cold load cancellation during confirmed in-flight manifest request ignores late response",
+      "Unavailable Worker produces explicit failure, no fictitious result",
+      "Three locally rate-limited cold loads, 375000 bytes/s + 100ms per data response",
+      "Built laboratory mobile 390 / 320"
+    ],
+    "errors": [],
+    "slowNetwork": {
+      "delayMsPerDataResponse": 100,
+      "bytesPerSecond": 375000,
+      "repetitions": [
+        {
+          "wallMs": 10220.7566,
+          "workerMs": 10181.199999988079
+        },
+        {
+          "wallMs": 10219.051499999998,
+          "workerMs": 10163
+        },
+        {
+          "wallMs": 10202.733300000004,
+          "workerMs": 10181.300000011921
+        }
+      ]
+    },
+    "requests": [
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/favicon.ico",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+      "/experiments/hybrid/index.html",
+      "/assets/index-CbatDSMv.js",
+      "/assets/modulepreload-polyfill-P2Xu9kJm.js",
+      "/assets/browser-worker-CVA7eKFh.js",
+      "/prototype-data/manifest.json",
+      "/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+      "/prototype-data/435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+      "/prototype-data/109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz"
+    ],
+    "status": "passed"
+  },
+  "dateSwitch": {
+    "checks": [
+      "Quick date change cancels old worker and returns only the new date",
+      "Hour-only change downloads only the lightweight version pointer"
+    ],
+    "searches": [
+      {
+        "at": "2026-11-09T10:00:00Z",
+        "bytes": 4755824,
+        "requests": 7,
+        "days": [
+          "2026-11-11",
+          "2026-11-09"
+        ],
+        "metrics": [
+          {
+            "phase": "version",
+            "file": "version.json",
+            "ms": 103,
+            "compressed": 227,
+            "raw": 227,
+            "observedAt": 1794334956908
+          },
+          {
+            "phase": "read",
+            "file": "435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+            "ms": 103,
+            "compressed": 111371,
+            "raw": 1674895,
+            "observedAt": 1794334957021
+          },
+          {
+            "phase": "decode",
+            "file": "435b762f43339b442d4aa2312e6875e51f6dfa4ba2d195e71dfb41a7d66b1b0e.trips.gz",
+            "ms": 2,
+            "compressed": 111371,
+            "raw": 1674895,
+            "observedAt": 1794334957023
+          },
+          {
+            "phase": "read",
+            "file": "109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+            "ms": 108.19999998807907,
+            "compressed": 2836214,
+            "raw": 12997096,
+            "observedAt": 1794334957140
+          },
+          {
+            "phase": "decode",
+            "file": "109c3aabce9083eb1de00e49d06648ef58792a5e5d551b0ea35d2cc8bd673bf3.events.gz",
+            "ms": 20.80000001192093,
+            "compressed": 2836214,
+            "raw": 12997096,
+            "observedAt": 1794334957161
+          },
+          {
+            "phase": "index",
+            "file": "2026-11-09",
+            "ms": 5.900000035762787,
+            "compressed": 0,
+            "raw": 0,
+            "observedAt": 1794334957167
+          }
+        ]
+      },
+      {
+        "at": "2026-11-10T10:00:00Z",
+        "bytes": 7714559,
+        "requests": 10,
+        "days": [
+          "2026-11-11",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "metrics": [
+          {
+            "phase": "version",
+            "file": "version.json",
+            "ms": 103.60000002384186,
+            "compressed": 227,
+            "raw": 227,
+            "observedAt": 1794334957592
+          },
+          {
+            "phase": "read",
+            "file": "a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+            "ms": 103.80000001192093,
+            "compressed": 111567,
+            "raw": 1698478,
+            "observedAt": 1794334957705
+          },
+          {
+            "phase": "decode",
+            "file": "a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+            "ms": 1.199999988079071,
+            "compressed": 111567,
+            "raw": 1698478,
+            "observedAt": 1794334957707
+          },
+          {
+            "phase": "read",
+            "file": "20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz",
+            "ms": 109.39999997615814,
+            "compressed": 2846941,
+            "raw": 13053460,
+            "observedAt": 1794334957823
+          },
+          {
+            "phase": "decode",
+            "file": "20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz",
+            "ms": 20.19999998807907,
+            "compressed": 2846941,
+            "raw": 13053460,
+            "observedAt": 1794334957843
+          },
+          {
+            "phase": "index",
+            "file": "2026-11-10",
+            "ms": 13.199999988079071,
+            "compressed": 0,
+            "raw": 0,
+            "observedAt": 1794334957856
+          }
+        ]
+      },
+      {
+        "at": "2026-11-12T10:00:00Z",
+        "bytes": 10678317,
+        "requests": 13,
+        "days": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-12"
+        ],
+        "metrics": [
+          {
+            "phase": "version",
+            "file": "version.json",
+            "ms": 103,
+            "compressed": 227,
+            "raw": 227,
+            "observedAt": 1794334958307
+          },
+          {
+            "phase": "read",
+            "file": "ee9fc5eced3fe28313281e87ed4c550d3670d656fb3ca6c91703d95c3ab3beff.trips.gz",
+            "ms": 103.60000002384186,
+            "compressed": 112475,
+            "raw": 1707166,
+            "observedAt": 1794334958417
+          },
+          {
+            "phase": "decode",
+            "file": "ee9fc5eced3fe28313281e87ed4c550d3670d656fb3ca6c91703d95c3ab3beff.trips.gz",
+            "ms": 1.2999999523162842,
+            "compressed": 112475,
+            "raw": 1707166,
+            "observedAt": 1794334958419
+          },
+          {
+            "phase": "read",
+            "file": "3f2f896858845df4bab043e5501c0c03b4f0b41db6365a95e4f52f84397f4f21.events.gz",
+            "ms": 108.60000002384186,
+            "compressed": 2851056,
+            "raw": 13060376,
+            "observedAt": 1794334958535
+          },
+          {
+            "phase": "decode",
+            "file": "3f2f896858845df4bab043e5501c0c03b4f0b41db6365a95e4f52f84397f4f21.events.gz",
+            "ms": 19,
+            "compressed": 2851056,
+            "raw": 13060376,
+            "observedAt": 1794334958554
+          },
+          {
+            "phase": "index",
+            "file": "2026-11-12",
+            "ms": 6.399999976158142,
+            "compressed": 0,
+            "raw": 0,
+            "observedAt": 1794334958560
+          }
+        ]
+      },
+      {
+        "at": "2026-11-13T10:00:00Z",
+        "bytes": 13649219,
+        "requests": 16,
+        "days": [
+          "2026-11-10",
+          "2026-11-12",
+          "2026-11-13"
+        ],
+        "metrics": [
+          {
+            "phase": "version",
+            "file": "version.json",
+            "ms": 102.90000003576279,
+            "compressed": 227,
+            "raw": 227,
+            "observedAt": 1794334958965
+          },
+          {
+            "phase": "read",
+            "file": "a8ad90267da85578977c4673363ad1f45dbd70f74bbac36a93201fe4f95580e2.trips.gz",
+            "ms": 103.89999997615814,
+            "compressed": 112151,
+            "raw": 1702774,
+            "observedAt": 1794334959076
+          },
+          {
+            "phase": "decode",
+            "file": "a8ad90267da85578977c4673363ad1f45dbd70f74bbac36a93201fe4f95580e2.trips.gz",
+            "ms": 1.699999988079071,
+            "compressed": 112151,
+            "raw": 1702774,
+            "observedAt": 1794334959078
+          },
+          {
+            "phase": "read",
+            "file": "c6ae88a61c3faf39fdc54a2eafad7b7da80e2e1ed4b112cda679086b31afcf72.events.gz",
+            "ms": 110.20000004768372,
+            "compressed": 2858524,
+            "raw": 13093108,
+            "observedAt": 1794334959195
+          },
+          {
+            "phase": "decode",
+            "file": "c6ae88a61c3faf39fdc54a2eafad7b7da80e2e1ed4b112cda679086b31afcf72.events.gz",
+            "ms": 21.299999952316284,
+            "compressed": 2858524,
+            "raw": 13093108,
+            "observedAt": 1794334959216
+          },
+          {
+            "phase": "index",
+            "file": "2026-11-13",
+            "ms": 3.700000047683716,
+            "compressed": 0,
+            "raw": 0,
+            "observedAt": 1794334959220
+          }
+        ]
+      },
+      {
+        "at": "2026-11-13T10:30:00Z",
+        "bytes": 13649446,
+        "requests": 17,
+        "days": [
+          "2026-11-10",
+          "2026-11-12",
+          "2026-11-13"
+        ],
+        "metrics": [
+          {
+            "phase": "version",
+            "file": "version.json",
+            "ms": 104.60000002384186,
+            "compressed": 227,
+            "raw": 227,
+            "observedAt": 1794334959622
+          }
+        ]
+      }
+    ],
+    "status": "passed"
+  },
+  "ign": {
+    "cases": [
+      {
+        "id": "stop-stop",
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      },
+      {
+        "id": "address-address",
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      },
+      {
+        "id": "address-stop",
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      },
+      {
+        "id": "stop-address",
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": [
+          {
+            "source": "IGN",
+            "message": "Lien 35676 → 41197 exclu : Accès au réseau piéton trop éloigné du point demandé ; parcours exclu."
+          }
+        ]
+      },
+      {
+        "id": "home-work",
+        "state": "limited",
+        "proposals": 3,
+        "providerIssues": []
+      },
+      {
+        "id": "work-home",
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      },
+      {
+        "id": "custom-favorite",
+        "state": "limited",
+        "proposals": 0,
+        "providerIssues": [
+          {
+            "source": "IGN",
+            "message": "Lien 41197 → 35676 exclu : Accès au réseau piéton trop éloigné du point demandé ; parcours exclu."
+          }
+        ]
+      },
+      {
+        "id": "address-arrive",
+        "state": "limited",
+        "proposals": 6,
+        "providerIssues": []
+      }
+    ],
+    "newProviderCalls": 54,
+    "budget": 80,
+    "errors": [
+      {
+        "method": "walk",
+        "error": "Accès au réseau piéton trop éloigné du point demandé ; parcours exclu."
+      },
+      {
+        "method": "walk",
+        "error": "Accès au réseau piéton trop éloigné du point demandé ; parcours exclu."
+      }
+    ],
+    "note": "Explicit bounded supplement to recorded official responses. Existing records retain dates; no fresh data claimed for replayed entries.",
+    "status": "completed",
+    "records": 185
+  },
+  "validation": {
+    "tests": 257,
+    "pass": 257,
+    "failed": 0,
+    "lint": "passed",
+    "hybridTypes": "passed",
+    "build": "passed",
+    "staticBuild": "passed"
+  },
+  "limits": {
+    "checkedAt": "2026-11-10",
+    "source": "https://developers.cloudflare.com/workers/platform/limits/",
+    "freeStaticFiles": 20000,
+    "individualStaticBytes": 26214400,
+    "remoteDeploymentTested": false,
+    "actualFiles": 197,
+    "actualLargestFileBytes": 2994783,
+    "volumeCompatible": true
+  }
+}

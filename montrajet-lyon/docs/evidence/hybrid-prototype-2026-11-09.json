@@ -1,0 +1,991 @@
+﻿{
+    "checkedAt":  "2026-11-09T22:26:48.0664426Z",
+    "sourceVerdict":  "SOURCE OFFICIELLE SOUS CONDITIONS",
+    "architectureVerdict":  "PROTOTYPE HYBRIDE PARTIEL",
+    "activeIntegrity":  [
+                            {
+                                "path":  ".data/gtfs.sqlite",
+                                "sha256":  "a2f71d7792bdc04df2be9e92aad97d3905a26fec2e00397b9546b15fca7b386a",
+                                "unchanged":  true
+                            },
+                            {
+                                "path":  "GTFS_TCL.ZIP",
+                                "sha256":  "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+                                "unchanged":  true
+                            }
+                        ],
+    "validation":  {
+                       "passed":  238,
+                       "build":  "passed",
+                       "failed":  0,
+                       "hybridTypeScript":  "passed",
+                       "tests":  238,
+                       "lint":  "passed",
+                       "buildWarning":  "MapLibre chunk exceeds 500 kB"
+                   },
+    "sourceAudit":  {
+                        "checkedAt":  "2026-11-09T22:17:51.552Z",
+                        "metadata":  [
+                                         {
+                                             "url":  "https://transport.data.gouv.fr/resources/81943",
+                                             "status":  200,
+                                             "kind":  "historical-third-party-derivative",
+                                             "links":  [
+                                                           {
+                                                               "urlWithoutQuery":  "https://gtech-transit-prod.apigee.net/v1/google/gtfs/odbl/lyon_tcl.zip",
+                                                               "queryParameters":  [
+                                                                                       "apikey",
+                                                                                       "secret"
+                                                                                   ],
+                                                               "credentialValuesNotRetained":  true
+                                                           }
+                                                       ],
+                                             "downloadAttempted":  false,
+                                             "reason":  "Public listing does not establish current producer authorisation; no third-party archive fetched."
+                                         },
+                                         {
+                                             "url":  "https://transport.data.gouv.fr/api/datasets/5de42c4d8b4c417a10e62ec9",
+                                             "status":  200,
+                                             "title":  "RÃ©seau urbain TCL",
+                                             "licence":  "mobility-licence",
+                                             "updated":  "2026-05-12T22:15:44.378000Z",
+                                             "publisher":  {
+                                                               "id":  "68e3b9ef0e29271b26914921",
+                                                               "name":  "SYTRAL MobilitÃ©s",
+                                                               "type":  "organization"
+                                                           },
+                                             "resources":  [
+                                                               {
+                                                                   "id":  84028,
+                                                                   "url":  "https://data.grandlyon.com/siri-lite/2.0/vehicle-monitoring.json",
+                                                                   "reference":  "https://www.data.gouv.fr/api/1/datasets/r/2558f280-b9b5-4ae4-8970-43e827fcb0b5",
+                                                                   "format":  "SIRI Lite",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais"
+                                                               },
+                                                               {
+                                                                   "id":  65813,
+                                                                   "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/NETEX_TCL.ZIP",
+                                                                   "reference":  "https://www.data.gouv.fr/api/1/datasets/r/2e928244-75d8-4ac0-8a77-3be045351569",
+                                                                   "format":  "NeTEx",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais"
+                                                               },
+                                                               {
+                                                                   "id":  84027,
+                                                                   "url":  "https://data.grandlyon.com/siri-lite/2.0/situation-exchange.json",
+                                                                   "reference":  "https://www.data.gouv.fr/api/1/datasets/r/9a9988fc-5e90-468a-9497-d62051eb498d",
+                                                                   "format":  "SIRI Lite",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais"
+                                                               },
+                                                               {
+                                                                   "id":  84026,
+                                                                   "url":  "https://data.grandlyon.com/siri-lite/2.0/estimated-timetables.json",
+                                                                   "reference":  "https://www.data.gouv.fr/api/1/datasets/r/b1873838-694b-475f-988c-3e58351b44bd",
+                                                                   "format":  "SIRI Lite",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais"
+                                                               },
+                                                               {
+                                                                   "id":  80087,
+                                                                   "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/OFFREDETRANSPORT_TCL.PDF",
+                                                                   "reference":  "https://www.data.gouv.fr/api/1/datasets/r/b04e6306-459b-4d5a-b8eb-87d3fd5a4c38",
+                                                                   "format":  "pdf",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais"
+                                                               },
+                                                               {
+                                                                   "id":  65812,
+                                                                   "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+                                                                   "reference":  "https://www.data.gouv.fr/api/1/datasets/r/2f1e1bfc-d378-4e3d-a175-e26f14abc3e6",
+                                                                   "format":  "GTFS",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais"
+                                                               }
+                                                           ],
+                                             "officialBackups":  [
+                                                                     {
+                                                                         "url":  "https://transport-data-gouv-fr-resource-history-prod.cellar-c2.services.clever-cloud.com/c6a3d03f-f8e4-44f3-9e7d-fcaf1ab30b92/c6a3d03f-f8e4-44f3-9e7d-fcaf1ab30b92.20220415.060247.709832.zip",
+                                                                         "published":  "2022-04-15T06:02:47.709832Z",
+                                                                         "validity":  {
+                                                                                          "end_date":  "2022-07-12",
+                                                                                          "has_fares":  false,
+                                                                                          "has_shapes":  false,
+                                                                                          "issues_count":  {
+                                                                                                               "CloseStops":  1,
+                                                                                                               "DuplicateStops":  4,
+                                                                                                               "NullDuration":  24
+                                                                                                           },
+                                                                                          "lines_count":  467,
+                                                                                          "modes":  [
+                                                                                                        "tramway",
+                                                                                                        "bus",
+                                                                                                        "subway",
+                                                                                                        "funicular"
+                                                                                                    ],
+                                                                                          "networks":  [
+                                                                                                           "TCL SYTRAL"
+                                                                                                       ],
+                                                                                          "some_stops_need_phone_agency":  false,
+                                                                                          "some_stops_need_phone_driver":  false,
+                                                                                          "start_date":  "2022-04-14",
+                                                                                          "stop_areas_count":  2109,
+                                                                                          "stop_points_count":  4643
+                                                                                      }
+                                                                     },
+                                                                     {
+                                                                         "url":  "https://transport-data-gouv-fr-resource-history-prod.cellar-c2.services.clever-cloud.com/c6a3d03f-f8e4-44f3-9e7d-fcaf1ab30b92/c6a3d03f-f8e4-44f3-9e7d-fcaf1ab30b92.20220414.060322.565144.zip",
+                                                                         "published":  "2022-04-14T06:03:22.565144Z",
+                                                                         "validity":  {
+                                                                                          "end_date":  "2022-07-11",
+                                                                                          "has_fares":  false,
+                                                                                          "has_shapes":  false,
+                                                                                          "issues_count":  {
+                                                                                                               "CloseStops":  1,
+                                                                                                               "DuplicateStops":  4,
+                                                                                                               "NullDuration":  24
+                                                                                                           },
+                                                                                          "lines_count":  465,
+                                                                                          "modes":  [
+                                                                                                        "tramway",
+                                                                                                        "bus",
+                                                                                                        "subway",
+                                                                                                        "funicular"
+                                                                                                    ],
+                                                                                          "networks":  [
+                                                                                                           "TCL SYTRAL"
+                                                                                                       ],
+                                                                                          "some_stops_need_phone_agency":  false,
+                                                                                          "some_stops_need_phone_driver":  false,
+                                                                                          "start_date":  "2022-04-13",
+                                                                                          "stop_areas_count":  2109,
+                                                                                          "stop_points_count":  4643
+                                                                                      }
+                                                                     }
+                                                                 ]
+                                         },
+                                         {
+                                             "url":  "https://www.data.gouv.fr/api/1/datasets/5de42c4d8b4c417a10e62ec9/",
+                                             "status":  200,
+                                             "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                             "licence":  "other-pd",
+                                             "updated":  "2026-07-28T22:15:47.201000+00:00",
+                                             "publisher":  {
+                                                               "name":  "SYTRAL MobilitÃ©s"
+                                                           },
+                                             "resources":  [
+                                                               {
+                                                                   "id":  "2e928244-75d8-4ac0-8a77-3be045351569",
+                                                                   "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/NETEX_TCL.ZIP",
+                                                                   "reference":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/NETEX_TCL.ZIP",
+                                                                   "format":  "zip",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                                                   "updated":  "2025-01-22T23:07:31.266000+00:00"
+                                                               },
+                                                               {
+                                                                   "id":  "b04e6306-459b-4d5a-b8eb-87d3fd5a4c38",
+                                                                   "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/OFFREDETRANSPORT_TCL.PDF",
+                                                                   "reference":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/OFFREDETRANSPORT_TCL.PDF",
+                                                                   "format":  "pdf",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                                                   "updated":  "2025-01-22T23:07:31.266000+00:00"
+                                                               },
+                                                               {
+                                                                   "id":  "b1873838-694b-475f-988c-3e58351b44bd",
+                                                                   "url":  "https://data.grandlyon.com/siri-lite/2.0/estimated-timetables.json",
+                                                                   "reference":  "https://data.grandlyon.com/siri-lite/2.0/estimated-timetables.json",
+                                                                   "format":  "json",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                                                   "updated":  "2026-05-12T07:07:46.116000+00:00"
+                                                               },
+                                                               {
+                                                                   "id":  "9a9988fc-5e90-468a-9497-d62051eb498d",
+                                                                   "url":  "https://data.grandlyon.com/siri-lite/2.0/situation-exchange.json",
+                                                                   "reference":  "https://data.grandlyon.com/siri-lite/2.0/situation-exchange.json",
+                                                                   "format":  "json",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                                                   "updated":  "2026-05-12T07:07:46.117000+00:00"
+                                                               },
+                                                               {
+                                                                   "id":  "2558f280-b9b5-4ae4-8970-43e827fcb0b5",
+                                                                   "url":  "https://data.grandlyon.com/siri-lite/2.0/vehicle-monitoring.json",
+                                                                   "reference":  "https://data.grandlyon.com/siri-lite/2.0/vehicle-monitoring.json",
+                                                                   "format":  "json",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                                                   "updated":  "2026-05-12T22:15:44.378000+00:00"
+                                                               },
+                                                               {
+                                                                   "id":  "2f1e1bfc-d378-4e3d-a175-e26f14abc3e6",
+                                                                   "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+                                                                   "reference":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+                                                                   "format":  "zip",
+                                                                   "title":  "Horaires thÃ©oriques du rÃ©seau Transports en Commun Lyonnais",
+                                                                   "updated":  "2025-01-22T23:07:31.267000+00:00"
+                                                               }
+                                                           ],
+                                             "officialBackups":  [
+
+                                                                 ]
+                                         }
+                                     ],
+                        "probes":  [
+                                       {
+                                           "url":  "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+                                           "method":  "GET",
+                                           "status":  401,
+                                           "challenge":  "Basic realm=\"Access to files\"",
+                                           "lastModified":  null,
+                                           "contentType":  "text/html; charset=utf-8",
+                                           "location":  null
+                                       },
+                                       {
+                                           "url":  "https://sytral-mobilites.fr/fr/",
+                                           "method":  "GET",
+                                           "status":  200,
+                                           "challenge":  null,
+                                           "lastModified":  null,
+                                           "contentType":  "text/html; charset=UTF-8",
+                                           "location":  null
+                                       },
+                                       {
+                                           "url":  "https://data.grandlyon.com/portail/fr/connexion",
+                                           "method":  "GET",
+                                           "status":  200,
+                                           "challenge":  null,
+                                           "lastModified":  "Mon, 12 Oct 2026 09:46:03 GMT",
+                                           "contentType":  "text/html",
+                                           "location":  null
+                                       },
+                                       {
+                                           "url":  "https://rdata-grandlyon.readthedocs.io/fr/latest/authentification.html",
+                                           "method":  "GET",
+                                           "status":  200,
+                                           "challenge":  null,
+                                           "lastModified":  "Thu, 23 Jul 2026 14:14:05 GMT",
+                                           "contentType":  "text/html; charset=utf-8",
+                                           "location":  null
+                                       },
+                                       {
+                                           "url":  "https://rdata-grandlyon.readthedocs.io/fr/latest/bonne_pratique.html",
+                                           "method":  "GET",
+                                           "status":  200,
+                                           "challenge":  null,
+                                           "lastModified":  "Thu, 23 Jul 2026 13:18:26 GMT",
+                                           "contentType":  "text/html; charset=utf-8",
+                                           "location":  null
+                                       }
+                                   ],
+                        "verdict":  "SOURCE OFFICIELLE SOUS CONDITIONS",
+                        "authenticatedDownloadVerified":  false
+                    },
+    "manifest":  {
+                     "format":  1,
+                     "feedSha256":  "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+                     "catalog":  {
+                                     "file":  "catalog.json.gz",
+                                     "bytes":  1090076,
+                                     "rawBytes":  14854229,
+                                     "sha256":  "e3ebad74aa3303b860e889f805ba7671be9b77d0d367ef7a97ff730296c657a5"
+                                 },
+                     "days":  {
+                                  "2026-11-08":  {
+                                                     "file":  "2026-11-08.bin.gz",
+                                                     "bytes":  1119938,
+                                                     "rawBytes":  5129096,
+                                                     "sha256":  "3153af920b168d16f69649d4c9693d40199c2a0f13b7cfb541542ccd31df6318",
+                                                     "records":  183182
+                                                 },
+                                  "2026-11-09":  {
+                                                     "file":  "2026-11-09.bin.gz",
+                                                     "bytes":  2832994,
+                                                     "rawBytes":  12997096,
+                                                     "sha256":  "9420ce3f18862a8d10794b774e5cd5a7961860f7eb155d261576e3fb972f048c",
+                                                     "records":  464182
+                                                 },
+                                  "2026-11-10":  {
+                                                     "file":  "2026-11-10.bin.gz",
+                                                     "bytes":  2843745,
+                                                     "rawBytes":  13053460,
+                                                     "sha256":  "34d21caa1bdfff88b9ac6579b454b381e87f576679fc7fa4c7c62e89fd1a68e9",
+                                                     "records":  466195
+                                                 }
+                              },
+                     "note":  "Prototype local uniquement. Aucun fichier source remplacÃ©, aucun dÃ©ploiement."
+                 },
+    "resources":  {
+                      "reports":  [
+                                      {
+                                          "mode":  "sqlite",
+                                          "kind":  "direct",
+                                          "memoryBefore":  {
+                                                               "rss":  70823936,
+                                                               "heapTotal":  11632640,
+                                                               "heapUsed":  9134096,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  362.0901,
+                                                              "cpuMs":  500,
+                                                              "memory":  {
+                                                                             "rss":  167026688,
+                                                                             "heapTotal":  108290048,
+                                                                             "heapUsed":  54752536,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.3281000000000063,
+                                                              "cpuMs":  16,
+                                                              "memory":  {
+                                                                             "rss":  167043072,
+                                                                             "heapTotal":  108290048,
+                                                                             "heapUsed":  54768920,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.14409999999998035,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  167043072,
+                                                                             "heapTotal":  108290048,
+                                                                             "heapUsed":  54779064,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  0,
+                                          "totalMs":  363.7241,
+                                          "totalCpuMs":  516,
+                                          "maxRssKiB":  167872,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "compact",
+                                          "kind":  "direct",
+                                          "memoryBefore":  {
+                                                               "rss":  70832128,
+                                                               "heapTotal":  12419072,
+                                                               "heapUsed":  9161616,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  4133.4340999999995,
+                                                              "cpuMs":  4391,
+                                                              "memory":  {
+                                                                             "rss":  172519424,
+                                                                             "heapTotal":  107765760,
+                                                                             "heapUsed":  53992288,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.35720000000037544,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  172613632,
+                                                                             "heapTotal":  107765760,
+                                                                             "heapUsed":  54008672,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.1482000000005428,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  172613632,
+                                                                             "heapTotal":  107765760,
+                                                                             "heapUsed":  54018816,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  0,
+                                          "totalMs":  4135.8267,
+                                          "totalCpuMs":  4391,
+                                          "maxRssKiB":  169868,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "static",
+                                          "kind":  "direct",
+                                          "memoryBefore":  {
+                                                               "rss":  72032256,
+                                                               "heapTotal":  11894784,
+                                                               "heapUsed":  9128136,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  291.4099,
+                                                              "cpuMs":  515,
+                                                              "memory":  {
+                                                                             "rss":  248688640,
+                                                                             "heapTotal":  128663552,
+                                                                             "heapUsed":  71951984,
+                                                                             "external":  48389220,
+                                                                             "arrayBuffers":  43040063
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.12940000000003238,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  248692736,
+                                                                             "heapTotal":  128663552,
+                                                                             "heapUsed":  72594176,
+                                                                             "external":  48389220,
+                                                                             "arrayBuffers":  43040063
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.037900000000036016,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  248692736,
+                                                                             "heapTotal":  128663552,
+                                                                             "heapUsed":  71980488,
+                                                                             "external":  48389220,
+                                                                             "arrayBuffers":  43040063
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  3923070,
+                                          "totalMs":  459.33970000000005,
+                                          "totalCpuMs":  765,
+                                          "maxRssKiB":  243076,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "sqlite",
+                                          "kind":  "one",
+                                          "memoryBefore":  {
+                                                               "rss":  71954432,
+                                                               "heapTotal":  12419072,
+                                                               "heapUsed":  9137456,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  1357.6843000000001,
+                                                              "cpuMs":  1500,
+                                                              "memory":  {
+                                                                             "rss":  238002176,
+                                                                             "heapTotal":  210436096,
+                                                                             "heapUsed":  131130984,
+                                                                             "external":  8790557,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.24769999999989523,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  238002176,
+                                                                             "heapTotal":  210436096,
+                                                                             "heapUsed":  131142080,
+                                                                             "external":  8790557,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.13940000000002328,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  238002176,
+                                                                             "heapTotal":  210436096,
+                                                                             "heapUsed":  131152224,
+                                                                             "external":  8790557,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  0,
+                                          "totalMs":  1359.1727,
+                                          "totalCpuMs":  1500,
+                                          "maxRssKiB":  232424,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "compact",
+                                          "kind":  "one",
+                                          "memoryBefore":  {
+                                                               "rss":  72454144,
+                                                               "heapTotal":  11632640,
+                                                               "heapUsed":  9128560,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  7239.5824,
+                                                              "cpuMs":  7359,
+                                                              "memory":  {
+                                                                             "rss":  234299392,
+                                                                             "heapTotal":  195756032,
+                                                                             "heapUsed":  72612384,
+                                                                             "external":  8790557,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.34799999999995634,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  234299392,
+                                                                             "heapTotal":  195756032,
+                                                                             "heapUsed":  72623480,
+                                                                             "external":  8790557,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.1393000000007305,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  234299392,
+                                                                             "heapTotal":  195756032,
+                                                                             "heapUsed":  72633624,
+                                                                             "external":  8790557,
+                                                                             "arrayBuffers":  137487
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  0,
+                                          "totalMs":  7241.866599999999,
+                                          "totalCpuMs":  7359,
+                                          "maxRssKiB":  228808,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "static",
+                                          "kind":  "one",
+                                          "memoryBefore":  {
+                                                               "rss":  72900608,
+                                                               "heapTotal":  11632640,
+                                                               "heapUsed":  9137520,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  872.9511,
+                                                              "cpuMs":  1329,
+                                                              "memory":  {
+                                                                             "rss":  308744192,
+                                                                             "heapTotal":  248897536,
+                                                                             "heapUsed":  160810672,
+                                                                             "external":  45537366,
+                                                                             "arrayBuffers":  40188209
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.14670000000000982,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  308809728,
+                                                                             "heapTotal":  248897536,
+                                                                             "heapUsed":  160823216,
+                                                                             "external":  45537366,
+                                                                             "arrayBuffers":  40188209
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.035899999999855936,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  308809728,
+                                                                             "heapTotal":  248897536,
+                                                                             "heapUsed":  160834384,
+                                                                             "external":  45537366,
+                                                                             "arrayBuffers":  40188209
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  3923070,
+                                          "totalMs":  1038.1445,
+                                          "totalCpuMs":  1641,
+                                          "maxRssKiB":  301572,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "sqlite",
+                                          "kind":  "two",
+                                          "memoryBefore":  {
+                                                               "rss":  72798208,
+                                                               "heapTotal":  12156928,
+                                                               "heapUsed":  9153008,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  282.2136,
+                                                              "cpuMs":  406,
+                                                              "memory":  {
+                                                                             "rss":  148500480,
+                                                                             "heapTotal":  71151616,
+                                                                             "heapUsed":  49559280,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137523
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.35190000000000055,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  148815872,
+                                                                             "heapTotal":  71151616,
+                                                                             "heapUsed":  49570376,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137523
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.15219999999999345,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  148815872,
+                                                                             "heapTotal":  71151616,
+                                                                             "heapUsed":  49580520,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137523
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  0,
+                                          "totalMs":  283.7762,
+                                          "totalCpuMs":  406,
+                                          "maxRssKiB":  149688,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "compact",
+                                          "kind":  "two",
+                                          "memoryBefore":  {
+                                                               "rss":  72339456,
+                                                               "heapTotal":  12419072,
+                                                               "heapUsed":  9137520,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  6895.7563,
+                                                              "cpuMs":  6937,
+                                                              "memory":  {
+                                                                             "rss":  139587584,
+                                                                             "heapTotal":  71151616,
+                                                                             "heapUsed":  49915128,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137523
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.42699999999967986,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  139587584,
+                                                                             "heapTotal":  71151616,
+                                                                             "heapUsed":  49926224,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137523
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.19809999999961292,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  139587584,
+                                                                             "heapTotal":  71151616,
+                                                                             "heapUsed":  49936368,
+                                                                             "external":  8790593,
+                                                                             "arrayBuffers":  137523
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  0,
+                                          "totalMs":  6897.996,
+                                          "totalCpuMs":  6937,
+                                          "maxRssKiB":  139904,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      },
+                                      {
+                                          "mode":  "static",
+                                          "kind":  "two",
+                                          "memoryBefore":  {
+                                                               "rss":  72335360,
+                                                               "heapTotal":  12156928,
+                                                               "heapUsed":  9143448,
+                                                               "external":  8790553,
+                                                               "arrayBuffers":  137523
+                                                           },
+                                          "samples":  [
+                                                          {
+                                                              "cache":  "cold",
+                                                              "wallMs":  239.3521,
+                                                              "cpuMs":  422,
+                                                              "memory":  {
+                                                                             "rss":  232812544,
+                                                                             "heapTotal":  126042112,
+                                                                             "heapUsed":  88433048,
+                                                                             "external":  60035768,
+                                                                             "arrayBuffers":  54686611
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.23259999999999081,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  232878080,
+                                                                             "heapTotal":  126042112,
+                                                                             "heapUsed":  88445592,
+                                                                             "external":  60035768,
+                                                                             "arrayBuffers":  54686611
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          },
+                                                          {
+                                                              "cache":  "warm",
+                                                              "wallMs":  0.08210000000002537,
+                                                              "cpuMs":  0,
+                                                              "memory":  {
+                                                                             "rss":  232968192,
+                                                                             "heapTotal":  126042112,
+                                                                             "heapUsed":  88456760,
+                                                                             "external":  60035768,
+                                                                             "arrayBuffers":  54686611
+                                                                         },
+                                                              "state":  "limited",
+                                                              "proposals":  6
+                                                          }
+                                                      ],
+                                          "compressedBytes":  3923070,
+                                          "totalMs":  406.75079999999997,
+                                          "totalCpuMs":  594,
+                                          "maxRssKiB":  237004,
+                                          "notes":  [
+                                                        "Fresh process per implementation/case. Sampled heap is not peak; RSS includes Node/native SQLite. No browser or Workers CPU inference."
+                                                    ]
+                                      }
+                                  ]
+                  },
+    "browser":  {
+                    "checks":  [
+                                   "ParitÃ© complÃ¨te SQLite / worker navigateur : direct",
+                                   "ParitÃ© complÃ¨te SQLite / worker navigateur : one",
+                                   "ParitÃ© complÃ¨te SQLite / worker navigateur : two",
+                                   "ParitÃ© complÃ¨te SQLite / worker navigateur : arrival",
+                                   "ParitÃ© complÃ¨te SQLite / worker navigateur : midnight",
+                                   "ParitÃ© complÃ¨te SQLite / worker navigateur : direct",
+                                   "Annulation : worker arrÃªtÃ© et gÃ©nÃ©ration prÃ©cÃ©dente invalidÃ©e",
+                                   "Laboratoire utilisable Ã  1440, 768, 390 et 320 px"
+                               ],
+                    "cases":  [
+                                  {
+                                      "case":  "direct",
+                                      "browserMs":  761.1916000000001,
+                                      "workerMs":  305.4000000357628,
+                                      "compressedBytes":  3923070,
+                                      "proposals":  6,
+                                      "state":  "limited",
+                                      "workerHeap":  {
+                                                         "usedSize":  33682788,
+                                                         "totalSize":  68288512,
+                                                         "embedderHeapUsedSize":  566040,
+                                                         "backingStorageSize":  52540324
+                                                     }
+                                  },
+                                  {
+                                      "case":  "one",
+                                      "browserMs":  1174.5175000000002,
+                                      "workerMs":  573.6000000238419,
+                                      "compressedBytes":  3923070,
+                                      "proposals":  6,
+                                      "state":  "limited",
+                                      "workerHeap":  {
+                                                         "usedSize":  29970064,
+                                                         "totalSize":  89841664,
+                                                         "embedderHeapUsedSize":  31984,
+                                                         "backingStorageSize":  52540285
+                                                     }
+                                  },
+                                  {
+                                      "case":  "two",
+                                      "browserMs":  265.68589999999995,
+                                      "workerMs":  80,
+                                      "compressedBytes":  3923070,
+                                      "proposals":  6,
+                                      "state":  "limited",
+                                      "workerHeap":  {
+                                                         "usedSize":  53604080,
+                                                         "totalSize":  90468352,
+                                                         "embedderHeapUsedSize":  432824,
+                                                         "backingStorageSize":  52540285
+                                                     }
+                                  },
+                                  {
+                                      "case":  "arrival",
+                                      "browserMs":  1259.9674000000005,
+                                      "workerMs":  64.30000001192093,
+                                      "compressedBytes":  3923070,
+                                      "proposals":  6,
+                                      "state":  "limited",
+                                      "workerHeap":  {
+                                                         "usedSize":  56944936,
+                                                         "totalSize":  99381248,
+                                                         "embedderHeapUsedSize":  432824,
+                                                         "backingStorageSize":  16189946
+                                                     }
+                                  },
+                                  {
+                                      "case":  "midnight",
+                                      "browserMs":  129.84160000000065,
+                                      "workerMs":  86.20000004768372,
+                                      "compressedBytes":  6766815,
+                                      "proposals":  4,
+                                      "state":  "ok",
+                                      "workerHeap":  {
+                                                         "usedSize":  36659060,
+                                                         "totalSize":  106401792,
+                                                         "embedderHeapUsedSize":  693840,
+                                                         "backingStorageSize":  53984808
+                                                     }
+                                  },
+                                  {
+                                      "case":  "direct",
+                                      "browserMs":  45.386099999999715,
+                                      "workerMs":  0.10000002384185791,
+                                      "compressedBytes":  6766815,
+                                      "proposals":  6,
+                                      "state":  "limited",
+                                      "workerHeap":  {
+                                                         "usedSize":  36665868,
+                                                         "totalSize":  106401792,
+                                                         "embedderHeapUsedSize":  693840,
+                                                         "backingStorageSize":  53984808
+                                                     }
+                                  }
+                              ],
+                    "errors":  [
+
+                               ],
+                    "notes":  [
+                                  "Isolated laboratory, not active application. Local static assets only; SQLite reference separate from browser computation.",
+                                  "Browser duration is wall time, not CPU accounting. Worker heap readings are samples, not peak memory."
+                              ],
+                    "status":  "passed"
+                },
+    "comparisonEvidence":  ".data/hybrid-comparison-1794262066348/report.json",
+    "comparisonExecutions":  63,
+    "comparisonDivergences":  0,
+    "mobilityEvidence":  ".data/hybrid-mobility-1794262559540/report.json",
+    "mobilityCases":  4,
+    "mobilityDivergences":  0,
+    "limitations":  [
+                        "No authenticated GTFS download verified",
+                        "Only three compiled service days",
+                        "Browser Web Worker is not Cloudflare Workers",
+                        "IGN replay validates parity, not end-to-end speedup",
+                        "No deployment or production migration"
+                    ]
+}

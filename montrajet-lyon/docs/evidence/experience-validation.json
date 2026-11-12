@@ -1,0 +1,434 @@
+{
+  "unitTests": 176,
+  "lint": "passed",
+  "build": "passed",
+  "reports": [
+    {
+      "artifact": ".data\\network-validation-1794166629605\\report.json",
+      "status": "passed",
+      "checks": [
+        "Harmonie Campus Pro → Soie : deux correspondances réelles auditées dans SQLite",
+        "Même trajet absent du périmètre à une correspondance",
+        "Arriver avant avec deux correspondances et marges vérifiées",
+        "Régression GTFS 2397 → 36394, moteur deux correspondances",
+        "Régression GTFS 12230 → 36394, moteur deux correspondances",
+        "Régression GTFS 35660 → 35668, moteur deux correspondances",
+        "Date non couverte : aucun service recyclé",
+        "Navigateur : trois véhicules, deux transferts et heures réellement rendus",
+        "Budget atteint affiché explicitement, aucun faux classement complet",
+        "Mobile 390 px sans débordement",
+        "Mobile 320 px sans débordement",
+        "Aucune exception JavaScript et version V0.1 conservée"
+      ],
+      "cancelFeedbackMs": null,
+      "screenshots": [
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\network-validation-1794166629605\\deux-correspondances-390.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\network-validation-1794166629605\\deux-correspondances-320.png"
+      ]
+    },
+    {
+      "artifact": ".data\\routing-validation-1794166746140\\report.json",
+      "status": "passed",
+      "checks": [
+        {
+          "name": "Place Henri → La Soie : departure, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Place Henri → La Soie : arrival, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Domrémy-Lacassagne → La Soie : departure, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Domrémy-Lacassagne → La Soie : arrival, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Dauphiné-Lacassagne → La Soie : departure, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Dauphiné-Lacassagne → La Soie : arrival, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Aucun trajet fabriqué quand le lien orienté manque ou la date est hors validité"
+        },
+        {
+          "name": "Temps de réponse mesurés : cinq requêtes HTTP chaudes par trajet"
+        },
+        {
+          "name": "Navigateur : aucune recherche à partir de noms non sélectionnés"
+        },
+        {
+          "name": "Navigateur : Place Henri → La Soie, bus/métro et minimum officiel visibles"
+        },
+        {
+          "name": "Navigateur : détails des propositions consultables individuellement"
+        },
+        {
+          "name": "Navigateur : inversion des noms ET des identifiants de quais"
+        },
+        {
+          "name": "Navigateur : Arriver avant respecte l’échéance"
+        },
+        {
+          "name": "Navigateur : favori persistant, rechargement et réutilisation des quais exacts"
+        },
+        {
+          "name": "Navigateur : suppression d’un favori dans le profil de test, sans perdre le trajet en cours"
+        },
+        {
+          "name": "Navigateur : Domrémy-Lacassagne → La Soie"
+        },
+        {
+          "name": "Navigateur : Dauphiné-Lacassagne → La Soie, directs T3"
+        },
+        {
+          "name": "Navigateur : classement par durée"
+        },
+        {
+          "name": "Navigateur : absence de lien sûr, pas d’itinéraire inventé"
+        },
+        {
+          "name": "Navigateur : date hors validité"
+        },
+        {
+          "name": "Navigateur : heure répétée, seconde occurrence explicitement conservée"
+        },
+        {
+          "name": "Navigateur : heure locale inexistante refusée sans appel de calcul"
+        },
+        {
+          "name": "Navigateur : calcul en cours et double soumission empêchée"
+        },
+        {
+          "name": "Navigateur : erreur serveur explicite, anciens résultats conservés et identifiés"
+        },
+        {
+          "name": "Navigateur : recherche complète et affichage à 390px"
+        },
+        {
+          "name": "Navigateur : recherche complète et affichage à 320px"
+        },
+        {
+          "name": "Aucune exception JavaScript, version V0.1 et temps réel non sollicité"
+        }
+      ],
+      "cancelFeedbackMs": null,
+      "screenshots": [
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\routing-validation-1794166746140\\itineraire-correspondance-desktop.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\routing-validation-1794166746140\\itineraire-direct-390.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\routing-validation-1794166746140\\itineraire-direct-320.png"
+      ]
+    },
+    {
+      "artifact": ".data\\validation-1794166851368\\report.json",
+      "status": "passed",
+      "checks": [
+        {
+          "name": "Empreinte de l’archive identique à la base active",
+          "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d"
+        },
+        {
+          "name": "Catalogue : Place Henri",
+          "ids": [
+            "2396",
+            "2397"
+          ]
+        },
+        {
+          "name": "Catalogue : Domrémy-Lacassagne",
+          "ids": [
+            "11759",
+            "12230"
+          ]
+        },
+        {
+          "name": "Catalogue : Dauphiné-Lacassagne",
+          "ids": [
+            "10129",
+            "10130",
+            "11500",
+            "11501",
+            "35660",
+            "35661",
+            "39995",
+            "50149"
+          ]
+        },
+        {
+          "name": "Catalogue : Vaulx-en-Velin La Soie",
+          "ids": [
+            "35668",
+            "35669",
+            "36394",
+            "36434",
+            "37169",
+            "37170",
+            "37214",
+            "37215",
+            "37216",
+            "37217",
+            "37274",
+            "39996",
+            "41195",
+            "41196",
+            "46526",
+            "46960",
+            "46961",
+            "46962",
+            "47685",
+            "60109"
+          ]
+        },
+        {
+          "name": "Catalogue : C13"
+        },
+        {
+          "name": "Catalogue : C9"
+        },
+        {
+          "name": "Catalogue : C16"
+        },
+        {
+          "name": "Catalogue : 125"
+        },
+        {
+          "name": "Catalogue : T3"
+        },
+        {
+          "name": "API : recherches sans résultat"
+        },
+        {
+          "name": "Navigateur : frontend React chargé et catalogue connecté"
+        },
+        {
+          "name": "Navigateur : ligne C13, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne C9, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne C16, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne 125, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne T3, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Comparaison indépendante des horaires affichés et de SQLite",
+          "totalPassages": 315,
+          "totalQuays": 27,
+          "at": "2026-11-09T10:00:00.000Z"
+        },
+        {
+          "name": "Navigateur : temps réel non configuré explicite, aucun faux E et repli GTFS visible"
+        },
+        {
+          "name": "Navigateur : les passages expirés disparaissent en consultation courante, sans nouvel horaire inventé"
+        },
+        {
+          "name": "Navigateur : ligne inconnue et effacement des résultats précédents"
+        },
+        {
+          "name": "Navigateur : date hors validité sans horaire de substitution"
+        },
+        {
+          "name": "Navigateur : chargement visible et soumission désactivée pendant la requête"
+        },
+        {
+          "name": "Navigateur : erreur API explicite sans conservation d’anciens horaires"
+        },
+        {
+          "name": "Navigateur : catalogue indisponible, erreur visible et recherche désactivée"
+        },
+        {
+          "name": "Navigateur : chargement du catalogue distinct d’une erreur, reconnexion réussie"
+        },
+        {
+          "name": "Navigateur : chargement de recherche et réponse obsolète ignorée"
+        },
+        {
+          "name": "Navigateur : largeur 768px sans débordement horizontal",
+          "width": 768,
+          "document": 753,
+          "body": 753
+        },
+        {
+          "name": "Navigateur : largeur 390px sans débordement horizontal",
+          "width": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "name": "Navigateur : largeur 320px sans débordement horizontal",
+          "width": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "name": "Navigateur : recherche complète T3 / Vaulx-en-Velin La Soie à 320px"
+        },
+        {
+          "name": "Navigateur : aucun appel direct à Grand Lyon"
+        }
+      ],
+      "cancelFeedbackMs": null,
+      "screenshots": [
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\validation-1794166851368\\temps-reel-indisponible-repli-gtfs.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\validation-1794166851368\\horaires-desktop.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\validation-1794166851368\\horaires-768.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\validation-1794166851368\\horaires-390.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\validation-1794166851368\\horaires-320.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\validation-1794166851368\\homonymes-mobile-320.png"
+      ]
+    },
+    {
+      "artifact": ".data\\mobility-validation-1794166900488\\report.json",
+      "status": "passed",
+      "checks": [
+        {
+          "name": "Audit : lien bus → tram absent, lien inverse conservé sans symétrisation"
+        },
+        {
+          "name": "Secteur Lacassagne, quai 2397 → T3 La Soie : horaires et liens audités",
+          "state": "limited",
+          "proposals": 6,
+          "httpMs": 20874.1384
+        },
+        {
+          "name": "Secteur Lacassagne, quai 12230 → T3 La Soie : horaires et liens audités",
+          "state": "limited",
+          "proposals": 6,
+          "httpMs": 2661.9361000000026
+        },
+        {
+          "name": "Secteur Lacassagne, quai 35660 → T3 La Soie : horaires et liens audités",
+          "state": "limited",
+          "proposals": 6,
+          "httpMs": 256.60429999999906
+        },
+        {
+          "name": "Adresse publique de test confirmée en direct dans la BAN via IGN"
+        },
+        {
+          "name": "Adresse → La Soie, departure, plus de quatre accès confirmés et porte-à-porte audité",
+          "httpMs": 18108.845500000003,
+          "metrics": {
+            "durationMs": 18099.08,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 688.9663999999975,
+            "sqlQueries": 5,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 13.79439999999886,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.1320000000014261,
+            "walkingWallMs": 16891.470800000003,
+            "routingMs": 509.07450000000244,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 6279.670299999987,
+            "upstreamRequests": 46,
+            "cacheHits": 3,
+            "queueMs": 17453.954099999988
+          }
+        },
+        {
+          "name": "Adresse → La Soie, arrival, plus de quatre accès confirmés et porte-à-porte audité",
+          "httpMs": 4404.5172999999995,
+          "metrics": {
+            "durationMs": 4388.97,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 2899.967100000016,
+            "sqlQueries": 6,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.05159999999887077,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.03629999999975553,
+            "walkingWallMs": 1.544400000006135,
+            "routingMs": 1475.211999999985,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          }
+        },
+        {
+          "name": "Quai La Soie vers Meyzieu : aucun premier tronçon vers Lyon inventé ; éventuel détour audité"
+        },
+        {
+          "name": "Marche finale incluse dans l’échéance Arriver avant"
+        },
+        {
+          "name": "Deux adresses réelles : accès et sortie réseau inclus dans les horaires"
+        },
+        {
+          "name": "Trajet T3 précédemment validé conservé malgré l’exploration élargie"
+        },
+        {
+          "name": "Date hors GTFS : aucun trajet recyclé"
+        },
+        {
+          "name": "Navigateur : sélection adresse/quai, recherche réelle et départ domicile affiché"
+        },
+        {
+          "name": "Mobile 390 px sans débordement"
+        },
+        {
+          "name": "Navigateur : plusieurs propositions comparables et détails accessibles"
+        },
+        {
+          "name": "Navigateur mobile : trajet entre deux adresses avec marche finale visible"
+        },
+        {
+          "name": "Navigateur : indisponibilité IGN explicite, sélection précédente retirée"
+        },
+        {
+          "name": "Aucun appel IGN direct du navigateur, aucune exception JavaScript"
+        }
+      ],
+      "cancelFeedbackMs": null,
+      "screenshots": [
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\mobility-validation-1794166900488\\adresse-desktop.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\mobility-validation-1794166900488\\adresse-mobile.png",
+        "C:\\Users\\ankou\\Desktop\\MTL (MonTrajetIntelligent)\\montrajet-lyon\\.data\\mobility-validation-1794166900488\\adresse-mobile-resultat.png"
+      ]
+    },
+    {
+      "artifact": ".data\\experience-validation-1794167013753\\report.json",
+      "status": "passed",
+      "checks": [
+        "Itinéraire GTFS réel T3 affiché avant les tests de conservation",
+        "Deux soumissions synchrones : une seule requête ; aucune fausse étape avant réponse serveur",
+        "Annulation immédiate : résultats antérieurs conservés, ancienne réponse sans effet, mobile 320/390 px",
+        "Erreur fournisseur et panne réseau : origine explicite ou transport indisponible, résultats valides conservés",
+        "Recherche remplacée par une nouvelle date : seul le résultat le plus récent est affiché",
+        "Annulation réelle pendant les parcours IGN, itinéraires précédents préservés",
+        "Relance après annulation : parcours IGN réels et résultat GTFS porte-à-porte reçus",
+        "Échec des accès IGN dans une réponse partielle : ne remplace pas les itinéraires valides par une liste vide",
+        "Résultats mobiles sans débordement ; aucune exception JavaScript ; version V0.1"
+      ],
+      "cancelFeedbackMs": 21.840299999999843,
+      "screenshots": [
+        "mobile-390-pending.png",
+        "mobile-320-pending.png",
+        "mobile-390-result.png",
+        "mobile-320-result.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1534 @@
+{
+  "checkedAt": "2026-11-09T19:25:17.591Z",
+  "publicVersion": "V0.1",
+  "verdict": "ARCHITECTURE À REVOIR",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "cpuModel": "AMD Ryzen 7 3700X 8-Core Processor             ",
+    "logicalCpus": 16
+  },
+  "productionChanges": false,
+  "deployment": false,
+  "gtfs": {
+    "metadata": {
+      "schemaVersion": 1,
+      "importedAt": "2026-11-08T12:25:54.683Z",
+      "sourceUrl": "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+      "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+      "timezone": "Europe/Paris",
+      "validFrom": "2026-11-08",
+      "validUntil": "2027-03-08",
+      "maxDepartureSeconds": 88907,
+      "files": {
+        "agency.txt": 2,
+        "routes.txt": 807,
+        "stops.txt": 14026,
+        "calendar.txt": 3089,
+        "calendar_dates.txt": 22435,
+        "trips.txt": 140442,
+        "stop_times.txt": 2927249,
+        "transfers.txt": 5457,
+        "feed_info.txt": 1
+      },
+      "warnings": [
+        "2 arrêts référencent une station parente absente. Les identifiants sont conservés ; recherche et horaires portent uniquement sur les quais existants, sans regroupement inventé."
+      ]
+    },
+    "archiveBytes": 22003525,
+    "sqliteBytes": 416698368,
+    "indexBytes": 256966656,
+    "counts": {
+      "metadata": 1,
+      "agency": 2,
+      "routes": 807,
+      "stops": 14026,
+      "services": 3356,
+      "calendar_dates": 22435,
+      "trips": 140442,
+      "stop_times": 2927249,
+      "route_stops": 21401,
+      "search_tokens": 44438,
+      "transfers": 5457
+    },
+    "objects": [
+      {
+        "name": "stop_times",
+        "bytes": 145244160,
+        "payloadBytes": 125378291,
+        "unusedBytes": 876306
+      },
+      {
+        "name": "departures_lookup",
+        "bytes": 134008832,
+        "payloadBytes": 108539051,
+        "unusedBytes": 16295434
+      },
+      {
+        "name": "sqlite_autoindex_stop_times_1",
+        "bytes": 108306432,
+        "payloadBytes": 86757614,
+        "unusedBytes": 12449771
+      },
+      {
+        "name": "trips",
+        "bytes": 10276864,
+        "payloadBytes": 9313456,
+        "unusedBytes": 94888
+      },
+      {
+        "name": "trips_route",
+        "bytes": 5693440,
+        "payloadBytes": 4317107,
+        "unusedBytes": 938331
+      },
+      {
+        "name": "sqlite_autoindex_trips_1",
+        "bytes": 5115904,
+        "payloadBytes": 3856733,
+        "unusedBytes": 822861
+      },
+      {
+        "name": "exceptions_date",
+        "bytes": 1425408,
+        "payloadBytes": 1119348,
+        "unusedBytes": 234569
+      },
+      {
+        "name": "sqlite_autoindex_calendar_dates_1",
+        "bytes": 1400832,
+        "payloadBytes": 1119348,
+        "unusedBytes": 210065
+      },
+      {
+        "name": "search_tokens",
+        "bytes": 1368064,
+        "payloadBytes": 1073457,
+        "unusedBytes": 157289
+      },
+      {
+        "name": "calendar_dates",
+        "bytes": 1228800,
+        "payloadBytes": 1095802,
+        "unusedBytes": 10040
+      },
+      {
+        "name": "stops",
+        "bytes": 839680,
+        "payloadBytes": 755863,
+        "unusedBytes": 10548
+      },
+      {
+        "name": "sqlite_autoindex_route_stops_1",
+        "bytes": 430080,
+        "payloadBytes": 306637,
+        "unusedBytes": 57984
+      },
+      {
+        "name": "route_stops",
+        "bytes": 360448,
+        "payloadBytes": 242562,
+        "unusedBytes": 4573
+      },
+      {
+        "name": "sqlite_autoindex_stops_1",
+        "bytes": 225280,
+        "payloadBytes": 142151,
+        "unusedBytes": 40395
+      },
+      {
+        "name": "stops_parent",
+        "bytes": 221184,
+        "payloadBytes": 127692,
+        "unusedBytes": 50770
+      },
+      {
+        "name": "services",
+        "bytes": 192512,
+        "payloadBytes": 167002,
+        "unusedBytes": 8115
+      },
+      {
+        "name": "transfers",
+        "bytes": 151552,
+        "payloadBytes": 117773,
+        "unusedBytes": 6041
+      },
+      {
+        "name": "sqlite_autoindex_services_1",
+        "bytes": 118784,
+        "payloadBytes": 84958,
+        "unusedBytes": 23414
+      },
+      {
+        "name": "routes",
+        "bytes": 53248,
+        "payloadBytes": 44606,
+        "unusedBytes": 4539
+      },
+      {
+        "name": "sqlite_autoindex_routes_1",
+        "bytes": 16384,
+        "payloadBytes": 7026,
+        "unusedBytes": 6893
+      },
+      {
+        "name": "sqlite_stat1",
+        "bytes": 4096,
+        "payloadBytes": 567,
+        "unusedBytes": 3469
+      },
+      {
+        "name": "sqlite_schema",
+        "bytes": 4096,
+        "payloadBytes": 3347,
+        "unusedBytes": 535
+      },
+      {
+        "name": "sqlite_autoindex_agency_1",
+        "bytes": 4096,
+        "payloadBytes": 65,
+        "unusedBytes": 4017
+      },
+      {
+        "name": "metadata",
+        "bytes": 4096,
+        "payloadBytes": 730,
+        "unusedBytes": 3353
+      },
+      {
+        "name": "agency",
+        "bytes": 4096,
+        "payloadBytes": 148,
+        "unusedBytes": 3932
+      }
+    ],
+    "openMs": 0.9193000000000069,
+    "sizeProbe": {
+      "recordBytes": 28,
+      "allFeed": {
+        "records": 2927249,
+        "rawBytes": 81962972,
+        "gzipBytes": 17564432,
+        "gzipSha256": "36d31e3ae98edcf74e9946087cbafc9b5d2a2e3c7da7dd46fe5734a87cf267d9",
+        "wallMs": 10128.877900000001,
+        "cpuMs": 10296
+      },
+      "oneServiceDay": {
+        "date": "2026-11-09",
+        "activeTrips": 21844,
+        "records": 464182,
+        "rawBytes": 12997096,
+        "gzipBytes": 2766883,
+        "gzipSha256": "12d9cd39120bacb3a7449d29090824d8fd287aa244b03dc605976fb654fa106d",
+        "wallMs": 6798.567499999999,
+        "cpuMs": 6969
+      },
+      "dictionaryBytes": 13611255,
+      "dictionaryGzipBytes": 1073267,
+      "note": "Size-only binary probe, no production format or planner. Full dictionaries include all feed trips; day/route sharding and correctness remain unimplemented."
+    }
+  },
+  "compact": {
+    "bytes": 167653376,
+    "records": 2927249,
+    "roundTripSha256": "aff2c4fbab1b801eb57238146229a9aa46916eb4057a103d448924722cce72a5",
+    "roundTripVerified": true,
+    "totalMs": 30927.8393,
+    "notes": [
+      "Offline audit candidate only. Separate new directory, no active file modified.",
+      "All non-stop_times tables retained; official string IDs preserved in reversible dictionaries. Full stop_times reconstruction SHA-256 checked.",
+      "Not compatible with current SQL adapter without query rewrite. No D1 import or billing measurement performed."
+    ]
+  },
+  "cases": [
+    {
+      "kind": "direct",
+      "openMs": 0.9171000000000049,
+      "peakSampledMemory": {
+        "rss": 179511296,
+        "heapUsed": 66720240,
+        "external": 9193776
+      },
+      "maxRssKiB": 177448,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "state": "limited",
+          "computeWallMs": 368.4896,
+          "processCpuMs": 656,
+          "sql": {
+            "sqlMs": 127.6638,
+            "sqlCpuMs": 234,
+            "sqlQueries": 8,
+            "returnedRows": 45342,
+            "maxResultRows": 21401,
+            "maxParameters": 5,
+            "maxParameterBytes": 12504
+          },
+          "nonSqlProcessCpuMs": 422,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.09820000000001983,
+            "cpuMs": 0,
+            "bytes": 5887
+          },
+          "metrics": {
+            "durationMs": 367.5543,
+            "sqlQueries": 8,
+            "sqlMs": 128.27759999999995,
+            "routingMs": 239.27670000000006,
+            "legCount": 3650,
+            "transferPairs": 44,
+            "candidateCount": 186,
+            "coldTopology": true,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": false
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "state": "limited",
+          "computeWallMs": 0.24360000000001492,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.12329999999997199,
+            "sqlCpuMs": 0,
+            "sqlQueries": 1,
+            "returnedRows": 1,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.033299999999997,
+            "cpuMs": 0,
+            "bytes": 5900
+          },
+          "metrics": {
+            "durationMs": 0.22000000000002728,
+            "sqlQueries": 1,
+            "sqlMs": 0.14330000000001064,
+            "routingMs": 0.07789999999999964,
+            "legCount": 3650,
+            "transferPairs": 44,
+            "candidateCount": 186,
+            "coldTopology": false,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": true
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "state": "limited",
+          "computeWallMs": 0.20099999999996498,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.11739999999997508,
+            "sqlCpuMs": 0,
+            "sqlQueries": 1,
+            "returnedRows": 1,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.032399999999995543,
+            "cpuMs": 0,
+            "bytes": 5901
+          },
+          "metrics": {
+            "durationMs": 0.19099999999997408,
+            "sqlQueries": 1,
+            "sqlMs": 0.13929999999999154,
+            "routingMs": 0.051999999999964075,
+            "legCount": 3650,
+            "transferPairs": 44,
+            "candidateCount": 186,
+            "coldTopology": false,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": true
+          },
+          "proposals": 6
+        }
+      ]
+    },
+    {
+      "kind": "one",
+      "openMs": 0.9843999999999937,
+      "peakSampledMemory": {
+        "rss": 231526400,
+        "heapUsed": 80350224,
+        "external": 9193776
+      },
+      "maxRssKiB": 226104,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "state": "limited",
+          "computeWallMs": 1283.5383,
+          "processCpuMs": 1500,
+          "sql": {
+            "sqlMs": 318.8161,
+            "sqlCpuMs": 313,
+            "sqlQueries": 8,
+            "returnedRows": 53429,
+            "maxResultRows": 21401,
+            "maxParameters": 5,
+            "maxParameterBytes": 15413
+          },
+          "nonSqlProcessCpuMs": 1187,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.059700000000020736,
+            "cpuMs": 0,
+            "bytes": 11555
+          },
+          "metrics": {
+            "durationMs": 1282.6172,
+            "sqlQueries": 8,
+            "sqlMs": 319.4318,
+            "routingMs": 963.1853999999998,
+            "legCount": 11737,
+            "transferPairs": 123,
+            "candidateCount": 1696,
+            "coldTopology": true,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": false
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "state": "limited",
+          "computeWallMs": 0.23030000000017026,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.1310000000000855,
+            "sqlCpuMs": 0,
+            "sqlQueries": 1,
+            "returnedRows": 1,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.05019999999990432,
+            "cpuMs": 0,
+            "bytes": 11578
+          },
+          "metrics": {
+            "durationMs": 0.21299999999996544,
+            "sqlQueries": 1,
+            "sqlMs": 0.15059999999994034,
+            "routingMs": 0.06359999999995125,
+            "legCount": 11737,
+            "transferPairs": 123,
+            "candidateCount": 1696,
+            "coldTopology": false,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": true
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "state": "limited",
+          "computeWallMs": 0.171100000000024,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.10380000000009204,
+            "sqlCpuMs": 0,
+            "sqlQueries": 1,
+            "returnedRows": 1,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.05460000000016407,
+            "cpuMs": 0,
+            "bytes": 11564
+          },
+          "metrics": {
+            "durationMs": 0.1630999999999858,
+            "sqlQueries": 1,
+            "sqlMs": 0.125,
+            "routingMs": 0.038399999999910506,
+            "legCount": 11737,
+            "transferPairs": 123,
+            "candidateCount": 1696,
+            "coldTopology": false,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": true
+          },
+          "proposals": 6
+        }
+      ]
+    },
+    {
+      "kind": "two",
+      "openMs": 1.0197000000000003,
+      "peakSampledMemory": {
+        "rss": 136052736,
+        "heapUsed": 48878256,
+        "external": 9193776
+      },
+      "maxRssKiB": 134736,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "state": "limited",
+          "computeWallMs": 286.2469,
+          "processCpuMs": 483,
+          "sql": {
+            "sqlMs": 90.394,
+            "sqlCpuMs": 109,
+            "sqlQueries": 8,
+            "returnedRows": 43524,
+            "maxResultRows": 21401,
+            "maxParameters": 5,
+            "maxParameterBytes": 15420
+          },
+          "nonSqlProcessCpuMs": 374,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.07580000000001519,
+            "cpuMs": 0,
+            "bytes": 16161
+          },
+          "metrics": {
+            "durationMs": 285.3204,
+            "sqlQueries": 8,
+            "sqlMs": 91.01330000000002,
+            "routingMs": 194.3071,
+            "legCount": 1832,
+            "transferPairs": 18,
+            "candidateCount": 250,
+            "coldTopology": true,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": false
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "state": "limited",
+          "computeWallMs": 0.21760000000000446,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.11309999999997444,
+            "sqlCpuMs": 0,
+            "sqlQueries": 1,
+            "returnedRows": 1,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.07579999999995835,
+            "cpuMs": 0,
+            "bytes": 16184
+          },
+          "metrics": {
+            "durationMs": 0.19950000000000045,
+            "sqlQueries": 1,
+            "sqlMs": 0.13400000000001455,
+            "routingMs": 0.0666999999999689,
+            "legCount": 1832,
+            "transferPairs": 18,
+            "candidateCount": 250,
+            "coldTopology": false,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": true
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "state": "limited",
+          "computeWallMs": 0.18079999999997654,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.103999999999985,
+            "sqlCpuMs": 0,
+            "sqlQueries": 1,
+            "returnedRows": 1,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.06830000000002201,
+            "cpuMs": 0,
+            "bytes": 16185
+          },
+          "metrics": {
+            "durationMs": 0.17149999999998045,
+            "sqlQueries": 1,
+            "sqlMs": 0.12550000000004502,
+            "routingMs": 0.04629999999991696,
+            "legCount": 1832,
+            "transferPairs": 18,
+            "candidateCount": 250,
+            "coldTopology": false,
+            "rounds": 3,
+            "limited": true,
+            "cacheHit": true
+          },
+          "proposals": 6
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "openMs": 1.03479999999999,
+      "peakSampledMemory": {
+        "rss": 68268032,
+        "heapUsed": 10271600,
+        "external": 9193776
+      },
+      "maxRssKiB": 69480,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "computeWallMs": 26.465999999999994,
+          "processCpuMs": 47,
+          "sql": {
+            "sqlMs": 5.6581999999999795,
+            "sqlCpuMs": 15,
+            "sqlQueries": 2,
+            "returnedRows": 13,
+            "maxResultRows": 12,
+            "maxParameters": 3,
+            "maxParameterBytes": 173
+          },
+          "nonSqlProcessCpuMs": 32,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.02980000000000871,
+            "cpuMs": 0,
+            "bytes": 4034
+          },
+          "passages": 12
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 5.022899999999993,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 4.557699999999983,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 13,
+            "maxResultRows": 12,
+            "maxParameters": 3,
+            "maxParameterBytes": 173
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.017400000000009186,
+            "cpuMs": 0,
+            "bytes": 4034
+          },
+          "passages": 12
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 5.16040000000001,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 4.705199999999962,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 13,
+            "maxResultRows": 12,
+            "maxParameters": 3,
+            "maxParameterBytes": 173
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0,
+          "serialization": {
+            "wallMs": 0.01690000000002101,
+            "cpuMs": 0,
+            "bytes": 4034
+          },
+          "passages": 12
+        }
+      ]
+    },
+    {
+      "kind": "address-address",
+      "openMs": 1.0331000000000046,
+      "peakSampledMemory": {
+        "rss": 351518720,
+        "heapUsed": 163051040,
+        "external": 11869471
+      },
+      "maxRssKiB": 346692,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "computeWallMs": 15768.6298,
+          "processCpuMs": 2499,
+          "sql": {
+            "sqlMs": 807.0815999999988,
+            "sqlCpuMs": 871,
+            "sqlQueries": 15,
+            "returnedRows": 122372,
+            "maxResultRows": 21401,
+            "maxParameters": 5,
+            "maxParameterBytes": 18292
+          },
+          "nonSqlProcessCpuMs": 1628,
+          "network": {
+            "wallUnionMs": 3601.1481000000053,
+            "geocodingWallUnionMs": 206.20600000000002,
+            "walkingWallUnionMs": 3394.942100000005,
+            "requests": 50
+          },
+          "geocodingSelectionMs": 729.9704999999999,
+          "serialization": {
+            "wallMs": 0.3307999999997264,
+            "cpuMs": 0,
+            "bytes": 36944
+          },
+          "metrics": {
+            "durationMs": 15038.06,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 808.1082999999998,
+            "sqlQueries": 15,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 30.863900000000285,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.11369999999999436,
+            "walkingWallMs": 13374.1709,
+            "routingMs": 774.1005999999998,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 3788.4393000000027,
+            "upstreamRequests": 48,
+            "cacheHits": 2,
+            "queueMs": 35596.27029999999
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 3.0943000000006577,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.27599999999983993,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 2,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0.12440000000060536,
+          "serialization": {
+            "wallMs": 0.16569999999956053,
+            "cpuMs": 0,
+            "bytes": 36942
+          },
+          "metrics": {
+            "durationMs": 2.91,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.31009999999878346,
+            "sqlQueries": 2,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.08070000000043365,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.010399999999208376,
+            "walkingWallMs": 0.9923999999991793,
+            "routingMs": 0.11420000000180153,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 50,
+            "queueMs": 0
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 2.1673999999984517,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.22520000000076834,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 2,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0.05650000000059663,
+          "serialization": {
+            "wallMs": 0.15949999999975262,
+            "cpuMs": 0,
+            "bytes": 36942
+          },
+          "metrics": {
+            "durationMs": 2.08,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.25530000000071595,
+            "sqlQueries": 2,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.02779999999984284,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.014699999999720603,
+            "walkingWallMs": 0.7303000000010798,
+            "routingMs": 0.08179999999811116,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 50,
+            "queueMs": 0
+          },
+          "proposals": 6
+        }
+      ]
+    },
+    {
+      "kind": "address-stop",
+      "openMs": 0.8751999999999924,
+      "peakSampledMemory": {
+        "rss": 413474816,
+        "heapUsed": 250006144,
+        "external": 11759855
+      },
+      "maxRssKiB": 403788,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "computeWallMs": 25542.902700000002,
+          "processCpuMs": 2328,
+          "sql": {
+            "sqlMs": 768.4452999999999,
+            "sqlCpuMs": 827,
+            "sqlQueries": 14,
+            "returnedRows": 116305,
+            "maxResultRows": 21401,
+            "maxParameters": 5,
+            "maxParameterBytes": 12917
+          },
+          "nonSqlProcessCpuMs": 1501,
+          "network": {
+            "wallUnionMs": 12980.035300000003,
+            "geocodingWallUnionMs": 132.3485,
+            "walkingWallUnionMs": 12847.686800000003,
+            "requests": 49
+          },
+          "geocodingSelectionMs": 394.5546,
+          "serialization": {
+            "wallMs": 0.15580000000045402,
+            "cpuMs": 0,
+            "bytes": 32190
+          },
+          "metrics": {
+            "durationMs": 25147.61,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 769.4213000000025,
+            "sqlQueries": 14,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 42,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 12.337800000001153,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.12379999999996016,
+            "walkingWallMs": 23685.9375,
+            "routingMs": 610.8983999999982,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 13059.869699999994,
+            "upstreamRequests": 48,
+            "cacheHits": 1,
+            "queueMs": 17959.576900000007
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 1337.198900000003,
+          "processCpuMs": 1188,
+          "sql": {
+            "sqlMs": 561.9673000000003,
+            "sqlCpuMs": 547,
+            "sqlQueries": 4,
+            "returnedRows": 23046,
+            "maxResultRows": 11682,
+            "maxParameters": 5,
+            "maxParameterBytes": 12917
+          },
+          "nonSqlProcessCpuMs": 641,
+          "network": {
+            "wallUnionMs": 40.00510000000213,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 40.00510000000213,
+            "requests": 1
+          },
+          "geocodingSelectionMs": 0.08209999999962747,
+          "serialization": {
+            "wallMs": 0.14549999999871943,
+            "cpuMs": 0,
+            "bytes": 31873
+          },
+          "metrics": {
+            "durationMs": 1337.06,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 562.1197000000029,
+            "sqlQueries": 4,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.05459999999948195,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.017299999999522697,
+            "walkingWallMs": 300.33320000000094,
+            "routingMs": 473.2257999999965,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 40.13680000000022,
+            "upstreamRequests": 1,
+            "cacheHits": 48,
+            "queueMs": 259.2869000000028
+          },
+          "proposals": 6
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 2.380699999997887,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.2253000000018801,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 2,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0.0632999999979802,
+          "serialization": {
+            "wallMs": 0.13799999999901047,
+            "cpuMs": 0,
+            "bytes": 31862
+          },
+          "metrics": {
+            "durationMs": 2.28,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.2540000000008149,
+            "sqlQueries": 2,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.0371000000013737,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.013300000002345769,
+            "walkingWallMs": 0.7543000000005122,
+            "routingMs": 0.1319999999977881,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          },
+          "proposals": 6
+        }
+      ]
+    },
+    {
+      "kind": "commute",
+      "openMs": 1.226699999999994,
+      "peakSampledMemory": {
+        "rss": 350748672,
+        "heapUsed": 162260696,
+        "external": 11944698
+      },
+      "maxRssKiB": 346780,
+      "samples": [
+        {
+          "cache": "cold-process",
+          "computeWallMs": 15338.2502,
+          "processCpuMs": 2671,
+          "sql": {
+            "sqlMs": 798.6019000000002,
+            "sqlCpuMs": 857,
+            "sqlQueries": 15,
+            "returnedRows": 122224,
+            "maxResultRows": 21401,
+            "maxParameters": 5,
+            "maxParameterBytes": 18292
+          },
+          "nonSqlProcessCpuMs": 1814,
+          "network": {
+            "wallUnionMs": 3262.476400000004,
+            "geocodingWallUnionMs": 173.50729999999993,
+            "walkingWallUnionMs": 3088.9691000000043,
+            "requests": 50
+          },
+          "geocodingSelectionMs": 696.4421,
+          "serialization": {
+            "wallMs": 0.12559999999939464,
+            "cpuMs": 0,
+            "bytes": 17508
+          },
+          "metrics": {
+            "durationMs": 14639.36,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 799.5633000000038,
+            "sqlQueries": 15,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 31.56420000000071,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.11419999999998254,
+            "walkingWallMs": 12984.4215,
+            "routingMs": 773.1598999999969,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 3274.3856000000037,
+            "upstreamRequests": 48,
+            "cacheHits": 2,
+            "queueMs": 35713.18119999999
+          },
+          "proposals": 3
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 2.5417000000015832,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.22840000000178406,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 2,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0.10349999999925785,
+          "serialization": {
+            "wallMs": 0.08689999999842257,
+            "cpuMs": 0,
+            "bytes": 17494
+          },
+          "metrics": {
+            "durationMs": 2.22,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.2616999999991094,
+            "sqlQueries": 2,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.04070000000137952,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.009400000000823638,
+            "walkingWallMs": 0.8050999999995838,
+            "routingMs": 0.11020000000098662,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 50,
+            "queueMs": 0
+          },
+          "proposals": 3
+        },
+        {
+          "cache": "warm",
+          "computeWallMs": 1.990299999999479,
+          "processCpuMs": 0,
+          "sql": {
+            "sqlMs": 0.2298000000009779,
+            "sqlCpuMs": 0,
+            "sqlQueries": 2,
+            "returnedRows": 2,
+            "maxResultRows": 1,
+            "maxParameters": 0,
+            "maxParameterBytes": 0
+          },
+          "nonSqlProcessCpuMs": 0,
+          "network": {
+            "wallUnionMs": 0,
+            "geocodingWallUnionMs": 0,
+            "walkingWallUnionMs": 0,
+            "requests": 0
+          },
+          "geocodingSelectionMs": 0.046699999998963904,
+          "serialization": {
+            "wallMs": 0.10310000000026776,
+            "cpuMs": 0,
+            "bytes": 17497
+          },
+          "metrics": {
+            "durationMs": 1.83,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.2592999999978929,
+            "sqlQueries": 2,
+            "candidatePlatforms": 123,
+            "confirmedPlatforms": 35,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.020599999999831198,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.01239999999961583,
+            "walkingWallMs": 0.6710000000002765,
+            "routingMs": 0.07370000000082655,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 50,
+            "queueMs": 0
+          },
+          "proposals": 3
+        }
+      ]
+    }
+  ],
+  "topology": [
+    {
+      "run": 0,
+      "wallMs": 83.4003,
+      "sqlMs": 35.762,
+      "returnedRows": 41691,
+      "cpu": {
+        "user": 47000,
+        "system": 47000
+      },
+      "before": {
+        "rss": 55357440,
+        "heapTotal": 10321920,
+        "heapUsed": 9147080,
+        "external": 11461969,
+        "arrayBuffers": 2968888
+      },
+      "after": {
+        "rss": 103022592,
+        "heapTotal": 63905792,
+        "heapUsed": 41958048,
+        "external": 8693775,
+        "arrayBuffers": 137523
+      },
+      "edges": 15235
+    },
+    {
+      "run": 1,
+      "wallMs": 71.67319999999998,
+      "sqlMs": 33.08070000000001,
+      "returnedRows": 41691,
+      "cpu": {
+        "user": 94000,
+        "system": 15000
+      },
+      "before": {
+        "rss": 103022592,
+        "heapTotal": 63905792,
+        "heapUsed": 41958560,
+        "external": 8693775,
+        "arrayBuffers": 137523
+      },
+      "after": {
+        "rss": 138989568,
+        "heapTotal": 110469120,
+        "heapUsed": 66658240,
+        "external": 8693775,
+        "arrayBuffers": 137523
+      },
+      "edges": 15235
+    },
+    {
+      "run": 2,
+      "wallMs": 72.29599999999999,
+      "sqlMs": 31.369100000000003,
+      "returnedRows": 41691,
+      "cpu": {
+        "user": 63000,
+        "system": 32000
+      },
+      "before": {
+        "rss": 138997760,
+        "heapTotal": 110469120,
+        "heapUsed": 66658648,
+        "external": 8693775,
+        "arrayBuffers": 137523
+      },
+      "after": {
+        "rss": 180051968,
+        "heapTotal": 124817408,
+        "heapUsed": 89670712,
+        "external": 8693775,
+        "arrayBuffers": 137523
+      },
+      "edges": 15235
+    }
+  ],
+  "providers": {
+    "checkedAt": "2026-11-09T19:08:32.254Z",
+    "checks": [
+      {
+        "name": "gtfs-download",
+        "url": "https://download.data.grandlyon.com/files/rdata/tcl_sytral.tcltheorique/GTFS_TCL.ZIP",
+        "method": "HEAD",
+        "status": 401,
+        "elapsedMs": 375.68879999999996,
+        "contentType": "text/html; charset=utf-8",
+        "contentLength": "12",
+        "lastModified": null
+      },
+      {
+        "name": "grandlyon-realtime",
+        "url": "https://data.grandlyon.com/fr/datapusher/ws/rdata/tcl_sytral.tclpassagearret/all.json",
+        "method": "GET",
+        "status": 401,
+        "elapsedMs": 131.1495,
+        "contentType": "application/json",
+        "contentLength": "58",
+        "lastModified": null
+      },
+      {
+        "name": "tcl-robots",
+        "url": "https://www.tcl.fr/robots.txt",
+        "method": "GET",
+        "status": 200,
+        "elapsedMs": 99.14570000000003,
+        "contentType": "text/plain",
+        "contentLength": "584",
+        "lastModified": "Thu, 22 Oct 2026 06:10:06 GMT",
+        "bodySha256": "3200f655bd0e859a4fb1a7237cc64d4cec38824f6f5ee914c37d0b9de0f9c554",
+        "trafficExplicitDisallow": false
+      },
+      {
+        "name": "tcl-legal",
+        "url": "https://www.tcl.fr/mentions-legales",
+        "method": "GET",
+        "status": 200,
+        "elapsedMs": 117.279,
+        "contentType": "text/html; charset=UTF-8",
+        "contentLength": null,
+        "lastModified": "Mon, 09 Nov 2026 18:41:03 GMT",
+        "bodySha256": "c947c8f33eb72e76864b0b820b657734d135d1fa20a82132c55827558cb9f2ed",
+        "nonCommercialReproductionPermissionFound": true
+      },
+      {
+        "name": "osm-policy",
+        "url": "https://operations.osmfoundation.org/policies/tiles/",
+        "method": "GET",
+        "status": 200,
+        "elapsedMs": 305.1132,
+        "contentType": "text/html; charset=utf-8",
+        "contentLength": "5908",
+        "lastModified": "Mon, 09 Nov 2026 02:53:19 GMT",
+        "bodySha256": "04908a9e2faf70ad3090b3b2db43de100f3ad61243c578413b67fb57ba6b6912",
+        "policyFound": true
+      }
+    ],
+    "notes": [
+      "Fixed official URLs, no authentication, redirects not followed, no archive download or tile fetch. No credentials or personal address stored."
+    ]
+  },
+  "http": {
+    "checkedAt": "2026-11-09T19:10:41.057Z",
+    "scope": "Local Vite only, not production HTTP or Cloudflare",
+    "checks": [
+      {
+        "name": "frontend",
+        "status": 200,
+        "contentType": "text/html",
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": null,
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": "no-cache"
+        },
+        "datasetSignatureDetected": false
+      },
+      {
+        "name": "gtfs-status",
+        "status": 200,
+        "contentType": "application/json; charset=utf-8",
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": "nosniff",
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": "no-store"
+        },
+        "datasetSignatureDetected": false
+      },
+      {
+        "name": "invalid-date",
+        "status": 400,
+        "contentType": "application/json; charset=utf-8",
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": null,
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": "no-store"
+        },
+        "datasetSignatureDetected": false
+      },
+      {
+        "name": "invalid-geometry",
+        "status": 400,
+        "contentType": "application/json; charset=utf-8",
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": null,
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": "no-store"
+        },
+        "datasetSignatureDetected": false
+      },
+      {
+        "name": "raw-database",
+        "status": 403,
+        "contentType": null,
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": null,
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": null
+        },
+        "datasetSignatureDetected": false
+      },
+      {
+        "name": "raw-archive",
+        "status": 403,
+        "contentType": null,
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": null,
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": null
+        },
+        "datasetSignatureDetected": false
+      },
+      {
+        "name": "map-feed-conflict",
+        "status": 409,
+        "contentType": "application/json",
+        "headers": {
+          "content-security-policy": null,
+          "x-content-type-options": null,
+          "x-frame-options": null,
+          "referrer-policy": null,
+          "strict-transport-security": null,
+          "cache-control": "no-store"
+        },
+        "datasetSignatureDetected": false
+      }
+    ],
+    "status": "passed"
+  },
+  "trafficParse": {
+    "scope": "Authorized stored public HTML excerpt only, not live full-page collection",
+    "bytes": 2690,
+    "runs": [
+      {
+        "wallMs": 36.36649999999999,
+        "cpuMs": 62,
+        "count": 2
+      },
+      {
+        "wallMs": 3.8204000000000065,
+        "cpuMs": 0,
+        "count": 2
+      },
+      {
+        "wallMs": 3.90949999999998,
+        "cpuMs": 0,
+        "count": 2
+      },
+      {
+        "wallMs": 2.5797000000000025,
+        "cpuMs": 0,
+        "count": 2
+      },
+      {
+        "wallMs": 2.188999999999993,
+        "cpuMs": 0,
+        "count": 2
+      },
+      {
+        "wallMs": 2.447900000000004,
+        "cpuMs": 0,
+        "count": 2
+      }
+    ]
+  },
+  "npmVulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "tests": {
+    "total": 228,
+    "passed": 228,
+    "browser": "Existing last-mission evidence only, not rerun in this audit"
+  },
+  "notes": [
+    "Local measurements, not Cloudflare billing counters. Windows CPU counters sometimes below resolution on warm calls.",
+    "Initial empty timetable benchmark excluded; corrected real-passages run used.",
+    "Only offline probes and audit tools added; current production architecture untouched."
+  ]
+}

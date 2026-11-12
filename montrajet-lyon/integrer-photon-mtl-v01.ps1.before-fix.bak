@@ -1,0 +1,100 @@
+﻿Set-Location "C:\Users\ankou\Desktop\MTL (MonTrajetIntelligent)\montrajet-lyon"
+$ErrorActionPreference = 'Stop'
+
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$backup = Join-Path (Get-Location) "backup-photon-$stamp"
+$utf8 = [System.Text.UTF8Encoding]::new($false)
+$changes = @{}
+
+function Queue-Replace([string]$path, [string]$old, [string]$new) {
+    if (-not $changes.ContainsKey($path)) {
+        if (-not (Test-Path $path)) { throw "Fichier absent : $path" }
+        $changes[$path] = [System.IO.File]::ReadAllText((Resolve-Path $path).Path)
+    }
+    $current = $changes[$path]
+    if ($current.Contains($new)) { return }
+    if (-not $current.Contains($old)) { throw "Code inattendu dans $path : $old" }
+    $changes[$path] = $current.Replace($old, $new)
+}
+
+# 1. Composition : Photon pour les nouvelles recherches, IGN pour la marche et les anciennes adresses BAN.
+$hybridPath = 'server/mobility/hybrid.ts'
+$hybridCode = @'
+import type { GeographicProvider } from './provider.ts'
+import { createIgnProvider } from './provider.ts'
+import { createPhotonProvider } from './photon.ts'
+
+export function createHybridGeographicProvider(): GeographicProvider {
+  const ign = createIgnProvider()
+  const photon = createPhotonProvider()
+  return {
+    addresses: (q, trace, signal) => photon.addresses(q, trace, signal),
+    walk: (from, to, trace, signal) => ign.walk(from, to, trace, signal),
+    resolveAddress: (id, name, trace, signal) =>
+      id.startsWith('address:photon:')
+        ? photon.resolveAddress(id, name, trace, signal)
+        : id.startsWith('address:')
+          ? ign.resolveAddress?.(id, name, trace, signal)
+          : Promise.resolve(undefined)
+  }
+}
+'@
+if (Test-Path $hybridPath) {
+    $existing = [System.IO.File]::ReadAllText((Resolve-Path $hybridPath).Path)
+    if ($existing.Trim() -ne $hybridCode.Trim()) { throw "Le fichier $hybridPath existe deja avec un contenu different." }
+}
+
+Queue-Replace 'server/mobility/api.ts' "import { createIgnProvider, GeographicError } from './provider.ts'" "import { GeographicError } from './provider.ts'`nimport { createHybridGeographicProvider } from './hybrid.ts'"
+Queue-Replace 'server/mobility/api.ts' 'createMobilityApi(provider: GeographicProvider = createIgnProvider()' 'createMobilityApi(provider: GeographicProvider = createHybridGeographicProvider()'
+
+# 2. Autoriser les deux sources sans modifier la cle ni la version des favoris.
+Queue-Replace 'src/services/favorites.ts' "v.source !== 'BAN via IGN'" "!['BAN via IGN', 'OpenStreetMap via Photon'].includes(String(v.source))"
+Queue-Replace 'src/services/favorites.ts' "Adresse inutilisable : sélectionnez une adresse BAN avec numéro et coordonnées valides." "Adresse inutilisable : sélectionnez une adresse avec numéro et coordonnées valides."
+Queue-Replace 'src/services/favorites.ts' "source: 'BAN via IGN' }" "source: v.source as 'BAN via IGN' | 'OpenStreetMap via Photon' }"
+
+# 3. Conserver le controle d'identite et de coordonnees, independamment de la source.
+Queue-Replace 'server/mobility/planner.ts' 'Adresse non confirmée par la BAN. Sélectionnez-la à nouveau.' 'Adresse non confirmée par son fournisseur. Sélectionnez-la à nouveau.'
+Queue-Replace 'server/mobility/planner.ts' 'Les coordonnées de l’adresse enregistrée ont changé dans la BAN. Sélectionnez à nouveau l’adresse ; aucun remplacement silencieux.' 'Les coordonnées de l’adresse enregistrée ont changé chez le fournisseur. Sélectionnez à nouveau l’adresse ; aucun remplacement silencieux.'
+
+# 4. Libelles de source exacts dans l'interface.
+Queue-Replace 'src/components/FavoriteFields.tsx' 'Adresse BAN via IGN ·' 'Adresse ${p.source} ·'
+Queue-Replace 'src/components/FavoriteFields.tsx' 'identifiant BAN et coordonnées valides.' 'identifiant et coordonnées valides.'
+Queue-Replace 'src/components/FavoriteFields.tsx' 'Les adresses recherchées sont transmises à IGN.' 'Les adresses recherchées sont transmises à Photon (OpenStreetMap).'
+Queue-Replace 'src/components/JourneyForm.tsx' 'Adresse · BAN via IGN ·' 'Adresse · ${stop.source} ·'
+Queue-Replace 'src/components/JourneyForm.tsx' 'Les suggestions d’adresses saisies ici sont transmises au service officiel IGN.' 'Les suggestions d’adresses saisies ici sont transmises à Photon (OpenStreetMap).'
+Queue-Replace 'src/components/MobilityResults.tsx' 'Adresses : BAN via IGN · Réseau piéton : IGN BD TOPO' 'Adresses : Photon / OpenStreetMap (anciens favoris BAN conservés) · Réseau piéton : IGN BD TOPO'
+
+# 5. Ecriture apres validation de toutes les substitutions, avec sauvegarde.
+New-Item -ItemType Directory -Path $backup | Out-Null
+$written = New-Object System.Collections.Generic.List[string]
+try {
+    foreach ($path in ($changes.Keys | Sort-Object)) {
+        $destination = Join-Path $backup $path
+        New-Item -ItemType Directory -Force -Path (Split-Path $destination) | Out-Null
+        Copy-Item $path $destination
+        [System.IO.File]::WriteAllText((Join-Path (Get-Location) $path), $changes[$path], $utf8)
+        $written.Add($path)
+        Write-Host "Modifie : $path"
+    }
+    if (-not (Test-Path $hybridPath)) {
+        [System.IO.File]::WriteAllText((Join-Path (Get-Location) $hybridPath), $hybridCode, $utf8)
+        $written.Add($hybridPath)
+        Write-Host "Cree : $hybridPath"
+    }
+    Write-Host "`n=== TESTS ==="
+    & npm test
+    if ($LASTEXITCODE -ne 0) { throw "npm test a echoue ($LASTEXITCODE)" }
+    Write-Host "`n=== BUILD ==="
+    & npm run build
+    if ($LASTEXITCODE -ne 0) { throw "npm run build a echoue ($LASTEXITCODE)" }
+    Write-Host "`nIntegration locale terminee. Sauvegarde : $backup"
+    Write-Host 'Aucun deploiement effectue. Version V0.1 inchangee.'
+} catch {
+    Write-Warning "Echec : $($_.Exception.Message). Restauration des fichiers modifies..."
+    foreach ($path in $written) {
+        $saved = Join-Path $backup $path
+        if (Test-Path $saved) { Copy-Item $saved $path -Force }
+        elseif (Test-Path $path) { Remove-Item $path -Force }
+    }
+    throw
+}

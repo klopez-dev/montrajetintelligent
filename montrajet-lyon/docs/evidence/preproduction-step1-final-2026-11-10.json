@@ -1,0 +1,2085 @@
+{
+  "date": "2026-11-10",
+  "verdict": "PR�PRODUCTION PARTIELLEMENT VALID�E",
+  "directory": ".data/preproduction-1794344387115",
+  "measuredDirectory": ".data/preproduction-1794343892737",
+  "codeAssetsUnchangedBetweenMeasuredAndFinal": [
+    {
+      "file": "assets/index-Bpuz5nrX.js",
+      "sha256": "99dcc37754a8582d2604aa25c30732feb1b894fcb21a3644121118b7747c7076"
+    },
+    {
+      "file": "assets/JourneyMap-CAVBdXmJ.js",
+      "sha256": "675a7ae63d909ec379f77eae4bcb1be240c92c7ab07ba6ed5d3792a7d8077e79"
+    },
+    {
+      "file": "assets/JourneyMap-qvkd0SPb.css",
+      "sha256": "280f62458bee97adaab9c817e977cc89e02cc34d07a3107ba4a545c17c41976d"
+    },
+    {
+      "file": "assets/main-C6AdLxib.js",
+      "sha256": "6c3fcc8c05da4869f85ca7e66dffd49e74e84abdab30d521faf417c5b4370d34"
+    },
+    {
+      "file": "assets/main-CThbyH1T.css",
+      "sha256": "77044cf7fd18ac5dba5a7b6781c441f457ad44e6ec2edec4373a6fc930b869bc"
+    },
+    {
+      "file": "assets/maplibre-gl-Dwh-Jjno.js",
+      "sha256": "88db2ab38aae60ea1cd1ee529ca59564267159556ecdf5676c7c9584206d315b"
+    },
+    {
+      "file": "assets/worker-CyD-nuSq.js",
+      "sha256": "514dbcd6fe784e4d6aecc820f092c4411b384737bb2a57d7c4fe4516fbb38ad4"
+    }
+  ],
+  "faviconFixedInFinalBrowsers": true,
+  "evidence": {
+    "matrix": {
+      "file": ".data/step1-matrix-1794343297967/report.json",
+      "sha256": "c08bc35fecfe09834ce8f5c68fff3705e584cca4d59d8a2858f6e245244e48e0"
+    },
+    "favorites": {
+      "file": ".data/step1-favorites-1794343806162/report.json",
+      "sha256": "a06bad8a83626553e1d9a68e191e5e49d6450fe316d55fac79904e3ab8173da0"
+    },
+    "resilience": {
+      "file": ".data/step1-resilience-1794343985507/report.json",
+      "sha256": "8235597bfea286ea0fd07dd99d5ee707f30a71df8ba4a8e3c645d86baceae9dc"
+    },
+    "edge": {
+      "file": ".data/preproduction-test-edge-1794344419951/report.json",
+      "sha256": "5ce77685fe66f381873a4a7c93b45d169bee8c876569d8ad288db2d79428d8b0"
+    },
+    "firefox": {
+      "file": ".data/preproduction-test-firefox-1794344432882/report.json",
+      "sha256": "f74a91f0e68badd340dd11b5f6dfb2f900f451c2139e04439d11e18b1cadd542"
+    },
+    "tiles": {
+      "file": ".data/step1-tile-failure-1794344128726/report.json",
+      "sha256": "b41a963247b86df7427a7d5ea791706204a7271bd9a7a14789a9c51cebcb3347"
+    },
+    "baseline": {
+      "file": ".data/preproduction-bench-1794343671348/report.json",
+      "sha256": "83e5286b6b4d5ace7ef79aafe51e6712edb276de8e3bc843fd60a42158cba05a"
+    },
+    "benchmark": {
+      "file": ".data/preproduction-bench-1794344049143/report.json",
+      "sha256": "8c35873710af665019f1d69dc73308291b520cc92b86cfa50b7cd6c5dee0def2"
+    },
+    "addressBenchmark": {
+      "file": ".data/step1-address-bench-1794344244945/report.json",
+      "sha256": "c3098528e1014073cd5e691e70cef53b8f6b74594522153afeacf59d7cff5f7c"
+    },
+    "environment": {
+      "file": ".data/step1-environment.json",
+      "sha256": "5dc8c4993d4a683b2a7d48ae35732f4ba011944d59d6a28ef1fb21027cecc7b5"
+    },
+    "versionBefore": {
+      "file": ".data/step1-version-1794343078167/report.json",
+      "sha256": "4c45d12289224c29919cbb543e7172f9a574d56a3ebd17687f1ba9f2f11ebf9b"
+    },
+    "versionAfter": {
+      "file": ".data/step1-version-1794343149120/report.json",
+      "sha256": "c166c98abc32267df36ebc91f42a8c0222d0a3626d3ee3bfb6a59b42235e2186"
+    }
+  },
+  "integrity": [
+    {
+      "file": ".data/gtfs.sqlite",
+      "sha256": "a2f71d7792bdc04df2be9e92aad97d3905a26fec2e00397b9546b15fca7b386a",
+      "unchanged": true
+    },
+    {
+      "file": "GTFS_TCL.ZIP",
+      "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d",
+      "unchanged": true
+    }
+  ],
+  "environment": {
+    "checkedAt": "2026-11-10T20:58:32.777Z",
+    "referencePorts": {
+      "4173": "no listening socket observed",
+      "5173": "no listening socket observed",
+      "8787": "no listening socket observed",
+      "53430": "no listening socket observed"
+    },
+    "chromeAtUsualLocations": false,
+    "physicalPhoneAvailable": false,
+    "servicesStopped": 0,
+    "systemTimezone": "Europe/Paris"
+  },
+  "network": {
+    "requests": 177,
+    "categories": {
+      "local-static": 24,
+      "IGN": 153
+    },
+    "dependencies": [
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/experiments/preproduction/index.html",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "page",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": null,
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 1001
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/assets/index-CAi9wuVh.js",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "page",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "public, max-age=31536000, immutable",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 7395
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/assets/main-DAtcNUvH.js",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "page",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "public, max-age=31536000, immutable",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 313440
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/assets/main-CThbyH1T.css",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "page",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "public, max-age=31536000, immutable",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 20316
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/favicon.ico",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "page",
+        "count": 1,
+        "statuses": [
+          404
+        ],
+        "cache": null,
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 153
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/assets/worker-H1-xF3Kq.js",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "page",
+        "count": 1,
+        "statuses": [],
+        "authorizationPresent": false,
+        "bytes": 0
+      },
+      {
+        "category": "IGN",
+        "endpoint": "https://data.geopf.fr/geocodage/search",
+        "queryParameters": [
+          "autocomplete",
+          "indexes",
+          "lat",
+          "limit",
+          "lon",
+          "q"
+        ],
+        "method": "GET",
+        "origin": "worker",
+        "count": 2,
+        "statuses": [
+          200
+        ],
+        "cache": null,
+        "cors": "*",
+        "authorizationPresent": false,
+        "bytes": 2104
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/manifest.json",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 65758
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/dd8e24291e1f0725a7695a7edfbb1c13cf0481b0914023ef7cbd3087c16c7f62.catalog.gz",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 503046
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/version.json",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 12,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 10416
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/a0a06df75a82c5e3a456e982e83e8338bf511a2b0e8a8a70b7f2d315b321e94e.trips.gz",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 112219
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/20095ad3b52318be054bc78ffa4edacdd8db04088ebc06ed48b1ecc25f43fd7a.events.gz",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 2847594
+      },
+      {
+        "category": "IGN",
+        "endpoint": "https://data.geopf.fr/navigation/itineraire",
+        "queryParameters": [
+          "crs",
+          "distanceUnit",
+          "end",
+          "geometryFormat",
+          "getSteps",
+          "optimization",
+          "profile",
+          "resource",
+          "start",
+          "timeUnit"
+        ],
+        "method": "GET",
+        "origin": "worker",
+        "count": 151,
+        "statuses": [
+          200
+        ],
+        "cache": "private, max-age=1814400",
+        "cors": "*",
+        "authorizationPresent": false,
+        "bytes": 275749
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/bf3ce69b214876c2b381706271ba17293a388f66089ed0a275f5dd50319a092c.trips.gz",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 45984
+      },
+      {
+        "category": "local-static",
+        "endpoint": "http://127.0.0.1:57601/prototype-data/9075a41bdf59bb4b5e0f201dd307bda846ed756ee5b3aa1e4af352ca3cf9e4f0.events.gz",
+        "queryParameters": [],
+        "method": "GET",
+        "origin": "worker",
+        "count": 1,
+        "statuses": [
+          200
+        ],
+        "cache": "no-cache",
+        "cors": null,
+        "authorizationPresent": false,
+        "bytes": 1195823
+      }
+    ],
+    "apiHttpRequests": 0,
+    "pii": "Query values omitted here; raw network report remains local in .data only."
+  },
+  "version": {
+    "before": false,
+    "after": true
+  },
+  "volume": {
+    "files": 202,
+    "bytes": 192329996,
+    "maxFile": 2994783
+  },
+  "matrix": [
+    {
+      "name": "stop-stop",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 274.69999998807907,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 237.4,
+        "transitSearches": 1,
+        "walkingCalls": 0,
+        "sqlMs": 77.99999994039536,
+        "sqlQueries": 14,
+        "candidatePlatforms": 2,
+        "confirmedPlatforms": 2,
+        "walkBudgetReached": false,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0.10000002384185791,
+        "walkingWallMs": 0.09999996423721313,
+        "routingMs": 129.4000000357628,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 0,
+        "queueMs": 0
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:05:06.000Z",
+          "arrivalTime": "2026-11-10T07:13:57.000Z",
+          "durationSeconds": 531,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:10:36.000Z",
+          "arrivalTime": "2026-11-10T07:19:27.000Z",
+          "durationSeconds": 531,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:16:06.000Z",
+          "arrivalTime": "2026-11-10T07:24:57.000Z",
+          "durationSeconds": 531,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:21:36.000Z",
+          "arrivalTime": "2026-11-10T07:30:26.000Z",
+          "durationSeconds": 530,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:27:06.000Z",
+          "arrivalTime": "2026-11-10T07:35:43.000Z",
+          "durationSeconds": 517,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:32:32.000Z",
+          "arrivalTime": "2026-11-10T07:41:08.000Z",
+          "durationSeconds": 516,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        }
+      ]
+    },
+    {
+      "name": "requested-address-address",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 13045.300000011921,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 13040.6,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 19.699999928474426,
+        "sqlQueries": 6,
+        "candidatePlatforms": 126,
+        "confirmedPlatforms": 42,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0.09999996423721313,
+        "walkingWallMs": 12567.599999964237,
+        "routingMs": 447.3000000715256,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 1804.099999845028,
+        "upstreamRequests": 48,
+        "cacheHits": 2,
+        "queueMs": 41075.699999809265
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:05:21.000Z",
+          "arrivalTime": "2026-11-10T07:36:58.000Z",
+          "durationSeconds": 1897,
+          "walkingSeconds": 1402,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:04:19.000Z",
+          "arrivalTime": "2026-11-10T07:36:58.000Z",
+          "durationSeconds": 1959,
+          "walkingSeconds": 1309,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:01:59.000Z",
+          "arrivalTime": "2026-11-10T07:47:40.000Z",
+          "durationSeconds": 2741,
+          "walkingSeconds": 1269,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "T3"
+          ],
+          "accessSeconds": 877,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:07:09.000Z",
+          "arrivalTime": "2026-11-10T07:48:49.000Z",
+          "durationSeconds": 2500,
+          "walkingSeconds": 1480,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C26"
+          ],
+          "accessSeconds": 531,
+          "egressSeconds": 949
+        },
+        {
+          "departureTime": "2026-11-10T07:06:34.000Z",
+          "arrivalTime": "2026-11-10T07:48:49.000Z",
+          "durationSeconds": 2535,
+          "walkingSeconds": 1395,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C26"
+          ],
+          "accessSeconds": 446,
+          "egressSeconds": 949
+        },
+        {
+          "departureTime": "2026-11-10T07:09:25.000Z",
+          "arrivalTime": "2026-11-10T07:50:48.000Z",
+          "durationSeconds": 2483,
+          "walkingSeconds": 923,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C8"
+          ],
+          "accessSeconds": 695,
+          "egressSeconds": 228
+        }
+      ]
+    },
+    {
+      "name": "address-stop",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 9778.5,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 9773,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 4.599999904632568,
+        "sqlQueries": 4,
+        "candidatePlatforms": 71,
+        "confirmedPlatforms": 46,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 9521.099999964237,
+        "routingMs": 245.40000009536743,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 1813.0000000596046,
+        "upstreamRequests": 31,
+        "cacheHits": 18,
+        "queueMs": 10696.899999916553
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:05:21.000Z",
+          "arrivalTime": "2026-11-10T07:30:26.000Z",
+          "durationSeconds": 1505,
+          "walkingSeconds": 1010,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:04:19.000Z",
+          "arrivalTime": "2026-11-10T07:30:26.000Z",
+          "durationSeconds": 1567,
+          "walkingSeconds": 917,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:10:51.000Z",
+          "arrivalTime": "2026-11-10T07:35:43.000Z",
+          "durationSeconds": 1492,
+          "walkingSeconds": 1010,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:09:49.000Z",
+          "arrivalTime": "2026-11-10T07:35:43.000Z",
+          "durationSeconds": 1554,
+          "walkingSeconds": 917,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:16:17.000Z",
+          "arrivalTime": "2026-11-10T07:41:08.000Z",
+          "durationSeconds": 1491,
+          "walkingSeconds": 1010,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:01:59.000Z",
+          "arrivalTime": "2026-11-10T07:41:08.000Z",
+          "durationSeconds": 2349,
+          "walkingSeconds": 877,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "T3"
+          ],
+          "accessSeconds": 877,
+          "egressSeconds": 0
+        }
+      ]
+    },
+    {
+      "name": "stop-address",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 7635.899999976158,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 7630.9,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 2.199999988079071,
+        "sqlQueries": 5,
+        "candidatePlatforms": 57,
+        "confirmedPlatforms": 39,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 7261.400000035763,
+        "routingMs": 366.30000001192093,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 1713.300000011921,
+        "upstreamRequests": 24,
+        "cacheHits": 25,
+        "queueMs": 8614.299999594688
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:05:06.000Z",
+          "arrivalTime": "2026-11-10T07:20:29.000Z",
+          "durationSeconds": 923,
+          "walkingSeconds": 392,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:10:36.000Z",
+          "arrivalTime": "2026-11-10T07:50:07.000Z",
+          "durationSeconds": 2371,
+          "walkingSeconds": 307,
+          "waitingSeconds": null,
+          "transfers": 2,
+          "lines": [
+            "T3",
+            "67",
+            "52"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 307
+        },
+        {
+          "departureTime": "2026-11-10T07:16:06.000Z",
+          "arrivalTime": "2026-11-10T07:51:50.000Z",
+          "durationSeconds": 2144,
+          "walkingSeconds": 650,
+          "waitingSeconds": null,
+          "transfers": 2,
+          "lines": [
+            "T3",
+            "C17",
+            "67"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 650
+        },
+        {
+          "departureTime": "2026-11-10T07:10:36.000Z",
+          "arrivalTime": "2026-11-10T07:53:57.000Z",
+          "durationSeconds": 2601,
+          "walkingSeconds": 717,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "67"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 717
+        },
+        {
+          "departureTime": "2026-11-10T07:16:06.000Z",
+          "arrivalTime": "2026-11-10T07:56:38.000Z",
+          "durationSeconds": 2432,
+          "walkingSeconds": 818,
+          "waitingSeconds": null,
+          "transfers": 2,
+          "lines": [
+            "T3",
+            "C17",
+            "67"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 818
+        },
+        {
+          "departureTime": "2026-11-10T07:10:36.000Z",
+          "arrivalTime": "2026-11-10T08:01:14.000Z",
+          "durationSeconds": 3038,
+          "walkingSeconds": 914,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "67"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 914
+        }
+      ]
+    },
+    {
+      "name": "home-work",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 409.80000001192093,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 404.8,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 3.900000035762787,
+        "sqlQueries": 4,
+        "candidatePlatforms": 126,
+        "confirmedPlatforms": 42,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 0.6000000238418579,
+        "routingMs": 398.5999999642372,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 50,
+        "queueMs": 0
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:04:21.000Z",
+          "arrivalTime": "2026-11-10T07:36:58.000Z",
+          "durationSeconds": 1957,
+          "walkingSeconds": 1402,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:03:19.000Z",
+          "arrivalTime": "2026-11-10T07:36:58.000Z",
+          "durationSeconds": 2019,
+          "walkingSeconds": 1309,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:00:59.000Z",
+          "arrivalTime": "2026-11-10T07:47:40.000Z",
+          "durationSeconds": 2801,
+          "walkingSeconds": 1269,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "T3"
+          ],
+          "accessSeconds": 877,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:06:09.000Z",
+          "arrivalTime": "2026-11-10T07:48:49.000Z",
+          "durationSeconds": 2560,
+          "walkingSeconds": 1480,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "C26"
+          ],
+          "accessSeconds": 531,
+          "egressSeconds": 949
+        },
+        {
+          "departureTime": "2026-11-10T07:05:34.000Z",
+          "arrivalTime": "2026-11-10T07:48:49.000Z",
+          "durationSeconds": 2595,
+          "walkingSeconds": 1395,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "C26"
+          ],
+          "accessSeconds": 446,
+          "egressSeconds": 949
+        },
+        {
+          "departureTime": "2026-11-10T07:08:25.000Z",
+          "arrivalTime": "2026-11-10T07:50:48.000Z",
+          "durationSeconds": 2543,
+          "walkingSeconds": 923,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "C8"
+          ],
+          "accessSeconds": 695,
+          "egressSeconds": 228
+        }
+      ]
+    },
+    {
+      "name": "work-home",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 13118.700000047684,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 13114.3,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 9.100000023841858,
+        "sqlQueries": 6,
+        "candidatePlatforms": 126,
+        "confirmedPlatforms": 42,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 12592.600000023842,
+        "routingMs": 508.80000001192093,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 2251.100000202656,
+        "upstreamRequests": 48,
+        "cacheHits": 2,
+        "queueMs": 40872.099999547005
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:05:00.000Z",
+          "arrivalTime": "2026-11-10T07:38:14.000Z",
+          "durationSeconds": 1994,
+          "walkingSeconds": 1442,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 413,
+          "egressSeconds": 1029
+        },
+        {
+          "departureTime": "2026-11-10T07:05:00.000Z",
+          "arrivalTime": "2026-11-10T07:38:43.000Z",
+          "durationSeconds": 2023,
+          "walkingSeconds": 1290,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 413,
+          "egressSeconds": 877
+        },
+        {
+          "departureTime": "2026-11-10T07:00:12.000Z",
+          "arrivalTime": "2026-11-10T07:43:44.000Z",
+          "durationSeconds": 2612,
+          "walkingSeconds": 1257,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "C8",
+            "T3"
+          ],
+          "accessSeconds": 228,
+          "egressSeconds": 1029
+        },
+        {
+          "departureTime": "2026-11-10T07:00:12.000Z",
+          "arrivalTime": "2026-11-10T07:44:13.000Z",
+          "durationSeconds": 2641,
+          "walkingSeconds": 1105,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "C8",
+            "T3"
+          ],
+          "accessSeconds": 228,
+          "egressSeconds": 877
+        },
+        {
+          "departureTime": "2026-11-10T07:06:49.000Z",
+          "arrivalTime": "2026-11-10T07:49:14.000Z",
+          "durationSeconds": 2545,
+          "walkingSeconds": 1400,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "C8",
+            "T3"
+          ],
+          "accessSeconds": 371,
+          "egressSeconds": 1029
+        },
+        {
+          "departureTime": "2026-11-10T07:06:49.000Z",
+          "arrivalTime": "2026-11-10T07:49:43.000Z",
+          "durationSeconds": 2574,
+          "walkingSeconds": 1248,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "C8",
+            "T3"
+          ],
+          "accessSeconds": 371,
+          "egressSeconds": 877
+        }
+      ]
+    },
+    {
+      "name": "custom-favorite",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 250.5,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 245.7,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 4.100000023841858,
+        "sqlQueries": 4,
+        "candidatePlatforms": 71,
+        "confirmedPlatforms": 46,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 0.6000000238418579,
+        "routingMs": 239.29999995231628,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 49,
+        "queueMs": 0
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:04:21.000Z",
+          "arrivalTime": "2026-11-10T07:30:26.000Z",
+          "durationSeconds": 1565,
+          "walkingSeconds": 1010,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:03:19.000Z",
+          "arrivalTime": "2026-11-10T07:30:26.000Z",
+          "durationSeconds": 1627,
+          "walkingSeconds": 917,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:09:51.000Z",
+          "arrivalTime": "2026-11-10T07:35:43.000Z",
+          "durationSeconds": 1552,
+          "walkingSeconds": 1010,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:08:49.000Z",
+          "arrivalTime": "2026-11-10T07:35:43.000Z",
+          "durationSeconds": 1614,
+          "walkingSeconds": 917,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:15:17.000Z",
+          "arrivalTime": "2026-11-10T07:41:08.000Z",
+          "durationSeconds": 1551,
+          "walkingSeconds": 1010,
+          "waitingSeconds": 180,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-10T07:00:59.000Z",
+          "arrivalTime": "2026-11-10T07:41:08.000Z",
+          "durationSeconds": 2409,
+          "walkingSeconds": 877,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "T3"
+          ],
+          "accessSeconds": 877,
+          "egressSeconds": 0
+        }
+      ]
+    },
+    {
+      "name": "requested-warm",
+      "at": "2026-11-10T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 5.900000035762787,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 1.9,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 0,
+        "sqlQueries": 2,
+        "candidatePlatforms": 126,
+        "confirmedPlatforms": 42,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0.10000002384185791,
+        "walkingWallMs": 0.6000000238418579,
+        "routingMs": 0.2999999523162842,
+        "engineCacheHit": true,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 50,
+        "queueMs": 0
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T07:05:21.000Z",
+          "arrivalTime": "2026-11-10T07:36:58.000Z",
+          "durationSeconds": 1897,
+          "walkingSeconds": 1402,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:04:19.000Z",
+          "arrivalTime": "2026-11-10T07:36:58.000Z",
+          "durationSeconds": 1959,
+          "walkingSeconds": 1309,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:01:59.000Z",
+          "arrivalTime": "2026-11-10T07:47:40.000Z",
+          "durationSeconds": 2741,
+          "walkingSeconds": 1269,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "T3"
+          ],
+          "accessSeconds": 877,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T07:07:09.000Z",
+          "arrivalTime": "2026-11-10T07:48:49.000Z",
+          "durationSeconds": 2500,
+          "walkingSeconds": 1480,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C26"
+          ],
+          "accessSeconds": 531,
+          "egressSeconds": 949
+        },
+        {
+          "departureTime": "2026-11-10T07:06:34.000Z",
+          "arrivalTime": "2026-11-10T07:48:49.000Z",
+          "durationSeconds": 2535,
+          "walkingSeconds": 1395,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C26"
+          ],
+          "accessSeconds": 446,
+          "egressSeconds": 949
+        },
+        {
+          "departureTime": "2026-11-10T07:09:25.000Z",
+          "arrivalTime": "2026-11-10T07:50:48.000Z",
+          "durationSeconds": 2483,
+          "walkingSeconds": 923,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C8"
+          ],
+          "accessSeconds": 695,
+          "egressSeconds": 228
+        }
+      ]
+    },
+    {
+      "name": "arrive-before",
+      "at": "2026-11-10T09:00:00Z",
+      "mode": "arrival",
+      "wallMs": 927.6000000238419,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 921.9,
+        "transitSearches": 1,
+        "walkingCalls": 48,
+        "sqlMs": 18.399999976158142,
+        "sqlQueries": 6,
+        "candidatePlatforms": 126,
+        "confirmedPlatforms": 42,
+        "walkBudgetReached": true,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 0.7000000476837158,
+        "routingMs": 899.4000000357628,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 50,
+        "queueMs": 0
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-10T08:26:41.000Z",
+          "arrivalTime": "2026-11-10T08:58:04.000Z",
+          "durationSeconds": 1883,
+          "walkingSeconds": 1402,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T08:25:44.000Z",
+          "arrivalTime": "2026-11-10T08:58:04.000Z",
+          "durationSeconds": 1940,
+          "walkingSeconds": 1309,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 392
+        },
+        {
+          "departureTime": "2026-11-10T08:19:25.000Z",
+          "arrivalTime": "2026-11-10T08:59:48.000Z",
+          "durationSeconds": 2423,
+          "walkingSeconds": 923,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "C8"
+          ],
+          "accessSeconds": 695,
+          "egressSeconds": 228
+        },
+        {
+          "departureTime": "2026-11-10T08:15:41.000Z",
+          "arrivalTime": "2026-11-10T08:56:03.000Z",
+          "durationSeconds": 2422,
+          "walkingSeconds": 2066,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 1010,
+          "egressSeconds": 1056
+        },
+        {
+          "departureTime": "2026-11-10T08:14:44.000Z",
+          "arrivalTime": "2026-11-10T08:56:03.000Z",
+          "durationSeconds": 2479,
+          "walkingSeconds": 1973,
+          "waitingSeconds": 120,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 917,
+          "egressSeconds": 1056
+        },
+        {
+          "departureTime": "2026-11-10T08:12:14.000Z",
+          "arrivalTime": "2026-11-10T08:55:19.000Z",
+          "durationSeconds": 2585,
+          "walkingSeconds": 1269,
+          "waitingSeconds": null,
+          "transfers": 1,
+          "lines": [
+            "T3",
+            "T3"
+          ],
+          "accessSeconds": 877,
+          "egressSeconds": 392
+        }
+      ]
+    },
+    {
+      "name": "different-date",
+      "at": "2026-11-11T07:00:00Z",
+      "mode": "departure",
+      "wallMs": 50.19999998807907,
+      "proposals": 6,
+      "metrics": {
+        "durationMs": 46.5,
+        "transitSearches": 1,
+        "walkingCalls": 0,
+        "sqlMs": 24.899999976158142,
+        "sqlQueries": 5,
+        "candidatePlatforms": 2,
+        "confirmedPlatforms": 2,
+        "walkBudgetReached": false,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 0,
+        "routingMs": 20.69999998807907,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 0,
+        "queueMs": 0
+      },
+      "propositions": [
+        {
+          "departureTime": "2026-11-11T07:13:31.000Z",
+          "arrivalTime": "2026-11-11T07:21:52.000Z",
+          "durationSeconds": 501,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-11T07:31:31.000Z",
+          "arrivalTime": "2026-11-11T07:39:52.000Z",
+          "durationSeconds": 501,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-11T07:49:31.000Z",
+          "arrivalTime": "2026-11-11T07:57:52.000Z",
+          "durationSeconds": 501,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-11T08:07:31.000Z",
+          "arrivalTime": "2026-11-11T08:15:52.000Z",
+          "durationSeconds": 501,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-11T08:25:31.000Z",
+          "arrivalTime": "2026-11-11T08:33:52.000Z",
+          "durationSeconds": 501,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        },
+        {
+          "departureTime": "2026-11-11T08:43:31.000Z",
+          "arrivalTime": "2026-11-11T08:51:52.000Z",
+          "durationSeconds": 501,
+          "walkingSeconds": 0,
+          "waitingSeconds": 0,
+          "transfers": 0,
+          "lines": [
+            "T3"
+          ],
+          "accessSeconds": 0,
+          "egressSeconds": 0
+        }
+      ]
+    },
+    {
+      "name": "after-midnight",
+      "at": "2026-11-10T23:05:00Z",
+      "mode": "departure",
+      "wallMs": 10.299999952316284,
+      "proposals": 0,
+      "metrics": {
+        "durationMs": 7.1,
+        "transitSearches": 1,
+        "walkingCalls": 0,
+        "sqlMs": 0.19999998807907104,
+        "sqlQueries": 3,
+        "candidatePlatforms": 2,
+        "confirmedPlatforms": 2,
+        "walkBudgetReached": false,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false,
+        "geocodingWallMs": 0,
+        "walkingWallMs": 0.10000002384185791,
+        "routingMs": 6.600000023841858,
+        "engineCacheHit": false,
+        "geocodingMs": 0,
+        "walkingMs": 0,
+        "upstreamRequests": 0,
+        "cacheHits": 0,
+        "queueMs": 0
+      },
+      "propositions": []
+    },
+    {
+      "name": "outside-validity",
+      "at": "2028-01-01T10:00:00Z",
+      "mode": "departure",
+      "wallMs": 3.100000023841858,
+      "proposals": 0,
+      "metrics": {
+        "durationMs": 0.19999998807907104,
+        "transitSearches": 0,
+        "walkingCalls": 0,
+        "sqlMs": 0,
+        "sqlQueries": 1,
+        "candidatePlatforms": 0,
+        "confirmedPlatforms": 0,
+        "walkBudgetReached": false,
+        "transferCandidatesMs": 0,
+        "transferCandidatesCacheHit": false
+      },
+      "propositions": []
+    }
+  ],
+  "checks": {
+    "matrix": [
+      "Every returned proposal independently audited against SQLite rows/calendar, door arithmetic and walking constraints",
+      "All seven categories executed without an HTTP API backend",
+      "No observed TCL/tiles/other service calls or authorization headers"
+    ],
+    "favorites": [
+      "Home and work addresses explicitly selected through React; no search before manual click",
+      "Trip creation and rename through UI",
+      "Saved trip reversal and return to original",
+      "Reload preserves home/work/trip",
+      "Browser close and reopen keeps local favorites without IGN on opening",
+      "Saved address trip launches actual recalculation",
+      "Map walking steps, stops, framing, zoom controls, recenter and changed proposal; transit shapes explicitly absent",
+      "Address map fits all four viewports",
+      "Trip and place deletion through confirmation dialog",
+      "Nonexistent stop favorite retained with error and no fabricated result"
+    ],
+    "resilience": [
+      "Cold data offline: explicit error, no invented journey",
+      "Missing day refused",
+      "Corrupted day refused",
+      "Previously cached consultation invalidated by incompatible version",
+      "Cancel/interruption then new search succeeds without old result",
+      "Changed date returns only its query date",
+      "Real T1 after 24:00 on service date Nov 10: positive browser result independently checked against GTFS",
+      "Page reload starts without stale proposals"
+    ],
+    "edge": [
+      "React exact stop selection and real GTFS proposals without an HTTP API",
+      "Date changed during calculation: old request aborted, rapid next search wins",
+      "Cancel button works and labels previous valid results",
+      "Failed new query preserves explicitly labelled previous results",
+      "Existing favorite saved locally",
+      "Theoretical timetable in browser; no past passage labelled future",
+      "React navigation and local favorites retained",
+      "TCL unavailable: no normal-traffic assertion, no stale announcements",
+      "React viewports 1440/768/390/320",
+      "No /api request reached the static server"
+    ],
+    "firefox": [
+      "React exact stop selection and real GTFS proposals without an HTTP API",
+      "Date changed during calculation: old request aborted, rapid next search wins",
+      "Cancel button works and labels previous valid results",
+      "Failed new query preserves explicitly labelled previous results",
+      "Existing favorite saved locally",
+      "Theoretical timetable in browser; no past passage labelled future",
+      "React navigation and local favorites retained",
+      "TCL unavailable: no normal-traffic assertion, no stale announcements",
+      "React viewports 1440/768/390/320",
+      "No /api request reached the static server"
+    ],
+    "tiles": [
+      "Tile failure explicit; real GTFS markers, steps and text remain; all tile attempts blocked locally"
+    ]
+  },
+  "browsers": {
+    "edge": "Edg/157.0.4341.42",
+    "firefox": "Firefox/159.0.1"
+  },
+  "cors": {
+    "edge": [
+      {
+        "name": "geocoding",
+        "status": 200,
+        "type": "cors",
+        "ms": 33.59999996423721,
+        "valid": true
+      },
+      {
+        "name": "pedestrian",
+        "status": 200,
+        "type": "cors",
+        "ms": 40.69999998807907,
+        "valid": true
+      }
+    ],
+    "firefox": [
+      {
+        "name": "geocoding",
+        "status": 200,
+        "type": "cors",
+        "ms": 245,
+        "valid": true
+      },
+      {
+        "name": "pedestrian",
+        "status": 200,
+        "type": "cors",
+        "ms": 31,
+        "valid": true
+      }
+    ]
+  },
+  "consoleErrors": {
+    "edge": [],
+    "firefox": [],
+    "matrix": []
+  },
+  "performance": {
+    "baseline": {
+      "cold": {
+        "totalMs": {
+          "n": 5,
+          "min": 237.23400000000038,
+          "median": 247.6967999999997,
+          "p95": 299.5243999999998,
+          "max": 299.5243999999998
+        },
+        "openMs": {
+          "n": 5,
+          "min": 63.22829999999976,
+          "median": 66.64409999999953,
+          "p95": 97.01260000000002,
+          "max": 97.01260000000002
+        }
+      },
+      "warm": {
+        "totalMs": {
+          "n": 5,
+          "min": 4.4681000000000495,
+          "median": 4.6413000000002285,
+          "p95": 4.813000000000102,
+          "max": 4.813000000000102
+        },
+        "openMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "slow": {
+        "totalMs": {
+          "n": 3,
+          "min": 10328.6102,
+          "median": 10337.2068,
+          "p95": 10343.883499999996,
+          "max": 10343.883499999996
+        },
+        "openMs": {
+          "n": 3,
+          "min": 62.179700000000594,
+          "median": 63.45610000000033,
+          "p95": 67.16259999999966,
+          "max": 67.16259999999966
+        }
+      },
+      "main-cpu-4x": {
+        "totalMs": {
+          "n": 1,
+          "min": 281.8854999999994,
+          "median": 281.8854999999994,
+          "p95": 281.8854999999994,
+          "max": 281.8854999999994
+        },
+        "openMs": {
+          "n": 1,
+          "min": 83.77329999999984,
+          "median": 83.77329999999984,
+          "p95": 83.77329999999984,
+          "max": 83.77329999999984
+        }
+      }
+    },
+    "final": {
+      "cold": {
+        "totalMs": {
+          "n": 5,
+          "min": 234.98599999999988,
+          "median": 237.2529999999997,
+          "p95": 304.71129999999994,
+          "max": 304.71129999999994
+        },
+        "openMs": {
+          "n": 5,
+          "min": 64.10049999999956,
+          "median": 65.4349000000002,
+          "p95": 95.76539999999977,
+          "max": 95.76539999999977
+        }
+      },
+      "warm": {
+        "totalMs": {
+          "n": 5,
+          "min": 6.472600000000057,
+          "median": 7.098500000000058,
+          "p95": 9.085200000000441,
+          "max": 9.085200000000441
+        },
+        "openMs": {
+          "n": 5,
+          "min": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "slow": {
+        "totalMs": {
+          "n": 3,
+          "min": 10529.4918,
+          "median": 10534.7035,
+          "p95": 10540.796299999998,
+          "max": 10540.796299999998
+        },
+        "openMs": {
+          "n": 3,
+          "min": 65.1909999999998,
+          "median": 67.3650000000016,
+          "p95": 69.35389999999825,
+          "max": 69.35389999999825
+        }
+      },
+      "main-cpu-4x": {
+        "totalMs": {
+          "n": 1,
+          "min": 289.3091999999997,
+          "median": 289.3091999999997,
+          "p95": 289.3091999999997,
+          "max": 289.3091999999997
+        },
+        "openMs": {
+          "n": 1,
+          "min": 76.6904999999997,
+          "median": 76.6904999999997,
+          "p95": 76.6904999999997,
+          "max": 76.6904999999997
+        }
+      }
+    },
+    "phases": {
+      "workerBootToFirstMessageMs": {
+        "n": 5,
+        "min": 8.099999964237213,
+        "median": 8.700000047683716,
+        "p95": 10.400000035762787,
+        "max": 10.400000035762787
+      },
+      "catalogMs": {
+        "n": 5,
+        "min": 24.19999998807907,
+        "median": 25.69999998807907,
+        "p95": 31.19999998807907,
+        "max": 31.19999998807907
+      },
+      "catalogReadMs": {
+        "n": 5,
+        "min": 3,
+        "median": 3,
+        "p95": 3.599999964237213,
+        "max": 3.599999964237213
+      },
+      "catalogDecodeMs": {
+        "n": 5,
+        "min": 4.399999976158142,
+        "median": 4.699999988079071,
+        "p95": 5.699999988079071,
+        "max": 5.699999988079071
+      },
+      "eventsReadMs": {
+        "n": 5,
+        "min": 7.5,
+        "median": 7.799999952316284,
+        "p95": 10,
+        "max": 10
+      },
+      "eventsDecodeMs": {
+        "n": 5,
+        "min": 20.200000047683716,
+        "median": 20.799999952316284,
+        "p95": 21.5,
+        "max": 21.5
+      },
+      "tripReadMs": {
+        "n": 5,
+        "min": 2.800000011920929,
+        "median": 3.100000023841858,
+        "p95": 3.300000011920929,
+        "max": 3.300000011920929
+      },
+      "tripDecodeMs": {
+        "n": 5,
+        "min": 1.5,
+        "median": 1.5999999642372131,
+        "p95": 1.600000023841858,
+        "max": 1.600000023841858
+      },
+      "indexMs": {
+        "n": 5,
+        "min": 7.199999988079071,
+        "median": 8.200000047683716,
+        "p95": 8.700000047683716,
+        "max": 8.700000047683716
+      },
+      "adapterQueryMs": {
+        "n": 5,
+        "min": 52.799999952316284,
+        "median": 56.5,
+        "p95": 56.699999928474426,
+        "max": 56.699999928474426
+      },
+      "gtfsRoutingMs": {
+        "n": 5,
+        "min": 132.0999999642372,
+        "median": 134.70000004768372,
+        "p95": 153.80000007152557,
+        "max": 153.80000007152557
+      }
+    },
+    "address": [
+      {
+        "repeat": 0,
+        "mode": "cold",
+        "wallMs": 14092.399999976158,
+        "count": 6,
+        "metrics": {
+          "durationMs": 14035.6,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 84.80000013113022,
+          "sqlQueries": 15,
+          "candidatePlatforms": 126,
+          "confirmedPlatforms": 42,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 589.0999999642372,
+          "walkingWallMs": 12877.599999964237,
+          "routingMs": 450.39999985694885,
+          "engineCacheHit": false,
+          "geocodingMs": 159.79999995231628,
+          "walkingMs": 2801.499999821186,
+          "upstreamRequests": 50,
+          "cacheHits": 0,
+          "queueMs": 41113.70000010729
+        }
+      },
+      {
+        "repeat": 0,
+        "mode": "warm",
+        "wallMs": 8.600000023841858,
+        "count": 6,
+        "metrics": {
+          "durationMs": 1.8,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 0.09999996423721313,
+          "sqlQueries": 2,
+          "candidatePlatforms": 126,
+          "confirmedPlatforms": 42,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0,
+          "walkingWallMs": 0.5999999642372131,
+          "routingMs": 0.10000002384185791,
+          "engineCacheHit": true,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 50,
+          "queueMs": 0
+        }
+      },
+      {
+        "repeat": 1,
+        "mode": "cold",
+        "wallMs": 13710.599999964237,
+        "count": 6,
+        "metrics": {
+          "durationMs": 13664.1,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 78.30000001192093,
+          "sqlQueries": 15,
+          "candidatePlatforms": 126,
+          "confirmedPlatforms": 42,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 558.7000000476837,
+          "walkingWallMs": 12539.800000011921,
+          "routingMs": 458.30000001192093,
+          "engineCacheHit": false,
+          "geocodingMs": 68.60000002384186,
+          "walkingMs": 67.10000020265579,
+          "upstreamRequests": 50,
+          "cacheHits": 0,
+          "queueMs": 43544.699999809265
+        }
+      },
+      {
+        "repeat": 1,
+        "mode": "warm",
+        "wallMs": 8.199999988079071,
+        "count": 6,
+        "metrics": {
+          "durationMs": 1.8,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 0.19999998807907104,
+          "sqlQueries": 2,
+          "candidatePlatforms": 126,
+          "confirmedPlatforms": 42,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0,
+          "walkingWallMs": 0.5,
+          "routingMs": 0.09999996423721313,
+          "engineCacheHit": true,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 50,
+          "queueMs": 0
+        }
+      },
+      {
+        "repeat": 2,
+        "mode": "cold",
+        "wallMs": 13677.799999952316,
+        "count": 6,
+        "metrics": {
+          "durationMs": 13629.4,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 76.69999998807907,
+          "sqlQueries": 15,
+          "candidatePlatforms": 126,
+          "confirmedPlatforms": 42,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 554.3999999761581,
+          "walkingWallMs": 12532.800000011921,
+          "routingMs": 435.89999997615814,
+          "engineCacheHit": false,
+          "geocodingMs": 96,
+          "walkingMs": 73.09999990463257,
+          "upstreamRequests": 50,
+          "cacheHits": 0,
+          "queueMs": 43517.29999965429
+        }
+      },
+      {
+        "repeat": 2,
+        "mode": "warm",
+        "wallMs": 8,
+        "count": 6,
+        "metrics": {
+          "durationMs": 1.9,
+          "transitSearches": 1,
+          "walkingCalls": 48,
+          "sqlMs": 0.10000002384185791,
+          "sqlQueries": 2,
+          "candidatePlatforms": 126,
+          "confirmedPlatforms": 42,
+          "walkBudgetReached": true,
+          "transferCandidatesMs": 0,
+          "transferCandidatesCacheHit": false,
+          "geocodingWallMs": 0,
+          "walkingWallMs": 0.699999988079071,
+          "routingMs": 0.10000002384185791,
+          "engineCacheHit": true,
+          "geocodingMs": 0,
+          "walkingMs": 0,
+          "upstreamRequests": 0,
+          "cacheHits": 50,
+          "queueMs": 0
+        }
+      }
+    ],
+    "ui": {
+      "edge": 145.23079999999982,
+      "firefox": 174.63459999999986
+    },
+    "map": {
+      "edge": {
+        "canvas": true,
+        "markers": 5,
+        "error": "",
+        "timings": "Mesures de la carteArrêts/API : 108.8 ms · Initialisation : 103.5 ms · Premier rendu après mise à jour : 15.6 ms."
+      },
+      "firefox": {
+        "canvas": true,
+        "markers": 5,
+        "error": "",
+        "timings": "Mesures de la carteArrêts/API : 340.0 ms · Initialisation : 336.0 ms · Premier rendu après mise à jour : 7.0 ms."
+      }
+    },
+    "afterMapMemory": {
+      "main": {
+        "usedSize": 7377164,
+        "totalSize": 11272192,
+        "embedderHeapUsedSize": 7446600,
+        "backingStorageSize": 1671966
+      },
+      "worker": {
+        "usedSize": 30107804,
+        "totalSize": 66015232,
+        "embedderHeapUsedSize": 1123096,
+        "backingStorageSize": 53469099
+      }
+    },
+    "coldFileBytes": [
+      3582010,
+      3582010,
+      3582010,
+      3582010,
+      3582010
+    ],
+    "coldRequestCounts": [
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "warm": [
+      {
+        "bytes": 454,
+        "requests": 2
+      },
+      {
+        "bytes": 454,
+        "requests": 2
+      },
+      {
+        "bytes": 454,
+        "requests": 2
+      },
+      {
+        "bytes": 454,
+        "requests": 2
+      },
+      {
+        "bytes": 454,
+        "requests": 2
+      }
+    ],
+    "notes": [
+      "Local HTTP, five fresh-page/worker cold runs followed by warm calls. Supplier not contacted.",
+      "Heap snapshots are not physical mobile memory or exact transient peaks. CPU throttle applies to page only."
+    ]
+  },
+  "validation": {
+    "tests": 261,
+    "pass": 261,
+    "fail": 0,
+    "lint": "passed",
+    "preproductionTypes": "passed",
+    "activeBuild": "passed",
+    "preproductionBuild": "passed"
+  },
+  "limits": [
+    "No physical phone or full Worker CPU throttling",
+    "No remote hosting/deployment validation",
+    "No real-time or traffic collection",
+    "No global itinerary optimality; budgets remain enforced",
+    "Official GTFS renewal and redistribution conditions unresolved",
+    "No complete offline application support"
+  ]
+}

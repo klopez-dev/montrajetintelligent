@@ -1,0 +1,1134 @@
+{
+  "verdict": "PARTIELLEMENT OPERATIONNEL",
+  "publicVersion": "V0.1",
+  "officialApiTest": {
+    "checkedOn": "2026-11-08",
+    "runtime": "Node.js",
+    "url": "https://data.grandlyon.com/fr/datapusher/ws/rdata/tcl_sytral.tclalertetrafic_2/all.json",
+    "status": 401,
+    "wwwAuthenticate": "Basic realm=\"Access to data-ws\"",
+    "message": "Informations d'authentification non fournies.",
+    "durationMs": 198.01160000000002,
+    "alternativeHostOrCsvAttempted": false
+  },
+  "firstLiveCollection": {
+    "artifact": ".data/traffic-validation-1794168247986/report.json",
+    "overallHarnessInitiallyFailed": true,
+    "failureOutsideTraffic": "Old network harness treated expected canceled requests as errors; corrected and passed later.",
+    "snapshot": {
+      "state": "available",
+      "partial": true,
+      "incidents": [
+        {
+          "id": "tcl-html:4be589df5dbb45207f0ecd0c547cdac400040ab956afce60d20bb626e0614752",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AC16?date=0408112026",
+          "relatedUrls": [],
+          "fetchedAt": "2026-11-08T20:04:33.572Z",
+          "title": "Déviée dir. Charpennes - 19/01 au 31/12",
+          "description": "Déviée dir. Charpennes - 19/01 au 31/12\n\nL'arrêt Grange Blanche n'est plus desservi en direction de Charpennes Charles Hernu uniquement.\n\nMesures de sécurité",
+          "type": "other",
+          "officialSeverity": "Perturbation",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:C16",
+              "namespace": "tcl-web",
+              "label": "C16",
+              "mode": "bus",
+              "gtfsIds": [
+                "C16"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [
+            {
+              "start": "2026-01-19T03:30:00.000Z",
+              "end": "2027-01-01T00:30:00.000Z"
+            }
+          ],
+          "temporalPrecision": "exact",
+          "periodText": "Du 19/01/2026 à 04:30 au 01/01/2027 à 01:30",
+          "status": "active",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:80ee4c03451082e9c2ace5ab36ccc76469c10ddacc98e66cbcd9ec0dfa066021",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AC16?date=0408112026",
+          "relatedUrls": [],
+          "fetchedAt": "2026-11-08T20:04:33.572Z",
+          "title": "Déviée dir. Charpennes - 19/01 au 31/12",
+          "description": "Déviée dir. Charpennes - 19/01 au 31/12\n\nL'arrêt Grange Blanche n'est plus desservi en direction de Charpennes Charles Hernu uniquement.\n\nNous invitons les voyageurs à se reporter sur l'arrêt provisoire situé au 208 avenue des Frères Lumière, à Lyon 8ème.\n\nMesures de sécurité",
+          "type": "other",
+          "officialSeverity": "Perturbation",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:C16",
+              "namespace": "tcl-web",
+              "label": "C16",
+              "mode": "bus",
+              "gtfsIds": [
+                "C16"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [
+            {
+              "start": "2026-01-19T03:30:00.000Z",
+              "end": "2027-01-01T00:30:00.000Z"
+            }
+          ],
+          "temporalPrecision": "exact",
+          "periodText": "Du 19/01/2026 à 04:30 au 01/01/2027 à 01:30",
+          "status": "active",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:e5a96d36ed9c54e33d3ff5cfe79ef486308b5f8898ddb34afb9ecdda6808a360",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AC16?date=0408112026",
+          "relatedUrls": [],
+          "fetchedAt": "2026-11-08T20:04:33.572Z",
+          "title": "Déviée dir. Charpennes Charles Hernu -",
+          "description": "Déviée dir. Charpennes Charles Hernu -\n\nLes arrêts de Paul Bert - Baraban à Sacré Coeur ne seront plus desservis en direction de Charpennes Charles Hernu uniquement.\n\nDes travaux auront lieu rue Baraban à Lyon 3ème.",
+          "type": "other",
+          "officialSeverity": "Perturbation",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:C16",
+              "namespace": "tcl-web",
+              "label": "C16",
+              "mode": "bus",
+              "gtfsIds": [
+                "C16"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [
+            {
+              "start": "2026-11-12T08:00:00.000Z",
+              "end": "2026-11-12T11:00:00.000Z"
+            }
+          ],
+          "temporalPrecision": "exact",
+          "periodText": "Du 12/11/2026 à 09:00 au 12/11/2026 à 12:00",
+          "status": "future",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=0408112026",
+          "relatedUrls": [
+            "https://www.tcl.fr/se-deplacer/travaux-en-cours-sur-le-reseau-tcl/perturbations-des-lignes-de-tramway/travaux-t9-8"
+          ],
+          "fetchedAt": "2026-11-08T20:04:35.092Z",
+          "title": "Le 9, 10, 25 et 27 novembre 2026",
+          "description": "Le 9, 10, 25 et 27 novembre 2026\n\nLa ligne T3 ne circulera pas en soirée à partir de 20h30.\n\nNous mettrons à votre disposition des bus relais qui desserviront les stations de Part-Dieu Villette à Meyzieu Z.I, toutes les 20 minutes.\n\nDes travaux sur les voies auront lieu à l'occasion de la création de la future ligne T9. Plus d'informations ICI",
+          "type": "other",
+          "officialSeverity": "Perturbation",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:T3",
+              "namespace": "tcl-web",
+              "label": "T3",
+              "mode": "tram",
+              "gtfsIds": [
+                "T3"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [],
+          "temporalPrecision": "text_only",
+          "dateBounds": {
+            "start": "2026-11-09"
+          },
+          "periodText": "Du 09/11/2026 au 28/11/2026 De 20:30 à 02:30",
+          "status": "future",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:74c260cd7e8412f61de34fbab830582db3370a41ea65a3263db489897ff35c30",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=0408112026",
+          "relatedUrls": [
+            "https://www.tcl.fr/se-deplacer/travaux-en-cours-sur-le-reseau-tcl/perturbations-des-lignes-de-tramway/travaux-t9-8"
+          ],
+          "fetchedAt": "2026-11-08T20:04:35.092Z",
+          "title": "Station Vaulx-en-Velin La Soie non desservie",
+          "description": "Station Vaulx-en-Velin La Soie non desservie\n\nDu 16 au 25 novembre,\n\nLa station Vaulx-en-Velin La Soie ne sera pas desservie en direction de Meyzieu les Panettes en semaine et Meyzieu ZI les week-ends.\n\nDes travaux sur les voies auront lieu à l'occasion de la création de la future ligne T9. Plus d'informations ICI",
+          "type": "other",
+          "officialSeverity": "Perturbation",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:T3",
+              "namespace": "tcl-web",
+              "label": "T3",
+              "mode": "tram",
+              "gtfsIds": [
+                "T3"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [
+            {
+              "start": "2026-11-16T03:30:00.000Z",
+              "end": "2026-11-26T00:30:00.000Z"
+            }
+          ],
+          "temporalPrecision": "exact",
+          "periodText": "Du 16/11/2026 à 04:30 au 26/11/2026 à 01:30",
+          "status": "future",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:9abc18a2b43338896b0f53e02a0b6c9e0a60e84555fe66a4645756a6bd85f5a2",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AD?date=0408112026",
+          "relatedUrls": [
+            "https://www.tcl.fr/se-deplacer/travaux-en-cours-sur-le-reseau-tcl/perturbations-des-lignes-de-metro/metro-D"
+          ],
+          "fetchedAt": "2026-11-08T20:04:36.554Z",
+          "title": "Travaux modernisation ligne D - Du 05/10 au 24/11",
+          "description": "Travaux modernisation ligne D - Du 05/10 au 24/11\n\nEn raison de travaux de modernisation, du 5 octobre au 24 novembre, les lundis et mardis à partir de 21h20 environ, la ligne D circule uniquement de Gare de Vaise à Saxe-Gambetta.\n\nLes stations de Garibaldi à Gare de Vénissieux ne sont plus desservies.\n\nDes bus relais sont mis à disposition desservant tous les arrêts de Saxe-Gambetta à Gare de Vénissieux, toutes les 10 minutes.\n\nDerniers départs complets de la ligne :\nDe Gare de Vénissieux vers Gare de Vaise : 21h20\nDe Gare de Vaise vers Gare de Vénissieux : 21h23\n\nUne autre phase de travaux complémentaires est également prévue du 30 novembre au 22 décembre (sauf 7 et 8 décembre), les lundis et mardis soirs la ligne D circulera uniquement de Gare de Vaise à Vieux Lyon Cathédral Saint-Jean.\n\nPlus d'informations en cliquant ici.",
+          "type": "other",
+          "officialSeverity": "Perturbation",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:D",
+              "namespace": "tcl-web",
+              "label": "D",
+              "mode": "metro",
+              "gtfsIds": [
+                "D"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [
+            {
+              "start": "2026-10-05T19:20:00.000Z",
+              "end": "2026-11-25T00:30:00.000Z"
+            }
+          ],
+          "temporalPrecision": "exact",
+          "periodText": "Du 05/10/2026 à 21:20 au 25/11/2026 à 01:30",
+          "status": "active",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:eae2e41d398b1e8129d030713c7b375daadf8913b458033d7bdb88cddf9f1e85",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AD?date=0408112026",
+          "relatedUrls": [
+            "https://www.tcl.fr/se-deplacer/disponibilite-des-ascenseurs-et-escaliers-mecaniques"
+          ],
+          "fetchedAt": "2026-11-08T20:04:36.554Z",
+          "title": "Travaux ascenseur 812 Vx Lyon à partir du 28/09",
+          "description": "Travaux ascenseur 812 Vx Lyon à partir du 28/09\n\nA la station Vieux-Lyon Cathédrale Saint-Jean, l'ascenseur 812 est en travaux de rénovation, à partir du 28 septembre, pour une durée de 6 semaines environ.\n\nAfin de garantir l'accessibilité pour toutes et tous, votre réseau TCL rénove cet ascenseur.\n\nNous vous invitons à consulter les itinéraires alternatifs sur la page dédiée.\n\nNous vous prions de nous excuser pour la gêne occasionnée.",
+          "type": "other",
+          "officialSeverity": "Informations",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:D",
+              "namespace": "tcl-web",
+              "label": "D",
+              "mode": "metro",
+              "gtfsIds": [
+                "D"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [],
+          "temporalPrecision": "text_only",
+          "status": "undetermined",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:3d7b518c8d40bbc76e02cab3fe9977afff13286f33bfd85aff33d240b852b7ba",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AD?date=0408112026",
+          "relatedUrls": [
+            "https://www.tcl.fr/remplacement-ascenseurs/guillotiere-ascenseur-793-en-travaux"
+          ],
+          "fetchedAt": "2026-11-08T20:04:36.554Z",
+          "title": "Tvx ascenseur 793 de Guillotière à partir du 05/10",
+          "description": "Tvx ascenseur 793 de Guillotière à partir du 05/10\n\nA la station Guillotière l'ascenseur 793 est en travaux de rénovation, à partir du 5 Octobre, pour une durée de 8 semaines environ.\n\nAfin de garantir l'accessibilité pour toutes et tous, votre réseau TCL rénove cet ascenseur.\n\nPour rejoindre le quartier de la Guillotière, les personnes à mobilités réduite peuvent emprunter le bus C12.\n\nNous vous invitons à consulter les itinéraires alternatifs sur la page dédiée.\n\nNous vous prions de nous excuser pour la gêne occasionnée.",
+          "type": "other",
+          "officialSeverity": "Informations",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:D",
+              "namespace": "tcl-web",
+              "label": "D",
+              "mode": "metro",
+              "gtfsIds": [
+                "D"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [],
+          "temporalPrecision": "text_only",
+          "status": "undetermined",
+          "mapping": "partial"
+        },
+        {
+          "id": "tcl-html:c751b1ab5895f1da7ebf6372ea0155a9f8f92ff0809bc68190e3ec75ac86a7d0",
+          "identity": "content-derived",
+          "producer": {
+            "id": "sytral-tcl",
+            "name": "SYTRAL Mobilités · TCL Relation Usagers"
+          },
+          "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AD?date=0408112026",
+          "relatedUrls": [
+            "https://www.tcl.fr/remplacement-ascenseurs/grange-blanche-ascenseur-743-en-travaux"
+          ],
+          "fetchedAt": "2026-11-08T20:04:36.554Z",
+          "title": "Trvx ascenseur 743 Gge-Blanche à partir du 13/10",
+          "description": "Trvx ascenseur 743 Gge-Blanche à partir du 13/10\n\nA la station Grange-Blanche l'ascenseur 743 est en travaux de rénovation, à partir du 13 octobre, pour une durée de 8 semaines environ.\n\nAfin de garantir l'accessibilité pour toutes et tous, votre réseau TCL rénove cet ascenseur.\n\nNous vous invitons à consulter les itinéraires alternatifs sur la page dédiée.\n\nNous vous prions de nous excuser pour la gêne occasionnée.",
+          "type": "other",
+          "officialSeverity": "Informations",
+          "lines": [
+            {
+              "sourceId": "line:SYTNEX:D",
+              "namespace": "tcl-web",
+              "label": "D",
+              "mode": "metro",
+              "gtfsIds": [
+                "D"
+              ],
+              "precision": "partial"
+            }
+          ],
+          "periods": [],
+          "temporalPrecision": "text_only",
+          "status": "undetermined",
+          "mapping": "partial"
+        }
+      ],
+      "coverage": [
+        "D",
+        "T3",
+        "C16"
+      ],
+      "fetchedAt": "2026-11-08T20:04:36.563Z",
+      "checkedAt": "2026-11-08T20:04:36.563Z",
+      "validUntil": "2026-11-08T20:14:36.563Z",
+      "sourceUrl": "https://www.tcl.fr/infos-trafic",
+      "metrics": {
+        "upstreamRequests": 6,
+        "cacheHit": false,
+        "durationMs": 28093.6807
+      },
+      "gtfsConnected": true
+    },
+    "performance": [
+      {
+        "kind": "cold",
+        "httpMs": 28171.5523,
+        "metrics": {
+          "upstreamRequests": 6,
+          "cacheHit": false,
+          "durationMs": 28093.6807
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "C13",
+        "httpMs": 9.380400000001828,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.03269999999974971
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "C9",
+        "httpMs": 5.993400000003021,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.024399999998422572
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "C16",
+        "httpMs": 5.0415999999968335,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.020400000001245644
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "125",
+        "httpMs": 6.209899999998015,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.025599999997211853
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "T3",
+        "httpMs": 4.0041999999994005,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.023300000000745058
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "A",
+        "httpMs": 3.419000000001688,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.021199999999225838
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "D",
+        "httpMs": 4.790000000000873,
+        "metrics": {
+          "upstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.023199999999633292
+        }
+      }
+    ]
+  },
+  "fullRegressionRun": {
+    "artifact": ".data/traffic-validation-1794168768031/report.json",
+    "status": "passed",
+    "initialFetchedAt": "2026-11-08T20:04:36.563Z",
+    "finalFetchedAt": "2026-11-08T20:15:38.430Z",
+    "checks": [
+      "Données officielles réelles reçues, cache et requêtes simultanées contrôlés ; état available",
+      "Sept lignes prioritaires interrogées ; absence de couverture distincte d’un trafic normal",
+      "Trois trajets réels Lacassagne → Soie : contrôle SQLite, aucune exclusion ni faux impact confirmé",
+      "Navigateur : annonces réelles, texte officiel intégral, liens, attribution et fraîcheur",
+      "Recherche sans résultat : aucune assimilation à un réseau sans perturbation",
+      "Trafic mobile 320 et 390 px sans débordement",
+      "États périmé et indisponible explicites ; reconnexion ; aucun appel fournisseur depuis le navigateur",
+      "Non-régression validate-network.mjs",
+      "Non-régression validate-journeys.mjs",
+      "Non-régression validate-horaires.mjs",
+      "Non-régression validate-mobility.mjs"
+    ]
+  },
+  "finalTrafficUiRun": {
+    "artifact": ".data/traffic-validation-1794169128002/report.json",
+    "status": "passed",
+    "checks": [
+      "Données officielles réelles reçues, cache et requêtes simultanées contrôlés ; état available",
+      "Sept lignes prioritaires interrogées ; absence de couverture distincte d’un trafic normal",
+      "Trois trajets réels Lacassagne → Soie : contrôle SQLite, aucune exclusion ni faux impact confirmé",
+      "Navigateur : annonces réelles, texte officiel intégral, liens, attribution et fraîcheur",
+      "Recherche sans résultat : aucune assimilation à un réseau sans perturbation",
+      "Filtres réels mode tramway et date : plage exacte exclue hors date, récurrence incertaine conservée",
+      "Trafic mobile 320 et 390 px sans débordement",
+      "Navigateur : avertissement lié aux propositions T3 sans suppression, source officielle et absence de faux impact confirmé",
+      "États périmé et indisponible explicites ; reconnexion ; aucun appel fournisseur depuis le navigateur"
+    ],
+    "browserErrors": [],
+    "lines": [
+      {
+        "line": "C13",
+        "covered": false,
+        "incidents": 0,
+        "exact": 0,
+        "partial": 0
+      },
+      {
+        "line": "C9",
+        "covered": false,
+        "incidents": 0,
+        "exact": 0,
+        "partial": 0
+      },
+      {
+        "line": "C16",
+        "covered": true,
+        "incidents": 3,
+        "exact": 0,
+        "partial": 3
+      },
+      {
+        "line": "125",
+        "covered": false,
+        "incidents": 0,
+        "exact": 0,
+        "partial": 0
+      },
+      {
+        "line": "T3",
+        "covered": true,
+        "incidents": 2,
+        "exact": 0,
+        "partial": 2
+      },
+      {
+        "line": "A",
+        "covered": false,
+        "incidents": 0,
+        "exact": 0,
+        "partial": 0
+      },
+      {
+        "line": "D",
+        "covered": true,
+        "incidents": 4,
+        "exact": 0,
+        "partial": 4
+      }
+    ],
+    "initialMetrics": {
+      "upstreamRequests": 0,
+      "totalUpstreamRequests": 0,
+      "cacheHit": true,
+      "durationMs": 0.7896999999999821
+    },
+    "finalMetrics": {
+      "upstreamRequests": 0,
+      "totalUpstreamRequests": 0,
+      "cacheHit": true,
+      "durationMs": 0.01939999999740394
+    },
+    "fetchedAt": "2026-11-08T20:15:38.430Z",
+    "performance": [
+      {
+        "kind": "restored-or-memory-cache",
+        "httpMs": 101.25360000000006,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.7896999999999821
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "C13",
+        "httpMs": 4.023600000000101,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.026499999999941792
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "C9",
+        "httpMs": 4.629199999999969,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.024100000000089494
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "C16",
+        "httpMs": 12.00890000000004,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.02289999999993597
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "125",
+        "httpMs": 114.07270000000005,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.025300000000015643
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "T3",
+        "httpMs": 260.0864,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.02519999999992706
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "A",
+        "httpMs": 6.516599999999926,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.02390000000002601
+        }
+      },
+      {
+        "kind": "warm",
+        "line": "D",
+        "httpMs": 5.511999999999944,
+        "metrics": {
+          "upstreamRequests": 0,
+          "totalUpstreamRequests": 0,
+          "cacheHit": true,
+          "durationMs": 0.027000000000043656
+        }
+      },
+      {
+        "kind": "journey-check",
+        "from": "2397",
+        "to": "36394",
+        "notices": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "kind": "journey-check",
+        "from": "12230",
+        "to": "36394",
+        "notices": [
+          [],
+          [
+            {
+              "incidentId": "tcl-html:80ee4c03451082e9c2ace5ab36ccc76469c10ddacc98e66cbcd9ec0dfa066021",
+              "level": "possible",
+              "title": "Déviée dir. Charpennes - 19/01 au 31/12",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AC16?date=1508112026",
+              "legIndex": 0,
+              "reason": "Ligne concernée ; segment, course ou quai non confirmés. Consultez l’annonce officielle."
+            },
+            {
+              "incidentId": "tcl-html:4be589df5dbb45207f0ecd0c547cdac400040ab956afce60d20bb626e0614752",
+              "level": "possible",
+              "title": "Déviée dir. Charpennes - 19/01 au 31/12",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AC16?date=1508112026",
+              "legIndex": 0,
+              "reason": "Ligne concernée ; segment, course ou quai non confirmés. Consultez l’annonce officielle."
+            }
+          ],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "kind": "journey-check",
+        "from": "35660",
+        "to": "35668",
+        "notices": [
+          [
+            {
+              "incidentId": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+              "level": "general",
+              "title": "Le 9, 10, 25 et 27 novembre 2026",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=1508112026",
+              "legIndex": 0,
+              "reason": "Annonce de ligne sans plage horaire interprétable avec certitude. Consultez le texte officiel."
+            }
+          ],
+          [
+            {
+              "incidentId": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+              "level": "general",
+              "title": "Le 9, 10, 25 et 27 novembre 2026",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=1508112026",
+              "legIndex": 0,
+              "reason": "Annonce de ligne sans plage horaire interprétable avec certitude. Consultez le texte officiel."
+            }
+          ],
+          [
+            {
+              "incidentId": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+              "level": "general",
+              "title": "Le 9, 10, 25 et 27 novembre 2026",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=1508112026",
+              "legIndex": 0,
+              "reason": "Annonce de ligne sans plage horaire interprétable avec certitude. Consultez le texte officiel."
+            }
+          ],
+          [
+            {
+              "incidentId": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+              "level": "general",
+              "title": "Le 9, 10, 25 et 27 novembre 2026",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=1508112026",
+              "legIndex": 0,
+              "reason": "Annonce de ligne sans plage horaire interprétable avec certitude. Consultez le texte officiel."
+            }
+          ],
+          [
+            {
+              "incidentId": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+              "level": "general",
+              "title": "Le 9, 10, 25 et 27 novembre 2026",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=1508112026",
+              "legIndex": 0,
+              "reason": "Annonce de ligne sans plage horaire interprétable avec certitude. Consultez le texte officiel."
+            }
+          ],
+          [
+            {
+              "incidentId": "tcl-html:1e3f41418b0c8693f553751330aca5198ec8b9b46b0aa036375a22daef2e3e5f",
+              "level": "general",
+              "title": "Le 9, 10, 25 et 27 novembre 2026",
+              "sourceUrl": "https://www.tcl.fr/se-deplacer/infos-trafic-accessibilite/trafic/line%3ASYTNEX%3AT3?date=1508112026",
+              "legIndex": 0,
+              "reason": "Annonce de ligne sans plage horaire interprétable avec certitude. Consultez le texte officiel."
+            }
+          ]
+        ]
+      }
+    ],
+    "screenshots": [
+      "mobile-390.png",
+      "mobile-320.png"
+    ],
+    "regressionsSkippedInThisLastRun": true
+  },
+  "regressions": [
+    {
+      "artifact": ".data/network-validation-1794168801349/report.json",
+      "status": "passed",
+      "checks": [
+        "Harmonie Campus Pro → Soie : deux correspondances réelles auditées dans SQLite",
+        "Même trajet absent du périmètre à une correspondance",
+        "Arriver avant avec deux correspondances et marges vérifiées",
+        "Régression GTFS 2397 → 36394, moteur deux correspondances",
+        "Régression GTFS 12230 → 36394, moteur deux correspondances",
+        "Régression GTFS 35660 → 35668, moteur deux correspondances",
+        "Date non couverte : aucun service recyclé",
+        "Navigateur : trois véhicules, deux transferts et heures réellement rendus",
+        "Budget atteint affiché explicitement, aucun faux classement complet",
+        "Mobile 390 px sans débordement",
+        "Mobile 320 px sans débordement",
+        "Aucune exception JavaScript et version V0.1 conservée"
+      ]
+    },
+    {
+      "artifact": ".data/routing-validation-1794168811749/report.json",
+      "status": "passed",
+      "checks": [
+        {
+          "name": "Place Henri → La Soie : departure, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Place Henri → La Soie : arrival, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Domrémy-Lacassagne → La Soie : departure, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Domrémy-Lacassagne → La Soie : arrival, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Dauphiné-Lacassagne → La Soie : departure, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Dauphiné-Lacassagne → La Soie : arrival, horaires et correspondances vérifiés contre SQLite",
+          "proposals": 6
+        },
+        {
+          "name": "Aucun trajet fabriqué quand le lien orienté manque ou la date est hors validité"
+        },
+        {
+          "name": "Temps de réponse mesurés : cinq requêtes HTTP chaudes par trajet"
+        },
+        {
+          "name": "Navigateur : aucune recherche à partir de noms non sélectionnés"
+        },
+        {
+          "name": "Navigateur : Place Henri → La Soie, bus/métro et minimum officiel visibles"
+        },
+        {
+          "name": "Navigateur : détails des propositions consultables individuellement"
+        },
+        {
+          "name": "Navigateur : inversion des noms ET des identifiants de quais"
+        },
+        {
+          "name": "Navigateur : Arriver avant respecte l’échéance"
+        },
+        {
+          "name": "Navigateur : favori persistant, rechargement et réutilisation des quais exacts"
+        },
+        {
+          "name": "Navigateur : suppression d’un favori dans le profil de test, sans perdre le trajet en cours"
+        },
+        {
+          "name": "Navigateur : Domrémy-Lacassagne → La Soie"
+        },
+        {
+          "name": "Navigateur : Dauphiné-Lacassagne → La Soie, directs T3"
+        },
+        {
+          "name": "Navigateur : classement par durée"
+        },
+        {
+          "name": "Navigateur : absence de lien sûr, pas d’itinéraire inventé"
+        },
+        {
+          "name": "Navigateur : date hors validité"
+        },
+        {
+          "name": "Navigateur : heure répétée, seconde occurrence explicitement conservée"
+        },
+        {
+          "name": "Navigateur : heure locale inexistante refusée sans appel de calcul"
+        },
+        {
+          "name": "Navigateur : calcul en cours et double soumission empêchée"
+        },
+        {
+          "name": "Navigateur : erreur serveur explicite, anciens résultats conservés et identifiés"
+        },
+        {
+          "name": "Navigateur : recherche complète et affichage à 390px"
+        },
+        {
+          "name": "Navigateur : recherche complète et affichage à 320px"
+        },
+        {
+          "name": "Aucune exception JavaScript, version V0.1 et temps réel non sollicité"
+        }
+      ]
+    },
+    {
+      "artifact": ".data/validation-1794168831142/report.json",
+      "status": "passed",
+      "checks": [
+        {
+          "name": "Empreinte de l’archive identique à la base active",
+          "sha256": "7b9f4d1b94e054d6d47159130d34c972a083c750ce5a106f0786e386f878225d"
+        },
+        {
+          "name": "Catalogue : Place Henri",
+          "ids": [
+            "2396",
+            "2397"
+          ]
+        },
+        {
+          "name": "Catalogue : Domrémy-Lacassagne",
+          "ids": [
+            "11759",
+            "12230"
+          ]
+        },
+        {
+          "name": "Catalogue : Dauphiné-Lacassagne",
+          "ids": [
+            "10129",
+            "10130",
+            "11500",
+            "11501",
+            "35660",
+            "35661",
+            "39995",
+            "50149"
+          ]
+        },
+        {
+          "name": "Catalogue : Vaulx-en-Velin La Soie",
+          "ids": [
+            "35668",
+            "35669",
+            "36394",
+            "36434",
+            "37169",
+            "37170",
+            "37214",
+            "37215",
+            "37216",
+            "37217",
+            "37274",
+            "39996",
+            "41195",
+            "41196",
+            "46526",
+            "46960",
+            "46961",
+            "46962",
+            "47685",
+            "60109"
+          ]
+        },
+        {
+          "name": "Catalogue : C13"
+        },
+        {
+          "name": "Catalogue : C9"
+        },
+        {
+          "name": "Catalogue : C16"
+        },
+        {
+          "name": "Catalogue : 125"
+        },
+        {
+          "name": "Catalogue : T3"
+        },
+        {
+          "name": "API : recherches sans résultat"
+        },
+        {
+          "name": "Navigateur : frontend React chargé et catalogue connecté"
+        },
+        {
+          "name": "Navigateur : ligne C13, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne C9, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne C16, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne 125, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Navigateur : ligne T3, arrêts filtrés et passages conformes à SQLite"
+        },
+        {
+          "name": "Comparaison indépendante des horaires affichés et de SQLite",
+          "totalPassages": 315,
+          "totalQuays": 27,
+          "at": "2026-11-09T10:00:00.000Z"
+        },
+        {
+          "name": "Navigateur : temps réel non configuré explicite, aucun faux E et repli GTFS visible"
+        },
+        {
+          "name": "Navigateur : les passages expirés disparaissent en consultation courante, sans nouvel horaire inventé"
+        },
+        {
+          "name": "Navigateur : ligne inconnue et effacement des résultats précédents"
+        },
+        {
+          "name": "Navigateur : date hors validité sans horaire de substitution"
+        },
+        {
+          "name": "Navigateur : chargement visible et soumission désactivée pendant la requête"
+        },
+        {
+          "name": "Navigateur : erreur API explicite sans conservation d’anciens horaires"
+        },
+        {
+          "name": "Navigateur : catalogue indisponible, erreur visible et recherche désactivée"
+        },
+        {
+          "name": "Navigateur : chargement du catalogue distinct d’une erreur, reconnexion réussie"
+        },
+        {
+          "name": "Navigateur : chargement de recherche et réponse obsolète ignorée"
+        },
+        {
+          "name": "Navigateur : largeur 768px sans débordement horizontal",
+          "width": 768,
+          "document": 753,
+          "body": 753
+        },
+        {
+          "name": "Navigateur : largeur 390px sans débordement horizontal",
+          "width": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "name": "Navigateur : largeur 320px sans débordement horizontal",
+          "width": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "name": "Navigateur : recherche complète T3 / Vaulx-en-Velin La Soie à 320px"
+        },
+        {
+          "name": "Navigateur : aucun appel direct à Grand Lyon"
+        }
+      ]
+    },
+    {
+      "artifact": ".data/mobility-validation-1794168856714/report.json",
+      "status": "passed",
+      "checks": [
+        {
+          "name": "Audit : lien bus → tram absent, lien inverse conservé sans symétrisation"
+        },
+        {
+          "name": "Secteur Lacassagne, quai 2397 → T3 La Soie : horaires et liens audités",
+          "state": "limited",
+          "proposals": 6,
+          "httpMs": 2879.9708
+        },
+        {
+          "name": "Secteur Lacassagne, quai 12230 → T3 La Soie : horaires et liens audités",
+          "state": "limited",
+          "proposals": 6,
+          "httpMs": 694.1397000000002
+        },
+        {
+          "name": "Secteur Lacassagne, quai 35660 → T3 La Soie : horaires et liens audités",
+          "state": "limited",
+          "proposals": 6,
+          "httpMs": 241.35550000000057
+        },
+        {
+          "name": "Adresse publique de test confirmée en direct dans la BAN via IGN"
+        },
+        {
+          "name": "Adresse → La Soie, departure, plus de quatre accès confirmés et porte-à-porte audité",
+          "httpMs": 27477.317,
+          "metrics": {
+            "durationMs": 27469.44,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 660.2560999999987,
+            "sqlQueries": 5,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 42,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 12.826199999995879,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.10749999999825377,
+            "walkingWallMs": 26307.134600000005,
+            "routingMs": 489.7200999999768,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 17297.773899999986,
+            "upstreamRequests": 46,
+            "cacheHits": 3,
+            "queueMs": 17459.8272
+          }
+        },
+        {
+          "name": "Adresse → La Soie, arrival, plus de quatre accès confirmés et porte-à-porte audité",
+          "httpMs": 4775.609,
+          "metrics": {
+            "durationMs": 4761.3,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 2922.036799999987,
+            "sqlQueries": 6,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 43,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0.06019999999261927,
+            "transferCandidatesCacheHit": true,
+            "geocodingWallMs": 0.02509999999892898,
+            "walkingWallMs": 295.6984999999986,
+            "routingMs": 1530.81200000002,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 33.36909999999625,
+            "upstreamRequests": 1,
+            "cacheHits": 48,
+            "queueMs": 260.87459999999555
+          }
+        },
+        {
+          "name": "Quai La Soie vers Meyzieu : aucun premier tronçon vers Lyon inventé ; éventuel détour audité"
+        },
+        {
+          "name": "Marche finale incluse dans l’échéance Arriver avant"
+        },
+        {
+          "name": "Deux adresses réelles : accès et sortie réseau inclus dans les horaires"
+        },
+        {
+          "name": "Trajet T3 précédemment validé conservé malgré l’exploration élargie"
+        },
+        {
+          "name": "Date hors GTFS : aucun trajet recyclé"
+        },
+        {
+          "name": "Navigateur : sélection adresse/quai, recherche réelle et départ domicile affiché"
+        },
+        {
+          "name": "Mobile 390 px sans débordement"
+        },
+        {
+          "name": "Navigateur : plusieurs propositions comparables et détails accessibles"
+        },
+        {
+          "name": "Navigateur mobile : trajet entre deux adresses avec marche finale visible"
+        },
+        {
+          "name": "Navigateur : indisponibilité IGN explicite, sélection précédente retirée"
+        },
+        {
+          "name": "Aucun appel IGN direct du navigateur, aucune exception JavaScript"
+        }
+      ]
+    }
+  ],
+  "unitTests": 190,
+  "lint": "passed",
+  "build": "passed",
+  "apiAndBrowserChecks": 98
+}

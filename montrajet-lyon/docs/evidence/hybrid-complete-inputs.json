@@ -1,0 +1,12 @@
+{
+  "directory": ".data/hybrid-full-1794333824540",
+  "builtDirectory": ".data/hybrid-dist-1794334796287",
+  "routing": ".data/hybrid-full-validation-1794334176823/report.json",
+  "edge": ".data/hybrid-complete-edge-1794335015436/report.json",
+  "firefox": ".data/hybrid-complete-firefox-1794334809917/report.json",
+  "memory": ".data/hybrid-memory-1794334882806/report.json",
+  "staticTest": ".data/hybrid-static-test-1794334900425/report.json",
+  "dateSwitch": ".data/hybrid-date-switch-1794334954963/report.json",
+  "ign": ".data/hybrid-complete-ign-1794334290229/report.json",
+  "output": "docs/evidence/hybrid-complete-2026-11-10.json"
+}

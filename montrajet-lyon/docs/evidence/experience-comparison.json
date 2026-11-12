@@ -1,0 +1,629 @@
+{
+  "before": {
+    "label": "before",
+    "repeats": 3,
+    "samples": [
+      {
+        "iteration": 0,
+        "cache": "cold",
+        "started": 22066.399999976158,
+        "feedbackMs": 8.899999976158142,
+        "stageMs": null,
+        "resultMs": 20005.69999998808,
+        "stages": []
+      },
+      {
+        "iteration": 0,
+        "cache": "warm",
+        "started": 42091,
+        "feedbackMs": 11.5,
+        "stageMs": null,
+        "resultMs": 51.299999952316284,
+        "stages": []
+      },
+      {
+        "iteration": 1,
+        "cache": "cold",
+        "started": 20589,
+        "feedbackMs": 8.899999976158142,
+        "stageMs": null,
+        "resultMs": 14959.300000011921,
+        "stages": []
+      },
+      {
+        "iteration": 1,
+        "cache": "warm",
+        "started": 35564.80000001192,
+        "feedbackMs": 10.099999964237213,
+        "stageMs": null,
+        "resultMs": 48,
+        "stages": []
+      },
+      {
+        "iteration": 2,
+        "cache": "cold",
+        "started": 21084.5,
+        "feedbackMs": 8.899999976158142,
+        "stageMs": null,
+        "resultMs": 20348.399999976158,
+        "stages": []
+      },
+      {
+        "iteration": 2,
+        "cache": "warm",
+        "started": 41451.09999996424,
+        "feedbackMs": 10.600000023841858,
+        "stageMs": null,
+        "resultMs": 53.90000003576279,
+        "stages": []
+      }
+    ],
+    "notes": [
+      "Cold = nouveau processus backend et profil navigateur, caches disque non vidÃ©s.",
+      "Mesures perÃ§ues : clic â†’ premier Ã©tat de chargement, premiÃ¨re Ã©tape serveur, puis rÃ©sultat rendu.",
+      "Adresse publique de test, aucun horaire simulÃ©."
+    ],
+    "status": "passed"
+  },
+  "after": {
+    "label": "after",
+    "repeats": 3,
+    "samples": [
+      {
+        "iteration": 0,
+        "cache": "cold",
+        "started": 34967.89999997616,
+        "feedbackMs": 11.5,
+        "stageMs": 129.9000000357628,
+        "resultMs": 15494.400000035763,
+        "stages": [
+          "addresses",
+          "stops",
+          "walking",
+          "connections",
+          "ranking"
+        ],
+        "transport": {
+          "httpMs": 15448.565000027884,
+          "metrics": {
+            "durationMs": 15441.63,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 941.3121000000101,
+            "sqlQueries": 14,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 48,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.254400000005262,
+            "walkingWallMs": 13554.732000000004,
+            "routingMs": 847.090500000013,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 2141.3615999999674,
+            "upstreamRequests": 48,
+            "cacheHits": 1,
+            "queueMs": 18762.36899999997
+          },
+          "first": [
+            "T3"
+          ],
+          "serverStages": [
+            {
+              "type": "stage",
+              "stage": "addresses",
+              "at": "2026-11-08T19:31:56.315Z"
+            },
+            {
+              "type": "stage",
+              "stage": "stops",
+              "at": "2026-11-08T19:31:56.318Z"
+            },
+            {
+              "type": "stage",
+              "stage": "walking",
+              "at": "2026-11-08T19:31:56.456Z"
+            },
+            {
+              "type": "stage",
+              "stage": "connections",
+              "at": "2026-11-08T19:32:10.011Z"
+            },
+            {
+              "type": "stage",
+              "stage": "ranking",
+              "at": "2026-11-08T19:32:11.640Z"
+            }
+          ]
+        }
+      },
+      {
+        "iteration": 0,
+        "cache": "warm",
+        "started": 50484.39999997616,
+        "feedbackMs": 46.90000003576279,
+        "stageMs": null,
+        "resultMs": 85.80000001192093,
+        "stages": [],
+        "transport": {
+          "httpMs": 25.077999976929277,
+          "metrics": {
+            "durationMs": 18.35,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.8478000000031898,
+            "sqlQueries": 2,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 48,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.05320000000210712,
+            "walkingWallMs": 3.3369999999995343,
+            "routingMs": 0.21930000000429573,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          },
+          "first": [
+            "T3"
+          ],
+          "serverStages": [
+            {
+              "type": "stage",
+              "stage": "addresses",
+              "at": "2026-11-08T19:32:11.718Z"
+            },
+            {
+              "type": "stage",
+              "stage": "stops",
+              "at": "2026-11-08T19:32:11.723Z"
+            },
+            {
+              "type": "stage",
+              "stage": "walking",
+              "at": "2026-11-08T19:32:11.727Z"
+            },
+            {
+              "type": "stage",
+              "stage": "connections",
+              "at": "2026-11-08T19:32:11.730Z"
+            },
+            {
+              "type": "stage",
+              "stage": "ranking",
+              "at": "2026-11-08T19:32:11.734Z"
+            }
+          ]
+        }
+      },
+      {
+        "iteration": 1,
+        "cache": "cold",
+        "started": 33300.19999998808,
+        "feedbackMs": 12.699999988079071,
+        "stageMs": 158.19999998807907,
+        "resultMs": 18347.100000023842,
+        "stages": [
+          "addresses",
+          "stops",
+          "walking",
+          "connections",
+          "ranking"
+        ],
+        "transport": {
+          "httpMs": 18293.199000007007,
+          "metrics": {
+            "durationMs": 18284.83,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 919.7070999999851,
+            "sqlQueries": 14,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 48,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.2548000000024331,
+            "walkingWallMs": 16457.769400000005,
+            "routingMs": 769.9672000000137,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 5274.88309999997,
+            "upstreamRequests": 48,
+            "cacheHits": 1,
+            "queueMs": 18756.29130000002
+          },
+          "first": [
+            "T3"
+          ],
+          "serverStages": [
+            {
+              "type": "stage",
+              "stage": "addresses",
+              "at": "2026-11-08T19:32:47.190Z"
+            },
+            {
+              "type": "stage",
+              "stage": "stops",
+              "at": "2026-11-08T19:32:47.193Z"
+            },
+            {
+              "type": "stage",
+              "stage": "walking",
+              "at": "2026-11-08T19:32:47.325Z"
+            },
+            {
+              "type": "stage",
+              "stage": "connections",
+              "at": "2026-11-08T19:33:03.783Z"
+            },
+            {
+              "type": "stage",
+              "stage": "ranking",
+              "at": "2026-11-08T19:33:05.324Z"
+            }
+          ]
+        }
+      },
+      {
+        "iteration": 1,
+        "cache": "warm",
+        "started": 51672,
+        "feedbackMs": 45.69999998807907,
+        "stageMs": null,
+        "resultMs": 85,
+        "stages": [],
+        "transport": {
+          "httpMs": 25.079999992158264,
+          "metrics": {
+            "durationMs": 17.89,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.882499999999709,
+            "sqlQueries": 2,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 48,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.08560000000579748,
+            "walkingWallMs": 5.0754999999990105,
+            "routingMs": 0.2165999999997439,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          },
+          "first": [
+            "T3"
+          ],
+          "serverStages": [
+            {
+              "type": "stage",
+              "stage": "addresses",
+              "at": "2026-11-08T19:33:05.423Z"
+            },
+            {
+              "type": "stage",
+              "stage": "stops",
+              "at": "2026-11-08T19:33:05.425Z"
+            },
+            {
+              "type": "stage",
+              "stage": "walking",
+              "at": "2026-11-08T19:33:05.428Z"
+            },
+            {
+              "type": "stage",
+              "stage": "connections",
+              "at": "2026-11-08T19:33:05.433Z"
+            },
+            {
+              "type": "stage",
+              "stage": "ranking",
+              "at": "2026-11-08T19:33:05.436Z"
+            }
+          ]
+        }
+      },
+      {
+        "iteration": 2,
+        "cache": "cold",
+        "started": 34074.69999998808,
+        "feedbackMs": 12.399999976158142,
+        "stageMs": 133.69999998807907,
+        "resultMs": 15307.300000011921,
+        "stages": [
+          "addresses",
+          "stops",
+          "walking",
+          "connections",
+          "ranking"
+        ],
+        "transport": {
+          "httpMs": 15259.28199995542,
+          "metrics": {
+            "durationMs": 15253.22,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 982.5824999999895,
+            "sqlQueries": 14,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 48,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.20560000000114087,
+            "walkingWallMs": 13333.002400000005,
+            "routingMs": 830.5558000000019,
+            "engineCacheHit": false,
+            "geocodingMs": 0,
+            "walkingMs": 1834.6799000000246,
+            "upstreamRequests": 48,
+            "cacheHits": 1,
+            "queueMs": 18739.832600000016
+          },
+          "first": [
+            "T3"
+          ],
+          "serverStages": [
+            {
+              "type": "stage",
+              "stage": "addresses",
+              "at": "2026-11-08T19:33:41.533Z"
+            },
+            {
+              "type": "stage",
+              "stage": "stops",
+              "at": "2026-11-08T19:33:41.535Z"
+            },
+            {
+              "type": "stage",
+              "stage": "walking",
+              "at": "2026-11-08T19:33:41.677Z"
+            },
+            {
+              "type": "stage",
+              "stage": "connections",
+              "at": "2026-11-08T19:33:55.010Z"
+            },
+            {
+              "type": "stage",
+              "stage": "ranking",
+              "at": "2026-11-08T19:33:56.663Z"
+            }
+          ]
+        }
+      },
+      {
+        "iteration": 2,
+        "cache": "warm",
+        "started": 49402.5,
+        "feedbackMs": 48.5,
+        "stageMs": null,
+        "resultMs": 90.89999997615814,
+        "stages": [],
+        "transport": {
+          "httpMs": 22.104999981820583,
+          "metrics": {
+            "durationMs": 15.35,
+            "transitSearches": 1,
+            "walkingCalls": 48,
+            "sqlMs": 0.44840000000112923,
+            "sqlQueries": 2,
+            "candidatePlatforms": 68,
+            "confirmedPlatforms": 48,
+            "walkBudgetReached": true,
+            "transferCandidatesMs": 0,
+            "transferCandidatesCacheHit": false,
+            "geocodingWallMs": 0.07360000000335276,
+            "walkingWallMs": 1.9504999999990105,
+            "routingMs": 0.20509999999194406,
+            "engineCacheHit": true,
+            "geocodingMs": 0,
+            "walkingMs": 0,
+            "upstreamRequests": 0,
+            "cacheHits": 49,
+            "queueMs": 0
+          },
+          "first": [
+            "T3"
+          ],
+          "serverStages": [
+            {
+              "type": "stage",
+              "stage": "addresses",
+              "at": "2026-11-08T19:33:56.743Z"
+            },
+            {
+              "type": "stage",
+              "stage": "stops",
+              "at": "2026-11-08T19:33:56.746Z"
+            },
+            {
+              "type": "stage",
+              "stage": "walking",
+              "at": "2026-11-08T19:33:56.749Z"
+            },
+            {
+              "type": "stage",
+              "stage": "connections",
+              "at": "2026-11-08T19:33:56.751Z"
+            },
+            {
+              "type": "stage",
+              "stage": "ranking",
+              "at": "2026-11-08T19:33:56.755Z"
+            }
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "Cold = nouveau processus backend et profil navigateur, caches disque non vidÃ©s.",
+      "Mesures perÃ§ues : clic â†’ premier Ã©tat de chargement, premiÃ¨re Ã©tape serveur, puis rÃ©sultat rendu.",
+      "Adresse publique de test, aucun horaire simulÃ©."
+    ],
+    "status": "passed"
+  },
+  "caveats": [
+    "Trois processus frais et profils Edge pour chaque version. Cache disque syst?me non vid?.",
+    "Les dur?es backend d?taill?es ont ?t? captur?es apr?s instrumentation. Le rapport backend historique comporte une seule mesure froide et deux chaudes, avec appels directs et marche optionnelle activ?e : pas une comparaison stricte avec le sc?nario navigateur.",
+    "Le gain de temps total ne peut pas ?tre attribu? au code : fournisseur et environnement variables.",
+    "Les sommes de file et r?seau parall?les ne sont pas des dur?es murales."
+  ],
+  "measurementNotes": [
+    "Cold = nouveau processus backend et profil navigateur, caches disque non vidÃ©s.",
+    "Mesures perÃ§ues : clic â†’ premier Ã©tat de chargement, premiÃ¨re Ã©tape serveur, puis rÃ©sultat rendu.",
+    "Adresse publique de test, aucun horaire simulÃ©."
+  ],
+  "historicalBackendDifferentEntryPath": {
+    "file": ".data/benchmark-after-1794163609348/report.json",
+    "cases": [
+      {
+        "name": "Adresse â†’ Soie",
+        "samples": [
+          {
+            "cache": "cold",
+            "sqlMs": 812.0456000000022,
+            "sqlQueries": 14,
+            "geocodingMs": 426.5879,
+            "walkingMs": 21201.960400000004,
+            "geocodingNetworkMs": 164.51999999999998,
+            "walkingNetworkMs": 3199.4086999999895,
+            "walkRequests": 48,
+            "upstream": 49,
+            "maxConcurrent": 2,
+            "state": "limited",
+            "proposals": 6,
+            "metrics": {
+              "durationMs": 16295.85,
+              "transitSearches": 1,
+              "walkingCalls": 48,
+              "sqlMs": 812.2456999999949,
+              "sqlQueries": 14,
+              "candidatePlatforms": 68,
+              "confirmedPlatforms": 43,
+              "walkBudgetReached": true,
+              "transferCandidatesMs": 14.000500000000102,
+              "transferCandidatesCacheHit": false,
+              "geocodingWallMs": 426.69680000000017,
+              "walkingWallMs": 14408.8619,
+              "routingMs": 593.244800000004,
+              "engineCacheHit": false,
+              "geocodingMs": 165.3699999999999,
+              "walkingMs": 3218.6773999999996,
+              "upstreamRequests": 49,
+              "cacheHits": 0,
+              "queueMs": 18241.973900000008
+            },
+            "first": {
+              "departure": "2026-11-09T10:00:39.000Z",
+              "arrival": "2026-11-09T10:23:17.000Z",
+              "lines": [
+                "T3"
+              ]
+            },
+            "totalMs": 16295.9457,
+            "nonSqlNonProviderMs": 0
+          },
+          {
+            "cache": "warm",
+            "sqlMs": 0.43029999999998836,
+            "sqlQueries": 2,
+            "geocodingMs": 0.09470000000146683,
+            "walkingMs": 1.2524999999950523,
+            "geocodingNetworkMs": 0,
+            "walkingNetworkMs": 0,
+            "walkRequests": 48,
+            "upstream": 0,
+            "maxConcurrent": 0,
+            "state": "limited",
+            "proposals": 6,
+            "metrics": {
+              "durationMs": 3.25,
+              "transitSearches": 1,
+              "walkingCalls": 48,
+              "sqlMs": 0.43889999999737483,
+              "sqlQueries": 2,
+              "candidatePlatforms": 68,
+              "confirmedPlatforms": 43,
+              "walkBudgetReached": true,
+              "transferCandidatesMs": 0.03690000000278815,
+              "transferCandidatesCacheHit": true,
+              "geocodingWallMs": 0.10269999999945867,
+              "walkingWallMs": 0.9860000000007858,
+              "routingMs": 0.1393000000025495,
+              "engineCacheHit": true,
+              "geocodingMs": 0,
+              "walkingMs": 0,
+              "upstreamRequests": 0,
+              "cacheHits": 49,
+              "queueMs": 0
+            },
+            "first": {
+              "departure": "2026-11-09T10:00:39.000Z",
+              "arrival": "2026-11-09T10:23:17.000Z",
+              "lines": [
+                "T3"
+              ]
+            },
+            "totalMs": 3.3068999999995867,
+            "nonSqlNonProviderMs": 1.5294000000030792
+          },
+          {
+            "cache": "warm",
+            "sqlMs": 0.32219999999870197,
+            "sqlQueries": 2,
+            "geocodingMs": 0.046600000001490116,
+            "walkingMs": 1.4864000000270607,
+            "geocodingNetworkMs": 0,
+            "walkingNetworkMs": 0,
+            "walkRequests": 48,
+            "upstream": 0,
+            "maxConcurrent": 0,
+            "state": "limited",
+            "proposals": 6,
+            "metrics": {
+              "durationMs": 3.3,
+              "transitSearches": 1,
+              "walkingCalls": 48,
+              "sqlMs": 0.33030000000508153,
+              "sqlQueries": 2,
+              "candidatePlatforms": 68,
+              "confirmedPlatforms": 43,
+              "walkBudgetReached": true,
+              "transferCandidatesMs": 0.038799999998445855,
+              "transferCandidatesCacheHit": true,
+              "geocodingWallMs": 0.05429999999978463,
+              "walkingWallMs": 1.1630000000004657,
+              "routingMs": 0.14469999999710126,
+              "engineCacheHit": true,
+              "geocodingMs": 0,
+              "walkingMs": 0,
+              "upstreamRequests": 0,
+              "cacheHits": 49,
+              "queueMs": 0
+            },
+            "first": {
+              "departure": "2026-11-09T10:00:39.000Z",
+              "arrival": "2026-11-09T10:23:17.000Z",
+              "lines": [
+                "T3"
+              ]
+            },
+            "totalMs": 3.3545000000012806,
+            "nonSqlNonProviderMs": 1.4992999999740277
+          }
+        ]
+      }
+    ]
+  }
+}

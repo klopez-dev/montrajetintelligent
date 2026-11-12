@@ -1,0 +1,319 @@
+﻿
+===== src\components\MobilityResults.tsx =====
+
+import type { MobilityResult, WalkPath } from '../types/mobility'
+import { JourneyResults } from './JourneyResults'
+import { useState } from 'react'
+import { JourneyMapSlot } from './JourneyMapSlot'
+
+const clock = (instant: string) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'shortOffset' }).format(new Date(instant))
+const duration = (seconds: number) => `${Math.floor(seconds / 60)} min ${Math.round(seconds % 60)} s`
+function Walk({ path, label }: { path: WalkPath; label: string }) {
+  return <div className="journey-connection"><strong>{label}</strong><p>{duration(path.durationSeconds)} estimées · {Math.round(path.distanceMeters)} m sur le réseau piéton {path.source}.</p><small>Réseau du {path.resourceVersion} · Raccordements au réseau : {Math.ceil(path.startSnapMeters)} / {Math.ceil(path.endSnapMeters)} m (non décrits). Durée estimée, accessibilité et conditions du terrain non vérifiées.</small></div>
+}
+export function MobilityResults({ result }: { result: MobilityResult }) {
+  const [mapIndex,setMapIndex]=useState<number|null>(null)
+  const selected=mapIndex===null?null:result.itineraries[mapIndex]
+  const limitReasons = result.warnings.filter(warning => warning.startsWith('Budget de ') || warning.startsWith('Six nouveaux liens'))
+  return <section className="mobility-results" aria-label="Résultats porte-à-porte" aria-live="polite">
+    <h3>{result.itineraries.length} proposition(s) avec marche estimée</h3>
+    {!!result.providerIssues?.length && <div className="message error" role="alert"><strong>Certains accès piétons n’ont pas pu être confirmés.</strong><p>{result.providerIssues[0].message}</p><small>Ces accès sont exclus. Les propositions restantes utilisent uniquement des données validées.</small></div>}
+    {result.state !== 'ok' && <p className="message" role="status">{result.state === 'limited' ? <>Exploration partielle : les propositions affichées sont contrôlées, mais le meilleur trajet global n'est pas garanti. {limitReasons.slice(0, 2).join(' ')} Consultez les limites ci-dessous.</> : result.state === 'outside_validity' ? 'Date hors validité du GTFS.' : 'Aucun trajet confirmé dans le périmètre retenu. Consultez les limites et les accès exclus ci-dessous.'}</p>}
+    {selected&&<><button type="button" className="secondary" onClick={()=>setMapIndex(null)}>Fermer la carte</button><JourneyMapSlot journey={selected.transit} door={selected} feedSha256={selected.transitResult.metadata.sha256}/></>}
+    {result.itineraries.map((item, index) => <article data-journey-id={item.transit.id} className={'journey-proposal'+(mapIndex===index?' map-selected-proposal':'')} key={`${item.transit.id}-${index}`}>
+      <button type="button" className="secondary show-journey-map" aria-pressed={mapIndex===index} onClick={()=>setMapIndex(index)}>Voir la proposition {index+1} sur la carte</button>
+      <details className="door-proposal-details" open={index === 0}><summary><strong>Proposition porte-à-porte {index + 1} · {item.transit.legs.map(leg => leg.lineName).join(' → ')}</strong><span>{clock(item.departureTime)} → {clock(item.arrivalTime)}<br/>{duration(item.durationSeconds)} · {item.transit.transfers} correspondance(s)</span></summary>
+      <p><strong>Départ recommandé {item.access ? 'du domicile' : 'du quai'} : {clock(item.departureTime)}</strong><br/>Arrivée à destination : {clock(item.arrivalTime)}</p>
+      <p>Durée totale : {duration(item.durationSeconds)} · {item.transit.transfers} correspondance(s).<br/>Marche {item.unknownTransferWalking ? 'connue au minimum' : 'estimée'} : {duration(item.walkingSeconds)}.<br/>Attente pendant le trajet : {item.waitingSeconds === null ? 'non séparables du minimum officiel GTFS' : duration(item.waitingSeconds)}.</p>
+      {item.access && <><p>{item.fromName} → {item.transit.legs[0].from.name} (quai {item.transit.legs[0].from.id}).</p><Walk path={item.access} label="Marche initiale"/></>}
+      <JourneyResults embedded result={{ ...item.transitResult, itineraries: [{ ...item.transit, initialWaitSeconds: 0 }], warnings: item.transitResult.warnings.filter(warning => !warning.includes('Pas de marche d’accès')) }}/>
+      {item.egress && <><p>{item.transit.legs.at(-1)!.to.name} → {item.toName}</p><Walk path={item.egress} label="Marche finale"/></>}
+      </details>
+    </article>)}
+    <p className="search-hint">Adresses : Photon / OpenStreetMap (anciens favoris BAN conservés) · Réseau piéton : Valhalla / OpenStreetMap · Transports : GTFS TCL importé. <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">Attribution OpenStreetMap</a></p>
+    <details className="feed-warnings"><summary>Périmètre, hypothèses et accès exclus</summary><ul>{result.warnings.map(warning => <li key={warning}>{warning}</li>)}</ul></details>
+  </section>
+}
+
+
+===== src\components\JourneyResults.tsx =====
+
+import { ArrowRight, TrainFront } from 'lucide-react'
+import { useState } from 'react'
+import { JourneyMapSlot } from './JourneyMapSlot'
+import type { JourneyTransfer, RoutingResult } from '../types/journey'
+
+const journeyTime = (time: string) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'shortOffset' }).format(new Date(time))
+function duration(seconds: number) {
+  const rounded = Math.round(seconds)
+  const minutes = Math.floor(rounded / 60), rest = rounded % 60
+  return `${minutes} min${rest ? ` ${rest} s` : ''}`
+}
+function mode(type: number) { return ({ 0: 'Tramway', 1: 'Métro', 2: 'Train', 3: 'Bus', 7: 'Funiculaire', 11: 'Trolleybus', 12: 'Monorail', 700: 'Bus', 701: 'Bus régional', 702: 'Bus express', 703: 'Bus', 704: 'Bus local', 705: 'Bus de nuit', 711: 'Navette bus', 712: 'Bus scolaire', 713: 'Bus scolaire et public', 714: 'Bus de substitution', 715: 'Bus à la demande', 716: 'Bus', 800: 'Trolleybus', 900: 'Tramway', 1400: 'Funiculaire' } as Record<number, string>)[type] || `Transport GTFS ${type}` }
+function TransferDetails({ connection }: { connection: JourneyTransfer }) {
+  return <div className="journey-connection">
+    <strong>Correspondance : {connection.fromStopName}{connection.fromStopId !== connection.toStopId ? ` → ${connection.toStopName}` : ''}</strong>
+    <p>Quai {connection.fromStopId} → quai {connection.toStopId}. Intervalle entre véhicules : {duration(connection.intervalSeconds)}.</p>
+    <p>{connection.source === 'gtfs' ? `Minimum officiel GTFS : ${duration(connection.officialMinimumSeconds)}. ` : connection.source === 'ign_pedestrian' ? `Parcours piéton estimé : ${duration(connection.walkingSeconds!)}. ` : 'Même quai : déplacement interarrêt nul retenu comme hypothèse. '}{connection.source === 'gtfs' && connection.walkingSeconds !== null && connection.walkingSeconds > connection.officialMinimumSeconds ? `Marche piétonne plus longue retenue : ${duration(connection.walkingSeconds)}. ` : ''}Temps restant après le minimum requis : {duration(connection.spareSeconds)}.</p>
+    <p>Marche : {connection.walkingSeconds === null ? 'incluse dans le minimum officiel ; durée seule non détaillée par le GTFS.' : connection.walkingPath ? `${duration(connection.walkingSeconds)} estimées · ${Math.round(connection.walkingPath.distanceMeters)} m · réseau ${connection.walkingPath.resourceVersion}.` : '0 min entre arrêts, même quai (hypothèse).'}</p>
+  </div>
+}
+export function JourneyResults({ result, embedded = false }: { result: RoutingResult; embedded?: boolean }) {
+  const [mapIndex,setMapIndex]=useState<number|null>(null)
+  const selected=mapIndex===null?null:result.itineraries[mapIndex]
+  return <section className="journey-results" aria-label="Résultats d’itinéraires" aria-live="polite">
+    <h3>{embedded ? 'Transports à emprunter' : `${result.itineraries.length} proposition${result.itineraries.length !== 1 ? 's' : ''} théorique${result.itineraries.length !== 1 ? 's' : ''}`}</h3>
+    <p className="search-hint">Heures à Lyon (Europe/Paris). GTFS valable du {result.metadata.validFrom} au {result.metadata.validUntil}. Aucune confirmation de circulation en temps réel.</p>
+    {result.state !== 'ok' && <p className="message" role="status">{result.state === 'limited' ? 'Exploration partielle : un budget de calcul a été atteint. Les propositions affichées sont contrôlées, mais le classement ne couvre pas tous les parcours possibles.' : result.state === 'outside_validity' ? 'La date demandée est hors de la validité des services GTFS.' : `Aucun trajet trouvé dans ce périmètre : six heures, ${result.scope.maxTransfers} correspondance(s) maximum et transferts vérifiables. Cela ne signifie pas qu’aucun trajet n’existe sur tout le réseau.`}</p>}
+    {!embedded && selected && <><button type="button" className="secondary" onClick={()=>setMapIndex(null)}>Fermer la carte</button><JourneyMapSlot journey={selected} feedSha256={result.metadata.sha256}/></>}
+    <ol className="journey-proposals">{result.itineraries.map((journey, index) => <li key={journey.id} data-journey-id={journey.id} className={'journey-proposal'+(!embedded&&mapIndex===index?' map-selected-proposal':'')}>
+      {!embedded&&<button type="button" className="secondary show-journey-map" aria-pressed={mapIndex===index} onClick={()=>setMapIndex(index)}>Voir la proposition {index+1} sur la carte</button>}
+      <div className="proposal-heading">{!embedded && <strong>Proposition {index + 1}</strong>}<span className="theoretical-label">Horaire théorique</span></div>
+      <div className="journey-times"><time dateTime={journey.departureTime}>{journeyTime(journey.departureTime)}</time><ArrowRight size={16}/><time dateTime={journey.arrivalTime}>{journeyTime(journey.arrivalTime)}</time></div>
+      <p className="journey-summary">{duration(journey.durationSeconds)} · {journey.transfers === 0 ? 'Direct' : `${journey.transfers} correspondance${journey.transfers > 1 ? 's' : ''}`}</p>
+      <p className="search-hint">{journey.legs.map(leg => `${leg.lineName} direction ${leg.headsign || 'non renseignée'}`).join(' · ')}</p>
+      {journey.initialWaitSeconds > 0 && <p className="search-hint">Attente avant le premier départ : {duration(journey.initialWaitSeconds)} (hors durée du trajet).</p>}
+      <details className="journey-detail" open={index === 0}><summary>Étapes, attente et correspondance</summary>
+      {journey.legs.map((leg, legIndex) => <div key={`${leg.tripId}-${legIndex}`} className="journey-leg">
+        <h4><TrainFront size={17}/><span>{mode(leg.routeType)} <b>{leg.lineName}</b></span></h4>
+        <p>Direction {leg.headsign || `non renseignée (sens ${leg.directionId || 'inconnu'})`}</p>
+        <p><strong>{leg.from.name}</strong> <small>quai {leg.from.id}</small><br/>{journeyTime(leg.departureTime)} → {journeyTime(leg.arrivalTime)}<br/><strong>{leg.to.name}</strong> <small>quai {leg.to.id}</small></p>
+        <small>Service du {leg.serviceDate}{leg.departureGtfsSeconds >= 86400 || leg.arrivalGtfsSeconds >= 86400 ? ' · horaire après minuit du jour de service' : ''}{leg.interpolatedBySource ? ' · horaire interpolé par la source GTFS' : ''}</small>
+        {(journey.connections?.[legIndex] ?? (legIndex === 0 ? journey.connection : null)) && <TransferDetails connection={(journey.connections?.[legIndex] ?? journey.connection)!}/>}
+      </div>)}</details>
+    </li>)}</ol>
+    {!embedded && <details className="feed-warnings"><summary>Périmètre et hypothèses de calcul</summary><ul>{result.warnings.map(warning => <li key={warning}>{warning}</li>)}</ul></details>}
+  </section>
+}
+
+===== src\types\mobility.ts =====
+
+import type { JourneyStop, RoutingQuery, RoutingResult, TheoreticalJourney } from './journey.ts'
+
+export interface AddressPlace {
+  kind: 'address'
+  id: string
+  name: string
+  latitude: number
+  longitude: number
+  precision: 'housenumber' | 'street'
+  source: 'BAN via IGN' | 'OpenStreetMap via Photon'
+}
+export type JourneyPlace = JourneyStop | AddressPlace
+export const isAddress = (place: JourneyPlace): place is AddressPlace => 'kind' in place && place.kind === 'address'
+export interface Point { latitude: number; longitude: number }
+export interface WalkPath {
+  source: 'IGN BD TOPO' | 'Valhalla / OpenStreetMap'
+  profile: 'pedestrian'
+  resourceVersion: string
+  fetchedAt: string
+  durationSeconds: number
+  distanceMeters: number
+  startSnapMeters: number
+  endSnapMeters: number
+  geometry: { type: 'LineString'; coordinates: [number, number][] }
+}
+export interface VerifiedTransfer { from: string; to: string; path: WalkPath }
+export type PlaceReference = { kind: 'stop'; id: string } | { kind: 'address'; id: string; name: string; expectedCoordinates?: Point }
+export interface MobilityQuery {
+  from: PlaceReference
+  to: PlaceReference
+  at: string
+  mode: RoutingQuery['mode']
+  order: RoutingQuery['order'] | 'walking' | 'waiting'
+  marginSeconds: number
+  walkingTransfers: boolean
+  maxTransfers?: 1 | 2
+}
+export interface DoorJourney {
+  transit: TheoreticalJourney
+  access: WalkPath | null
+  egress: WalkPath | null
+  fromName: string
+  toName: string
+  departureTime: string
+  arrivalTime: string
+  durationSeconds: number
+  walkingSeconds: number
+  waitingSeconds: number | null
+  unknownTransferWalking: boolean
+  safetySeconds: number
+  transitResult: RoutingResult
+}
+export interface MobilityResult {
+  providerIssues?: { source: 'IGN' | 'Valhalla'; message: string }[]
+  state: 'ok' | 'no_journey' | 'outside_validity' | 'limited'
+  itineraries: DoorJourney[]
+  warnings: string[]
+  metrics: { durationMs: number; transitSearches: number; walkingCalls: number; sqlMs?: number; sqlQueries?: number; routingMs?: number; geocodingMs?: number; walkingMs?: number; geocodingWallMs?: number; stopsWallMs?: number; walkingWallMs?: number; accessWalkingMs?: number; transferWalkingMs?: number; rankingMs?: number; transitRoundMs?: number[]; transitRoundSqlMs?: number[]; transitRankingMs?: number; upstreamRequests?: number; cacheHits?: number; queueMs?: number; candidatePlatforms?: number; confirmedPlatforms?: number; walkBudgetReached?: boolean; engineCacheHit?: boolean; transferCandidatesMs?: number; transferCandidatesCacheHit?: boolean }
+}
+
+===== src\App.css =====
+
+header{background:white;border-bottom:1px solid #e4eaee}.header-inner{max-width:1200px;margin:auto;padding:22px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-size:21px;font-weight:750;letter-spacing:-.7px;white-space:nowrap}.brand b{color:#008a81}.brand small{display:block;font-size:8px;letter-spacing:2px;color:#61717d;margin-top:5px}.brand-icon{display:grid;place-items:center;background:#12384b;color:#58decb;width:43px;height:45px;border-radius:13px}nav{display:flex;gap:5px}nav button{display:flex;align-items:center;gap:7px;border:0;background:transparent;padding:11px 13px;border-radius:8px;font-size:13px;color:#596a78}nav button[aria-current]{color:#007d73;background:#e8f6f2;font-weight:650}.free-label{font-size:11px;background:#f1f6f4;padding:7px 11px;border-radius:20px;color:#426659;white-space:nowrap}main{max-width:1200px;margin:auto}.hero{position:relative;display:flex;justify-content:space-between;padding:56px 32px 48px;overflow:hidden}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:700;display:flex;gap:8px;align-items:center;color:#527170}.eyebrow>span,.status-dot{display:inline-block;width:7px;height:7px;background:#188b80;border-radius:50%;flex-shrink:0}h1{font-size:clamp(34px,4vw,49px);letter-spacing:-2px;line-height:1.15;margin:19px 0}h1 em{font-style:normal;color:#008a80}.hero p{font-size:14px;color:#657584;margin-bottom:20px}.transport-chips{display:flex;gap:8px}.transport-chips span{font-size:10px;border:1px solid #dbe3e7;border-radius:5px;background:white;padding:5px 10px;color:#546677}.network-art{width:340px;position:relative;margin-right:24px;background:radial-gradient(ellipse,#dcefe9 0,transparent 69%)}.network-line{position:absolute;border:2px solid #b6d5d1;border-radius:36px;transform:rotate(-30deg);width:270px;height:90px;top:55px;left:30px}.line-two{transform:rotate(36deg);border-color:#96c8c1;top:100px}.line-three{transform:rotate(-30deg);top:155px;border-color:#cedbdc}.train-badge{position:absolute;left:130px;top:70px;display:grid;place-items:center;width:92px;height:100px;border-radius:25px;background:#173e50;color:#8ce4d5;transform:rotate(-8deg);box-shadow:0 15px 25px #143e501c;border:5px solid white}.station{position:absolute;width:13px;height:13px;border:3px solid #80bcb3;border-radius:50%;background:#f5f7f9}.station-one{top:52px;left:80px}.station-two{top:182px;left:70px}.station-three{top:142px;right:15px}.art-caption{position:absolute;bottom:12px;left:87px;font-size:10px;color:#64817e}.workspace{padding:0 32px}.content-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:24px}.panel{background:white;border:1px solid #e0e7ec;border-radius:17px;box-shadow:0 5px 16px #1c3e5103}.journey-panel{padding:30px}.panel-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.section-kicker{font-size:9px;letter-spacing:1.6px;color:#6b7d88;font-weight:700}h2{font-size:23px;letter-spacing:-.7px;margin:9px 0 0}.heading-icon{background:#edf7f4;padding:11px;display:grid;place-items:center;border-radius:12px;color:#00877c}.field{display:flex;flex-direction:column;gap:9px;font-size:12px;font-weight:600}.field>span{padding-left:1px}.input-wrap{display:flex;align-items:center;gap:12px;border:1px solid #dce5eb;border-radius:9px;padding-left:14px;background:#fafcfd;color:#7a8995}.input-wrap input{border:0;background:transparent;width:100%;padding:15px 12px 15px 0;outline-offset:0}.input-wrap>svg{flex-shrink:0}.destination>svg{color:#00877d}input,select{padding:13px 12px;border:1px solid #dce5eb;border-radius:8px;background:#fafcfd;color:#203f51;width:100%;font-size:12px}input::placeholder{color:#7b8995;font-weight:400}.route-fields{position:relative;display:grid;gap:19px}.icon-button{display:grid;place-items:center;border:1px solid #dae4e9;background:white;border-radius:9px;min-width:36px;min-height:36px}.swap{position:absolute;right:18px;top:65px;z-index:1;color:#177c75;box-shadow:0 2px 4px #1234440c}.time-fields{display:grid;grid-template-columns:1fr 1.35fr;gap:14px;margin:24px 0}.primary{border:0;border-radius:8px;background:#00867a;color:white;padding:14px 18px;font-size:12px;font-weight:650;display:flex;align-items:center;justify-content:center;gap:10px}.primary:hover{background:#006d65}.search-button{width:100%}.search-button svg:last-child{margin-left:auto}.search-button svg:first-child{margin-right:auto}.save-button{width:100%;border:0;background:none;display:flex;justify-content:center;gap:8px;align-items:center;padding:17px 0 6px;font-size:11px;color:#526c7d}.form-note{font-size:10px;text-align:center;color:#667985;margin:12px 0 0}.side-panel{padding:27px}.side-panel h2{font-size:21px}.side-panel>p{font-size:12px;color:#6d7c88;margin:12px 0 16px}.feature-link{display:flex;align-items:center;gap:13px;border:0;border-top:1px solid #edf0f3;padding:18px 0;width:100%;background:none;text-align:left}.feature-link>svg{margin-left:auto;color:#7a8e9b}.feature-icon{display:grid;place-items:center;background:#ecf6f4;color:#18877d;border-radius:10px;width:41px;height:41px;flex-shrink:0}.feature-icon.amber{background:#fff5e7;color:#9c6a29}.feature-link strong{display:block;font-size:12px}.feature-link small{display:block;color:#71818c;font-size:10px;margin-top:6px}.source-note{background:#f6f8fa;border-radius:7px;padding:12px;font-size:10px;color:#657885;display:flex;gap:8px;align-items:center}.source-note .status-dot{background:#83939e;width:5px;height:5px}.privacy-card{display:flex;gap:15px;background:#e9f3f1;border:1px solid #d8e8e3;border-radius:14px;padding:21px;margin-top:17px}.privacy-card>svg{flex-shrink:0;color:#25877d}.privacy-card h3{font-size:12px;margin:0 0 7px}.privacy-card p{font-size:11px;color:#5c7778;margin:0 0 11px}.text-button{display:flex;align-items:center;gap:8px;background:none;border:0;color:#007d73;padding:0;font-size:11px;font-weight:650}.transparency{margin:30px 0 28px;text-align:center}.transparency>span{font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:7px}.transparency .status-dot{width:5px;height:5px}.transparency p{font-size:10px;color:#70818d;margin:7px 0}footer{max-width:1136px;margin:auto;border-top:1px solid #dee5e9;padding:23px 0;display:flex;justify-content:space-between;color:#71828d;font-size:10px;gap:15px}.footer-separator{padding:0 12px;color:#bdc9cf}footer strong{font-weight:500;color:#3d5c6e}.standalone{padding:32px;max-width:850px;margin:0 auto;min-height:340px}.standalone>p{font-size:13px;color:#647b8a;margin:14px 0 22px}.disconnected{display:flex;gap:16px;padding:25px;border:1px dashed #cbdadf;background:#f7fafb;border-radius:12px;margin-top:28px;color:#647f8c}.disconnected>svg{flex-shrink:0}.disconnected h3{font-size:15px;color:#365767;margin-bottom:8px}.disconnected p{font-size:13px;margin-bottom:0}.message{padding:13px 15px;background:#edf7f5;border-radius:8px;font-size:12px;line-height:1.6;color:#22665e}.error{background:#fff0ee;color:#963c30}.empty{text-align:center;padding:32px 15px;color:#607d88}.empty h3{font-size:17px;margin:18px 0 8px;color:#244757}.empty p{font-size:13px}.empty .primary{margin:auto}.count{font-size:13px;background:#e9f5f1;padding:4px 9px;border-radius:8px;color:#008377}.favorites{list-style:none;padding:0}.favorites li{display:flex;align-items:center;gap:12px;padding:18px 0;border-top:1px solid #e5ebef}.favorites li>div{flex:1;min-width:0;overflow-wrap:anywhere}.favorites strong,.favorites span{display:block;font-size:13px}.favorites span{margin-top:7px;color:#637987}.secondary{background:#edf6f3;border:0;padding:10px;display:flex;gap:6px;align-items:center;border-radius:8px;font-size:12px;color:#00776d}.skip-link{position:fixed;left:15px;top:-100px;z-index:10;background:white;padding:12px}.skip-link:focus{top:12px}
+@media(min-width:1400px){.hero{padding-top:70px;padding-bottom:57px}.workspace{padding-bottom:12px}}@media(max-width:1000px){.header-inner{flex-wrap:wrap;padding:20px 24px;gap:18px}nav{order:3;width:100%;justify-content:center}.free-label{margin-left:auto}.hero{padding:36px 24px}.network-art{width:280px;margin-right:0}.content-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}.workspace{padding:0 24px}.journey-panel,.side-panel{padding:23px}.time-fields{grid-template-columns:1fr}footer{margin:0 24px}}@media(max-width:700px){.header-inner{padding:17px 18px 10px;gap:18px}.brand{font-size:20px}nav{gap:0;justify-content:space-between}nav button{padding:10px 8px;flex-direction:column;gap:5px;font-size:10px}.hero{padding:32px 20px}.hero-copy{position:relative;z-index:1}.hero h1{font-size:36px;letter-spacing:-1.5px}.hero p{font-size:13px}.eyebrow{font-size:8px;letter-spacing:1.3px}.network-art{display:none}.workspace{padding:0 16px}.content-grid{grid-template-columns:1fr;gap:18px}.journey-panel{padding:24px 20px}.time-fields{grid-template-columns:1fr 1.3fr;gap:10px}h2{font-size:21px}.heading-icon{padding:9px}.section-kicker{font-size:8px}.standalone{padding:24px 20px}.standalone .time-fields{grid-template-columns:1fr}.transparency{padding:0 8px}.transparency p{font-size:10px}footer{flex-direction:column;align-items:center;text-align:center;padding:22px 0;margin:0 16px;gap:10px}.favorites li{flex-wrap:wrap}.favorites li>div{flex-basis:60%}}@media(prefers-reduced-motion:no-preference){button{transition:background .15s,color .15s}.panel{animation:appear .25s ease-out}@keyframes appear{from{opacity:.6;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}}
+
+/* Consultation GTFS : conservation de la palette et des panneaux V0.1. */
+.feed-metadata{padding:16px;border:1px solid #cde5de;background:#edf7f4;border-radius:10px;font-size:12px;margin:20px 0;color:#315f58}.feed-metadata>strong{color:#006e65}.feed-metadata p{margin:8px 0}.feed-metadata small{font-size:11px}.search-hint{font-size:11px;color:#526c7d;line-height:1.5;margin:9px 0}.gtfs-search-field{min-width:0}.gtfs-options{list-style:none;padding:0;margin:10px 0;border:1px solid #dce5eb;border-radius:8px;max-height:240px;overflow:auto}.gtfs-options li+li{border-top:1px solid #edf1f4}.gtfs-options button{background:white;border:0;display:block;width:100%;padding:12px;text-align:left}.gtfs-options button:hover{background:#edf7f4}.gtfs-options strong,.gtfs-options small{display:block;overflow-wrap:anywhere}.gtfs-options strong{font-size:12px}.gtfs-options small{font-size:10px;line-height:1.5;color:#526c7d;margin-top:5px}.timetable-date{max-width:400px}.passages-results{margin-top:28px}.passages-results h3{font-size:16px}.passages-list{list-style:none;padding:0}.passages-list li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 0;border-top:1px solid #e5ebef}.passages-list strong,.passages-list div>span,.passages-list small{display:block}.passages-list strong{font-size:14px}.passages-list div>span{font-size:12px;margin-top:6px}.passages-list small{font-size:10px;color:#526c7d;margin-top:6px}.theoretical-label{font-size:10px;background:#edf7f4;color:#006e65;padding:7px 9px;border-radius:6px;flex-shrink:0;max-width:180px;line-height:1.5}.feed-warnings{font-size:11px;color:#526c7d;margin-top:24px;line-height:1.6}.feed-warnings summary{cursor:pointer}.standalone .disconnected{margin-bottom:22px}.standalone .disconnected .text-button{margin-top:12px}input:disabled{opacity:.65;cursor:not-allowed}@media(max-width:700px){.passages-list li{align-items:flex-start;flex-direction:column;gap:10px}}
+
+.realtime-panel{border:1px solid #cae3df;background:#f4faf8;border-radius:10px;padding:18px;margin:20px 0}.realtime-panel h3{font-size:15px}.estimated-label{font-size:10px;font-weight:650;color:#005b57;background:#cdeee5;border:1px solid #a6d9cd;padding:7px 9px;border-radius:6px;flex-shrink:0}.realtime-panel .text-button{line-height:1.5;min-height:30px}.realtime-panel .passages-list{margin-bottom:15px}.realtime-panel .passages-list li{border-color:#d6e7e1}.realtime-status{border-left:3px solid #cae3df;padding-left:12px;margin-bottom:18px}
+
+.journey-stop-fields{display:flex;flex-direction:column;gap:10px}.journey-swap{align-self:flex-end;margin:-4px 8px}.journey-stop-fields .search-hint{margin-bottom:0}.journey-results{margin-top:28px;border-top:1px solid #dce7e9;padding-top:22px}.journey-results h3{font-size:17px;letter-spacing:-.3px}.journey-proposals{list-style:none;padding:0;display:grid;gap:16px}.journey-proposal{border:1px solid #dce6e8;border-radius:12px;padding:18px;min-width:0}.proposal-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px}.journey-times{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:17px;font-size:13px;font-weight:700}.journey-summary{font-size:13px;color:#00776d;font-weight:650;margin:12px 0}.journey-leg{padding:14px 0 0;border-top:1px solid #e6eef0;margin-top:13px}.journey-leg h4{display:flex;gap:8px;align-items:center;font-size:13px;margin:0 0 9px}.journey-leg p{font-size:12px;margin:7px 0}.journey-leg small{font-size:10px;color:#56707e;overflow-wrap:anywhere}.journey-connection{background:#f0f7f5;border-left:3px solid #a5cec3;padding:13px;margin-top:15px;font-size:12px;overflow-wrap:anywhere}.journey-connection p{font-size:11px}.journey-leg>p{overflow-wrap:anywhere}@media(max-width:700px){.journey-proposal{padding:15px}.proposal-heading{align-items:flex-start;flex-direction:column;gap:8px}.journey-times{font-size:12px}.journey-results h3{font-size:16px}}
+.journey-detail{margin-top:13px}.journey-detail>summary{font-size:11px;color:#00776d;cursor:pointer;padding:5px 0;line-height:1.5}.journey-proposal>.search-hint{overflow-wrap:anywhere}
+@media(max-width:550px){.journey-panel .time-fields{grid-template-columns:1fr}}
+.walking-option { display:flex; align-items:flex-start; gap:10px; margin:16px 0; font-size:.88rem; line-height:1.5; }
+.walking-option input { flex:0 0 auto; width:18px; height:18px; margin-top:2px; }
+.mobility-results { margin-top:24px; }
+.mobility-results>.journey-proposal { margin:18px 0; }
+.mobility-results p,.mobility-results small { overflow-wrap:anywhere; }
+.door-proposal-details>summary { cursor:pointer; color:var(--navy,#10283f); padding:8px 0; }
+.door-proposal-details>summary strong,.door-proposal-details>summary span { display:block; margin:5px 0; }
+.journey-progress { margin: 1rem 0; padding: 1rem; border: 1px solid #98d9d5; border-radius: 12px; background: #effbf9; color: #143449; overflow-wrap: anywhere; }
+.journey-progress p { margin: 0 0 .65rem; }
+.journey-progress ul { margin: 0 0 .75rem; padding-left: 1.2rem; font-size: .85rem; }
+.journey-progress small { display: block; margin-top: .65rem; }
+.progress-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; }
+.cancel-search { border: 1px solid #176e74; border-radius: 8px; padding: .7rem 1rem; min-height: 44px; background: white; color: #143449; cursor: pointer; font-weight: 600; }
+.cancel-search:focus-visible { outline: 3px solid #087f8c; outline-offset: 3px; }
+.previous-result-note, .result-summary { overflow-wrap: anywhere; }
+.traffic-panel, .journey-traffic { overflow-wrap: anywhere; }
+.traffic-panel > .field { margin: 1rem 0; }
+.traffic-panel .secondary { min-height: 44px; margin-bottom: .6rem; }
+.traffic-group { margin-top: 1.6rem; }
+.traffic-group h3 { font-size: 1.15rem; }
+.traffic-incident { border: 1px solid #dce6ec; border-radius: 12px; padding: 1rem; margin: .85rem 0; background: #f9fcfd; }
+.traffic-incident h4 { margin: 0 0 .6rem; font-size: 1.05rem; }
+.traffic-incident summary { cursor: pointer; padding: .65rem 0; min-height: 44px; }
+.traffic-original { white-space: pre-wrap; line-height: 1.65; }
+.traffic-panel a, .journey-traffic a { color: #086c75; text-decoration: underline; }
+.journey-traffic { border: 1px solid #e2c585; background: #fffaf0; border-radius: 12px; padding: 1rem; margin: 1.2rem 0; }
+.traffic-notices { border-top: 1px solid #e2c585; margin-top: 1rem; padding-top: 1rem; }
+.traffic-coverage { margin: 1rem 0; border: 1px solid #dce6ec; border-radius: 12px; padding: 1rem; }
+.traffic-coverage summary { cursor: pointer; min-height: 44px; font-weight: 650; }
+.traffic-coverage ul { list-style: none; padding: 0; }
+.traffic-coverage li { padding: .8rem 0; border-top: 1px solid #dce6ec; }
+.content-grid[hidden] { display: none; }
+.favorite-section { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #dce6ec; }
+.favorite-actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: .7rem 0; }
+.favorite-actions button, .favorites-panel button { min-height: 44px; }
+.favorite-form-choices, .commute-config { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem; margin: 1rem 0; }
+.favorite-form-choices .text-button { justify-self: start; }
+.favorite-places { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; padding: 0; list-style: none; }
+.favorite-place { background: #f4fafb; border: 1px solid #dce6ec; border-radius: 12px; padding: 1rem; overflow-wrap: anywhere; min-width: 0; }
+.favorite-place h4 { margin: 0 0 .7rem; }
+.favorites-panel .favorites li { display: block; overflow-wrap: anywhere; }
+.favorites-panel .favorites li > div:first-child { display: grid; gap: .45rem; }
+.favorite-editor { margin: 1.5rem 0; padding: 1rem; border: 2px solid #8fd4cf; border-radius: 12px; background: #f8fcfc; }
+.favorite-editor .field, .favorite-location-field { margin-bottom: 1rem; }
+.favorite-preferences { border: 1px solid #dce6ec; border-radius: 10px; margin: 1.2rem 0; padding: 1rem; min-width: 0; }
+.favorite-defaults { margin: 2rem 0; }
+.favorite-defaults summary { cursor: pointer; min-height: 44px; font-weight: 650; }
+.danger-button { background: #fff4f1; border: 1px solid #a83636; border-radius: 8px; padding: .75rem 1rem; color: #852424; cursor: pointer; }
+.favorite-confirmation { border: 1px solid #dce6ec; border-radius: 14px; max-width: min(480px,calc(100vw - 2rem)); padding: 1.3rem; color: #143449; }
+.favorite-confirmation::backdrop { background: #10273588; }
+.favorite-confirmation button:focus-visible { outline: 3px solid #087f8c; outline-offset: 3px; }
+.save-result-favorite { margin-top: 1rem; min-height: 44px; }
+@media (max-width: 600px) {
+  .favorite-form-choices, .commute-config, .favorite-places { grid-template-columns: minmax(0,1fr); }
+  .favorite-actions > button { max-width: 100%; white-space: normal; }
+}
+.journey-map { margin: 1rem 0; padding: 1rem; border: 1px solid #bacbd3; border-radius: 1rem; background: #f6fafb; min-width: 0; }
+.map-canvas { height: 420px; width: 100%; margin-top: .75rem; border-radius: .6rem; overflow: hidden; }
+.map-point { background: white; color: #142d42; width: 30px; height: 30px; border: 3px solid; border-radius: 50%; cursor: pointer; padding: 0; font-weight: 800; }
+.map-point.selected { box-shadow: 0 0 0 3px white, 0 0 0 5px #152e43; }
+.map-point:focus-visible { outline: 4px solid #006b64; outline-offset: 4px; }
+.map-steps { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.map-steps button { text-align: left; background: white; border: 1px solid #bacbd3; border-radius: .5rem; padding: .75rem; width: 100%; min-height: 44px; color: #142d42; cursor: pointer; }
+.map-steps button[aria-pressed=true] { outline: 2px solid #16766b; }
+.map-steps span, .map-steps small { display: block; margin-top: .35rem; overflow-wrap: anywhere; }
+.map-step-info { margin-top: 1rem; }
+.map-selected-proposal { outline: 2px solid #16766b; }
+.show-journey-map, .map-recenter { min-height: 44px; max-width: 100%; white-space: normal; }
+.maplibregl-ctrl-attrib { font-size: 11px; max-width: 100%; overflow-wrap: anywhere; }
+@media (max-width: 600px) { .journey-map { padding: .65rem; } .map-canvas { height: 330px; } .maplibregl-ctrl button { width: 44px; height: 44px; } .map-point { width: 44px; height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .journey-map * { scroll-behavior: auto; } }
+
+===== src\App.tsx =====
+
+import { defaultJourneySettings } from './services/favoriteJourney'
+import { useEffect, useState } from 'react'
+import { ArrowRight, Heart, Home, Navigation, Route, Clock3, TriangleAlert, TrainFront } from 'lucide-react'
+import { JourneyForm } from './components/JourneyForm'
+import { Timetable } from './components/Timetable'
+import { Traffic } from './components/Traffic'
+import { readFavoriteStore, writeFavoriteStore, clearFavoriteStore, emptyFavoriteStore, favoriteDraft, favoriteEndpoint, saveTrip, savedLocation } from './services/favorites'
+import { FavoritesPanel } from './components/FavoritesPanel'
+import type { FavoriteStore, FavoritePreferences, SavedLocation, FavoriteLaunch } from './types/favorites'
+import type { JourneyPlace } from './types/mobility'
+import type { JourneyDraft } from './types/journey'
+import './App.css'
+
+const pages = [{ id: 'accueil', label: 'Accueil', icon: Home }, { id: 'itineraires', label: 'Itinéraires', icon: Route }, { id: 'horaires', label: 'Horaires', icon: Clock3 }, { id: 'trafic', label: 'Trafic', icon: TriangleAlert }, { id: 'favoris', label: 'Favoris', icon: Heart }] as const
+type Page = typeof pages[number]['id']
+function pageFromUrl(): Page {
+  const requested = new URL(window.location.href).searchParams.get('page')
+  return pages.find(({ id }) => id === requested)?.id ?? 'accueil'
+}
+export default function App() {
+  const [page, setPage] = useState<Page>(pageFromUrl)
+  const [initial] = useState(readFavoriteStore)
+  const [favorites, setFavorites] = useState(initial.data)
+  const [notice, setNotice] = useState(initial.error)
+  const [route, setRoute] = useState<JourneyDraft>({ departure: '', arrival: '' })
+  const [settings,setSettings] = useState(defaultJourneySettings)
+  const [launch, setLaunch] = useState<FavoriteLaunch|null>(null)
+  useEffect(() => {
+    const restore = () => { setLaunch(null); setPage(pageFromUrl()) }
+    window.addEventListener('popstate', restore)
+    return () => window.removeEventListener('popstate', restore)
+  }, [])
+  function navigate(next: Page) {
+    setLaunch(null)
+    if (next !== pageFromUrl()) {
+      const url = new URL(window.location.href)
+      if (next === 'accueil') url.searchParams.delete('page')
+      else url.searchParams.set('page', next)
+      window.history.pushState(null, '', url)
+    }
+    setPage(next)
+  }
+  function save(items: FavoriteStore) {
+    const result = writeFavoriteStore(items)
+    if (result.error || !result.data) { setNotice(result.error); return false }
+    setFavorites(result.data); setNotice('Favoris enregistrés sur cet appareil.'); return true
+  }
+  function addFavorite(departure: JourneyPlace, arrival: JourneyPlace, preferences: FavoritePreferences, name?: string) {
+    try {
+      const next = saveTrip(favorites,{ name: name?.trim() || `${departure.name} → ${arrival.name}`.slice(0,100), from: favoriteEndpoint(favorites,savedLocation(departure)), to: favoriteEndpoint(favorites,savedLocation(arrival)), preferences })
+      return save(next) ? 'Trajet ajouté à vos favoris sur cet appareil.' : 'Enregistrement impossible : consultez le message dans Favoris.'
+    } catch (error) { return error instanceof Error ? error.message : 'Favori invalide.' }
+  }
+  function useFavorite(from: SavedLocation, to: SavedLocation, preferences: FavoritePreferences, run: boolean) {
+    if (from.kind === 'unresolved' || to.kind === 'unresolved') { setNotice('Ce favori ancien doit être complété : utilisez Modifier et sélectionnez les lieux exacts.'); return }
+    setRoute(favoriteDraft(from,to)); navigate('itineraires'); setLaunch({ id: crypto.randomUUID(), preferences, run })
+  }
+  function usePlace(place: SavedLocation, side: 'departure'|'arrival') {
+    if (place.kind === 'unresolved') { setNotice('Sélectionnez à nouveau la localisation dans Modifier.'); return }
+    setRoute(current => ({ ...current, [side]: place.name, [side+'StopId']: place.kind === 'stop' ? place.id : undefined, [side+'Address']: place.kind === 'address' ? place : undefined }))
+    navigate('itineraires'); setLaunch({ id: crypto.randomUUID(), preferences: {}, run: false })
+  }
+  function clearAll() { const error = clearFavoriteStore(); if (error) { setNotice(error); return false }; setFavorites(emptyFavoriteStore()); setNotice('Tous les favoris de cette application ont été supprimés.'); return true }
+  return <div className="app-shell">
+    <a className="skip-link" href="#contenu">Aller au contenu</a>
+    <header><div className="header-inner"><a className="brand" href="#" onClick={() => navigate('accueil')} aria-label="MonTrajet Lyon, accueil"><span className="brand-icon"><Navigation size={24}/></span><span>MonTrajet <b>Lyon</b><small>LA VILLE, À VOTRE RYTHME</small></span></a><nav aria-label="Navigation principale">{pages.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => navigate(id)} aria-current={page === id ? 'page' : undefined}><Icon size={17}/><span>{label}</span></button>)}</nav><span className="free-label">Libre et gratuit</span></div></header>
+    <main id="contenu">
+      <section className="hero"><div className="hero-copy"><span className="eyebrow"><span/> VOS DÉPLACEMENTS DANS LA MÉTROPOLE</span><h1>Lyon vous attend.<br/><em>Trouvez votre chemin.</em></h1><p>Bus, métro, tramway… préparez vos trajets du quotidien,<br className="desktop-break"/> simplement et au même endroit.</p><div className="transport-chips"><span>Métro</span><span>Tramway</span><span>Bus</span><span>Funiculaire</span></div></div><div className="network-art" aria-hidden="true"><div className="network-line line-one"/><div className="network-line line-two"/><div className="network-line line-three"/><span className="station station-one"/><span className="station station-two"/><span className="station station-three"/><div className="train-badge"><TrainFront size={50}/></div><span className="art-caption">Chaque trajet commence ici.</span></div></section>
+      <div className="workspace">
+        <div hidden={page !== 'accueil' && page !== 'itineraires'} className="content-grid"><JourneyForm route={route} onRouteChange={setRoute} onSave={addFavorite} settings={settings} onSettingsChange={setSettings} active={page === 'accueil' || page === 'itineraires'} places={favorites.places} launch={launch} onOpenFavorites={() => navigate('favoris')}/><aside><section className="panel side-panel"><span className="section-kicker">AU FIL DU RÉSEAU</span><h2>Un départ bien préparé.</h2><p>Retrouvez les informations utiles pour vos déplacements.</p><button className="feature-link" onClick={() => navigate('horaires')}><span className="feature-icon"><Clock3 size={21}/></span><span><strong>Prochains passages</strong><small>Rechercher une ligne et un arrêt</small></span><ArrowRight size={18}/></button><button className="feature-link" onClick={() => navigate('trafic')}><span className="feature-icon amber"><TriangleAlert size={21}/></span><span><strong>Information trafic</strong><small>Consulter les annonces officielles</small></span><ArrowRight size={18}/></button><div className="source-note"><span className="status-dot"/> Horaires théoriques selon le GTFS importé. Estimations selon la disponibilité de la source officielle.</div></section><section className="privacy-card"><Heart size={22}/><div><h3>Vos habitudes, à portée de main.</h3><p>Enregistrez vos trajets favoris, sans compte. Ils restent sur cet appareil.</p><button className="text-button" onClick={() => navigate('favoris')}>Voir mes favoris <ArrowRight size={15}/></button></div></section></aside></div>
+        <div hidden={page !== 'horaires'}><Timetable/></div>
+        {page === 'trafic' && <Traffic/>}
+        {page === 'favoris' && <FavoritesPanel store={favorites} notice={notice} onCommit={save} onClear={clearAll} onUse={useFavorite} onUsePlace={usePlace}/>}
+        <div className="transparency"><span><span className="status-dot"/> Une première étape, en toute transparence</span><p>Interface V0.1 · Les données de transport sont identifiées par leur source et leur nature.</p></div>
+      </div>
+    </main><footer><span>© MonTrajet Lyon <span className="footer-separator">/</span> Se déplacer simplement.</span><span>Gratuit · Sans publicité · <strong>V0.1</strong></span></footer>
+  </div>
+}
+
+
+
+
